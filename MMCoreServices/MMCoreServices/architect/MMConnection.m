@@ -59,11 +59,13 @@ typedef enum : NSUInteger {
     self = [super init];
     if (self) {
         _semaphore = dispatch_semaphore_create(1);
+        
         dispatch_queue_t delegate_queue = dispatch_queue_create("com.markwong.mmcoreservices.connection.socket.delegatequeue", DISPATCH_QUEUE_SERIAL);
         _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:delegate_queue];
         
         _identifier = MMSocketConnectionDefaultIdentifier;
         
+        int testInt = 3;    // test git sourcetree
         _pingInterval = 5;
         _maxPingTimes = 7;
         
