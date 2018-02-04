@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:MMExamples/MMExamples.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MMCore/MMCore.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MMDatabaseKit/MMDatabaseKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MMAnalysis/MMAnalysis.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MMLog/MMLog.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MMUIKit/MMUIKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MMCoreServices/MMCoreServices.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MMSamples/MMSamples.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
