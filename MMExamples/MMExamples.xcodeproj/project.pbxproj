@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D66A04B202899A80013B3A4 /* MMArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D66A04C202899A80013B3A4 /* MMArchitecture.framework */; };
 		4D8EB05F201F8E4E00392C16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB05E201F8E4E00392C16 /* AppDelegate.m */; };
 		4D8EB062201F8E4E00392C16 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB061201F8E4E00392C16 /* FirstViewController.m */; };
 		4D8EB065201F8E4E00392C16 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB064201F8E4E00392C16 /* SecondViewController.m */; };
@@ -16,8 +17,6 @@
 		4D8EB070201F8E4F00392C16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB06F201F8E4F00392C16 /* main.m */; };
 		4D8EB07A201F8E4F00392C16 /* MMExamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB079201F8E4F00392C16 /* MMExamplesTests.m */; };
 		4D8EB085201F8E4F00392C16 /* MMExamplesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB084201F8E4F00392C16 /* MMExamplesUITests.m */; };
-		4D8EB093201F8E5C00392C16 /* MMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8EB094201F8E5C00392C16 /* MMCore.framework */; };
-		4D8EB101201F933D00392C16 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8EB102201F933D00392C16 /* MMCoreServices.framework */; };
 		4D8EB109202379A700392C16 /* DPPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB108202379A700392C16 /* DPPerson.m */; };
 		4D8EB10A202379A700392C16 /* DPPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB108202379A700392C16 /* DPPerson.m */; };
 		4D8EB10B202379A700392C16 /* DPPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB108202379A700392C16 /* DPPerson.m */; };
@@ -44,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D66A04C202899A80013B3A4 /* MMArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8EB05A201F8E4E00392C16 /* MMExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8EB05D201F8E4E00392C16 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D8EB05E201F8E4E00392C16 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -76,8 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D8EB101201F933D00392C16 /* MMCoreServices.framework in Frameworks */,
-				4D8EB093201F8E5C00392C16 /* MMCore.framework in Frameworks */,
+				4D66A04B202899A80013B3A4 /* MMArchitecture.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +158,7 @@
 		4D8EB092201F8E5C00392C16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D66A04C202899A80013B3A4 /* MMArchitecture.framework */,
 				4D8EB102201F933D00392C16 /* MMCoreServices.framework */,
 				4D8EB094201F8E5C00392C16 /* MMCore.framework */,
 			);

@@ -1,0 +1,19 @@
+↑←↓→
+
+各框架之間的依賴關係的原理：
+                QTEmail / MMExamples / MMSamples  (App.UI)
+                               |
+      -------------------------+-----------------------------
+      |                        |                            |
+      ↓                        ↓                            ↓
+   MMUIKit             QTEmailFoundation               MMAnalysis
+      |                        |                            |
+      |            ------------+------------→+←-------------
+      |            ↓                         ↓
+      |       MMDatabase               MMArchitecture
+      |            ↓                         |
+      ------------→+←------------------------
+                   |
+                   ↓
+        MMFoundation  MMLog
+

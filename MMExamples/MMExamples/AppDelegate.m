@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <MMCoreServices/MMArchitect.h>
+#import <MMArchitecture/MMArchitecture.h>
 
 #import "DPPersonProxy.h"
 #import "DPPerson.h"
@@ -23,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-//    [self testMMService];
+    [self testMMService];
     
 //    [self gcdDemo1];
 //    [self gcdDemo2];
@@ -48,15 +48,16 @@
 - (void)testMMService {
     double begin = CFAbsoluteTimeGetCurrent();
     MMService *service = [[MMService alloc] init];
-    for(int i=0; i<3; i++) {
-        [service loginWithUsername:@"wangcnt" password:@"Aizaih0" completion:^(NSError *error) {
-            //            NSLog(@"i............%d", 0);
-        }];
-    }
-    //    [service.highQueue waitUntilAllOperationsAreFinished];
+    [service startService];
+//    for(int i=0; i<3; i++) {
+//        [service loginWithUsername:@"wangcnt" password:@"Aizaih0" completion:^(NSError *error) {
+//            //            NSLog(@"i............%d", 0);
+//        }];
+//    }
+//    [service.highQueue waitUntilAllOperationsAreFinished];
     double end = CFAbsoluteTimeGetCurrent();
     double duaring = end - begin;
-    //    NSLog(@"duaring -> %f", duaring);
+//    NSLog(@"duaring -> %f", duaring);
 }
 
 /**

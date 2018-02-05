@@ -11,7 +11,7 @@
 
 @protocol DPPersonProtocol <NSObject>
 
-//+ (void)goDie;
++ (void)goDie;
 - (void)eat;
 - (BOOL)isAGoodGuy;
 - (void)buyFish:(NSString *)fishName withMoney:(float)money;
