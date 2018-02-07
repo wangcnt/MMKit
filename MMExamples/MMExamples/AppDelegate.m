@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <MMArchitecture/MMArchitecture.h>
+#import <MMFoundation/MMFoundation.h>
 
 #import "DPPersonProxy.h"
 #import "DPPerson.h"
@@ -24,6 +25,15 @@
     // Override point for customization after application launch.
 
     [self testMMService];
+    
+    NSMutableString *string = [[NSMutableString alloc] initWithString:@"aaaaa"];
+    string = [NSMutableString stringWithString:@"aaaab"];
+    if([string isKindOfClass:NSMutableString.class]) {
+//        if([string respondsToSelector:@selector(deleteBeforeString:)]) {
+            [string deleteBeforeString:@"b"];
+//        }
+    }
+    NSLog(@"string-->%@", string);
     
 //    [self gcdDemo1];
 //    [self gcdDemo2];

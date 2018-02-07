@@ -58,12 +58,6 @@
 
 - (void)startService {
     NSLog(@"app will start service.");
-    NSMutableString *string = [[NSMutableString alloc] initWithString:@"aaaaa"];
-    string = [NSMutableString stringWithString:@"aaaab"];
-    if([string isKindOfClass:NSMutableString.class]) {
-        [string deleteBeforeString:@"b"];
-    }
-    NSLog(@"string-->%@", string);
 }
 
 - (void)restartService {
