@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MMFoundation/MMFoundation.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:/Users/Mark/Documents/MMKit/mmkit.readme">
    </FileRef>
    <FileRef
@@ -9,9 +12,6 @@
    </FileRef>
    <FileRef
       location = "group:MMArchitecture/MMArchitecture.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MMFoundation/MMFoundation.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MMExamples/MMExamples.xcodeproj">

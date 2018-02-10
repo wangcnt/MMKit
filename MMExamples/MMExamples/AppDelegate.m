@@ -28,8 +28,6 @@
     
     NSMutableString *string = [[NSMutableString alloc] initWithString:@"aaaaa"];
     string = [NSMutableString stringWithString:@"aaaab"];
-    NSMutableArray *arr = [NSMutableArray array];
-    [arr reverseAllObjects];
     if([string isKindOfClass:NSMutableString.class]) {
 //        if([string respondsToSelector:@selector(deleteBeforeString:)]) {
 //            [string deleteBeforeString:@"b"];
