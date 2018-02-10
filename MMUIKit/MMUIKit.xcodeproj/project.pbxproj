@@ -75,9 +75,6 @@
 		4DE44ADA1C24391300FD1D97 /* MMLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A8B1C24391300FD1D97 /* MMLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE44ADB1C24391300FD1D97 /* MMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A8C1C24391300FD1D97 /* MMLabel.m */; };
 		4DE44ADC1C24391300FD1D97 /* MMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A8C1C24391300FD1D97 /* MMLabel.m */; };
-		4DE44ADD1C24391300FD1D97 /* MMNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A8D1C24391300FD1D97 /* MMNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DE44ADE1C24391300FD1D97 /* MMNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A8E1C24391300FD1D97 /* MMNavigationBar.m */; };
-		4DE44ADF1C24391300FD1D97 /* MMNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A8E1C24391300FD1D97 /* MMNavigationBar.m */; };
 		4DE44AE31C24391300FD1D97 /* MMTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A911C24391300FD1D97 /* MMTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE44AE41C24391300FD1D97 /* MMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A921C24391300FD1D97 /* MMTableView.m */; };
 		4DE44AE51C24391300FD1D97 /* MMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A921C24391300FD1D97 /* MMTableView.m */; };
@@ -161,8 +158,6 @@
 		4DE44A8A1C24391300FD1D97 /* MMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMButton.m; sourceTree = "<group>"; };
 		4DE44A8B1C24391300FD1D97 /* MMLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLabel.h; sourceTree = "<group>"; };
 		4DE44A8C1C24391300FD1D97 /* MMLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLabel.m; sourceTree = "<group>"; };
-		4DE44A8D1C24391300FD1D97 /* MMNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationBar.h; sourceTree = "<group>"; };
-		4DE44A8E1C24391300FD1D97 /* MMNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationBar.m; sourceTree = "<group>"; };
 		4DE44A911C24391300FD1D97 /* MMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableView.h; sourceTree = "<group>"; };
 		4DE44A921C24391300FD1D97 /* MMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableView.m; sourceTree = "<group>"; };
 		4DE44A931C24391300FD1D97 /* MMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableViewCell.h; sourceTree = "<group>"; };
@@ -342,8 +337,6 @@
 				4DE44A8A1C24391300FD1D97 /* MMButton.m */,
 				4DE44A8B1C24391300FD1D97 /* MMLabel.h */,
 				4DE44A8C1C24391300FD1D97 /* MMLabel.m */,
-				4DE44A8D1C24391300FD1D97 /* MMNavigationBar.h */,
-				4DE44A8E1C24391300FD1D97 /* MMNavigationBar.m */,
 				4DE44A911C24391300FD1D97 /* MMTableView.h */,
 				4DE44A921C24391300FD1D97 /* MMTableView.m */,
 				4DE44A931C24391300FD1D97 /* MMTableViewCell.h */,
@@ -374,7 +367,6 @@
 			files = (
 				4DE44A9F1C24391300FD1D97 /* MMViewController.h in Headers */,
 				4DC1FB0F1C242CAB00A39E9D /* MMUIKit.h in Headers */,
-				4DE44ADD1C24391300FD1D97 /* MMNavigationBar.h in Headers */,
 				4DE44AD11C24391300FD1D97 /* UIViewControllerAdditions.h in Headers */,
 				4DE44AB61C24391300FD1D97 /* UIColorAdditions.h in Headers */,
 				4DE44AD41C24391300FD1D97 /* MMBadgeView.h in Headers */,
@@ -560,7 +552,6 @@
 				4DE44AC61C24391300FD1D97 /* UITabBarControllerAdditions.m in Sources */,
 				4DE44AE71C24391300FD1D97 /* MMTableViewCell.m in Sources */,
 				4DE44AA81C24391300FD1D97 /* SloppySwiper.m in Sources */,
-				4DE44ADE1C24391300FD1D97 /* MMNavigationBar.m in Sources */,
 				4DE44AEA1C24391300FD1D97 /* MMTextView.m in Sources */,
 				4DE44AE41C24391300FD1D97 /* MMTableView.m in Sources */,
 				4DF250E31DDFF8AF002AB829 /* UIFontAdditions.m in Sources */,
@@ -590,7 +581,6 @@
 				4DE44ACA1C24391300FD1D97 /* UITabBarItemAdditions.m in Sources */,
 				4DE44AEB1C24391300FD1D97 /* MMTextView.m in Sources */,
 				4DE44AAC1C24391300FD1D97 /* SSWAnimator.m in Sources */,
-				4DE44ADF1C24391300FD1D97 /* MMNavigationBar.m in Sources */,
 				4DE44AC41C24391300FD1D97 /* UISearchBarAdditions.m in Sources */,
 				4DE44AB81C24391300FD1D97 /* UIColorAdditions.m in Sources */,
 				4DE44AD31C24391300FD1D97 /* UIViewControllerAdditions.m in Sources */,

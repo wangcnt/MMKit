@@ -12,31 +12,18 @@
 
 @implementation MMView
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    if(self = [super initWithFrame:frame])
-    {
+- (instancetype)initWithFrame:(CGRect)frame {
+    if(self = [super initWithFrame:frame]) {
         [self mm_commonInitialize];
     }
-    
     return self;
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
     return [self initWithFrame:CGRectZero];
 }
 
-- (void)mm_commonInitialize
-{
-    _contentsEdges = UIEdgeInsetsMake(15, 10, 15, 10);
-    
-    _contentsOffset = CGPointMake(5, 10);
-}
-
-- (void)reloadData
-{
-    // 子类实现
+- (void)mm_commonInitialize {
 }
 
 @end

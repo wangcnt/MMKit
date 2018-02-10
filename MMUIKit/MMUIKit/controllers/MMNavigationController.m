@@ -8,7 +8,6 @@
 
 #import "MMNavigationController.h"
 
-#import "MMNavigationBar.h"
 #import "UITabBarControllerAdditions.h"
 
 @interface MMNavigationController ()

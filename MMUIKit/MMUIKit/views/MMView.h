@@ -11,9 +11,6 @@
 @interface MMView : UIView
 
 @property (nonatomic, assign) UIEdgeInsets  contentsEdges;      ///< 子控件与self的四边边距
-
-@property (nonatomic, assign) CGPoint       contentsOffset;     ///< 子控件之间在横纵向间距
-
-- (void)reloadData;
+@property (nonatomic, assign) CGSize contentsDistance;     ///< 子控件之间在横纵向间距
 
 @end

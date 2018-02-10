@@ -8,19 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum
-{
-    MMButtonImagePositionDefault,       // left
-    MMButtonImagePositionTop
-}MMButtonImagePosition;
-
 @interface MMButton : UIButton
 
-/**
- *  纵向排列时，imageView和titleLabel之间的间距
- */
-@property (nonatomic, assign) float                 distanceBetweenSubviews;
-
-@property (nonatomic, assign) MMButtonImagePosition imagePosition;
+@property (nonatomic, assign) UIEdgeInsets eventableInset;
 
 @end

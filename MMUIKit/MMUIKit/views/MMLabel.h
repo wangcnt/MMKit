@@ -17,6 +17,6 @@ typedef enum
 
 @interface MMLabel : UILabel
 
-@property (nonatomic, assign) MMTextVerticalAlignment    verticalAlignment;
+@property (nonatomic, assign) MMTextVerticalAlignment verticalAlignment;
 
 @end

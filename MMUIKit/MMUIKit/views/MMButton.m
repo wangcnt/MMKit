@@ -8,65 +8,16 @@
 
 #import "MMButton.h"
 
-#import "UIViewAdditions.h"
-
 @implementation MMButton
 
-- (void)setImagePosition:(MMButtonImagePosition)imagePosition
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    if(_imagePosition != imagePosition)
-    {
-        _imagePosition = imagePosition;
-        
-        [self layoutSubviews];
-    }
-}
-
-- (void)setDistanceBetweenSubviews:(float)distanceBetweenSubviews
-{
-    if(!_distanceBetweenSubviews != distanceBetweenSubviews)
-    {
-        _distanceBetweenSubviews = distanceBetweenSubviews;
-        
-        [self layoutSubviews];
-    }
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    if(_imagePosition == MMButtonImagePositionTop)
-    {
-        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        
-        self.contentVerticalAlignment   = UIControlContentVerticalAlignmentCenter;
-        
-        // text
-        CGRect newFrame = self.titleLabel.frame;
-        
-        newFrame.origin.x   = 0;
-        newFrame.origin.y   = self.height - newFrame.size.height - 5; // 上移5像素
-        newFrame.size.width = self.width;
-        
-        self.titleLabel.frame         = newFrame;
-        self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-        
-        // image
-        float height = self.height - self.titleLabel.height - _distanceBetweenSubviews;
-        
-        float width  = self.imageView.width;
-        
-        if(self.imageView.height !=0 )
-        {
-            width = height * self.imageView.width / self.imageView.height;
-        }
-        
-        newFrame = CGRectMake((self.width - width)/2, 0, width, height);
-        
-        self.imageView.frame = newFrame;
-    }
+    CGRect bounds = self.bounds;
+    bounds.origin.x += self.eventableInset.left;
+    bounds.origin.y += self.eventableInset.top;
+    bounds.size.width -= (self.eventableInset.left+self.eventableInset.right);
+    bounds.size.height -= (self.eventableInset.top+self.eventableInset.bottom);
+    return CGRectContainsPoint(bounds, point);
 }
 
 @end

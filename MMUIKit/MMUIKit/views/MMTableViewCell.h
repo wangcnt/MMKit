@@ -8,19 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum
-{
-    MMTableViewCellSeparatorStyleNone,
-    MMTableViewCellSeparatorStyleLine
-}MMTableViewCellSeparatorStyle;
-
 @interface MMTableViewCell : UITableViewCell
-{
 
-}
-
-@property (nonatomic, strong          ) NSIndexPath *indexPath;
-
-@property (nonatomic, strong, readonly) UITableView *tableView;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, weak) UITableView *tableView;
 
 @end
