@@ -26,30 +26,23 @@
 
 #pragma mark -------------------------------------------------------------------
 #pragma mark 屏幕旋转
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate {
     return self.targetController.shouldAutorotate;
 }
 
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return self.targetController.supportedInterfaceOrientations;
 }
 
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
     return self.targetController.preferredInterfaceOrientationForPresentation;
 }
 
-- (UIViewController *)targetController
-{
+- (UIViewController *)targetController {
     UIViewController *targetController = self.selectedViewController;
-    
-    if([targetController isKindOfClass:[UINavigationController class]])
-    {
-        targetController = ((UINavigationController *)targetController).topViewController;
+    if([targetController isKindOfClass:[UINavigationController class]]) {
+        targetController = ((UINavigationController *)targetController).visibleViewController;
     }
-    
     return targetController;
 }
 

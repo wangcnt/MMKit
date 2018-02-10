@@ -13,131 +13,97 @@
 
 //@dynamic x, y, width, height, original, size, maxX ,maxY;
 
-- (CGPoint)original
-{
+- (CGPoint)original {
     return self.frame.origin;
 }
 
-- (float)x
-{
+- (float)x {
     return self.original.x;
 }
 
-- (float)y
-{
+- (float)y {
     return self.original.y;
 }
 
-- (CGSize)size
-{
+- (CGSize)size {
     return self.frame.size;
 }
 
-- (float)width
-{
+- (float)width {
     return self.size.width;
 }
 
-- (float)height
-{
+- (float)height {
     return self.size.height;
 }
 
-- (float)maxX
-{
+- (float)maxX {
     return CGRectGetMaxX(self.frame);
 }
 
-- (float)maxY
-{
+- (float)maxY {
     return CGRectGetMaxY(self.frame);
 }
 
-- (float)centerX
-{
+- (float)centerX {
     return self.center.x;
 }
 
-- (float)centerY
-{
+- (float)centerY {
     return self.center.y;
 }
 
-- (void)setOrigin:(CGPoint)origin
-{
+- (void)setOrigin:(CGPoint)origin {
     CGRect rect = {origin, self.frame.size};
-    
     self.frame = rect;
 }
 
-- (void)setX:(float)x
-{
+- (void)setX:(float)x {
     CGRect rect = self.frame;
-    
     rect.origin.x = x;
-    
     self.frame = rect;
 }
 
-- (void)setY:(float)y
-{
+- (void)setY:(float)y {
     CGRect rect = self.frame;
-    
     rect.origin.y = y;
-    
     self.frame = rect;
 }
 
-- (void)setSize:(CGSize)size
-{
+- (void)setSize:(CGSize)size {
     CGRect rect = {self.original, size};
-    
     self.frame = rect;
 }
 
-- (void)setWidth:(float)width
-{
+- (void)setWidth:(float)width {
     CGRect rect = self.frame;
-    
     rect.size.width = width;
-    
     self.frame = rect;
 }
 
-- (void)setHeight:(float)height
-{
+- (void)setHeight:(float)height {
     CGRect rect = self.frame;
-    
     rect.size.height = height;
-    
     self.frame = rect;
 }
 
-- (void)setMaxX:(float)maxX
-{
+- (void)setMaxX:(float)maxX {
     self.width = maxX - self.x;
 }
 
-- (void)setMaxY:(float)maxY
-{
+- (void)setMaxY:(float)maxY {
     self.height = maxY - self.y;
 }
 
-- (void)setCenterX:(float)centerX
-{
+- (void)setCenterX:(float)centerX {
     CGPoint center = self.center;
-    
     center.x = centerX;
-    
     self.center = center;
 }
 
-- (void)setCenterY:(float)centerY
-{
+- (void)setCenterY:(float)centerY {
     CGPoint center = self.center;
-    
     center.y = centerY;
-    
     self.center = center;
 }
 
@@ -145,88 +111,60 @@
 
 @implementation UIView (MMUtilities)
 
-- (UIViewController *)belongedViewController
-{
+- (UIViewController *)belongedViewController {
     id nextResponser = self.nextResponder;
-    
-    while (nextResponser)
-    {
-        if([nextResponser isKindOfClass:[UIViewController class]])
-        {
+    while (nextResponser) {
+        if([nextResponser isKindOfClass:[UIViewController class]]) {
             return nextResponser;
         }
-        else
-        {
-            nextResponser = [nextResponser nextResponder];
-        }
+        nextResponser = [nextResponser nextResponder];
     }
-    
     return nil;
 }
 
-- (UIView *)findSubviewForClass:(Class)clazz
-{
-    __block UIView *target = self;
-    
-    [target.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-       
-        if([obj isKindOfClass:clazz])
-        {
-            target = (UIView *)obj;
-            
+- (UIView *)findSubviewForClass:(Class)clazz {
+    __block UIView *target = nil;
+    BOOL shouldContinue;
+    [self enumerateSubviewsRecursively:YES shouldContinue:&shouldContinue usingBlock:^(UIView *subview, BOOL *stop) {
+        if([subview isKindOfClass:clazz]) {
+            target = subview;
             *stop = YES;
         }
-        else
-        {
-            UIView *view = (UIView *)obj;
-            
-            target = [view findSubviewForClass:clazz];
-        }
     }];
-    
-    return nil;
+    return target;
 }
 
-- (void)enumerateSubviewsUsingBlock:(void (^)(UIView *subview, BOOL *stop))block
-{
-    __block BOOL shouldContinue;
-    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull subview, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        if(block)
-        {
-            block(subview, &shouldContinue);
-            
-            if(shouldContinue)
-            {
-                [subview enumerateSubviewsUsingBlock:block];
-            }
-            else
-            {
-                *stop = YES;
-            }
-        };
-    }];
+- (void)enumerateSubviewsRecursively:(BOOL)recursively usingBlock:(void (^)(UIView *subview, BOOL *stop))block {
+    BOOL shouldContinue;
+    [self enumerateSubviewsRecursively:recursively shouldContinue:&shouldContinue usingBlock:block];
+}
+
+- (void)enumerateSubviewsRecursively:(BOOL)recursively shouldContinue:(BOOL *)shouldContinue usingBlock:(void (^)(UIView *subview, BOOL *stop))block {
+    if(!block) return;
+    for(UIView *subview in self.subviews) {
+        block(subview, shouldContinue);
+        if(shouldContinue && recursively) {
+            [subview enumerateSubviewsRecursively:recursively shouldContinue:shouldContinue usingBlock:block];
+        } else {
+            break;
+        }
+    }
 }
 
 - (void)printSubhierarchy
 {
     NSLog(@"====================================================================");
-    
     [self printSubhierarchyWithView:self level:0];
-    
     NSLog(@"====================================================================");
 }
 
-- (void)printSubhierarchyWithView:(UIView *)view level:(int)level
-{
+- (void)printSubhierarchyWithView:(UIView *)view level:(int)level {
     NSMutableString *space = [[NSMutableString alloc] initWithCapacity:4];
-    
-    for(int i=0; i<level; i++) [space appendString:@"|---"];
-    
+    for(int i=0; i<level; i++) {
+        [space appendString:@"|---"];
+    }
     NSLog(@"%@%@.%zd.%@", space, [view class], view.tag, view);
-    
     [view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull subview, NSUInteger idx, BOOL * _Nonnull stop) {
-       
         [self printSubhierarchyWithView:subview level:level+1];
     }];
 }
@@ -236,18 +174,16 @@
 
 @implementation UIView (MMAnimations)
 
-- (void)wobble
-{
+- (void)wobble {
     CAKeyframeAnimation* anim=[CAKeyframeAnimation animation];
     
-    anim.keyPath        = @"transform.rotation";
-    anim.repeatCount    = MAXFLOAT;
-    anim.duration       = 0.2;
-    anim.values         = @[@(func_angel_to_randian(-7)),
-                            @(func_angel_to_randian(7)),
-                            @(func_angel_to_randian(-7))
-                            ];
-    
+    anim.keyPath = @"transform.rotation";
+    anim.repeatCount = MAXFLOAT;
+    anim.duration = 0.2;
+    anim.values = @[@(func_angel_to_randian(-7)),
+                    @(func_angel_to_randian(7)),
+                    @(func_angel_to_randian(-7))
+                    ];
     [self.layer addAnimation:anim forKey:nil];
 }
 
@@ -257,17 +193,14 @@
 
 - (void)setRoundedCorners:(UIRectCorner)corners withRadius:(CGFloat)radius {
     CGRect rect = self.bounds;
-    
     // Create the path
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:rect
                                                    byRoundingCorners:corners
                                                          cornerRadii:CGSizeMake(radius, radius)];
-    
     // Create the shape layer and set its path
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.frame = rect;
     maskLayer.path = maskPath.CGPath;
-    
     // Set the newly created shape layer as the mask for the view's layer
     self.layer.mask = maskLayer;
 }

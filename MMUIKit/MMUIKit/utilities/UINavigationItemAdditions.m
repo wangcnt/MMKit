@@ -13,27 +13,21 @@
 
 @implementation UINavigationItem(Space)
 
-- (void)setLeftBarButtonItem:(UIBarButtonItem *)leftBarButtonItem indented:(BOOL)indented
-{
+- (void)setLeftBarButtonItem:(UIBarButtonItem *)leftBarButtonItem indent:(float)indent {
     if(!leftBarButtonItem)  return;
-    
-    if(indented)
-    {
-        leftBarButtonItem.imageInsets = UIEdgeInsetsMake(0, -5, 0, 5);
+    indent = abs(indent);
+    if(indent) {
+        leftBarButtonItem.imageInsets = UIEdgeInsetsMake(0, -indent, 0, indent);
     }
-    
     self.leftBarButtonItem = leftBarButtonItem;
 }
 
-- (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem indented:(BOOL)indented
-{
+- (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem indent:(float)indent {
     if(!rightBarButtonItem) return;
-    
-    if(indented)
-    {
-        rightBarButtonItem.imageInsets = UIEdgeInsetsMake(0, -5, 0, 5);
+    indent = abs(indent);
+    if(indent) {
+        rightBarButtonItem.imageInsets = UIEdgeInsetsMake(0, -indent, 0, indent);
     }
-    
     self.rightBarButtonItem = rightBarButtonItem;
 }
 

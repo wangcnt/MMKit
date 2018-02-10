@@ -10,16 +10,14 @@
 
 #import <WebKit/WebKit.h>
 
-typedef void(^QTJSBlock)(id params);
+typedef void(^MMWebViewScriptHandler)(id params);
 
 @interface MMWebViewController : MMViewController <WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler>
 
 @property (nonatomic, strong, readonly) WKWebView *webView;
-
 @property (nonatomic, strong) NSString *navigationTitle;
 
 - (instancetype)initWithUrlString:(NSString *)urlString;
-
 - (void)reloadWebWithUrlString:(NSString *)urlString;
 
 /**
@@ -28,8 +26,7 @@ typedef void(^QTJSBlock)(id params);
  *  @param name js调用的名称
  *  @param handler 调用的方法
  */
-- (void)addHandlerWithName:(NSString *)name handler:(QTJSBlock)handler;
-
+- (void)addScriptHandlerWithName:(NSString *)name handler:(MMWebViewScriptHandler)handler;
 - (void)removeHandlerWithName:(NSString *)name;
 
 @end

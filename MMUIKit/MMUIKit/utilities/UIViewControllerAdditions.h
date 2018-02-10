@@ -10,18 +10,9 @@
 
 @interface UIViewController(Email)
 
-- (void)sendMailToRecipients:(NSArray *)recipients
-                          cc:(NSArray *)cc
-                       title:(NSString *)subject
-                     content:(NSString *)content;
+- (void)sendMailToRecipients:(NSArray *)recipients cc:(NSArray *)cc title:(NSString *)subject content:(NSString *)content;
 
--(void)sendMailToRecipients:(NSArray *)recipients
-                         cc:(NSArray *)cc
-                withSubject:(NSString *)subject
-                    content:(NSString *)content
-                   mimeType:(NSString *)mimeType
-                   fileName:(NSString *)fileName
-                       data:(NSData *)data;
+-(void)sendMailToRecipients:(NSArray *)recipients cc:(NSArray *)cc withSubject:(NSString *)subject content:(NSString *)content mimeType:(NSString *)mimeType fileName:(NSString *)fileName data:(NSData *)data;
 
 @end
 

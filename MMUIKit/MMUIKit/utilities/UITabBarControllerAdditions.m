@@ -17,22 +17,15 @@
 
 @implementation UITabBarController(Additions)
 
-- (void)setTabBarHidded:(BOOL)hidden animated:(BOOL)animated
-{
+- (void)setTabBarHidded:(BOOL)hidden animated:(BOOL)animated {
     CGFloat y = k_size_screen.height - self.tabBar.frame.size.height;
-    
-    if(hidden)
-    {
+    if(hidden) {
         y = k_size_screen.height;
     }
-    
     CGRect frame = self.tabBar.frame;
-    
     frame.origin.y = y;
-    
     float duration = animated ? .25 : 0;
     [UIView animateWithDuration:duration animations:^{
-        
         self.tabBar.frame = frame;
     }];
 }

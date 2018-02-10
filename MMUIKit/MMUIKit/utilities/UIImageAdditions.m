@@ -26,60 +26,43 @@
 
 @implementation UIImage(Additions)
 
-+ (UIImage *)imageFromView:(UIView *)view
-{
++ (UIImage *)imageFromView:(UIView *)view {
     UIGraphicsBeginImageContext(view.frame.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [view.layer renderInContext:context];
-    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     return image;
 }
 
-- (UIImage*)compressToSize:(CGSize)size
-{
+- (UIImage*)compressToSize:(CGSize)size {
     // Create a graphics image context
     UIGraphicsBeginImageContext(size);
-    
     // Tell the old image to draw in this new context, with the desired
     // new size
     [self drawInRect:CGRectMake(0,0,size.width,size.height)];
-    
     // Get the new image from the context
     UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-    
     // End the context
     UIGraphicsEndImageContext();
-    
     // Return the new image.
     return newImage;
 }
 
-+ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size
-{
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
-    
     UIGraphicsBeginImageContext(rect.size);
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
     CGContextSetFillColorWithColor(context,color.CGColor);
     CGContextFillRect(context, rect);
-    
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-    
     UIGraphicsEndImageContext();
-    
     return img;
 }
 
-- (UIImage *)blurredImageWithRadius:(CGFloat)radius iterations:(NSUInteger)iterations tintColor:(UIColor *)tintColor
-{
+- (UIImage *)blurredImageWithRadius:(CGFloat)radius iterations:(NSUInteger)iterations tintColor:(UIColor *)tintColor {
     //image must be nonzero size
     if (floorf(self.size.width) * floorf(self.size.height) <= 0.0f) return self;
-    
     //boxsize must be an odd integer
     uint32_t boxSize = (uint32_t)(radius * self.scale);
     if (boxSize % 2 == 0) boxSize ++;
@@ -103,11 +86,9 @@
     memcpy(buffer1.data, CFDataGetBytePtr(dataSource), bytes);
     CFRelease(dataSource);
     
-    for (NSUInteger i = 0; i < iterations; i++)
-    {
+    for (NSUInteger i = 0; i < iterations; i++) {
         //perform blur
         vImageBoxConvolve_ARGB8888(&buffer1, &buffer2, tempBuffer, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
-        
         //swap buffers
         void *temp = buffer1.data;
         buffer1.data = buffer2.data;
@@ -124,8 +105,7 @@
                                              CGImageGetBitmapInfo(imageRef));
     
     //apply tint
-    if (tintColor && CGColorGetAlpha(tintColor.CGColor) > 0.0f)
-    {
+    if (tintColor && CGColorGetAlpha(tintColor.CGColor) > 0.0f) {
         CGContextSetFillColorWithColor(ctx, [tintColor colorWithAlphaComponent:0.25].CGColor);
         CGContextSetBlendMode(ctx, kCGBlendModePlusLighter);
         CGContextFillRect(ctx, CGRectMake(0, 0, buffer1.width, buffer1.height));
@@ -140,8 +120,7 @@
     return image;
 }
 
-+ (UIImage *)imageWithOrientationUnfixedImage:(UIImage *)image
-{
++ (UIImage *)imageWithOrientationUnfixedImage:(UIImage *)image {
     // No-op if the orientation is already correct
     if (image.imageOrientation == UIImageOrientationUp)
         return image;

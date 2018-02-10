@@ -10,39 +10,28 @@
 
 @implementation UISearchBar(Additions)
 
-- (void)setTitle:(NSString *)title forState:(UIControlState)state
-{
+- (void)setTitle:(NSString *)title forState:(UIControlState)state {
     [self.cancelButton setTitle:title forState:state];
 }
 
-- (void)setTitleColor:(UIColor *)color forState:(UIControlState)state
-{
+- (void)setTitleColor:(UIColor *)color forState:(UIControlState)state {
     [self.cancelButton setTitleColor:color forState:state];
 }
 
-- (UIButton *)cancelButton
-{
+- (UIButton *)cancelButton {
     __block UIButton *cancelButton = nil;
     NSArray *subviews = nil;
-    if ([UIDevice currentDevice].systemVersion.floatValue >= 7)
-    {
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 7) {
         subviews = [self.subviews[0] subviews];
-    }
-    else
-    {
+    } else {
         subviews = self.subviews;
     }
-    
     [subviews enumerateObjectsUsingBlock:^(id view, NSUInteger idx, BOOL *stop) {
-        
-        if ([view isKindOfClass:[UIButton class]])
-        {
+        if ([view isKindOfClass:[UIButton class]]) {
             cancelButton = (UIButton *)view;
-            
             *stop = YES;
         }
     }];
-    
     return cancelButton;
 }
 

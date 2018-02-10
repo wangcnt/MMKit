@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D0669FB1DE02BCD0030A480 /* UIButtonAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D0669F91DE02BCD0030A480 /* UIButtonAdditions.h */; };
 		4D0669FC1DE02BCD0030A480 /* UIButtonAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0669FA1DE02BCD0030A480 /* UIButtonAdditions.m */; };
-		4D0669FF1DE02C7F0030A480 /* UIControlAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D0669FD1DE02C7F0030A480 /* UIControlAdditions.h */; };
-		4D066A001DE02C7F0030A480 /* UIControlAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0669FE1DE02C7F0030A480 /* UIControlAdditions.m */; };
+		4D24AA2A202F189B006777FF /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AA2B202F189B006777FF /* MMFoundation.framework */; };
 		4D9073921C9A99D600AB69EB /* MMMultipleControllersViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9073901C9A99D600AB69EB /* MMMultipleControllersViewController.h */; };
 		4D9073931C9A99D600AB69EB /* MMMultipleControllersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9073911C9A99D600AB69EB /* MMMultipleControllersViewController.m */; };
 		4DB9E9F21DDF325300FE43CF /* MMTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DB9E9F01DDF325300FE43CF /* MMTabBarController.h */; };
@@ -24,9 +23,6 @@
 		4DE44A991C24391300FD1D97 /* MMNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A5A1C24391300FD1D97 /* MMNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE44A9A1C24391300FD1D97 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A5B1C24391300FD1D97 /* MMNavigationController.m */; };
 		4DE44A9B1C24391300FD1D97 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A5B1C24391300FD1D97 /* MMNavigationController.m */; };
-		4DE44A9C1C24391300FD1D97 /* MMTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A5C1C24391300FD1D97 /* MMTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DE44A9D1C24391300FD1D97 /* MMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A5D1C24391300FD1D97 /* MMTableViewController.m */; };
-		4DE44A9E1C24391300FD1D97 /* MMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A5D1C24391300FD1D97 /* MMTableViewController.m */; };
 		4DE44A9F1C24391300FD1D97 /* MMViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A5E1C24391300FD1D97 /* MMViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE44AA01C24391300FD1D97 /* MMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A5F1C24391300FD1D97 /* MMViewController.m */; };
 		4DE44AA11C24391300FD1D97 /* MMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A5F1C24391300FD1D97 /* MMViewController.m */; };
@@ -43,12 +39,6 @@
 		4DE44AAD1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A6B1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.h */; };
 		4DE44AAE1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A6C1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.m */; };
 		4DE44AAF1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A6C1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.m */; };
-		4DE44AB01C24391300FD1D97 /* UIActionSheetAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A6E1C24391300FD1D97 /* UIActionSheetAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DE44AB11C24391300FD1D97 /* UIActionSheetAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A6F1C24391300FD1D97 /* UIActionSheetAdditions.m */; };
-		4DE44AB21C24391300FD1D97 /* UIActionSheetAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A6F1C24391300FD1D97 /* UIActionSheetAdditions.m */; };
-		4DE44AB31C24391300FD1D97 /* UIAlertViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A701C24391300FD1D97 /* UIAlertViewAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DE44AB41C24391300FD1D97 /* UIAlertViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A711C24391300FD1D97 /* UIAlertViewAdditions.m */; };
-		4DE44AB51C24391300FD1D97 /* UIAlertViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A711C24391300FD1D97 /* UIAlertViewAdditions.m */; };
 		4DE44AB61C24391300FD1D97 /* UIColorAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A721C24391300FD1D97 /* UIColorAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE44AB71C24391300FD1D97 /* UIColorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A731C24391300FD1D97 /* UIColorAdditions.m */; };
 		4DE44AB81C24391300FD1D97 /* UIColorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A731C24391300FD1D97 /* UIColorAdditions.m */; };
@@ -104,6 +94,7 @@
 		4DF250E31DDFF8AF002AB829 /* UIFontAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF250E11DDFF8AF002AB829 /* UIFontAdditions.m */; };
 		4DF250E61DDFF9CB002AB829 /* UIApplicationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DF250E41DDFF9CB002AB829 /* UIApplicationAdditions.h */; };
 		4DF250E71DDFF9CB002AB829 /* UIApplicationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF250E51DDFF9CB002AB829 /* UIApplicationAdditions.m */; };
+		730C86C604FF08964BE42A4B /* libPods-MMUIKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC96E1851FC24C9DA3AE7E7 /* libPods-MMUIKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,8 +110,7 @@
 /* Begin PBXFileReference section */
 		4D0669F91DE02BCD0030A480 /* UIButtonAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonAdditions.h; sourceTree = "<group>"; };
 		4D0669FA1DE02BCD0030A480 /* UIButtonAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonAdditions.m; sourceTree = "<group>"; };
-		4D0669FD1DE02C7F0030A480 /* UIControlAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIControlAdditions.h; sourceTree = "<group>"; };
-		4D0669FE1DE02C7F0030A480 /* UIControlAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIControlAdditions.m; sourceTree = "<group>"; };
+		4D24AA2B202F189B006777FF /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9073901C9A99D600AB69EB /* MMMultipleControllersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMultipleControllersViewController.h; sourceTree = "<group>"; };
 		4D9073911C9A99D600AB69EB /* MMMultipleControllersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMultipleControllersViewController.m; sourceTree = "<group>"; };
 		4DB9E9F01DDF325300FE43CF /* MMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
@@ -135,8 +125,6 @@
 		4DCB0DFC1C24730600339CF9 /* MMTranslucentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTranslucentViewController.h; sourceTree = "<group>"; };
 		4DE44A5A1C24391300FD1D97 /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
 		4DE44A5B1C24391300FD1D97 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
-		4DE44A5C1C24391300FD1D97 /* MMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableViewController.h; sourceTree = "<group>"; };
-		4DE44A5D1C24391300FD1D97 /* MMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableViewController.m; sourceTree = "<group>"; };
 		4DE44A5E1C24391300FD1D97 /* MMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMViewController.h; sourceTree = "<group>"; };
 		4DE44A5F1C24391300FD1D97 /* MMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMViewController.m; sourceTree = "<group>"; };
 		4DE44A601C24391300FD1D97 /* MMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWebViewController.h; sourceTree = "<group>"; };
@@ -149,10 +137,6 @@
 		4DE44A6A1C24391300FD1D97 /* SSWAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWAnimator.m; sourceTree = "<group>"; };
 		4DE44A6B1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWDirectionalPanGestureRecognizer.h; sourceTree = "<group>"; };
 		4DE44A6C1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWDirectionalPanGestureRecognizer.m; sourceTree = "<group>"; };
-		4DE44A6E1C24391300FD1D97 /* UIActionSheetAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActionSheetAdditions.h; sourceTree = "<group>"; };
-		4DE44A6F1C24391300FD1D97 /* UIActionSheetAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActionSheetAdditions.m; sourceTree = "<group>"; };
-		4DE44A701C24391300FD1D97 /* UIAlertViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewAdditions.h; sourceTree = "<group>"; };
-		4DE44A711C24391300FD1D97 /* UIAlertViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewAdditions.m; sourceTree = "<group>"; };
 		4DE44A721C24391300FD1D97 /* UIColorAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorAdditions.h; sourceTree = "<group>"; };
 		4DE44A731C24391300FD1D97 /* UIColorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorAdditions.m; sourceTree = "<group>"; };
 		4DE44A741C24391300FD1D97 /* UIDeviceAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceAdditions.h; sourceTree = "<group>"; };
@@ -191,6 +175,9 @@
 		4DF250E11DDFF8AF002AB829 /* UIFontAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFontAdditions.m; sourceTree = "<group>"; };
 		4DF250E41DDFF9CB002AB829 /* UIApplicationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIApplicationAdditions.h; sourceTree = "<group>"; };
 		4DF250E51DDFF9CB002AB829 /* UIApplicationAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIApplicationAdditions.m; sourceTree = "<group>"; };
+		58334F7DB38A314D8ADB4771 /* Pods-MMUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMUIKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MMUIKit/Pods-MMUIKit.release.xcconfig"; sourceTree = "<group>"; };
+		AE3D4A2C6009F382C669765C /* Pods-MMUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMUIKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MMUIKit/Pods-MMUIKit.debug.xcconfig"; sourceTree = "<group>"; };
+		BFC96E1851FC24C9DA3AE7E7 /* libPods-MMUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMUIKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +185,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D24AA2A202F189B006777FF /* MMFoundation.framework in Frameworks */,
+				730C86C604FF08964BE42A4B /* libPods-MMUIKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,12 +201,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17F53A5A1298DDD63E52DA9E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D24AA2B202F189B006777FF /* MMFoundation.framework */,
+				BFC96E1851FC24C9DA3AE7E7 /* libPods-MMUIKit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4DC1FB011C242CAB00A39E9D = {
 			isa = PBXGroup;
 			children = (
 				4DC1FB0D1C242CAB00A39E9D /* MMUIKit */,
 				4DC1FB191C242CAB00A39E9D /* MMUIKitTests */,
 				4DC1FB0C1C242CAB00A39E9D /* Products */,
+				6CF604B1E861D1FE155B9D64 /* Pods */,
+				17F53A5A1298DDD63E52DA9E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,12 +260,10 @@
 			children = (
 				4DE44A5A1C24391300FD1D97 /* MMNavigationController.h */,
 				4DE44A5B1C24391300FD1D97 /* MMNavigationController.m */,
-				4DE44A5C1C24391300FD1D97 /* MMTableViewController.h */,
-				4DE44A5D1C24391300FD1D97 /* MMTableViewController.m */,
 				4DE44A5E1C24391300FD1D97 /* MMViewController.h */,
 				4DE44A5F1C24391300FD1D97 /* MMViewController.m */,
-				4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */,
 				4DCB0DFC1C24730600339CF9 /* MMTranslucentViewController.h */,
+				4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */,
 				4DE44A601C24391300FD1D97 /* MMWebViewController.h */,
 				4DE44A611C24391300FD1D97 /* MMWebViewController.m */,
 				4D9073901C9A99D600AB69EB /* MMMultipleControllersViewController.h */,
@@ -307,10 +305,6 @@
 		4DE44A6D1C24391300FD1D97 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
-				4DE44A6E1C24391300FD1D97 /* UIActionSheetAdditions.h */,
-				4DE44A6F1C24391300FD1D97 /* UIActionSheetAdditions.m */,
-				4DE44A701C24391300FD1D97 /* UIAlertViewAdditions.h */,
-				4DE44A711C24391300FD1D97 /* UIAlertViewAdditions.m */,
 				4DE44A721C24391300FD1D97 /* UIColorAdditions.h */,
 				4DE44A731C24391300FD1D97 /* UIColorAdditions.m */,
 				4DE44A741C24391300FD1D97 /* UIDeviceAdditions.h */,
@@ -335,8 +329,6 @@
 				4DF250E51DDFF9CB002AB829 /* UIApplicationAdditions.m */,
 				4D0669F91DE02BCD0030A480 /* UIButtonAdditions.h */,
 				4D0669FA1DE02BCD0030A480 /* UIButtonAdditions.m */,
-				4D0669FD1DE02C7F0030A480 /* UIControlAdditions.h */,
-				4D0669FE1DE02C7F0030A480 /* UIControlAdditions.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -364,6 +356,15 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		6CF604B1E861D1FE155B9D64 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE3D4A2C6009F382C669765C /* Pods-MMUIKit.debug.xcconfig */,
+				58334F7DB38A314D8ADB4771 /* Pods-MMUIKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -380,12 +381,10 @@
 				4DE44A991C24391300FD1D97 /* MMNavigationController.h in Headers */,
 				4DE44AB91C24391300FD1D97 /* UIDeviceAdditions.h in Headers */,
 				4DE44AE91C24391300FD1D97 /* MMTextView.h in Headers */,
-				4DE44A9C1C24391300FD1D97 /* MMTableViewController.h in Headers */,
 				4DE44AC21C24391300FD1D97 /* UISearchBarAdditions.h in Headers */,
 				4DE44AE61C24391300FD1D97 /* MMTableViewCell.h in Headers */,
 				4DE44ADA1C24391300FD1D97 /* MMLabel.h in Headers */,
 				4DE44ACB1C24391300FD1D97 /* UIViewAdditions.h in Headers */,
-				4DE44AB31C24391300FD1D97 /* UIAlertViewAdditions.h in Headers */,
 				4DE44AC81C24391300FD1D97 /* UITabBarItemAdditions.h in Headers */,
 				4DE44AD71C24391300FD1D97 /* MMButton.h in Headers */,
 				4DE44AA21C24391300FD1D97 /* MMWebViewController.h in Headers */,
@@ -393,8 +392,6 @@
 				4DE44ABC1C24391300FD1D97 /* UIImageAdditions.h in Headers */,
 				4DE44AC51C24391300FD1D97 /* UITabBarControllerAdditions.h in Headers */,
 				4DE44ABF1C24391300FD1D97 /* UINavigationItemAdditions.h in Headers */,
-				4DE44AB01C24391300FD1D97 /* UIActionSheetAdditions.h in Headers */,
-				4D0669FF1DE02C7F0030A480 /* UIControlAdditions.h in Headers */,
 				4DCB0DFF1C24730600339CF9 /* MMTranslucentViewController.h in Headers */,
 				4DE44AEC1C24391300FD1D97 /* MMView.h in Headers */,
 				4D9073921C9A99D600AB69EB /* MMMultipleControllersViewController.h in Headers */,
@@ -416,10 +413,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DC1FB1F1C242CAB00A39E9D /* Build configuration list for PBXNativeTarget "MMUIKit" */;
 			buildPhases = (
+				420D2F754031B0CB52552583 /* [CP] Check Pods Manifest.lock */,
 				4DC1FB061C242CAB00A39E9D /* Sources */,
 				4DC1FB071C242CAB00A39E9D /* Frameworks */,
 				4DC1FB081C242CAB00A39E9D /* Headers */,
 				4DC1FB091C242CAB00A39E9D /* Resources */,
+				A1B3ECCC5CE38C946A591465 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -500,6 +499,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		420D2F754031B0CB52552583 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MMUIKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1B3ECCC5CE38C946A591465 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MMUIKit/Pods-MMUIKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4DC1FB061C242CAB00A39E9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -511,16 +546,13 @@
 				4DE44ABD1C24391300FD1D97 /* UIImageAdditions.m in Sources */,
 				4DE44AD51C24391300FD1D97 /* MMBadgeView.m in Sources */,
 				4DE44AA01C24391300FD1D97 /* MMViewController.m in Sources */,
-				4DE44A9D1C24391300FD1D97 /* MMTableViewController.m in Sources */,
 				4D0669FC1DE02BCD0030A480 /* UIButtonAdditions.m in Sources */,
 				4DE44AED1C24391300FD1D97 /* MMView.m in Sources */,
 				4DE44AA31C24391300FD1D97 /* MMWebViewController.m in Sources */,
-				4D066A001DE02C7F0030A480 /* UIControlAdditions.m in Sources */,
 				4DE44A9A1C24391300FD1D97 /* MMNavigationController.m in Sources */,
 				4DCB0DFD1C24730600339CF9 /* MMTranslucentViewController.m in Sources */,
 				4DE44AAE1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.m in Sources */,
 				4DE44AAB1C24391300FD1D97 /* SSWAnimator.m in Sources */,
-				4DE44AB41C24391300FD1D97 /* UIAlertViewAdditions.m in Sources */,
 				4DE44AB71C24391300FD1D97 /* UIColorAdditions.m in Sources */,
 				4DE44ADB1C24391300FD1D97 /* MMLabel.m in Sources */,
 				4DE44AC91C24391300FD1D97 /* UITabBarItemAdditions.m in Sources */,
@@ -536,7 +568,6 @@
 				4DE44AD21C24391300FD1D97 /* UIViewControllerAdditions.m in Sources */,
 				4DE44AD81C24391300FD1D97 /* MMButton.m in Sources */,
 				4D9073931C9A99D600AB69EB /* MMMultipleControllersViewController.m in Sources */,
-				4DE44AB11C24391300FD1D97 /* UIActionSheetAdditions.m in Sources */,
 				4DE44AC31C24391300FD1D97 /* UISearchBarAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,16 +581,13 @@
 				4DE44AE81C24391300FD1D97 /* MMTableViewCell.m in Sources */,
 				4DE44ACD1C24391300FD1D97 /* UIViewAdditions.m in Sources */,
 				4DE44AD61C24391300FD1D97 /* MMBadgeView.m in Sources */,
-				4DE44AB21C24391300FD1D97 /* UIActionSheetAdditions.m in Sources */,
 				4DE44AA11C24391300FD1D97 /* MMViewController.m in Sources */,
 				4DE44AD91C24391300FD1D97 /* MMButton.m in Sources */,
 				4DC1FB1B1C242CAB00A39E9D /* MMUIKitTests.m in Sources */,
 				4DE44AC71C24391300FD1D97 /* UITabBarControllerAdditions.m in Sources */,
-				4DE44AB51C24391300FD1D97 /* UIAlertViewAdditions.m in Sources */,
 				4DE44ADC1C24391300FD1D97 /* MMLabel.m in Sources */,
 				4DE44AE51C24391300FD1D97 /* MMTableView.m in Sources */,
 				4DE44ACA1C24391300FD1D97 /* UITabBarItemAdditions.m in Sources */,
-				4DE44A9E1C24391300FD1D97 /* MMTableViewController.m in Sources */,
 				4DE44AEB1C24391300FD1D97 /* MMTextView.m in Sources */,
 				4DE44AAC1C24391300FD1D97 /* SSWAnimator.m in Sources */,
 				4DE44ADF1C24391300FD1D97 /* MMNavigationBar.m in Sources */,
@@ -681,6 +709,7 @@
 		};
 		4DC1FB201C242CAB00A39E9D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE3D4A2C6009F382C669765C /* Pods-MMUIKit.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -697,6 +726,7 @@
 		};
 		4DC1FB211C242CAB00A39E9D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58334F7DB38A314D8ADB4771 /* Pods-MMUIKit.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

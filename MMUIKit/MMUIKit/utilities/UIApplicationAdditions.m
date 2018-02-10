@@ -7,6 +7,7 @@
 //
 
 #import "UIApplicationAdditions.h"
+#import <MMFoundation/MMFoundation.h>
 
 @implementation UIApplication(Additions)
 
@@ -19,58 +20,35 @@
     unsigned long long docSize   =  [self folderSizeAtPath:[self documentPath]];
     unsigned long long libSize   =  [self folderSizeAtPath:[self libraryPath]];
     unsigned long long cacheSize =  [self folderSizeAtPath:[self cachePath]];
-    
     unsigned long long total = docSize + libSize + cacheSize;
-    
     NSString *totalSize = [NSByteCountFormatter stringFromByteCount:total countStyle:NSByteCountFormatterCountStyleFile];
-    
     return totalSize;
 }
 
-- (NSString *)documentPath
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *basePath = [paths firstObject];
-    
-    return basePath;
+- (NSString *)documentPath {
+    return mm_document_path();
 }
 
-- (NSString *)libraryPath
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *basePath = [paths firstObject];
-    
-    return basePath;
+- (NSString *)libraryPath {
+    return mm_library_path();
 }
 
-- (NSString *)cachePath
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *basePath = [paths firstObject];
-    
-    return basePath;
+- (NSString *)cachePath {
+    return mm_caches_path();
 }
 
-
-
--(unsigned long long)folderSizeAtPath:(NSString *)folderPath
-{
+-(unsigned long long)folderSizeAtPath:(NSString *)folderPath {
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
     NSEnumerator *contentsEnumurator = [contents objectEnumerator];
-    
     NSString *file;
     unsigned long long size = 0;
     NSString *path = @"";
     NSDictionary *fileAttributes = nil;
-    while (file = [contentsEnumurator nextObject])
-    {
+    while (file = [contentsEnumurator nextObject]) {
         path = [folderPath stringByAppendingPathComponent:file];
-        
         fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
-        
-        size += [fileAttributes[NSFileSize ] intValue];
+        size += [fileAttributes[NSFileSize] longLongValue];
     }
-    
     return size;
 }
 

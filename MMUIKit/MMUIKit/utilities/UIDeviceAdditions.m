@@ -15,51 +15,38 @@
 
 @implementation UIDevice(Additions)
 
-- (void)setTorchOn:(BOOL)on
-{
+- (void)setTorchOn:(BOOL)on {
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
-    if (![device hasTorch])
-    {
+    if (![device hasTorch]) {
         NSLog(@"no torch");
-    }
-    else
-    {
+    } else {
         [device lockForConfiguration:nil];
-        
         device.torchMode = on ? AVCaptureTorchModeOn : AVCaptureTorchModeOff;
-        
         [device unlockForConfiguration];
     }
 }
 
 //检查前后摄像头
-- (void)isCameraEnabled
-{
+- (BOOL)isCameraEnabled {
     BOOL cameraAvailable = [UIImagePickerController isCameraDeviceAvailable:
                             UIImagePickerControllerCameraDeviceRear];//前
-    
-    BOOL frontCameraAvailable = [UIImagePickerController isCameraDeviceAvailable:
+    __unused BOOL frontCameraAvailable = [UIImagePickerController isCameraDeviceAvailable:
                                  UIImagePickerControllerCameraDeviceFront];//后
-    
-    if(cameraAvailable == frontCameraAvailable){}
+    return cameraAvailable;
 }
 
 //检查指南针
-- (void)isMagnetometerEnabled
-{
-    [CLLocationManager headingAvailable];
+- (BOOL)isMagnetometerEnabled {
+    return [CLLocationManager headingAvailable];
 }
 
 //检查声音支持
-- (BOOL)isMicrophoneAvailable
-{
+- (BOOL)isMicrophoneAvailable {
     return [AVAudioSession sharedInstance].inputAvailable;//bool值。获取是否支持
 }
 
 //检查录像支持 MobileCoreServices.framework <MobileCoreServices/MobileCoreServices.h>
-- (BOOL)isVideoCameraEnabled
-{
+- (BOOL)isVideoCameraEnabled {
     //简单检查所有的可用的媒体资源类型，然后检查返回的数组，
     //如果其中包含了kUTTypeMovie的NSString类型对象，就证明摄像头支持录像
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -70,10 +57,8 @@
 }
 
 //检查陀螺仪可用 CoreMotion.framework <CoreMotion/CoreMotion.h>
-- (BOOL)isGyroscopeAvailable
-{
+- (BOOL)isGyroscopeAvailable {
     CMMotionManager *motionManager = [[CMMotionManager alloc] init];
-    
     return motionManager.gyroAvailable;
 }
 

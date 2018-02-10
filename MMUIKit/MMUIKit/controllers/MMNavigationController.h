@@ -10,11 +10,6 @@
 
 @interface MMNavigationController : UINavigationController
 
-/**
- *  是否支持右滑pop事件
- */
-@property (nonatomic, assign) BOOL               supportsRightSwipeToPop;
-
 @property (nonatomic, strong) NSDictionary      *textAttributes;
 
 @end

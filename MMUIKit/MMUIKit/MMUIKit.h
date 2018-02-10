@@ -11,7 +11,6 @@
 // contrller
 #import <MMUIKit/MMViewController.h>
 #import <MMUIKit/MMWebViewController.h>
-#import <MMUIKit/MMTableViewController.h>
 #import <MMUIKit/MMNavigationController.h>
 #import <MMUIKit/MMTranslucentViewController.h>
 
@@ -30,10 +29,8 @@
 #import <MMUIKit/UIColorAdditions.h>
 #import <MMUIKit/UIImageAdditions.h>
 #import <MMUIKit/UIDeviceAdditions.h>
-#import <MMUIKit/UIAlertViewAdditions.h>
 #import <MMUIKit/UISearchBarAdditions.h>
 #import <MMUIKit/UITabBarItemAdditions.h>
-#import <MMUIKit/UIActionSheetAdditions.h>
 #import <MMUIKit/UIViewControllerAdditions.h>
 #import <MMUIKit/UINavigationItemAdditions.h>
 #import <MMUIKit/UITabBarControllerAdditions.h>

@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char MMCoreServicesVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <MMCoreServices/PublicHeader.h>
 
-#import "MMDeviceInfo.h"
+#import <MMCoreServices/MMDeviceInfo.h>

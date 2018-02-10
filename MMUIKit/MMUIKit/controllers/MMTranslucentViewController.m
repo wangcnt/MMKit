@@ -8,8 +8,7 @@
 
 #import "MMTranslucentViewController.h"
 
-@interface MMTranslucentViewController()
-{
+@interface MMTranslucentViewController() {
     UIControl   *_backgroundControl;    /// 如果是模态弹出的话，需要加上此control
 }
 
@@ -17,56 +16,34 @@
 
 @implementation MMTranslucentViewController
 
-- (instancetype)init
-{
-    if (self = [super init])
-    {
+- (instancetype)init {
+    if (self = [super init]) {
         self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        
         [UIApplication sharedApplication].keyWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
-
     [self addSubviewsIfNeeds];
 }
 
-- (void)setModalize:(BOOL)modalize
-{
-    if(_modalize != modalize)
-    {
-        _modalize = modalize;
-        
-        [self addSubviewsIfNeeds];
-    }
-}
-
-- (void)addSubviewsIfNeeds
-{
-    if(_viewDidLoad)
-    {
-        if(_modalize)
-        {
-            if(!_backgroundControl)
-            {
-                _backgroundControl = [[UIControl alloc] initWithFrame:self.view.bounds];
-                
-                [_backgroundControl addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchDown];
-                
-                [self.view insertSubview:_backgroundControl atIndex:0];
-            }
+- (void)addSubviewsIfNeeds {
+    if(_modalize) {
+        if(!_backgroundControl) {
+            _backgroundControl = [[UIControl alloc] initWithFrame:self.view.bounds];
+            [_backgroundControl addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchDown];
+            [self.view insertSubview:_backgroundControl atIndex:0];
         }
     }
 }
 
-- (void)dismiss
-{
+- (void)dismiss {
+    if(self.presentingViewController) {
+        [self.presentingViewController dismissViewControllerAnimated:self completion:nil];
+    }
 }
 
 @end

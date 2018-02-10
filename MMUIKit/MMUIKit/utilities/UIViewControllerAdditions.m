@@ -11,94 +11,52 @@
 
 @interface UIViewController()
 <MFMailComposeViewControllerDelegate>
-
 @end
 
 @implementation UIViewController(Email)
 
-- (void)sendMailToRecipients:(NSArray *)recipients
-                          cc:(NSArray *)cc
-                       title:(NSString *)subject
-                     content:(NSString *)content
-{
-    [self sendMailToRecipients:recipients
-                            cc:cc
-                   withSubject:subject
-                       content:content
-                      mimeType:nil
-                      fileName:nil
-                          data:nil];
+- (void)sendMailToRecipients:(NSArray *)recipients cc:(NSArray *)cc title:(NSString *)subject content:(NSString *)content {
+    [self sendMailToRecipients:recipients cc:cc withSubject:subject content:content mimeType:nil fileName:nil data:nil];
 }
 
 // Displays an email composition interface inside the application. Populates all the Mail fields.
--(void)sendMailToRecipients:(NSArray *)recipients
-                         cc:(NSArray *)cc
-                withSubject:(NSString *)subject
-                    content:(NSString *)content
-                   mimeType:(NSString *)mimeType
-                   fileName:(NSString *)fileName
-                       data:(NSData *)data
-{
+-(void)sendMailToRecipients:(NSArray *)recipients cc:(NSArray *)cc withSubject:(NSString *)subject content:(NSString *)content mimeType:(NSString *)mimeType fileName:(NSString *)fileName data:(NSData *)data {
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
-    
     // must
-    {
-        controller.subject = subject;
-        
-        controller.toRecipients = recipients;
-    }
-    
+    controller.subject = subject;
+    controller.toRecipients = recipients;
     // should
-    {
-        if(cc)      controller.ccRecipients = cc;
-        
+    if(cc) {
+        controller.ccRecipients = cc;
         [controller setMessageBody:content isHTML:NO];
-        
-        if(mimeType && data && fileName)
-        {
+        if(mimeType && data && fileName) {
             [controller addAttachmentData:data mimeType:mimeType fileName:fileName];
         }
     }
-    
     [self presentViewController:controller animated:YES completion:^{}];
 }
 
-- (void)mailComposeController:(MFMailComposeViewController*)controller
-          didFinishWithResult:(MFMailComposeResult)result
-                        error:(NSError*)error
-{
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     // Notifies users about errors associated with the interface
-    switch (result)
-    {
-        case MFMailComposeResultCancelled:
-        {
+    switch (result) {
+        case MFMailComposeResultCancelled: {
             NSLog(@"Result: canceled");
-            
             break;
-        }
-        case MFMailComposeResultSaved:
-        {
+        } case MFMailComposeResultSaved: {
             NSLog(@"Result: saved");
             break;
-        }
-        case MFMailComposeResultSent:
-        {
+        } case MFMailComposeResultSent: {
             NSLog(@"Result: sent");
             break;
-        }
-        case MFMailComposeResultFailed:
-        {
+        } case MFMailComposeResultFailed: {
             NSLog(@"Result: failed");
             break;
-        }
-        default:
-        {
+        } default: {
             NSLog(@"Result: not sent");
             break;
         }
     }
-    
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
@@ -107,17 +65,13 @@
 
 @implementation UIViewController(SMS)
 
-- (void)sendSMSToRecipients:(NSArray *)recipients withContent:(NSString *)content
-{
+- (void)sendSMSToRecipients:(NSArray *)recipients withContent:(NSString *)content {
     Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
-    
-    if ([messageClass canSendText])
-    {
+    if ([messageClass canSendText]) {
         MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
         picker.messageComposeDelegate = self;
         picker.recipients = recipients;
         picker.body = content;
-        
         [self presentViewController:picker animated:YES completion:^{}];
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D24AA29202F182F006777FF /* MMInlines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA28202F182F006777FF /* MMInlines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D7C0EF4202F0118008C6CE0 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7C0EEA202F0118008C6CE0 /* MMFoundation.framework */; };
 		4D7C0EF9202F0118008C6CE0 /* MMFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C0EF8202F0118008C6CE0 /* MMFoundationTests.m */; };
 		4D7C0EFB202F0118008C6CE0 /* MMFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7C0EED202F0118008C6CE0 /* MMFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D24AA28202F182F006777FF /* MMInlines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMInlines.h; sourceTree = "<group>"; };
 		4D7C0EEA202F0118008C6CE0 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7C0EED202F0118008C6CE0 /* MMFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMFoundation.h; sourceTree = "<group>"; };
 		4D7C0EEE202F0118008C6CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				4D7C0F0C202F0149008C6CE0 /* additions */,
 				4D7C0F07202F0149008C6CE0 /* thirdparties */,
+				4D24AA28202F182F006777FF /* MMInlines.h */,
 				4D7C0EED202F0118008C6CE0 /* MMFoundation.h */,
 				4D7C0EEE202F0118008C6CE0 /* Info.plist */,
 			);
@@ -168,6 +171,7 @@
 				4D7C0F1A202F014B008C6CE0 /* MMAsyncSocket.h in Headers */,
 				4D7C0F38202F015E008C6CE0 /* NSDictionaryAdditions.h in Headers */,
 				4D7C0F40202F015E008C6CE0 /* NSStringAdditions.h in Headers */,
+				4D24AA29202F182F006777FF /* MMInlines.h in Headers */,
 				4D7C0F32202F015E008C6CE0 /* NSArrayAdditions.h in Headers */,
 				4D7C0F3D202F015E008C6CE0 /* NSFileManagerAdditions.h in Headers */,
 			);

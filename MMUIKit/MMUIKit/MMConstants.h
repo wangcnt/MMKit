@@ -12,7 +12,7 @@
 #pragma mark -------------------------------------------------------------------
 #pragma mark 方法
 #define func_remove_keyboard()                  [[UIApplication sharedApplication].keyWindow endEditing:YES]
-#define func_document_path() 
+#define _document_path()
 
 #pragma mark -------------------------------------------------------------------
 #pragma mark 重要应用对象获取

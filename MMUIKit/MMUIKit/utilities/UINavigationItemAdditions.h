@@ -15,8 +15,8 @@
 
 @interface UINavigationItem(Space)
 
-- (void)setLeftBarButtonItem:(UIBarButtonItem *)leftBarButtonItem indented:(BOOL)indented;
+- (void)setLeftBarButtonItem:(UIBarButtonItem *)leftBarButtonItem indent:(float)indent;
 
-- (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem indented:(BOOL)indented;
+- (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem indent:(float)indent;
 
 @end

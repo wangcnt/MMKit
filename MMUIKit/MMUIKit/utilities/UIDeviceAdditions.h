@@ -13,10 +13,10 @@
 - (void)setTorchOn:(BOOL)on;
 
 //检查前后摄像头
-- (void)isCameraEnabled;
+- (BOOL)isCameraEnabled;
 
 //检查指南针
-- (void)isMagnetometerEnabled;
+- (BOOL)isMagnetometerEnabled;
 
 //检查声音支持
 - (BOOL)isMicrophoneAvailable;

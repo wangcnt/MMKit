@@ -2,13 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:mmkit.readme">
+   </FileRef>
+   <FileRef
       location = "group:MMFoundation/MMFoundation.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/Mark/Documents/MMKit/mmkit.readme">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/Mark/Documents/MMKit/QTEmail/QTEmailFoundation.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MMArchitecture/MMArchitecture.xcodeproj">
