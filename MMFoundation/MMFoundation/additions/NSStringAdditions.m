@@ -12,7 +12,7 @@
 
 @implementation NSString(Additions)
 
-- (NSString *)gb18030edStringWithData:(NSData *)data {
+- (instancetype)gb18030edStringWithData:(NSData *)data {
     unsigned long encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     return [[NSString alloc] initWithData:data encoding:encoding];
 }
@@ -78,6 +78,30 @@
 
 - (NSString *)text {
     return ([self isKindOfClass:[NSString class]] && self.length)?self:@"";
+}
+
+- (instancetype)stringFromBytes:(unsigned long long)bytes {
+    static const void *magnitudes[] = {@"bytes", @"KB", @"MB", @"GB"};
+    // Determine what magnitude the number of bytes is by shifting off 10 bits at a time
+    // (equivalent to dividing by 1024).
+    unsigned long magnitude = 0;
+    unsigned long long highbits = bytes;
+    unsigned long long inverseBits = ~((unsigned long long)0x3FF);
+    while ((highbits & inverseBits)
+           && magnitude + 1 < (sizeof(magnitudes) / sizeof(void *))) {
+        // Shift off an order of magnitude.
+        highbits >>= 10;
+        magnitude++;
+    }
+    
+    if (magnitude) {
+        unsigned long long dividend = 1024 << (magnitude - 1) * 10;
+        double result = ((double)bytes / (double)(dividend));
+        return [NSString stringWithFormat:@"%.2f %@", result, magnitudes[magnitude]];
+    } else {
+        // We don't need to bother with dividing bytes.
+        return [NSString stringWithFormat:@"%lld %@", bytes, magnitudes[magnitude]];
+    }
 }
 
 @end
@@ -186,3 +210,29 @@
 }
 
 @end
+
+@implementation NSMutableString (Networking)
+
+- (void)appendQueryParamenters:(NSDictionary<NSString *, NSObject *> *)parameters {
+    if(!parameters.count) {
+        return;
+    }
+    if(![self rangeOfString:@"?"].length) {
+        [self appendString:@"?"];
+    }
+    NSString *key = nil, *value = nil;
+    NSArray *keys = parameters.allKeys;
+    BOOL shouldAnd = NO;
+    for(int i=0; i<keys.count; i++) {
+        key = keys[i];
+        value = [parameters[key] description];
+        value = [value percentEscapedString];
+        if(!shouldAnd) {
+            shouldAnd = [self rangeOfString:@"="].length;
+        }
+        [self appendFormat:@"%@%@=%@",  shouldAnd ? @"&" : @"", key, value];
+    }
+}
+
+@end
+

@@ -27,4 +27,6 @@ FOUNDATION_EXPORT const unsigned char MMFoundationVersionString[];
 #import <MMFoundation/MMTimer.h>
 #import <MMFoundation/MMIDTracker.h>
 
+#import <MMFoundation/MMMemoryCache.h>
+
 #import <MMFoundation/MMInlines.h>

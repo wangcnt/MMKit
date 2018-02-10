@@ -10,9 +10,6 @@
 		4D91DB0B2016238B00DEB9A0 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D91DB012016238B00DEB9A0 /* MMCoreServices.framework */; };
 		4D91DB102016238B00DEB9A0 /* MMCoreServicesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D91DB0F2016238B00DEB9A0 /* MMCoreServicesTests.m */; };
 		4D91DB122016238B00DEB9A0 /* MMCoreServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D91DB042016238B00DEB9A0 /* MMCoreServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D91DB842017508F00DEB9A0 /* MMDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D91DB822017508F00DEB9A0 /* MMDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D91DB852017508F00DEB9A0 /* MMDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D91DB832017508F00DEB9A0 /* MMDeviceInfo.m */; };
-		4D91DB862017508F00DEB9A0 /* MMDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D91DB832017508F00DEB9A0 /* MMDeviceInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +29,6 @@
 		4D91DB0A2016238B00DEB9A0 /* MMCoreServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMCoreServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D91DB0F2016238B00DEB9A0 /* MMCoreServicesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMCoreServicesTests.m; sourceTree = "<group>"; };
 		4D91DB112016238B00DEB9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D91DB822017508F00DEB9A0 /* MMDeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMDeviceInfo.h; sourceTree = "<group>"; };
-		4D91DB832017508F00DEB9A0 /* MMDeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMDeviceInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +74,6 @@
 				4D91DB9220177DC700DEB9A0 /* thirdparty */,
 				4D91DB042016238B00DEB9A0 /* MMCoreServices.h */,
 				4D91DB052016238B00DEB9A0 /* Info.plist */,
-				4D91DB822017508F00DEB9A0 /* MMDeviceInfo.h */,
-				4D91DB832017508F00DEB9A0 /* MMDeviceInfo.m */,
 			);
 			path = MMCoreServices;
 			sourceTree = "<group>";
@@ -108,7 +101,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D91DB842017508F00DEB9A0 /* MMDeviceInfo.h in Headers */,
 				4D91DB122016238B00DEB9A0 /* MMCoreServices.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,7 +203,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D91DB852017508F00DEB9A0 /* MMDeviceInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +211,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D91DB102016238B00DEB9A0 /* MMCoreServicesTests.m in Sources */,
-				4D91DB862017508F00DEB9A0 /* MMDeviceInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

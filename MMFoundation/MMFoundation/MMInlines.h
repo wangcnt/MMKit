@@ -27,4 +27,18 @@ static inline NSString* mm_library_path() {
     return NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject;
 }
 
+static inline NSInteger mm_bound_integer(NSInteger value, NSInteger min, NSInteger max) {
+    if (max < min) {
+        max = min;
+    }
+    NSInteger bounded = value;
+    if (bounded > max) {
+        bounded = max;
+    }
+    if (bounded < min) {
+        bounded = min;
+    }
+    return bounded;
+}
+
 #endif /* MMInlines_h */

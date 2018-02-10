@@ -11,7 +11,7 @@
 @interface NSString(Additions)
 
 - (NSString *)percentEscapedString;
-- (NSString *)gb18030edStringWithData:(NSData *)data;
+- (instancetype)gb18030edStringWithData:(NSData *)data;
 - (NSString *)md5edString;
 
 - (BOOL)containsEmoji;
@@ -21,6 +21,8 @@
 - (NSString *)firstletter;
 
 - (NSString *)text;   /// 转换成文本，防nil
+
+- (instancetype)stringFromBytes:(unsigned long long)bytes;
 
 @end
 
@@ -54,4 +56,8 @@
 - (void)remainCharactersToIndex:(NSUInteger)to;
 - (void)deleteCharactersFromIndex:(NSUInteger)from;
 
+@end
+
+@interface NSMutableString (Networking)
+- (void)appendQueryParamenters:(NSDictionary<NSString *, NSObject *> *)parameters;
 @end
