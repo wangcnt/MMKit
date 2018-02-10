@@ -36,7 +36,6 @@
 		4DE8A0B31C243DFD00754819 /* MMSqlGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0981C243DFD00754819 /* MMSqlGenerator.m */; };
 		4DE8A0B41C243DFD00754819 /* MMSqlGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0981C243DFD00754819 /* MMSqlGenerator.m */; };
 		4DE8A0D41C243E5100754819 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A0D31C243E5100754819 /* PrefixHeader.pch */; };
-		E845EA72C4CAE610D2422123 /* libPods-MMDatabaseKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ECF7E4292082B8FF8D2F6CE /* libPods-MMDatabaseKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0ECF7E4292082B8FF8D2F6CE /* libPods-MMDatabaseKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMDatabaseKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE8A06C1C243DC700754819 /* MMDatabaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMDatabaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE8A06F1C243DC700754819 /* MMDatabaseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMDatabaseKit.h; sourceTree = "<group>"; };
 		4DE8A0711C243DC700754819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,8 +73,6 @@
 		4DE8A0971C243DFD00754819 /* MMSqlGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSqlGenerator.h; sourceTree = "<group>"; };
 		4DE8A0981C243DFD00754819 /* MMSqlGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSqlGenerator.m; sourceTree = "<group>"; };
 		4DE8A0D31C243E5100754819 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		586AB3A2D7104B0EF7FF90A4 /* Pods-MMDatabaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMDatabaseKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MMDatabaseKit/Pods-MMDatabaseKit.release.xcconfig"; sourceTree = "<group>"; };
-		E45F64564BFE9AB34B84B0DD /* Pods-MMDatabaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMDatabaseKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MMDatabaseKit/Pods-MMDatabaseKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E845EA72C4CAE610D2422123 /* libPods-MMDatabaseKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,31 +94,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01A07CFA820EBCC8F905FADF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0ECF7E4292082B8FF8D2F6CE /* libPods-MMDatabaseKit.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1D14BE7A27E80FAB49DFF1D6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E45F64564BFE9AB34B84B0DD /* Pods-MMDatabaseKit.debug.xcconfig */,
-				586AB3A2D7104B0EF7FF90A4 /* Pods-MMDatabaseKit.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		4DE8A0621C243DC700754819 = {
 			isa = PBXGroup;
 			children = (
 				4DE8A06E1C243DC700754819 /* MMDatabaseKit */,
 				4DE8A07A1C243DC800754819 /* MMDatabaseKitTests */,
 				4DE8A06D1C243DC700754819 /* Products */,
-				1D14BE7A27E80FAB49DFF1D6 /* Pods */,
-				01A07CFA820EBCC8F905FADF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,12 +192,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DE8A0801C243DC800754819 /* Build configuration list for PBXNativeTarget "MMDatabaseKit" */;
 			buildPhases = (
-				BB9AEB1F33F60642C9C975F5 /* [CP] Check Pods Manifest.lock */,
 				4DE8A0671C243DC700754819 /* Sources */,
 				4DE8A0681C243DC700754819 /* Frameworks */,
 				4DE8A0691C243DC700754819 /* Headers */,
 				4DE8A06A1C243DC700754819 /* Resources */,
-				B8B784EDB50BC69C62CCC240 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,39 +275,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		B8B784EDB50BC69C62CCC240 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MMDatabaseKit/Pods-MMDatabaseKit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BB9AEB1F33F60642C9C975F5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4DE8A0671C243DC700754819 /* Sources */ = {
@@ -468,7 +409,6 @@
 		};
 		4DE8A0811C243DC800754819 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E45F64564BFE9AB34B84B0DD /* Pods-MMDatabaseKit.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -488,7 +428,6 @@
 		};
 		4DE8A0821C243DC800754819 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 586AB3A2D7104B0EF7FF90A4 /* Pods-MMDatabaseKit.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

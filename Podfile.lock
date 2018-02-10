@@ -1,28 +1,25 @@
 PODS:
-  - AFNetworking (2.6.1):
-    - AFNetworking/NSURLConnection (= 2.6.1)
-    - AFNetworking/NSURLSession (= 2.6.1)
-    - AFNetworking/Reachability (= 2.6.1)
-    - AFNetworking/Security (= 2.6.1)
-    - AFNetworking/Serialization (= 2.6.1)
-    - AFNetworking/UIKit (= 2.6.1)
-  - AFNetworking/NSURLConnection (2.6.1):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.1):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.1)
-  - AFNetworking/Security (2.6.1)
-  - AFNetworking/Serialization (2.6.1)
-  - AFNetworking/UIKit (2.6.1):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AsyncDisplayKit (1.9.3):
-    - AsyncDisplayKit/ASDealloc2MainObject (= 1.9.3)
-  - AsyncDisplayKit/ASDealloc2MainObject (1.9.3)
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
@@ -38,29 +35,12 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - CocoaLumberjack (2.2.0):
-    - CocoaLumberjack/Default (= 2.2.0)
-    - CocoaLumberjack/Extensions (= 2.2.0)
-  - CocoaLumberjack/Core (2.2.0)
-  - CocoaLumberjack/Default (2.2.0):
-    - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.2.0):
-    - CocoaLumberjack/Default
-  - CRToast (0.0.9)
-  - DACircularProgress (2.3.1)
-  - FlatUIKit (1.6.2)
-  - FMDB (2.5):
-    - FMDB/standard (= 2.5)
-  - FMDB/common (2.5)
-  - FMDB/standard (2.5):
-    - FMDB/common
-  - GPUImage (0.1.7)
-  - iCarousel (1.8.2)
-  - JSONModel (1.1.2)
-  - M13ProgressSuite (1.2.7)
-  - Masonry (0.6.3)
-  - MBProgressHUD (0.9.2)
-  - MJExtension (2.5.15)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
+  - iCarousel (1.8.3)
+  - M13ProgressSuite (1.2.9)
+  - Masonry (1.1.0)
   - Nimbus (1.3.0):
     - Nimbus/AttributedLabel (= 1.3.0)
     - Nimbus/Badge (= 1.3.0)
@@ -112,8 +92,7 @@ PODS:
     - Nimbus/Core
   - Nimbus/WebController (1.3.0):
     - Nimbus/Core
-  - NimbusKit-AttributedLabel (1.0.0)
-  - pop (1.0.8)
+  - pop (1.0.10)
   - POP+MCAnimate (2.0.1):
     - pop (~> 1.0)
     - POP+MCAnimate/Animations (= 2.0.1)
@@ -136,102 +115,38 @@ PODS:
   - POP+MCAnimate/Velocity (2.0.1):
     - pop (~> 1.0)
     - POP+MCAnimate/Internal
-  - ReactiveCocoa (2.5):
-    - ReactiveCocoa/UI (= 2.5)
-  - ReactiveCocoa/Core (2.5):
-    - ReactiveCocoa/no-arc
-  - ReactiveCocoa/no-arc (2.5)
-  - ReactiveCocoa/UI (2.5):
-    - ReactiveCocoa/Core
+  - ReactiveObjC (3.1.0)
   - RunTrace (1.2)
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
   - SWTableViewCell (0.3.7)
-  - TencentOpenApiSDK (2.9.2):
-    - TencentOpenApiSDK/Basic (= 2.9.2)
-  - TencentOpenApiSDK/Basic (2.9.2)
-  - Weixin (1.6.2)
-  - YYAsyncLayer (0.9.0)
-  - YYCache (0.9.4)
-  - YYCategories (0.9.3):
-    - YYCategories/no-arc (= 0.9.3)
-  - YYCategories/no-arc (0.9.3)
-  - YYDispatchQueuePool (0.9.1)
-  - YYKit (0.9.7):
-    - YYKit/no-arc (= 0.9.7)
-  - YYKit/no-arc (0.9.7)
-  - YYText (0.9.16)
-  - ZXingObjC (3.1.0):
-    - ZXingObjC/All (= 3.1.0)
-  - ZXingObjC/All (3.1.0)
 
 DEPENDENCIES:
-  - AFNetworking (= 2.6.1)
-  - AsyncDisplayKit (~> 1.9.1)
+  - AFNetworking (~> 2.6.0)
   - BlocksKit (~> 2.2.5)
-  - CocoaLumberjack (~> 2.2.0)
-  - CRToast (~> 0.0.7)
-  - DACircularProgress (= 2.3.1)
-  - FlatUIKit (~> 1.6.2)
-  - FMDB (~> 2.5)
-  - GPUImage (~> 0.1.7)
-  - iCarousel (~> 1.8.2)
-  - JSONModel (~> 1.1.2)
-  - M13ProgressSuite (~> 1.2.7)
-  - Masonry (~> 0.6.3)
-  - MBProgressHUD (~> 0.9.1)
-  - MJExtension (= 2.5.15)
+  - FMDB (~> 2.7.2)
+  - iCarousel (~> 1.8.3)
+  - M13ProgressSuite (~> 1.2.8)
+  - Masonry (~> 1.1.0)
   - Nimbus (~> 1.3.0)
-  - NimbusKit-AttributedLabel (~> 1.0.0)
-  - pop (~> 1.0.8)
+  - pop (~> 1.0.10)
   - POP+MCAnimate (~> 2.0.1)
-  - ReactiveCocoa (= 2.5)
-  - RunTrace
-  - SDWebImage (= 3.7.3)
+  - ReactiveObjC (~> 3.1.0)
+  - RunTrace (~> 1.2)
   - SWTableViewCell (~> 0.3.7)
-  - TencentOpenApiSDK (= 2.9.2)
-  - Weixin (~> 1.6.1)
-  - YYAsyncLayer (~> 0.9.0)
-  - YYCache (~> 0.9.4)
-  - YYCategories (~> 0.9.3)
-  - YYDispatchQueuePool (~> 0.9.1)
-  - YYKit (~> 0.9.7)
-  - YYText (~> 0.9.16)
-  - ZXingObjC (~> 3.1.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
-  AsyncDisplayKit: 87d340329280dba0363da3587a43f9d1bbe62aac
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
-  CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
-  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
-  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
-  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
-  iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
-  JSONModel: 216584d0311b053ff714f1d6cb700dbf890847bc
-  M13ProgressSuite: 03d194af6359da440641ba758aed5a18b0386a86
-  Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MJExtension: 76967711f6ac61b1dc60ea5e148f88e12cfc8427
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  M13ProgressSuite: ea9f7263e73e9215e6849dfa54e29ee0ad6a145c
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   Nimbus: e7f33bc6d6cb4fe5ea0aee0c7e0883696123422c
-  NimbusKit-AttributedLabel: b07b1f99ba46801a1c0d32c43a3a044fdda46c15
-  pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   POP+MCAnimate: a99e209148c602512de487f1160a44bf78572024
-  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   RunTrace: 4daf5c37b5d8dc0afdb7767eee7c34e1d7794336
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
-  TencentOpenApiSDK: 109faf4536546e209045806c7b2cec82f0b9e929
-  Weixin: 032f4b1def7c7c3d7535809ba25107d5cdc9fccd
-  YYAsyncLayer: 9e6e953d55abe3a2f4dfad0788a75ed9990af3b9
-  YYCache: e52b170b1095d30329005e4fe450d81c5ebcb45b
-  YYCategories: 44fa4213d3d0ebc7fc165f3b56e9f745e2ab8afb
-  YYDispatchQueuePool: 9d0e71fbf7ae741d15436d5c6225e06ec97cd6d7
-  YYKit: b6b9319f5e6b01784b6a4225cec4c3dcf8f6d249
-  YYText: d6d716cd8b776e1aa57b2ddb5f3495ee7d97ce49
-  ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: f091d2f18804931fc5db73b452978be7975a7d68
+
+COCOAPODS: 1.4.0

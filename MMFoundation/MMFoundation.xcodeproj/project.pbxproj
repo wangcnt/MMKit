@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D30D615202B7E44008EAFA1 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D30D613202B7E44008EAFA1 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D30D616202B7E44008EAFA1 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D30D614202B7E44008EAFA1 /* NSStringAdditions.m */; };
+		4D30D617202B7E44008EAFA1 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D30D614202B7E44008EAFA1 /* NSStringAdditions.m */; };
 		4D66A05220289A6B0013B3A4 /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D66A04F20289A6B0013B3A4 /* Documentation.html */; };
 		4D66A05320289A6B0013B3A4 /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D66A04F20289A6B0013B3A4 /* Documentation.html */; };
 		4D66A05420289A6B0013B3A4 /* MMAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D66A05020289A6B0013B3A4 /* MMAsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4D66A05520289A6B0013B3A4 /* MMAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D66A05020289A6B0013B3A4 /* MMAsyncSocket.m */; };
 		4D66A05620289A6B0013B3A4 /* MMAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D66A05120289A6B0013B3A4 /* MMAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D66A08B2028B31E0013B3A4 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D66A07F2028B31B0013B3A4 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D66A08C2028B31E0013B3A4 /* NSArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D66A0802028B31B0013B3A4 /* NSArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D66A08D2028B31E0013B3A4 /* NSFileManagerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D66A0812028B31C0013B3A4 /* NSFileManagerAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D66A08E2028B31E0013B3A4 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D66A0822028B31C0013B3A4 /* NSStringAdditions.m */; };
-		4D66A08F2028B31E0013B3A4 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D66A0822028B31C0013B3A4 /* NSStringAdditions.m */; };
 		4D66A0902028B31E0013B3A4 /* NSFileManagerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D66A0832028B31C0013B3A4 /* NSFileManagerAdditions.m */; };
 		4D66A0912028B31E0013B3A4 /* NSFileManagerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D66A0832028B31C0013B3A4 /* NSFileManagerAdditions.m */; };
 		4D66A0922028B31E0013B3A4 /* NSDictionaryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D66A0842028B31C0013B3A4 /* NSDictionaryAdditions.m */; };
@@ -43,13 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D30D613202B7E44008EAFA1 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
+		4D30D614202B7E44008EAFA1 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
 		4D66A04F20289A6B0013B3A4 /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
 		4D66A05020289A6B0013B3A4 /* MMAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAsyncSocket.m; sourceTree = "<group>"; };
 		4D66A05120289A6B0013B3A4 /* MMAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAsyncSocket.h; sourceTree = "<group>"; };
-		4D66A07F2028B31B0013B3A4 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
 		4D66A0802028B31B0013B3A4 /* NSArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayAdditions.h; sourceTree = "<group>"; };
 		4D66A0812028B31C0013B3A4 /* NSFileManagerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFileManagerAdditions.h; sourceTree = "<group>"; };
-		4D66A0822028B31C0013B3A4 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
 		4D66A0832028B31C0013B3A4 /* NSFileManagerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerAdditions.m; sourceTree = "<group>"; };
 		4D66A0842028B31C0013B3A4 /* NSDictionaryAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryAdditions.m; sourceTree = "<group>"; };
 		4D66A0852028B31D0013B3A4 /* NSArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayAdditions.m; sourceTree = "<group>"; };
@@ -94,8 +94,8 @@
 				4D66A0842028B31C0013B3A4 /* NSDictionaryAdditions.m */,
 				4D66A0812028B31C0013B3A4 /* NSFileManagerAdditions.h */,
 				4D66A0832028B31C0013B3A4 /* NSFileManagerAdditions.m */,
-				4D66A07F2028B31B0013B3A4 /* NSStringAdditions.h */,
-				4D66A0822028B31C0013B3A4 /* NSStringAdditions.m */,
+				4D30D613202B7E44008EAFA1 /* NSStringAdditions.h */,
+				4D30D614202B7E44008EAFA1 /* NSStringAdditions.m */,
 			);
 			path = additions;
 			sourceTree = "<group>";
@@ -164,10 +164,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D803DC3202891F4005F472B /* MMFoundation.h in Headers */,
-				4D66A08B2028B31E0013B3A4 /* NSStringAdditions.h in Headers */,
 				4D66A08C2028B31E0013B3A4 /* NSArrayAdditions.h in Headers */,
 				4D66A0992028B31E0013B3A4 /* NSDictionaryAdditions.h in Headers */,
 				4D66A05620289A6B0013B3A4 /* MMAsyncSocket.h in Headers */,
+				4D30D615202B7E44008EAFA1 /* NSStringAdditions.h in Headers */,
 				4D66A0962028B31E0013B3A4 /* NSDataAdditions.h in Headers */,
 				4D66A08D2028B31E0013B3A4 /* NSFileManagerAdditions.h in Headers */,
 			);
@@ -276,9 +276,9 @@
 				4D66A0972028B31E0013B3A4 /* NSDataAdditions.m in Sources */,
 				4D66A0922028B31E0013B3A4 /* NSDictionaryAdditions.m in Sources */,
 				4D66A0902028B31E0013B3A4 /* NSFileManagerAdditions.m in Sources */,
+				4D30D616202B7E44008EAFA1 /* NSStringAdditions.m in Sources */,
 				4D66A0942028B31E0013B3A4 /* NSArrayAdditions.m in Sources */,
 				4D66A05420289A6B0013B3A4 /* MMAsyncSocket.m in Sources */,
-				4D66A08E2028B31E0013B3A4 /* NSStringAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,10 +288,10 @@
 			files = (
 				4D66A0952028B31E0013B3A4 /* NSArrayAdditions.m in Sources */,
 				4D66A0982028B31E0013B3A4 /* NSDataAdditions.m in Sources */,
-				4D66A08F2028B31E0013B3A4 /* NSStringAdditions.m in Sources */,
 				4D66A05520289A6B0013B3A4 /* MMAsyncSocket.m in Sources */,
 				4D66A0912028B31E0013B3A4 /* NSFileManagerAdditions.m in Sources */,
 				4D66A0932028B31E0013B3A4 /* NSDictionaryAdditions.m in Sources */,
+				4D30D617202B7E44008EAFA1 /* NSStringAdditions.m in Sources */,
 				4D803DC1202891F4005F472B /* MMFoundationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +358,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -432,6 +432,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.markwong..MMFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -452,6 +453,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.markwong..MMFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

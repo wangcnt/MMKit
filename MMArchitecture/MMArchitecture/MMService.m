@@ -13,7 +13,6 @@
 #import "MMResponse.h"
 #import "MMSessionConfiguration.h"
 #import "MMSessionManager.h"
-#import <MMFoundation/NSStringAdditions.h>
 
 @interface MMService () {
 }

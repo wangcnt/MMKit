@@ -28,9 +28,14 @@
     
     NSMutableString *string = [[NSMutableString alloc] initWithString:@"aaaaa"];
     string = [NSMutableString stringWithString:@"aaaab"];
+    NSMutableArray *arr = [NSMutableArray array];
+    [arr reverseAllObjects];
     if([string isKindOfClass:NSMutableString.class]) {
 //        if([string respondsToSelector:@selector(deleteBeforeString:)]) {
-            [string deleteBeforeString:@"b"];
+//            [string deleteBeforeString:@"b"];
+//        [string deleteOccurrencesOfString:@"a"];
+        [string JSONObject];
+        [string deleteCharactersInRange:NSMakeRange(0, 2)];
 //        }
     }
     NSLog(@"string-->%@", string);
