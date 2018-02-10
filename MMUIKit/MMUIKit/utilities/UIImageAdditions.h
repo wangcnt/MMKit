@@ -21,6 +21,8 @@
 
 - (UIImage *)blurredImageWithRadius:(CGFloat)radius iterations:(NSUInteger)iterations tintColor:(UIColor *)tintColor;
 
++ (UIImage *)headerImageInVideoAtPath:(NSString *)path;
+
 #pragma mark -
 #pragma mark 压缩，裁剪
 + (UIImage *)compressedImageWithImage:(UIImage *)image;

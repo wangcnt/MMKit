@@ -80,7 +80,7 @@
     return ([self isKindOfClass:[NSString class]] && self.length)?self:@"";
 }
 
-- (instancetype)stringFromBytes:(unsigned long long)bytes {
++ (instancetype)stringWithBytes:(unsigned long long)bytes {
     static const void *magnitudes[] = {@"bytes", @"KB", @"MB", @"GB"};
     // Determine what magnitude the number of bytes is by shifting off 10 bits at a time
     // (equivalent to dividing by 1024).
@@ -102,6 +102,124 @@
         // We don't need to bother with dividing bytes.
         return [NSString stringWithFormat:@"%lld %@", bytes, magnitudes[magnitude]];
     }
+}
+
++ (NSString *)uuid {
+    CFUUIDRef uuid = CFUUIDCreate(nil);
+    NSString *result = (__bridge_transfer NSString *)CFUUIDCreateString(nil, uuid);
+    CFRelease(uuid);
+    return result;
+}
+
+- (NSString *)phoneNumber {
+    NSMutableString *result = [[NSMutableString alloc] init];
+    NSString *regex = @"\\d+";
+    NSError *error;
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:0 error:&error];
+    [expression enumerateMatchesInString:self options:0 range:NSMakeRange(0, self.length) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
+        [result appendString:[self substringWithRange:match.range]];
+    }];
+    return result.length ? result : self;
+}
+
++ (BOOL)version:(NSString *)version1 isGreaterThanVersion:(NSString *)version2 {
+    NSCharacterSet *charset = [NSCharacterSet characterSetWithCharactersInString:@".,_-"];
+    NSArray *version1Components = [version1 componentsSeparatedByCharactersInSet:charset];
+    NSArray *version2Components = [version2 componentsSeparatedByCharactersInSet:charset];
+    return [NSString versionComponents:version1Components isGreaterThanVersionComponents:version2Components];
+}
+
++ (BOOL)versionComponents:(NSArray *)version1Components isGreaterThanVersionComponents:(NSArray *)version2Components {
+    if(version1Components.count && !version2Components.count)  return YES;
+    if(!version1Components.count && version2Components.count)  return NO;
+    if(!version1Components.count && !version2Components.count) return YES;
+    
+    __block BOOL greater = NO;
+    __block NSString *version2 = nil;
+    [version1Components enumerateObjectsUsingBlock:^(NSString *version1, NSUInteger idx, BOOL *stop) {
+        // 第一个版本比第二个版本元素多
+        if(idx == version2Components.count) {
+            greater = YES;
+            *stop = YES;
+        } else {
+            version2 = version2Components[idx];
+            int v1 = version1.intValue;
+            int v2 = version2.intValue;
+            if(v1 > v2) {
+                greater = YES;
+                *stop = YES;
+            } else if(v1 < v2) {
+                greater = NO;
+                *stop = YES;
+            } else if(idx+1==version1Components.count && idx+1<version2Components.count) {
+                // 第二个版本比第一个版本元素多
+                greater = NO;
+                *stop = YES;
+            }
+        }
+    }];
+    return greater;
+}
+
++ (instancetype)stringWithTimeInterval:(NSTimeInterval)interval {
+    NSTimeInterval dif = [[NSDate date] timeIntervalSince1970] - interval;
+    
+    float difMinute = dif / 60.0;
+    if (difMinute < 10) {
+        return @"刚刚";
+    }
+    
+    if (difMinute < 60) {
+        return [NSString stringWithFormat:@"%.0f分钟前", difMinute];
+    }
+    
+    float difHour = dif / 3600.0;
+    if (difHour < 24) {
+        return [NSString stringWithFormat:@"%.0f小时前", difHour];
+    }
+    
+    float difDay = difHour / 24.0;
+    if (difDay < 30) {
+        return [NSString stringWithFormat:@"%.0f天前", difDay];
+    }
+    
+    float difMonth = difDay / 30.0;
+    if(difMonth < 6) {
+        return [NSString stringWithFormat:@"%.0f月以前", floor(difMonth)];
+    } else if (difMonth >= 6 && difMonth < 12) {
+        return @"半年前";
+    }
+    
+    float difYear = difMonth / 12.0;
+    if (difYear >= 1 && difYear <= 2)  {
+        return [NSString stringWithFormat:@"%.0f年以前", floor(difYear)];
+    }
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    
+    return [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:interval]];
+}
+
++ (NSString *)abbreviatedStringWithNumber:(NSInteger)number {
+    int length = 1;
+    NSInteger temp = number;
+    while (temp / 10 > 0) {
+        length ++;
+        temp /= 10;
+    }
+    NSString *result = [NSString stringWithFormat:@"%ld", (long)number];
+    if(length == 4) {
+        long rest = (long)number % 1000;
+        result = [NSString stringWithFormat:@"%ldk%@", (long)number / 1000, rest ? @"+" : @""];
+    } else if(length >=5 && length < 8) {
+        long rest = (long)number % 10000;
+        result = [NSString stringWithFormat:@"%ldw%@", (long)number / 10000, rest ? @"+" : @""];
+    } else if(length >= 8) {
+        long rest = (long)number % (1000 * 10000);
+        result = [NSString stringWithFormat:@"%ldkw%@", (long)number / 1000 / 10000, rest ? @"+" : @""];
+    }
+    return result;
 }
 
 @end

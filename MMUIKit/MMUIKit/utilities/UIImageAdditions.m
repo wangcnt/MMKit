@@ -12,6 +12,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import <Accelerate/Accelerate.h>
+#import <AVFoundation/AVFoundation.h>
 
 
 #pragma GCC diagnostic ignored "-Wobjc-missing-property-synthesis"
@@ -118,6 +119,27 @@
     CGContextRelease(ctx);
     free(buffer1.data);
     return image;
+}
+
++ (UIImage *)headerImageInVideoAtPath:(NSString *)path {
+    if(!path.length || ![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        return nil;
+    }
+    NSURL *url = [NSURL URLWithString:path];
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
+    AVAssetImageGenerator *generator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    generator.appliesPreferredTrackTransform = YES;
+    generator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CGImageRef ref = NULL;
+    CFTimeInterval time = 0;
+    NSError *error = nil;
+    ref = [generator copyCGImageAtTime:CMTimeMake(time, 60) actualTime:NULL error:&error];
+    
+    if (!ref)
+        NSLog(@"thumbnailImageGenerationError %@", error);
+    
+    return ref ? [[UIImage alloc] initWithCGImage:ref] : nil;
 }
 
 + (UIImage *)imageWithOrientationUnfixedImage:(UIImage *)image {

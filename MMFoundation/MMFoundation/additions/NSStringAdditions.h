@@ -22,7 +22,14 @@
 
 - (NSString *)text;   /// 转换成文本，防nil
 
-- (instancetype)stringFromBytes:(unsigned long long)bytes;
++ (instancetype)stringWithBytes:(unsigned long long)bytes;
++ (NSString *)uuid;
+- (NSString *)phoneNumber;
+
++ (BOOL)version:(NSString *)version1 isGreaterThanVersion:(NSString *)version2;
+
++ (instancetype)stringWithTimeInterval:(NSTimeInterval)interval;
++ (instancetype)abbreviatedStringWithNumber:(NSInteger)number;
 
 @end
 
