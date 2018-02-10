@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D24AA90202F81B6006777FF /* MMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA8C202F81B5006777FF /* MMLogManager.m */; };
+		4D24AA91202F81B6006777FF /* MMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA8C202F81B5006777FF /* MMLogManager.m */; };
+		4D24AA92202F81B6006777FF /* MMLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA8D202F81B5006777FF /* MMLogFormatter.m */; };
+		4D24AA93202F81B6006777FF /* MMLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA8D202F81B5006777FF /* MMLogFormatter.m */; };
+		4D24AA94202F81B6006777FF /* MMLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA8E202F81B6006777FF /* MMLogManager.h */; };
+		4D24AA95202F81B6006777FF /* MMLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA8F202F81B6006777FF /* MMLogFormatter.h */; };
 		4D91DB4E201628C900DEB9A0 /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D91DB44201628C900DEB9A0 /* MMLog.framework */; };
 		4D91DB53201628C900DEB9A0 /* MMLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D91DB52201628C900DEB9A0 /* MMLogTests.m */; };
 		4D91DB55201628C900DEB9A0 /* MMLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D91DB47201628C900DEB9A0 /* MMLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7D196256A32D8307CB84F2D /* libPods-MMLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DB30BE04F76B098613DAA0 /* libPods-MMLog.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +30,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D24AA8C202F81B5006777FF /* MMLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLogManager.m; sourceTree = "<group>"; };
+		4D24AA8D202F81B5006777FF /* MMLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLogFormatter.m; sourceTree = "<group>"; };
+		4D24AA8E202F81B6006777FF /* MMLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLogManager.h; sourceTree = "<group>"; };
+		4D24AA8F202F81B6006777FF /* MMLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLogFormatter.h; sourceTree = "<group>"; };
 		4D91DB44201628C900DEB9A0 /* MMLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D91DB47201628C900DEB9A0 /* MMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMLog.h; sourceTree = "<group>"; };
 		4D91DB48201628C900DEB9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D91DB4D201628C900DEB9A0 /* MMLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D91DB52201628C900DEB9A0 /* MMLogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMLogTests.m; sourceTree = "<group>"; };
 		4D91DB54201628C900DEB9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BBF075074E95703DB7C3759 /* Pods-MMLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMLog.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MMLog/Pods-MMLog.debug.xcconfig"; sourceTree = "<group>"; };
+		A3DB30BE04F76B098613DAA0 /* libPods-MMLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1808EAA75EE20A6F1D219DE /* Pods-MMLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMLog.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MMLog/Pods-MMLog.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D196256A32D8307CB84F2D /* libPods-MMLog.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,12 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3410E1F6E0CF6A8B1287F6AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3DB30BE04F76B098613DAA0 /* libPods-MMLog.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4D91DB3A201628C900DEB9A0 = {
 			isa = PBXGroup;
 			children = (
 				4D91DB46201628C900DEB9A0 /* MMLog */,
 				4D91DB51201628C900DEB9A0 /* MMLogTests */,
 				4D91DB45201628C900DEB9A0 /* Products */,
+				870D285F23457B9F130AD29F /* Pods */,
+				3410E1F6E0CF6A8B1287F6AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +96,10 @@
 		4D91DB46201628C900DEB9A0 /* MMLog */ = {
 			isa = PBXGroup;
 			children = (
+				4D24AA8F202F81B6006777FF /* MMLogFormatter.h */,
+				4D24AA8D202F81B5006777FF /* MMLogFormatter.m */,
+				4D24AA8E202F81B6006777FF /* MMLogManager.h */,
+				4D24AA8C202F81B5006777FF /* MMLogManager.m */,
 				4D91DB47201628C900DEB9A0 /* MMLog.h */,
 				4D91DB48201628C900DEB9A0 /* Info.plist */,
 			);
@@ -86,6 +115,15 @@
 			path = MMLogTests;
 			sourceTree = "<group>";
 		};
+		870D285F23457B9F130AD29F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BBF075074E95703DB7C3759 /* Pods-MMLog.debug.xcconfig */,
+				C1808EAA75EE20A6F1D219DE /* Pods-MMLog.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,7 +131,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D24AA95202F81B6006777FF /* MMLogFormatter.h in Headers */,
 				4D91DB55201628C900DEB9A0 /* MMLog.h in Headers */,
+				4D24AA94202F81B6006777FF /* MMLogManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,10 +144,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D91DB58201628C900DEB9A0 /* Build configuration list for PBXNativeTarget "MMLog" */;
 			buildPhases = (
+				0B0A2F352D01233600B57CDF /* [CP] Check Pods Manifest.lock */,
 				4D91DB3F201628C900DEB9A0 /* Sources */,
 				4D91DB40201628C900DEB9A0 /* Frameworks */,
 				4D91DB41201628C900DEB9A0 /* Headers */,
 				4D91DB42201628C900DEB9A0 /* Resources */,
+				3DFF938B6DDEDAF0CFA1ABDB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,11 +232,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B0A2F352D01233600B57CDF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MMLog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3DFF938B6DDEDAF0CFA1ABDB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MMLog/Pods-MMLog-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4D91DB3F201628C900DEB9A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D24AA90202F81B6006777FF /* MMLogManager.m in Sources */,
+				4D24AA92202F81B6006777FF /* MMLogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D24AA91202F81B6006777FF /* MMLogManager.m in Sources */,
+				4D24AA93202F81B6006777FF /* MMLogFormatter.m in Sources */,
 				4D91DB53201628C900DEB9A0 /* MMLogTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +411,7 @@
 		};
 		4D91DB59201628C900DEB9A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BBF075074E95703DB7C3759 /* Pods-MMLog.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -348,6 +431,7 @@
 		};
 		4D91DB5A201628C900DEB9A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1808EAA75EE20A6F1D219DE /* Pods-MMLog.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

@@ -35,6 +35,12 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - CocoaLumberjack (3.4.1):
+    - CocoaLumberjack/Default (= 3.4.1)
+    - CocoaLumberjack/Extensions (= 3.4.1)
+  - CocoaLumberjack/Default (3.4.1)
+  - CocoaLumberjack/Extensions (3.4.1):
+    - CocoaLumberjack/Default
   - FMDB (2.7.2):
     - FMDB/standard (= 2.7.2)
   - FMDB/standard (2.7.2)
@@ -122,6 +128,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
   - BlocksKit (~> 2.2.5)
+  - CocoaLumberjack (~> 3.4.1)
   - FMDB (~> 2.7.2)
   - iCarousel (~> 1.8.3)
   - M13ProgressSuite (~> 1.2.8)
@@ -136,6 +143,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CocoaLumberjack: 2e258a064cacc8eb9a2aca318e24d02a0a7fd56d
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   M13ProgressSuite: ea9f7263e73e9215e6849dfa54e29ee0ad6a145c
@@ -147,6 +155,6 @@ SPEC CHECKSUMS:
   RunTrace: 4daf5c37b5d8dc0afdb7767eee7c34e1d7794336
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
 
-PODFILE CHECKSUM: 786610e6fadb4128c8d764bee926957de35a182f
+PODFILE CHECKSUM: 9f51381a1bd37c688b9b2b8c5ad0b2df5f908be1
 
 COCOAPODS: 1.4.0
