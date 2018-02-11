@@ -39,8 +39,8 @@ typedef enum : NSUInteger {
 @protocol MMHTTPRequest <NSObject, MMRequest>
 
 @required
+@property (nonatomic, strong, readonly) NSString *urlString;
 @property (nonatomic, strong, readonly) NSMutableURLRequest *urlRequest;
-@property (nonatomic, strong) NSString *urlString;    ///<
 
 @optional
 @property (nonatomic, strong) NSString *userAgent;
@@ -73,10 +73,8 @@ typedef enum : NSUInteger {
 @end
 
 @interface MMHTTPRequest : MMRequest <MMHTTPRequest>
-
-@property (nonatomic, strong) NSString *urlString;    ///<
+@property (nonatomic, strong, readonly) NSString *urlString;
 @property (nonatomic, strong, readonly) NSMutableURLRequest *urlRequest;
-
 @end
 
 @interface MMSocketRequest : MMRequest <MMSocketRequest>

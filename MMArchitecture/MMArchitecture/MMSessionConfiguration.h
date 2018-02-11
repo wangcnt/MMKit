@@ -21,13 +21,15 @@
 @end
 
 @protocol MMHTTPSessionConfiguration <NSObject, MMSessionConfiguration>
+@required
+@property (nonatomic, strong) NSString *urlString;
 @optional
 @property (nonatomic, strong) NSString *userAgent;
 @property (nonatomic, strong) NSString *token;
 @end
 
 @protocol MMSocketSessionConfiguration <NSObject, MMSessionConfiguration>
-
+@property (nonatomic, strong) NSString *urlString;    ///<
 @required
 
 @property (nonatomic, strong) Class<MMConnection> connectionClass;
@@ -48,6 +50,7 @@
 @end
 
 @interface MMHTTPSessionConfiguration : MMSessionConfiguration <MMHTTPSessionConfiguration>
+@property (nonatomic, strong) NSString *urlString;
 @property (nonatomic, strong) NSString *userAgent;
 @property (nonatomic, strong) NSString *token;
 @end

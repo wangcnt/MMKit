@@ -10,7 +10,7 @@
                                  ↓
                           MMServiceCenter
                                  ↓
-                             MMService (Single/Shared)
+                             MMService (Single/Shared/Global)
                                  |
           MMSessionConfiguration |
                                  |

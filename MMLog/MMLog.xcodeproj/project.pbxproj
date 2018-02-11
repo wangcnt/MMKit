@@ -34,6 +34,7 @@
 		4D24AA8D202F81B5006777FF /* MMLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLogFormatter.m; sourceTree = "<group>"; };
 		4D24AA8E202F81B6006777FF /* MMLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLogManager.h; sourceTree = "<group>"; };
 		4D24AA8F202F81B6006777FF /* MMLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLogFormatter.h; sourceTree = "<group>"; };
+		4D24AA9620306702006777FF /* MMLogDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMLogDefines.h; sourceTree = "<group>"; };
 		4D91DB44201628C900DEB9A0 /* MMLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D91DB47201628C900DEB9A0 /* MMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMLog.h; sourceTree = "<group>"; };
 		4D91DB48201628C900DEB9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 				4D24AA8D202F81B5006777FF /* MMLogFormatter.m */,
 				4D24AA8E202F81B6006777FF /* MMLogManager.h */,
 				4D24AA8C202F81B5006777FF /* MMLogManager.m */,
+				4D24AA9620306702006777FF /* MMLogDefines.h */,
 				4D91DB47201628C900DEB9A0 /* MMLog.h */,
 				4D91DB48201628C900DEB9A0 /* Info.plist */,
 			);

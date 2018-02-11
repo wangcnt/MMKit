@@ -34,7 +34,9 @@ typedef enum : NSUInteger {
 @end
 
 @implementation MMConnection
+@end
 
+@implementation MMHTTPConnection
 @end
 
 @interface MMSocketConnection ()

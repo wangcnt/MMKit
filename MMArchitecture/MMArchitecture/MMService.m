@@ -13,6 +13,7 @@
 #import "MMResponse.h"
 #import "MMSessionConfiguration.h"
 #import "MMSessionManager.h"
+#import "MMServiceCenter.h"
 
 @interface MMService () {
 }
@@ -25,22 +26,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _serialQueue = [[MMOperationQueue alloc] init];
-        _serialQueue.maxConcurrentOperationCount = 1;
-        _serialQueue.qualityOfService = NSQualityOfServiceUserInteractive;
-        
-        _highQueue = [[MMOperationQueue alloc] init];
-        _highQueue.maxConcurrentOperationCount = 3;
-        _highQueue.qualityOfService = NSQualityOfServiceUserInteractive;
-        
-        _defaultQueue = [[MMOperationQueue alloc] init];
-        _defaultQueue.maxConcurrentOperationCount = 3;
-        _defaultQueue.qualityOfService = NSQualityOfServiceDefault;
-        
-        _backgroundQueue = [[MMOperationQueue alloc] init];
-        _backgroundQueue.maxConcurrentOperationCount = 3;
-        _backgroundQueue.qualityOfService = NSQualityOfServiceBackground;
-        
         dispatch_queue_t task_queue = dispatch_queue_create("gaga", DISPATCH_QUEUE_SERIAL);
         MMHTTPSessionManager *egHTTPSessionManager = [[MMHTTPSessionManager alloc] init];
         _egHTTPConfiguration = [[MMHTTPSessionConfiguration alloc] init];
@@ -48,9 +33,6 @@
         _egHTTPConfiguration.token = @"token.token";
         _egHTTPConfiguration.task_queue = task_queue;
         _egHTTPConfiguration.sessionManager = egHTTPSessionManager;
-        
-        int j = 000  ;
-        j = 000  ;
     }
     return self;
 }
@@ -89,7 +71,7 @@
             completion(weakedOp.error);
         }
     };
-    [_highQueue addOperation:operation];
+    [self.center.highQueue addOperation:operation];
 }
 
 @end

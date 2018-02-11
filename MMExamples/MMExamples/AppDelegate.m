@@ -14,6 +14,38 @@
 #import "DPPerson.h"
 #import "DPPersonProtocol.h"
 
+@interface A : NSObject
++ (instancetype)sharedInstance;
+- (void)print;
+@end
+
+@implementation A
++ (instancetype)sharedInstance {
+    static A *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[A alloc] init];
+    });
+    return instance;
+}
+- (void)print {
+    NSLog(@"A haha");
+}
+@end
+
+@interface B : A
+@end
+
+@implementation B
+- (void)print {
+    NSLog(@"B haha");
+}
+@end
+
+@interface MTUserDefaults : NSUserDefaults
+- (void)print;
+@end
+
 @interface AppDelegate ()
 
 @end
@@ -23,7 +55,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
+    [[B sharedInstance] print];
     [self testMMService];
     
     NSMutableString *string = [[NSMutableString alloc] initWithString:@"aaaaa"];

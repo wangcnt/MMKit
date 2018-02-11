@@ -77,8 +77,8 @@
     
     _response = nil;
     
-    [self presendRequest];
     [self.request prepare];
+    [self presendRequest];
     
     __weak typeof(self) weakedSelf = self;
     dispatch_block_t block = ^ {

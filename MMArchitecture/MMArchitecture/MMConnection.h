@@ -33,7 +33,9 @@ typedef enum : NSUInteger {
 } MMSocketConnectionLoginStatus;
 
 @protocol MMConnection <NSObject>
+@end
 
+@protocol MMHTTPConnection <NSObject, MMConnection>
 @end
 
 @protocol MMSocketConnection <NSObject, MMConnection>
@@ -68,7 +70,9 @@ typedef enum : NSUInteger {
 
 
 @interface MMConnection : NSObject
+@end
 
+@interface MMHTTPConnection : MMConnection <MMHTTPConnection>
 @end
 
 @interface MMSocketConnection : MMConnection <MMSocketConnection>

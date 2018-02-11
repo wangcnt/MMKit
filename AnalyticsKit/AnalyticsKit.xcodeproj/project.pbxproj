@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D24AAD820307263006777FF /* AnalyticsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AACE20307263006777FF /* AnalyticsKit.framework */; };
+		4D24AADD20307263006777FF /* AnalyticsKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AADC20307263006777FF /* AnalyticsKitTests.m */; };
+		4D24AADF20307263006777FF /* AnalyticsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AAD120307263006777FF /* AnalyticsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D24AAEA20307276006777FF /* AKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AAE820307276006777FF /* AKEvent.h */; };
+		4D24AAEB20307276006777FF /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AAE920307276006777FF /* AKEvent.m */; };
+		4D24AAEC20307276006777FF /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AAE920307276006777FF /* AKEvent.m */; };
+		4D24AAEE203072D3006777FF /* MMArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AAF0203072D3006777FF /* MMArchitecture.framework */; };
+		4D24AAEF203072D3006777FF /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AAF1203072D3006777FF /* MMFoundation.framework */; };
+		4D24AAF420307302006777FF /* AKEventManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AAF220307302006777FF /* AKEventManager.h */; };
+		4D24AAF520307302006777FF /* AKEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AAF320307302006777FF /* AKEventManager.m */; };
+		4D24AAF620307302006777FF /* AKEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AAF320307302006777FF /* AKEventManager.m */; };
+		4D24AB5220308528006777FF /* AKHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4420308526006777FF /* AKHTTPResponse.m */; };
+		4D24AB5320308528006777FF /* AKHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4420308526006777FF /* AKHTTPResponse.m */; };
+		4D24AB5420308528006777FF /* AKHTTPOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB4520308526006777FF /* AKHTTPOperation.h */; };
+		4D24AB5520308528006777FF /* AKHTTPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB4620308526006777FF /* AKHTTPConnection.h */; };
+		4D24AB5620308528006777FF /* AKHTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4720308526006777FF /* AKHTTPOperation.m */; };
+		4D24AB5720308528006777FF /* AKHTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4720308526006777FF /* AKHTTPOperation.m */; };
+		4D24AB5820308528006777FF /* AKHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4820308527006777FF /* AKHTTPRequest.m */; };
+		4D24AB5920308528006777FF /* AKHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4820308527006777FF /* AKHTTPRequest.m */; };
+		4D24AB5A20308528006777FF /* AKHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB4920308527006777FF /* AKHTTPRequest.h */; };
+		4D24AB5B20308528006777FF /* AKHTTPResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB4A20308527006777FF /* AKHTTPResponse.h */; };
+		4D24AB5C20308528006777FF /* AKHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB4B20308527006777FF /* AKHTTPSessionManager.h */; };
+		4D24AB5D20308528006777FF /* AKHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4C20308527006777FF /* AKHTTPConnection.m */; };
+		4D24AB5E20308528006777FF /* AKHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4C20308527006777FF /* AKHTTPConnection.m */; };
+		4D24AB5F20308528006777FF /* AKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB4D20308527006777FF /* AKService.h */; };
+		4D24AB6020308528006777FF /* AKHTTPSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4E20308527006777FF /* AKHTTPSessionConfiguration.m */; };
+		4D24AB6120308528006777FF /* AKHTTPSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4E20308527006777FF /* AKHTTPSessionConfiguration.m */; };
+		4D24AB6220308528006777FF /* AKHTTPSessionConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB4F20308527006777FF /* AKHTTPSessionConfiguration.h */; };
+		4D24AB6320308528006777FF /* AKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB5020308528006777FF /* AKService.m */; };
+		4D24AB6420308528006777FF /* AKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB5020308528006777FF /* AKService.m */; };
+		4D24AB6520308528006777FF /* AKHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB5120308528006777FF /* AKHTTPSessionManager.m */; };
+		4D24AB6620308528006777FF /* AKHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB5120308528006777FF /* AKHTTPSessionManager.m */; };
+		4D24AB6B20308547006777FF /* AKUploadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB6920308547006777FF /* AKUploadOperation.h */; };
+		4D24AB6C20308547006777FF /* AKUploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB6A20308547006777FF /* AKUploadOperation.m */; };
+		4D24AB6D20308547006777FF /* AKUploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB6A20308547006777FF /* AKUploadOperation.m */; };
+		4D24AB7220308551006777FF /* AKUploadRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB6E20308551006777FF /* AKUploadRequest.h */; };
+		4D24AB7320308551006777FF /* AKUploadResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB6F20308551006777FF /* AKUploadResponse.m */; };
+		4D24AB7420308551006777FF /* AKUploadResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB6F20308551006777FF /* AKUploadResponse.m */; };
+		4D24AB7520308551006777FF /* AKUploadResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB7020308551006777FF /* AKUploadResponse.h */; };
+		4D24AB7620308551006777FF /* AKUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB7120308551006777FF /* AKUploadRequest.m */; };
+		4D24AB7720308551006777FF /* AKUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB7120308551006777FF /* AKUploadRequest.m */; };
+		4D24AB7F20309C81006777FF /* AKDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB7E20309C81006777FF /* AKDefines.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D24AAD920307263006777FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D24AAC520307263006777FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D24AACD20307263006777FF;
+			remoteInfo = AnalyticsKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4D24AACE20307263006777FF /* AnalyticsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AnalyticsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D24AAD120307263006777FF /* AnalyticsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalyticsKit.h; sourceTree = "<group>"; };
+		4D24AAD220307263006777FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D24AAD720307263006777FF /* AnalyticsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnalyticsKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D24AADC20307263006777FF /* AnalyticsKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalyticsKitTests.m; sourceTree = "<group>"; };
+		4D24AADE20307263006777FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D24AAE820307276006777FF /* AKEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKEvent.h; sourceTree = "<group>"; };
+		4D24AAE920307276006777FF /* AKEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKEvent.m; sourceTree = "<group>"; };
+		4D24AAF0203072D3006777FF /* MMArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D24AAF1203072D3006777FF /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D24AAF220307302006777FF /* AKEventManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKEventManager.h; sourceTree = "<group>"; };
+		4D24AAF320307302006777FF /* AKEventManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKEventManager.m; sourceTree = "<group>"; };
+		4D24AB4420308526006777FF /* AKHTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHTTPResponse.m; sourceTree = "<group>"; };
+		4D24AB4520308526006777FF /* AKHTTPOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHTTPOperation.h; sourceTree = "<group>"; };
+		4D24AB4620308526006777FF /* AKHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHTTPConnection.h; sourceTree = "<group>"; };
+		4D24AB4720308526006777FF /* AKHTTPOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHTTPOperation.m; sourceTree = "<group>"; };
+		4D24AB4820308527006777FF /* AKHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHTTPRequest.m; sourceTree = "<group>"; };
+		4D24AB4920308527006777FF /* AKHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHTTPRequest.h; sourceTree = "<group>"; };
+		4D24AB4A20308527006777FF /* AKHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHTTPResponse.h; sourceTree = "<group>"; };
+		4D24AB4B20308527006777FF /* AKHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHTTPSessionManager.h; sourceTree = "<group>"; };
+		4D24AB4C20308527006777FF /* AKHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHTTPConnection.m; sourceTree = "<group>"; };
+		4D24AB4D20308527006777FF /* AKService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKService.h; sourceTree = "<group>"; };
+		4D24AB4E20308527006777FF /* AKHTTPSessionConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHTTPSessionConfiguration.m; sourceTree = "<group>"; };
+		4D24AB4F20308527006777FF /* AKHTTPSessionConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHTTPSessionConfiguration.h; sourceTree = "<group>"; };
+		4D24AB5020308528006777FF /* AKService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKService.m; sourceTree = "<group>"; };
+		4D24AB5120308528006777FF /* AKHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHTTPSessionManager.m; sourceTree = "<group>"; };
+		4D24AB6920308547006777FF /* AKUploadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKUploadOperation.h; sourceTree = "<group>"; };
+		4D24AB6A20308547006777FF /* AKUploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKUploadOperation.m; sourceTree = "<group>"; };
+		4D24AB6E20308551006777FF /* AKUploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKUploadRequest.h; sourceTree = "<group>"; };
+		4D24AB6F20308551006777FF /* AKUploadResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKUploadResponse.m; sourceTree = "<group>"; };
+		4D24AB7020308551006777FF /* AKUploadResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKUploadResponse.h; sourceTree = "<group>"; };
+		4D24AB7120308551006777FF /* AKUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKUploadRequest.m; sourceTree = "<group>"; };
+		4D24AB7E20309C81006777FF /* AKDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKDefines.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D24AACA20307263006777FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D24AAEE203072D3006777FF /* MMArchitecture.framework in Frameworks */,
+				4D24AAEF203072D3006777FF /* MMFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D24AAD420307263006777FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D24AAD820307263006777FF /* AnalyticsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D24AAC420307263006777FF = {
+			isa = PBXGroup;
+			children = (
+				4D24AAD020307263006777FF /* AnalyticsKit */,
+				4D24AADB20307263006777FF /* AnalyticsKitTests */,
+				4D24AACF20307263006777FF /* Products */,
+				4D24AAED203072D3006777FF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4D24AACF20307263006777FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D24AACE20307263006777FF /* AnalyticsKit.framework */,
+				4D24AAD720307263006777FF /* AnalyticsKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D24AAD020307263006777FF /* AnalyticsKit */ = {
+			isa = PBXGroup;
+			children = (
+				4D24AAF720307E55006777FF /* service */,
+				4D24AAD120307263006777FF /* AnalyticsKit.h */,
+				4D24AAD220307263006777FF /* Info.plist */,
+				4D24AAE820307276006777FF /* AKEvent.h */,
+				4D24AAE920307276006777FF /* AKEvent.m */,
+				4D24AAF220307302006777FF /* AKEventManager.h */,
+				4D24AAF320307302006777FF /* AKEventManager.m */,
+				4D24AB7E20309C81006777FF /* AKDefines.h */,
+			);
+			path = AnalyticsKit;
+			sourceTree = "<group>";
+		};
+		4D24AADB20307263006777FF /* AnalyticsKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				4D24AADC20307263006777FF /* AnalyticsKitTests.m */,
+				4D24AADE20307263006777FF /* Info.plist */,
+			);
+			path = AnalyticsKitTests;
+			sourceTree = "<group>";
+		};
+		4D24AAED203072D3006777FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D24AAF0203072D3006777FF /* MMArchitecture.framework */,
+				4D24AAF1203072D3006777FF /* MMFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D24AAF720307E55006777FF /* service */ = {
+			isa = PBXGroup;
+			children = (
+				4D24AB682030853A006777FF /* protocol */,
+				4D24AB6720308531006777FF /* operation */,
+				4D24AB43203084FE006777FF /* base */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		4D24AB43203084FE006777FF /* base */ = {
+			isa = PBXGroup;
+			children = (
+				4D24AB4620308526006777FF /* AKHTTPConnection.h */,
+				4D24AB4C20308527006777FF /* AKHTTPConnection.m */,
+				4D24AB4520308526006777FF /* AKHTTPOperation.h */,
+				4D24AB4720308526006777FF /* AKHTTPOperation.m */,
+				4D24AB4920308527006777FF /* AKHTTPRequest.h */,
+				4D24AB4820308527006777FF /* AKHTTPRequest.m */,
+				4D24AB4A20308527006777FF /* AKHTTPResponse.h */,
+				4D24AB4420308526006777FF /* AKHTTPResponse.m */,
+				4D24AB4F20308527006777FF /* AKHTTPSessionConfiguration.h */,
+				4D24AB4E20308527006777FF /* AKHTTPSessionConfiguration.m */,
+				4D24AB4B20308527006777FF /* AKHTTPSessionManager.h */,
+				4D24AB5120308528006777FF /* AKHTTPSessionManager.m */,
+				4D24AB4D20308527006777FF /* AKService.h */,
+				4D24AB5020308528006777FF /* AKService.m */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		4D24AB6720308531006777FF /* operation */ = {
+			isa = PBXGroup;
+			children = (
+				4D24AB6920308547006777FF /* AKUploadOperation.h */,
+				4D24AB6A20308547006777FF /* AKUploadOperation.m */,
+			);
+			path = operation;
+			sourceTree = "<group>";
+		};
+		4D24AB682030853A006777FF /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4D24AB6E20308551006777FF /* AKUploadRequest.h */,
+				4D24AB7120308551006777FF /* AKUploadRequest.m */,
+				4D24AB7020308551006777FF /* AKUploadResponse.h */,
+				4D24AB6F20308551006777FF /* AKUploadResponse.m */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4D24AACB20307263006777FF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D24AB5A20308528006777FF /* AKHTTPRequest.h in Headers */,
+				4D24AB7520308551006777FF /* AKUploadResponse.h in Headers */,
+				4D24AB5B20308528006777FF /* AKHTTPResponse.h in Headers */,
+				4D24AB5420308528006777FF /* AKHTTPOperation.h in Headers */,
+				4D24AAF420307302006777FF /* AKEventManager.h in Headers */,
+				4D24AB5520308528006777FF /* AKHTTPConnection.h in Headers */,
+				4D24AB7220308551006777FF /* AKUploadRequest.h in Headers */,
+				4D24AB6B20308547006777FF /* AKUploadOperation.h in Headers */,
+				4D24AB5F20308528006777FF /* AKService.h in Headers */,
+				4D24AADF20307263006777FF /* AnalyticsKit.h in Headers */,
+				4D24AAEA20307276006777FF /* AKEvent.h in Headers */,
+				4D24AB6220308528006777FF /* AKHTTPSessionConfiguration.h in Headers */,
+				4D24AB5C20308528006777FF /* AKHTTPSessionManager.h in Headers */,
+				4D24AB7F20309C81006777FF /* AKDefines.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4D24AACD20307263006777FF /* AnalyticsKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D24AAE220307263006777FF /* Build configuration list for PBXNativeTarget "AnalyticsKit" */;
+			buildPhases = (
+				4D24AAC920307263006777FF /* Sources */,
+				4D24AACA20307263006777FF /* Frameworks */,
+				4D24AACB20307263006777FF /* Headers */,
+				4D24AACC20307263006777FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnalyticsKit;
+			productName = AnalyticsKit;
+			productReference = 4D24AACE20307263006777FF /* AnalyticsKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4D24AAD620307263006777FF /* AnalyticsKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D24AAE520307263006777FF /* Build configuration list for PBXNativeTarget "AnalyticsKitTests" */;
+			buildPhases = (
+				4D24AAD320307263006777FF /* Sources */,
+				4D24AAD420307263006777FF /* Frameworks */,
+				4D24AAD520307263006777FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D24AADA20307263006777FF /* PBXTargetDependency */,
+			);
+			name = AnalyticsKitTests;
+			productName = AnalyticsKitTests;
+			productReference = 4D24AAD720307263006777FF /* AnalyticsKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4D24AAC520307263006777FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = WangQiang;
+				TargetAttributes = {
+					4D24AACD20307263006777FF = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					4D24AAD620307263006777FF = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4D24AAC820307263006777FF /* Build configuration list for PBXProject "AnalyticsKit" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4D24AAC420307263006777FF;
+			productRefGroup = 4D24AACF20307263006777FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D24AACD20307263006777FF /* AnalyticsKit */,
+				4D24AAD620307263006777FF /* AnalyticsKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D24AACC20307263006777FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D24AAD520307263006777FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D24AAC920307263006777FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D24AB6C20308547006777FF /* AKUploadOperation.m in Sources */,
+				4D24AB6520308528006777FF /* AKHTTPSessionManager.m in Sources */,
+				4D24AB7620308551006777FF /* AKUploadRequest.m in Sources */,
+				4D24AB5820308528006777FF /* AKHTTPRequest.m in Sources */,
+				4D24AB7320308551006777FF /* AKUploadResponse.m in Sources */,
+				4D24AAF520307302006777FF /* AKEventManager.m in Sources */,
+				4D24AB5620308528006777FF /* AKHTTPOperation.m in Sources */,
+				4D24AB6320308528006777FF /* AKService.m in Sources */,
+				4D24AAEB20307276006777FF /* AKEvent.m in Sources */,
+				4D24AB6020308528006777FF /* AKHTTPSessionConfiguration.m in Sources */,
+				4D24AB5220308528006777FF /* AKHTTPResponse.m in Sources */,
+				4D24AB5D20308528006777FF /* AKHTTPConnection.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D24AAD320307263006777FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D24AB7720308551006777FF /* AKUploadRequest.m in Sources */,
+				4D24AB6620308528006777FF /* AKHTTPSessionManager.m in Sources */,
+				4D24AB5720308528006777FF /* AKHTTPOperation.m in Sources */,
+				4D24AAEC20307276006777FF /* AKEvent.m in Sources */,
+				4D24AB5E20308528006777FF /* AKHTTPConnection.m in Sources */,
+				4D24AAF620307302006777FF /* AKEventManager.m in Sources */,
+				4D24AB5920308528006777FF /* AKHTTPRequest.m in Sources */,
+				4D24AB5320308528006777FF /* AKHTTPResponse.m in Sources */,
+				4D24AB6D20308547006777FF /* AKUploadOperation.m in Sources */,
+				4D24AADD20307263006777FF /* AnalyticsKitTests.m in Sources */,
+				4D24AB7420308551006777FF /* AKUploadResponse.m in Sources */,
+				4D24AB6120308528006777FF /* AKHTTPSessionConfiguration.m in Sources */,
+				4D24AB6420308528006777FF /* AKService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D24AADA20307263006777FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D24AACD20307263006777FF /* AnalyticsKit */;
+			targetProxy = 4D24AAD920307263006777FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4D24AAE020307263006777FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4D24AAE120307263006777FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4D24AAE320307263006777FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AnalyticsKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.markwong..AnalyticsKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4D24AAE420307263006777FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AnalyticsKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.markwong..AnalyticsKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4D24AAE620307263006777FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AnalyticsKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.markwong..AnalyticsKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4D24AAE720307263006777FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AnalyticsKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.markwong..AnalyticsKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D24AAC820307263006777FF /* Build configuration list for PBXProject "AnalyticsKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D24AAE020307263006777FF /* Debug */,
+				4D24AAE120307263006777FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D24AAE220307263006777FF /* Build configuration list for PBXNativeTarget "AnalyticsKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D24AAE320307263006777FF /* Debug */,
+				4D24AAE420307263006777FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D24AAE520307263006777FF /* Build configuration list for PBXNativeTarget "AnalyticsKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D24AAE620307263006777FF /* Debug */,
+				4D24AAE720307263006777FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4D24AAC520307263006777FF /* Project object */;
+}

@@ -19,7 +19,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
 
 @interface MMLogManager : NSObject
 
-@property(nonatomic,strong)DDFileLogger *fileLogger;
+@property (nonatomic,strong) DDFileLogger *fileLogger;
 
 + (instancetype)sharedInstance;
 
@@ -32,6 +32,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
 - (NSArray*)getLogPath;
 
 /**获取记录的日志文件的内容*/
-- (NSMutableArray *)getLoggerFileContent;
+- (NSMutableArray *)readLogContent;
 
 @end

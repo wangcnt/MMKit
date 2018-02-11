@@ -9,17 +9,23 @@
 #import <Foundation/Foundation.h>
 
 @protocol MMSessionConfiguration;
-@class MMOperationQueue;
+@class MMOperationQueue, MMServiceCenter;
 
-@interface MMService : NSObject
+@protocol MMService <NSObject>
 
-// serial queue
-@property (nonatomic, strong, readonly) MMOperationQueue *serialQueue;
+@required
+@property (nonatomic, weak) MMServiceCenter *center;
 
-// concurrent queue
-@property (nonatomic, strong, readonly) MMOperationQueue *highQueue;
-@property (nonatomic, strong, readonly) MMOperationQueue *defaultQueue;
-@property (nonatomic, strong, readonly) MMOperationQueue *backgroundQueue;
+@optional
+- (void)startService;
+- (void)restartService;
+- (void)stopService;
+
+@end
+
+@interface MMService : NSObject <MMService>
+
+@property (nonatomic, weak) MMServiceCenter *center;
 
 - (void)startService;
 - (void)restartService;

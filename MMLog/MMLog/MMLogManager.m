@@ -40,8 +40,8 @@
     MMLogFormatter *logFormatter = [[MMLogFormatter alloc] init];
     
     //1.发送日志语句到苹果的日志系统，它们显示在Console.app上
-//    [[DDASLLogger sharedInstance] setLogFormatter:logFormatter];
-//    [DDLog addLogger:[DDASLLogger sharedInstance]];//
+    //    [[DDASLLogger sharedInstance] setLogFormatter:logFormatter];
+    //    [DDLog addLogger:[DDASLLogger sharedInstance]];//
     
     //2.把输出日志写到文件中
 #if RELEASE
@@ -62,12 +62,12 @@
 #endif
     
     //4.添加数据库输出
-//    DDAbstractLogger *dateBaseLogger = [[DDAbstractLogger alloc] init];
-//    [dateBaseLogger setLogFormatter:logFormatter];
-//    [DDLog addLogger:dateBaseLogger];
+    //    DDAbstractLogger *dateBaseLogger = [[DDAbstractLogger alloc] init];
+    //    [dateBaseLogger setLogFormatter:logFormatter];
+    //    [DDLog addLogger:dateBaseLogger];
 }
 /*获得系统日志的路径**/
--(NSArray*)getLogPath
+- (NSArray *)getLogPath
 {
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString * logPath = [docPath stringByAppendingPathComponent:@"Caches"];
@@ -77,8 +77,7 @@
     NSArray * fileList = [[NSArray alloc]init];
     fileList = [fileManger contentsOfDirectoryAtPath:logPath error:&error];
     NSMutableArray * listArray = [[NSMutableArray alloc]init];
-    for (NSString * oneLogPath in fileList)
-    {
+    for(NSString * oneLogPath in fileList) {
         //带有工程名前缀的路径才是我们自己存储的日志路径
         if([oneLogPath hasPrefix:[NSBundle mainBundle].bundleIdentifier])
         {
@@ -89,17 +88,18 @@
     return listArray;
 }
 /**获取记录的日志文件的内容*/
--(NSMutableArray *)getLoggerFileContent
-{
-    NSMutableArray *contentArr = [[NSMutableArray alloc] initWithCapacity:0];
-    for (int i = 0; i < [[self getLogPath] count]; i++)
-    {
-        NSString *path = [self getLogPath][i];
-        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-        NSString *content = [[NSString alloc] initWithData:data
-                                                  encoding:NSUTF8StringEncoding];
-        [contentArr addObject:content];
+- (NSMutableArray *)readLogContent {
+    NSMutableArray *contentArray = [[NSMutableArray alloc] initWithCapacity:0];
+    NSArray *paths = [self getLogPath];
+    NSString *path = nil;
+    NSData *data = nil;
+    NSString *content = nil;
+    for (int i = 0; i < paths.count; i++) {
+        path = paths[i];
+        data = [[NSData alloc] initWithContentsOfFile:path];
+        content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        [contentArray addObject:content];
     }
-    return contentArr;
+    return contentArray;
 }
 @end

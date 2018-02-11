@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D24AB7A20308971006777FF /* MMServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB7820308971006777FF /* MMServiceCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D24AB7B20308971006777FF /* MMServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB7920308971006777FF /* MMServiceCenter.m */; };
 		4D669FEF202894360013B3A4 /* MMArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D669FE5202894360013B3A4 /* MMArchitecture.framework */; };
 		4D669FF4202894360013B3A4 /* MMArchitectureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D669FF3202894360013B3A4 /* MMArchitectureTests.m */; };
 		4D669FF6202894360013B3A4 /* MMArchitecture.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D669FE8202894360013B3A4 /* MMArchitecture.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D24AB7820308971006777FF /* MMServiceCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMServiceCenter.h; sourceTree = "<group>"; };
+		4D24AB7920308971006777FF /* MMServiceCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMServiceCenter.m; sourceTree = "<group>"; };
 		4D669FE5202894360013B3A4 /* MMArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D669FE8202894360013B3A4 /* MMArchitecture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMArchitecture.h; sourceTree = "<group>"; };
 		4D669FE9202894360013B3A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,22 +127,24 @@
 				4D66A02B202895060013B3A4 /* mmarchitecture.readme */,
 				4D669FE8202894360013B3A4 /* MMArchitecture.h */,
 				4D66A01F202895040013B3A4 /* MMArchitectureConstants.h */,
-				4D66A01B202895030013B3A4 /* MMConnection.h */,
-				4D66A01A202895030013B3A4 /* MMConnection.m */,
-				4D66A026202895050013B3A4 /* MMOperation.h */,
-				4D66A023202895050013B3A4 /* MMOperation.m */,
-				4D66A020202895040013B3A4 /* MMOperationQueue.h */,
-				4D66A024202895050013B3A4 /* MMOperationQueue.m */,
-				4D66A02D202895070013B3A4 /* MMRequest.h */,
-				4D66A028202895050013B3A4 /* MMRequest.m */,
-				4D66A022202895040013B3A4 /* MMResponse.h */,
-				4D66A029202895060013B3A4 /* MMResponse.m */,
+				4D24AB7820308971006777FF /* MMServiceCenter.h */,
+				4D24AB7920308971006777FF /* MMServiceCenter.m */,
 				4D66A025202895050013B3A4 /* MMService.h */,
 				4D66A01C202895030013B3A4 /* MMService.m */,
+				4D66A020202895040013B3A4 /* MMOperationQueue.h */,
+				4D66A024202895050013B3A4 /* MMOperationQueue.m */,
+				4D66A026202895050013B3A4 /* MMOperation.h */,
+				4D66A023202895050013B3A4 /* MMOperation.m */,
 				4D66A01D202895040013B3A4 /* MMSessionConfiguration.h */,
 				4D66A021202895040013B3A4 /* MMSessionConfiguration.m */,
+				4D66A02D202895070013B3A4 /* MMRequest.h */,
+				4D66A028202895050013B3A4 /* MMRequest.m */,
 				4D66A027202895050013B3A4 /* MMSessionManager.h */,
 				4D66A01E202895040013B3A4 /* MMSessionManager.m */,
+				4D66A01B202895030013B3A4 /* MMConnection.h */,
+				4D66A01A202895030013B3A4 /* MMConnection.m */,
+				4D66A022202895040013B3A4 /* MMResponse.h */,
+				4D66A029202895060013B3A4 /* MMResponse.m */,
 				4D669FE9202894360013B3A4 /* Info.plist */,
 			);
 			path = MMArchitecture;
@@ -176,6 +182,7 @@
 				4D66A037202895070013B3A4 /* MMOperationQueue.h in Headers */,
 				4D669FF6202894360013B3A4 /* MMArchitecture.h in Headers */,
 				4D66A040202895070013B3A4 /* MMOperation.h in Headers */,
+				4D24AB7A20308971006777FF /* MMServiceCenter.h in Headers */,
 				4D66A033202895070013B3A4 /* MMSessionConfiguration.h in Headers */,
 				4D66A036202895070013B3A4 /* MMArchitectureConstants.h in Headers */,
 			);
@@ -286,6 +293,7 @@
 				4D66A02E202895070013B3A4 /* MMConnection.m in Sources */,
 				4D66A03D202895070013B3A4 /* MMOperationQueue.m in Sources */,
 				4D66A038202895070013B3A4 /* MMSessionConfiguration.m in Sources */,
+				4D24AB7B20308971006777FF /* MMServiceCenter.m in Sources */,
 				4D66A03B202895070013B3A4 /* MMOperation.m in Sources */,
 				4D66A031202895070013B3A4 /* MMService.m in Sources */,
 				4D66A034202895070013B3A4 /* MMSessionManager.m in Sources */,

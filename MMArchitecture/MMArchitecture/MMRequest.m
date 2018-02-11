@@ -37,8 +37,10 @@
 @synthesize urlRequest = _urlRequest;
 
 - (NSMutableURLRequest *)urlRequest {
+    id<MMHTTPSessionConfiguration> configuration = (id<MMHTTPSessionConfiguration>)self.configuration;
+    if(!configuration.urlString.length) return nil;
     if(!_urlRequest) {
-        _urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:self.urlString]];
+        _urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:configuration.urlString]];
     }
     return _urlRequest;
 }
@@ -48,6 +50,15 @@
         return;
     }
     super.configuration = configuration;
+}
+
+- (NSString *)urlString {
+    NSString *urlString = nil;
+    id<MMHTTPSessionConfiguration> configuration = (id<MMHTTPSessionConfiguration>)self.configuration;
+    if(configuration) {
+        urlString = configuration.urlString;
+    }
+    return urlString;
 }
 
 - (NSString *)userAgent {
