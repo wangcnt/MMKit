@@ -2,7 +2,7 @@
 //  UINavigationItemAdditions.h
 //  QTTime
 //
-//  Created by WangQiang on 15/5/26.
+//  Created by Mark on 15/5/26.
 //  Copyright (c) 2015年 Mark. All rights reserved.
 //
 

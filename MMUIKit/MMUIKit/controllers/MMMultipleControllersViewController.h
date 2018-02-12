@@ -2,7 +2,7 @@
 //  MMMultiSubcontrollersViewController.h
 //  MMUIKit
 //
-//  Created by WangQiang on 16/3/17.
+//  Created by Mark on 16/3/17.
 //  Copyright © 2016年 Mark. All rights reserved.
 //
 
