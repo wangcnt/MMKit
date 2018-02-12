@@ -267,7 +267,7 @@
 
 - (void)remainAfterString:(NSString *)string {
     NSRange range = [self rangeOfString:string];
-    if(range.length == string.length) {
+    if(range.length) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wformat"
         NSString *rangeString = [[NSString alloc] initWithFormat:@"{location=0,length=%zd}", range.length+range.location];
@@ -278,7 +278,7 @@
 
 - (void)remainBeforeString:(NSString *)string {
     NSRange range = [self rangeOfString:string];
-    if(range.length == string.length) {
+    if(range.length) {
         [self deleteCharactersFromIndex:range.location];
     }
 }
@@ -296,7 +296,7 @@
 
 - (void)remainToString:(NSString *)string {
     NSRange range = [self rangeOfString:string];
-    if(range.length == string.length) {
+    if(range.length) {
         [self deleteCharactersFromIndex:range.location+range.length];
     }
 }

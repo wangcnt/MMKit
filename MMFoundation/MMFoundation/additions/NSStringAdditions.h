@@ -46,10 +46,10 @@
 - (void)deleteOccurrencesOfString:(NSString *)string;
 
 //!!!:
-- (void)deleteBeforeString:(NSString *)string;
-- (void)deleteAfterString:(NSString *)string;
-- (void)deleteFromString:(NSString *)string;
-- (void)deleteToString:(NSString *)string;
+- (void)deleteBeforeString:(NSString *)string;  ///< aaabaa:ba -> baa
+- (void)deleteAfterString:(NSString *)string;  ///< aaabaa:ba -> aaaba
+- (void)deleteFromString:(NSString *)string;  ///< aaabaa:ba -> aaa
+- (void)deleteToString:(NSString *)string;  ///< aaabaa:ba -> a
 
 //!!!:
 - (void)remainAfterString:(NSString *)string;
