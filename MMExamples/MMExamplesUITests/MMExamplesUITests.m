@@ -2,8 +2,8 @@
 //  MMExamplesUITests.m
 //  MMExamplesUITests
 //
-//  Created by WangQiang on 2018/1/30.
-//  Copyright © 2018年 WangQiang. All rights reserved.
+//  Created by Mark on 2018/1/30.
+//  Copyright © 2018年 Mark. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

@@ -2,8 +2,8 @@
 //  SecondViewController.m
 //  MMSamples
 //
-//  Created by WangQiang on 15/12/27.
-//  Copyright © 2015年 WangQiang. All rights reserved.
+//  Created by Mark on 15/12/27.
+//  Copyright © 2015年 Mark. All rights reserved.
 //
 
 #import "SecondViewController.h"

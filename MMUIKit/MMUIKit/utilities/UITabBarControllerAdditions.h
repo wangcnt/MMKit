@@ -2,7 +2,7 @@
 //  UITabBarControllerAdditions.h
 //  QTime
 //
-//  Created by WangQiang on 15/6/28.
+//  Created by Mark on 15/6/28.
 //  Copyright (c) 2015年 Mark. All rights reserved.
 //
 

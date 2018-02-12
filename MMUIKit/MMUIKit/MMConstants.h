@@ -2,7 +2,7 @@
 //  WQConstants.h
 //  LocalNotifier
 //
-//  Created by WangQiang on 14/11/23.
+//  Created by Mark on 14/11/23.
 //  Copyright (c) 2014年 Mark Wong. All rights reserved.
 //
 
