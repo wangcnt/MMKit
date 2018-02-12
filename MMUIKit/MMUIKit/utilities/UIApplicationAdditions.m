@@ -59,7 +59,9 @@
             appName = @"";
         }
     });
-    return appName;
+    NSMutableArray *components = [NSMutableArray arrayWithArray:[_appName componentsSeparatedByString:@"."]];
+    [components removeObject:@""];
+    return [components componentsJoinedByString:@"."];
 }
 
 @end

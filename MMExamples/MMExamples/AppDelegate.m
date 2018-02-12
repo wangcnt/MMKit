@@ -61,8 +61,8 @@
 //    [[B sharedInstance] print];
 //    [self testMMService];
 //
-//    NSMutableString *string = [[NSMutableString alloc] initWithString:@"aaaba"];
-//    [string deleteCharactersInRange:NSMakeRange(0, 2)];
+//    NSMutableString *string = [[NSMutableString alloc] initWithString:@"aaabaa"];
+//    [string deleteToString:@"ba"];
 //    NSLog(@"string-->%@", string);
     
     [self testDDLog];
@@ -76,12 +76,12 @@
 }
 
 - (void)testDDLog {
-//    [[MMLogManager sharedInstance] config];
-//    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self  selector:@selector(writeLogMessages:) userInfo:nil repeats:YES];
+    [[MMLogManager sharedInstance] config];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self  selector:@selector(writeLogMessages:) userInfo:nil repeats:YES];
 }
 
 - (void)writeLogMessages:(NSTimer *)aTimer {
-//    DDLogVerbose(@"I like cheese");
+    MMLogInfo(@"I like cheese");
 }
 
 - (void)testDynamicProxy {

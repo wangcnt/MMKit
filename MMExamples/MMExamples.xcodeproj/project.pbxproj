@@ -66,7 +66,6 @@
 		4D8EB084201F8E4F00392C16 /* MMExamplesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMExamplesUITests.m; sourceTree = "<group>"; };
 		4D8EB086201F8E4F00392C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D8EB094201F8E5C00392C16 /* MMCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D8EB102201F933D00392C16 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8EB107202379A700392C16 /* DPPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPPerson.h; sourceTree = "<group>"; };
 		4D8EB108202379A700392C16 /* DPPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPPerson.m; sourceTree = "<group>"; };
 		4D8EB10C20237A2500392C16 /* DPPersonProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPPersonProtocol.h; sourceTree = "<group>"; };
@@ -167,7 +166,6 @@
 				4D9EE5182031EBDE0030946B /* MMLog.framework */,
 				4D7C0F42202F01C9008C6CE0 /* MMFoundation.framework */,
 				4D66A04C202899A80013B3A4 /* MMArchitecture.framework */,
-				4D8EB102201F933D00392C16 /* MMCoreServices.framework */,
 				4D8EB094201F8E5C00392C16 /* MMCore.framework */,
 			);
 			name = Frameworks;

@@ -11,12 +11,7 @@
 #import "MMLogFormatter.h"
 #import "DDLog.h"
 #import "DDTTYLogger.h"
-
-#if DEBUG
-static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
-#else
-static const DDLogLevel ddLogLevel = DDLogLevelError;
-#endif
+#import "MMLogDefines.h"
 
 @implementation MMLogManager
 
@@ -34,7 +29,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
     if (self) {
         MMCompressedLogFileManager *logFileManager = [[MMCompressedLogFileManager alloc] init];
         _fileLogger = [[DDFileLogger alloc] initWithLogFileManager:logFileManager];
-        _fileLogger.maximumFileSize = 1024 *1024 *2;
+        _fileLogger.maximumFileSize = 1024 * 1;//1024 *2;
         _fileLogger.rollingFrequency = 60 *60 *24; // 24 hour rolling
         _fileLogger.logFileManager.maximumNumberOfLogFiles = 3;
     }

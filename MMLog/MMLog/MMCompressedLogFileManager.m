@@ -90,7 +90,7 @@
         return;
     }
     
-    NSLogVerbose(@"CompressingLogFileManager: compressNextLogFile");
+    NSLogVerbose(@"Logger: compressNextLogFile");
     
     upToDate = NO;
     
@@ -124,7 +124,7 @@
 
 - (void)compressionDidSucceed:(DDLogFileInfo *)logFile
 {
-    NSLogVerbose(@"CompressingLogFileManager: compressionDidSucceed: %@", logFile.fileName);
+    NSLogVerbose(@"Logger: compressionDidSucceed: %@", logFile.fileName);
     
     self.isCompressing = NO;
     
@@ -133,7 +133,7 @@
 
 - (void)compressionDidFail:(DDLogFileInfo *)logFile
 {
-    NSLogWarn(@"CompressingLogFileManager: compressionDidFail: %@", logFile.fileName);
+    NSLogWarn(@"Logger: compressionDidFail: %@", logFile.fileName);
     
     self.isCompressing = NO;
     
@@ -172,13 +172,14 @@
             _appName = @"";
         }
     });
-    
-    return _appName;
+    NSMutableArray *components = [NSMutableArray arrayWithArray:[_appName componentsSeparatedByString:@"."]];
+    [components removeObject:@""];
+    return [components componentsJoinedByString:@"."];
 }
 
 - (void)didArchiveLogFile:(NSString *)logFilePath
 {
-    NSLogVerbose(@"CompressingLogFileManager: didArchiveLogFile: %@", [logFilePath lastPathComponent]);
+    NSLogVerbose(@"Logger: didArchiveLogFile: %@", [logFilePath lastPathComponent]);
     
     // If all other log files have been compressed,
     // then we can get started right away.
@@ -192,7 +193,7 @@
 
 - (void)didRollAndArchiveLogFile:(NSString *)logFilePath
 {
-    NSLogVerbose(@"CompressingLogFileManager: didRollAndArchiveLogFile: %@", [logFilePath lastPathComponent]);
+    NSLogVerbose(@"Logger: didRollAndArchiveLogFile: %@", [logFilePath lastPathComponent]);
     
     // If all other log files have been compressed,
     // then we can get started right away.
@@ -208,7 +209,7 @@
 {
     @autoreleasepool {
     
-    NSLogInfo(@"CompressingLogFileManager: Compressing log file: %@", logFile.fileName);
+    NSLogInfo(@"Logger: Compressing log file: %@", logFile.fileName);
     
     // Steps:
     //  1. Create a new file with the same fileName, but added "gzip" extension
@@ -328,7 +329,7 @@
             break;
         }
         
-        NSLogVerbose(@"CompressingLogFileManager: Read %li bytes from file", (long)readLength);
+        NSLogVerbose(@"Logger: Read %li bytes from file", (long)readLength);
         
         inputDataSize += readLength;
         
@@ -359,9 +360,9 @@
         NSInteger inputProcessed = strm.total_in - prevTotalIn;
         NSInteger outputProcessed = strm.total_out - prevTotalOut;
         
-        NSLogVerbose(@"CompressingLogFileManager: Total bytes uncompressed: %lu", (unsigned long)strm.total_in);
-        NSLogVerbose(@"CompressingLogFileManager: Total bytes compressed: %lu", (unsigned long)strm.total_out);
-        NSLogVerbose(@"CompressingLogFileManager: Compression ratio: %.1f%%",
+        NSLogVerbose(@"Logger: Total bytes uncompressed: %lu", (unsigned long)strm.total_in);
+        NSLogVerbose(@"Logger: Total bytes compressed: %lu", (unsigned long)strm.total_out);
+        NSLogVerbose(@"Logger: Compression ratio: %.1f%%",
                      (1.0F - (float)(strm.total_out) / (float)(strm.total_in)) * 100);
         
         // STEP 7
