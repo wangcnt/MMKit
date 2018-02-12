@@ -24,6 +24,7 @@
 		4D8EB10F20237B1500392C16 /* DPPersonProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB10E20237B1500392C16 /* DPPersonProxy.m */; };
 		4D8EB11020237B1500392C16 /* DPPersonProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB10E20237B1500392C16 /* DPPersonProxy.m */; };
 		4D8EB11120237B1500392C16 /* DPPersonProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB10E20237B1500392C16 /* DPPersonProxy.m */; };
+		4D9EE49A2031CB600030946B /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9EE49B2031CB600030946B /* MMLog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		4D8EB10C20237A2500392C16 /* DPPersonProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPPersonProtocol.h; sourceTree = "<group>"; };
 		4D8EB10D20237B1500392C16 /* DPPersonProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPPersonProxy.h; sourceTree = "<group>"; };
 		4D8EB10E20237B1500392C16 /* DPPersonProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPPersonProxy.m; sourceTree = "<group>"; };
+		4D9EE49B2031CB600030946B /* MMLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9EE49A2031CB600030946B /* MMLog.framework in Frameworks */,
 				4D7C0F41202F01C9008C6CE0 /* MMFoundation.framework in Frameworks */,
 				4D66A04B202899A80013B3A4 /* MMArchitecture.framework in Frameworks */,
 			);
@@ -161,6 +164,7 @@
 		4D8EB092201F8E5C00392C16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D9EE49B2031CB600030946B /* MMLog.framework */,
 				4D7C0F42202F01C9008C6CE0 /* MMFoundation.framework */,
 				4D66A04C202899A80013B3A4 /* MMArchitecture.framework */,
 				4D8EB102201F933D00392C16 /* MMCoreServices.framework */,

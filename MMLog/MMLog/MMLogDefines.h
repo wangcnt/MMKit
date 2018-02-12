@@ -10,7 +10,6 @@
 #define MMLogDefines_h
 
 #import <Foundation/Foundation.h>
-#import "CocoaLumberjack.h"
 
 
 

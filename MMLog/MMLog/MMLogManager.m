@@ -25,8 +25,8 @@
     if (self) {
         MMCompressedLogFileManager *logFileManager = [[MMCompressedLogFileManager alloc] init];
         _fileLogger = [[DDFileLogger alloc] initWithLogFileManager:logFileManager];
-        _fileLogger.maximumFileSize = 1024 * 1024 * 2;
-        _fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+        _fileLogger.maximumFileSize = 1024 *1024 *2;
+        _fileLogger.rollingFrequency = 60 *60 *24; // 24 hour rolling
         _fileLogger.logFileManager.maximumNumberOfLogFiles = 3;
     }
     return self;
@@ -43,7 +43,7 @@
     //2. 把输出日志写到文件中
 //#if RELEASE
     _fileLogger.logFormatter = logFormatter;
-    [DDLog addLogger:_fileLogger withLevel:DDLogLevelError];//错误的写到文件中
+    [DDLog addLogger:_fileLogger withLevel:DDLogLevelInfo];//错误的写到文件中
 //#endif
     
 #if DEBUG
@@ -62,30 +62,29 @@
     //    [dateBaseLogger setLogFormatter:logFormatter];
     //    [DDLog addLogger:dateBaseLogger];
 }
-/*获得系统日志的路径**/
-- (NSArray *)getLogPath {
+
+- (NSArray *)getLogPaths {
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString * logPath = [docPath stringByAppendingPathComponent:@"Caches"];
+    NSString *logPath = [docPath stringByAppendingPathComponent:@"Caches"];
     logPath = [logPath stringByAppendingPathComponent:@"Logs"];
-    NSFileManager * fileManger = [NSFileManager defaultManager];
-    NSError * error = nil;
-    NSArray * fileList = [[NSArray alloc]init];
+    NSFileManager *fileManger = [NSFileManager defaultManager];
+    NSError *error = nil;
+    NSArray *fileList = [[NSArray alloc]init];
     fileList = [fileManger contentsOfDirectoryAtPath:logPath error:&error];
-    NSMutableArray * listArray = [[NSMutableArray alloc]init];
-    for(NSString * oneLogPath in fileList) {
+    NSMutableArray *listArray = [[NSMutableArray alloc]init];
+    for(NSString *oneLogPath in fileList) {
         //带有工程名前缀的路径才是我们自己存储的日志路径
-        if([oneLogPath hasPrefix:[NSBundle mainBundle].bundleIdentifier])
-        {
-            NSString * truePath = [logPath stringByAppendingPathComponent:oneLogPath];
+        if([oneLogPath hasPrefix:[NSBundle mainBundle].bundleIdentifier]) {
+            NSString *truePath = [logPath stringByAppendingPathComponent:oneLogPath];
             [listArray addObject:truePath];
         }
     }
     return listArray;
 }
-/**获取记录的日志文件的内容*/
+
 - (NSMutableArray *)readLogContent {
     NSMutableArray *contentArray = [[NSMutableArray alloc] initWithCapacity:0];
-    NSArray *paths = [self getLogPath];
+    NSArray *paths = [self getLogPaths];
     NSString *path = nil;
     NSData *data = nil;
     NSString *content = nil;

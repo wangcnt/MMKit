@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "CocoaLumberjack.h"
 #import "MMLogFormatter.h"
-#import "DDLegacyMacros.h"
 
 #if DEBUG
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
@@ -23,15 +22,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
 
 + (instancetype)sharedInstance;
 
-
-/**配置日志信息*/
 - (void)config;
 
-
-/**获得系统日志的路径*/
-- (NSArray*)getLogPath;
-
-/**获取记录的日志文件的内容*/
+- (NSArray*)getLogPaths;
 - (NSMutableArray *)readLogContent;
 
 @end

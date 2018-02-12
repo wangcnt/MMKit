@@ -11,7 +11,7 @@
 		4D24AA91202F81B6006777FF /* MMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA8C202F81B5006777FF /* MMLogManager.m */; };
 		4D24AA92202F81B6006777FF /* MMLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA8D202F81B5006777FF /* MMLogFormatter.m */; };
 		4D24AA93202F81B6006777FF /* MMLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA8D202F81B5006777FF /* MMLogFormatter.m */; };
-		4D24AA94202F81B6006777FF /* MMLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA8E202F81B6006777FF /* MMLogManager.h */; };
+		4D24AA94202F81B6006777FF /* MMLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA8E202F81B6006777FF /* MMLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D24AA95202F81B6006777FF /* MMLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA8F202F81B6006777FF /* MMLogFormatter.h */; };
 		4D752C972031653200BD7B1A /* MMCompressedLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D752C952031653200BD7B1A /* MMCompressedLogFileManager.m */; };
 		4D752C982031653200BD7B1A /* MMCompressedLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D752C952031653200BD7B1A /* MMCompressedLogFileManager.m */; };
@@ -19,6 +19,39 @@
 		4D91DB4E201628C900DEB9A0 /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D91DB44201628C900DEB9A0 /* MMLog.framework */; };
 		4D91DB53201628C900DEB9A0 /* MMLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D91DB52201628C900DEB9A0 /* MMLogTests.m */; };
 		4D91DB55201628C900DEB9A0 /* MMLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D91DB47201628C900DEB9A0 /* MMLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D9EE4772031C90B0030946B /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE45A2031C90A0030946B /* DDTTYLogger.m */; };
+		4D9EE4782031C90B0030946B /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE45B2031C90A0030946B /* DDLog.h */; };
+		4D9EE4792031C90B0030946B /* DDLegacyMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE45C2031C90A0030946B /* DDLegacyMacros.h */; };
+		4D9EE47A2031C90B0030946B /* DDOSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE45D2031C90A0030946B /* DDOSLogger.m */; };
+		4D9EE47B2031C90B0030946B /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE45E2031C90A0030946B /* DDAbstractDatabaseLogger.h */; };
+		4D9EE47C2031C90B0030946B /* DDLogMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE45F2031C90A0030946B /* DDLogMacros.h */; };
+		4D9EE47D2031C90B0030946B /* DDASLLogCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE4602031C90A0030946B /* DDASLLogCapture.h */; };
+		4D9EE47E2031C90B0030946B /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE4612031C90A0030946B /* DDASLLogger.m */; };
+		4D9EE47F2031C90B0030946B /* CLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE4632031C90A0030946B /* CLIColor.m */; };
+		4D9EE4802031C90B0030946B /* CLIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE4642031C90A0030946B /* CLIColor.h */; };
+		4D9EE4812031C90B0030946B /* DDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE4652031C90A0030946B /* DDFileLogger.h */; };
+		4D9EE4822031C90B0030946B /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE4672031C90A0030946B /* DDContextFilterLogFormatter.m */; };
+		4D9EE4832031C90B0030946B /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE4682031C90A0030946B /* DDDispatchQueueLogFormatter.m */; };
+		4D9EE4842031C90B0030946B /* DDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE4692031C90A0030946B /* DDMultiFormatter.h */; };
+		4D9EE4852031C90B0030946B /* DDContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE46A2031C90A0030946B /* DDContextFilterLogFormatter.h */; };
+		4D9EE4862031C90B0030946B /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE46B2031C90A0030946B /* DDMultiFormatter.m */; };
+		4D9EE4872031C90B0030946B /* DDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE46C2031C90A0030946B /* DDDispatchQueueLogFormatter.h */; };
+		4D9EE4882031C90B0030946B /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE46D2031C90A0030946B /* DDLog.m */; };
+		4D9EE4892031C90B0030946B /* CocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE46E2031C90A0030946B /* CocoaLumberjack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D9EE48A2031C90B0030946B /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE46F2031C90A0030946B /* DDTTYLogger.h */; };
+		4D9EE48B2031C90B0030946B /* DDAssertMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE4702031C90A0030946B /* DDAssertMacros.h */; };
+		4D9EE48C2031C90B0030946B /* DDOSLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE4712031C90A0030946B /* DDOSLogger.h */; };
+		4D9EE48D2031C90B0030946B /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE4722031C90A0030946B /* DDLog+LOGV.h */; };
+		4D9EE48E2031C90B0030946B /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE4732031C90A0030946B /* DDAbstractDatabaseLogger.m */; };
+		4D9EE48F2031C90B0030946B /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE4742031C90A0030946B /* DDFileLogger.m */; };
+		4D9EE4902031C90B0030946B /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9EE4752031C90A0030946B /* DDASLLogger.h */; };
+		4D9EE4912031C90B0030946B /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE4762031C90A0030946B /* DDASLLogCapture.m */; };
+		4D9EE4922031C9930030946B /* DDLegacyMacros.h in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE45C2031C90A0030946B /* DDLegacyMacros.h */; };
+		4D9EE4932031C9930030946B /* DDLogMacros.h in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE45F2031C90A0030946B /* DDLogMacros.h */; };
+		4D9EE4942031C9930030946B /* CocoaLumberjack.h in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE46E2031C90A0030946B /* CocoaLumberjack.h */; };
+		4D9EE4952031C9930030946B /* DDAssertMacros.h in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE4702031C90A0030946B /* DDAssertMacros.h */; };
+		4D9EE4962031C9930030946B /* DDLog+LOGV.h in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EE4722031C90A0030946B /* DDLog+LOGV.h */; };
+		4D9EE4972031C9930030946B /* MMLogDefines.h in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA9620306702006777FF /* MMLogDefines.h */; };
 		E7D196256A32D8307CB84F2D /* libPods-MMLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DB30BE04F76B098613DAA0 /* libPods-MMLog.a */; };
 /* End PBXBuildFile section */
 
@@ -46,9 +79,34 @@
 		4D91DB4D201628C900DEB9A0 /* MMLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D91DB52201628C900DEB9A0 /* MMLogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMLogTests.m; sourceTree = "<group>"; };
 		4D91DB54201628C900DEB9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BBF075074E95703DB7C3759 /* Pods-MMLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMLog.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MMLog/Pods-MMLog.debug.xcconfig"; sourceTree = "<group>"; };
+		4D9EE45A2031C90A0030946B /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		4D9EE45B2031C90A0030946B /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		4D9EE45C2031C90A0030946B /* DDLegacyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLegacyMacros.h; sourceTree = "<group>"; };
+		4D9EE45D2031C90A0030946B /* DDOSLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDOSLogger.m; sourceTree = "<group>"; };
+		4D9EE45E2031C90A0030946B /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		4D9EE45F2031C90A0030946B /* DDLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLogMacros.h; sourceTree = "<group>"; };
+		4D9EE4602031C90A0030946B /* DDASLLogCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogCapture.h; sourceTree = "<group>"; };
+		4D9EE4612031C90A0030946B /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		4D9EE4632031C90A0030946B /* CLIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLIColor.m; sourceTree = "<group>"; };
+		4D9EE4642031C90A0030946B /* CLIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLIColor.h; sourceTree = "<group>"; };
+		4D9EE4652031C90A0030946B /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		4D9EE4672031C90A0030946B /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		4D9EE4682031C90A0030946B /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		4D9EE4692031C90A0030946B /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
+		4D9EE46A2031C90A0030946B /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		4D9EE46B2031C90A0030946B /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
+		4D9EE46C2031C90A0030946B /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		4D9EE46D2031C90A0030946B /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		4D9EE46E2031C90A0030946B /* CocoaLumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjack.h; sourceTree = "<group>"; };
+		4D9EE46F2031C90A0030946B /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		4D9EE4702031C90A0030946B /* DDAssertMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAssertMacros.h; sourceTree = "<group>"; };
+		4D9EE4712031C90A0030946B /* DDOSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDOSLogger.h; sourceTree = "<group>"; };
+		4D9EE4722031C90A0030946B /* DDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDLog+LOGV.h"; sourceTree = "<group>"; };
+		4D9EE4732031C90A0030946B /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		4D9EE4742031C90A0030946B /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		4D9EE4752031C90A0030946B /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		4D9EE4762031C90A0030946B /* DDASLLogCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogCapture.m; sourceTree = "<group>"; };
 		A3DB30BE04F76B098613DAA0 /* libPods-MMLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1808EAA75EE20A6F1D219DE /* Pods-MMLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMLog.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MMLog/Pods-MMLog.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +143,6 @@
 				4D91DB46201628C900DEB9A0 /* MMLog */,
 				4D91DB51201628C900DEB9A0 /* MMLogTests */,
 				4D91DB45201628C900DEB9A0 /* Products */,
-				870D285F23457B9F130AD29F /* Pods */,
 				3410E1F6E0CF6A8B1287F6AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +159,7 @@
 		4D91DB46201628C900DEB9A0 /* MMLog */ = {
 			isa = PBXGroup;
 			children = (
+				4D9EE4592031C90A0030946B /* cocoalumberjack */,
 				4D24AA8F202F81B6006777FF /* MMLogFormatter.h */,
 				4D24AA8D202F81B5006777FF /* MMLogFormatter.m */,
 				4D752C99203165B400BD7B1A /* MMCompressedLogFileManager.h */,
@@ -124,13 +182,54 @@
 			path = MMLogTests;
 			sourceTree = "<group>";
 		};
-		870D285F23457B9F130AD29F /* Pods */ = {
+		4D9EE4592031C90A0030946B /* cocoalumberjack */ = {
 			isa = PBXGroup;
 			children = (
-				8BBF075074E95703DB7C3759 /* Pods-MMLog.debug.xcconfig */,
-				C1808EAA75EE20A6F1D219DE /* Pods-MMLog.release.xcconfig */,
+				4D9EE45A2031C90A0030946B /* DDTTYLogger.m */,
+				4D9EE45B2031C90A0030946B /* DDLog.h */,
+				4D9EE45C2031C90A0030946B /* DDLegacyMacros.h */,
+				4D9EE45D2031C90A0030946B /* DDOSLogger.m */,
+				4D9EE45E2031C90A0030946B /* DDAbstractDatabaseLogger.h */,
+				4D9EE45F2031C90A0030946B /* DDLogMacros.h */,
+				4D9EE4602031C90A0030946B /* DDASLLogCapture.h */,
+				4D9EE4612031C90A0030946B /* DDASLLogger.m */,
+				4D9EE4622031C90A0030946B /* CLI */,
+				4D9EE4652031C90A0030946B /* DDFileLogger.h */,
+				4D9EE4662031C90A0030946B /* Extensions */,
+				4D9EE46D2031C90A0030946B /* DDLog.m */,
+				4D9EE46E2031C90A0030946B /* CocoaLumberjack.h */,
+				4D9EE46F2031C90A0030946B /* DDTTYLogger.h */,
+				4D9EE4702031C90A0030946B /* DDAssertMacros.h */,
+				4D9EE4712031C90A0030946B /* DDOSLogger.h */,
+				4D9EE4722031C90A0030946B /* DDLog+LOGV.h */,
+				4D9EE4732031C90A0030946B /* DDAbstractDatabaseLogger.m */,
+				4D9EE4742031C90A0030946B /* DDFileLogger.m */,
+				4D9EE4752031C90A0030946B /* DDASLLogger.h */,
+				4D9EE4762031C90A0030946B /* DDASLLogCapture.m */,
 			);
-			name = Pods;
+			path = cocoalumberjack;
+			sourceTree = "<group>";
+		};
+		4D9EE4622031C90A0030946B /* CLI */ = {
+			isa = PBXGroup;
+			children = (
+				4D9EE4632031C90A0030946B /* CLIColor.m */,
+				4D9EE4642031C90A0030946B /* CLIColor.h */,
+			);
+			path = CLI;
+			sourceTree = "<group>";
+		};
+		4D9EE4662031C90A0030946B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4D9EE4672031C90A0030946B /* DDContextFilterLogFormatter.m */,
+				4D9EE4682031C90A0030946B /* DDDispatchQueueLogFormatter.m */,
+				4D9EE4692031C90A0030946B /* DDMultiFormatter.h */,
+				4D9EE46A2031C90A0030946B /* DDContextFilterLogFormatter.h */,
+				4D9EE46B2031C90A0030946B /* DDMultiFormatter.m */,
+				4D9EE46C2031C90A0030946B /* DDDispatchQueueLogFormatter.h */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +239,26 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9EE47D2031C90B0030946B /* DDASLLogCapture.h in Headers */,
+				4D9EE4892031C90B0030946B /* CocoaLumberjack.h in Headers */,
+				4D24AA94202F81B6006777FF /* MMLogManager.h in Headers */,
+				4D9EE47B2031C90B0030946B /* DDAbstractDatabaseLogger.h in Headers */,
+				4D9EE4792031C90B0030946B /* DDLegacyMacros.h in Headers */,
+				4D9EE48B2031C90B0030946B /* DDAssertMacros.h in Headers */,
+				4D9EE4802031C90B0030946B /* CLIColor.h in Headers */,
+				4D9EE4812031C90B0030946B /* DDFileLogger.h in Headers */,
+				4D9EE47C2031C90B0030946B /* DDLogMacros.h in Headers */,
+				4D9EE4782031C90B0030946B /* DDLog.h in Headers */,
 				4D24AA95202F81B6006777FF /* MMLogFormatter.h in Headers */,
 				4D752C9A203165B400BD7B1A /* MMCompressedLogFileManager.h in Headers */,
 				4D91DB55201628C900DEB9A0 /* MMLog.h in Headers */,
-				4D24AA94202F81B6006777FF /* MMLogManager.h in Headers */,
+				4D9EE48C2031C90B0030946B /* DDOSLogger.h in Headers */,
+				4D9EE4852031C90B0030946B /* DDContextFilterLogFormatter.h in Headers */,
+				4D9EE48A2031C90B0030946B /* DDTTYLogger.h in Headers */,
+				4D9EE48D2031C90B0030946B /* DDLog+LOGV.h in Headers */,
+				4D9EE4872031C90B0030946B /* DDDispatchQueueLogFormatter.h in Headers */,
+				4D9EE4842031C90B0030946B /* DDMultiFormatter.h in Headers */,
+				4D9EE4902031C90B0030946B /* DDASLLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,12 +269,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D91DB58201628C900DEB9A0 /* Build configuration list for PBXNativeTarget "MMLog" */;
 			buildPhases = (
-				0B0A2F352D01233600B57CDF /* [CP] Check Pods Manifest.lock */,
 				4D91DB3F201628C900DEB9A0 /* Sources */,
 				4D91DB40201628C900DEB9A0 /* Frameworks */,
 				4D91DB41201628C900DEB9A0 /* Headers */,
 				4D91DB42201628C900DEB9A0 /* Resources */,
-				3DFF938B6DDEDAF0CFA1ABDB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,48 +355,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0B0A2F352D01233600B57CDF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MMLog-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3DFF938B6DDEDAF0CFA1ABDB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MMLog/Pods-MMLog-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		4D91DB3F201628C900DEB9A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9EE4922031C9930030946B /* DDLegacyMacros.h in Sources */,
+				4D9EE4932031C9930030946B /* DDLogMacros.h in Sources */,
+				4D9EE4942031C9930030946B /* CocoaLumberjack.h in Sources */,
+				4D9EE4952031C9930030946B /* DDAssertMacros.h in Sources */,
+				4D9EE4962031C9930030946B /* DDLog+LOGV.h in Sources */,
+				4D9EE4972031C9930030946B /* MMLogDefines.h in Sources */,
+				4D9EE4862031C90B0030946B /* DDMultiFormatter.m in Sources */,
+				4D9EE48F2031C90B0030946B /* DDFileLogger.m in Sources */,
+				4D9EE4912031C90B0030946B /* DDASLLogCapture.m in Sources */,
 				4D752C972031653200BD7B1A /* MMCompressedLogFileManager.m in Sources */,
+				4D9EE48E2031C90B0030946B /* DDAbstractDatabaseLogger.m in Sources */,
+				4D9EE4822031C90B0030946B /* DDContextFilterLogFormatter.m in Sources */,
+				4D9EE4832031C90B0030946B /* DDDispatchQueueLogFormatter.m in Sources */,
+				4D9EE4772031C90B0030946B /* DDTTYLogger.m in Sources */,
+				4D9EE4882031C90B0030946B /* DDLog.m in Sources */,
+				4D9EE47E2031C90B0030946B /* DDASLLogger.m in Sources */,
+				4D9EE47A2031C90B0030946B /* DDOSLogger.m in Sources */,
+				4D9EE47F2031C90B0030946B /* CLIColor.m in Sources */,
 				4D24AA90202F81B6006777FF /* MMLogManager.m in Sources */,
 				4D24AA92202F81B6006777FF /* MMLogFormatter.m in Sources */,
 			);
@@ -361,6 +455,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -413,6 +508,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -423,7 +519,6 @@
 		};
 		4D91DB59201628C900DEB9A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BBF075074E95703DB7C3759 /* Pods-MMLog.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -434,6 +529,7 @@
 				INFOPLIST_FILE = MMLog/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.markwong..MMLog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -443,7 +539,6 @@
 		};
 		4D91DB5A201628C900DEB9A0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1808EAA75EE20A6F1D219DE /* Pods-MMLog.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +549,7 @@
 				INFOPLIST_FILE = MMLog/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.markwong..MMLog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

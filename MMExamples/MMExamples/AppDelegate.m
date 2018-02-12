@@ -14,6 +14,9 @@
 #import "DPPerson.h"
 #import "DPPersonProtocol.h"
 
+#import <MMLog/MMLog.h>
+
+
 @interface A : NSObject
 + (instancetype)sharedInstance;
 - (void)print;

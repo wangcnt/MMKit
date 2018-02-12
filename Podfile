@@ -32,7 +32,6 @@ target :MMSamples do
     #pod 'GPUImage', '~> 0.1.7'
     #pod 'FlatUIKit', '~> 1.6.2'
     pod 'iCarousel', '~> 1.8.3'
-    pod 'CocoaLumberjack', '~> 3.4.1'
     pod 'Nimbus', '~> 1.3.0'
     pod 'SWTableViewCell', '~> 0.3.7'
     #pod 'CRToast', '~> 0.0.9'
@@ -59,13 +58,5 @@ target :MMUIKit do
     pod 'Masonry' , '~> 1.1.0'
     
     project 'MMUIKit/MMUIKit.xcodeproj'
-end
-
-target :MMLog do
-    platform:ios, '9.0'
-    
-    pod 'CocoaLumberjack', '~> 3.4.1'
-    
-    project 'MMLog/MMLog.xcodeproj'
 end
 
