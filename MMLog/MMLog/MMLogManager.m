@@ -1,21 +1,17 @@
 //
-//  DDLogManager.m
-//  DDLogDemo
+//  MMLogManager.h
+//  MMLog
 //
-//  Created by wangjian on 15/9/22.
-//  Copyright © 2015年 qhfax. All rights reserved.
+//  Created by Mark on 2018/2/11.
+//  Copyright © 2018年 Mark. All rights reserved.
 //
 
 #import "MMLogManager.h"
+#import "MMCompressedLogFileManager.h"
 
 @implementation MMLogManager
-/**
- *  初始化
- *
- *  @return 日志系统管理器对象
- */
-+(instancetype)sharedInstance
-{
+
++ (instancetype)sharedInstance {
     static MMLogManager *logmanager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -27,10 +23,11 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.fileLogger = [[DDFileLogger alloc] init];
-        self.fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-        self.fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
-        self.fileLogger.maximumFileSize = 1024 * 1024 * 2;
+        MMCompressedLogFileManager *logFileManager = [[MMCompressedLogFileManager alloc] init];
+        _fileLogger = [[DDFileLogger alloc] initWithLogFileManager:logFileManager];
+        _fileLogger.maximumFileSize = 1024 * 1024 * 2;
+        _fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+        _fileLogger.logFileManager.maximumNumberOfLogFiles = 3;
     }
     return self;
 }
@@ -39,19 +36,18 @@
 - (void)config {
     MMLogFormatter *logFormatter = [[MMLogFormatter alloc] init];
     
-    //1.发送日志语句到苹果的日志系统，它们显示在Console.app上
+    //1. 发送日志语句到苹果的日志系统，它们显示在Console.app上
     //    [[DDASLLogger sharedInstance] setLogFormatter:logFormatter];
     //    [DDLog addLogger:[DDASLLogger sharedInstance]];//
     
-    //2.把输出日志写到文件中
-#if RELEASE
-    DDFileLogger *fileLogger = [MMLogManager sharedInstance].fileLogger;
-    fileLogger.logFormatter = logFormatter;
-    [DDLog addLogger:fileLogger withLevel:DDLogLevelError];//错误的写到文件中
-#endif
+    //2. 把输出日志写到文件中
+//#if RELEASE
+    _fileLogger.logFormatter = logFormatter;
+    [DDLog addLogger:_fileLogger withLevel:DDLogLevelError];//错误的写到文件中
+//#endif
     
 #if DEBUG
-    //3.初始化DDLog日志输出，在这里，我们仅仅希望在xCode控制台输出
+    //3. 初始化DDLog日志输出，在这里，我们仅仅希望在xCode控制台输出
     DDTTYLogger *ttyLogger = [DDTTYLogger sharedInstance];
     ttyLogger.logFormatter = logFormatter;
     ttyLogger.colorsEnabled = YES;
@@ -61,14 +57,13 @@
     [DDLog addLogger:ttyLogger];//
 #endif
     
-    //4.添加数据库输出
+    //4. 添加数据库输出
     //    DDAbstractLogger *dateBaseLogger = [[DDAbstractLogger alloc] init];
     //    [dateBaseLogger setLogFormatter:logFormatter];
     //    [DDLog addLogger:dateBaseLogger];
 }
 /*获得系统日志的路径**/
-- (NSArray *)getLogPath
-{
+- (NSArray *)getLogPath {
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString * logPath = [docPath stringByAppendingPathComponent:@"Caches"];
     logPath = [logPath stringByAppendingPathComponent:@"Logs"];

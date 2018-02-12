@@ -11,11 +11,6 @@
 
 @implementation UIApplication(Additions)
 
-@end
-
-
-@implementation UIApplication (JKApplicationSize)
-
 - (NSString *)applicationSize {
     unsigned long long docSize   =  [self folderSizeAtPath:[self documentPath]];
     unsigned long long libSize   =  [self folderSizeAtPath:[self libraryPath]];
@@ -50,6 +45,21 @@
         size += [fileAttributes[NSFileSize] longLongValue];
     }
     return size;
+}
+
+- (NSString *)applicationName {
+    static NSString *appName;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
+        if (!appName) {
+            appName = [[NSProcessInfo processInfo] processName];
+        }
+        if (!appName) {
+            appName = @"";
+        }
+    });
+    return appName;
 }
 
 @end
