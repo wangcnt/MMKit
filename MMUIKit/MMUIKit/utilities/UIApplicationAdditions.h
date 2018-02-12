@@ -10,11 +10,7 @@
 
 @interface UIApplication(Additions)
 
-@end
-
-
-@interface UIApplication (MMApplicationSize)
-
 - (NSString *)applicationSize;
+- (NSString *)applicationName;
 
 @end

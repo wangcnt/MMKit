@@ -1,10 +1,11 @@
 //
-//  MyLogFormater.h
-//  DDLogDemo
+//  MMLogFormatter.h
+//  MMLog
 //
-//  Created by wangjian on 15/9/21.
-//  Copyright © 2015年 qhfax. All rights reserved.
+//  Created by Mark on 2018/2/11.
+//  Copyright © 2018年 Mark. All rights reserved.
 //
+
 #import <Foundation/Foundation.h>
 
 #import "CocoaLumberjack.h"
