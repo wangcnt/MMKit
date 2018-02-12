@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MMMulticastDelegateEnumerator : NSObject
 
 @property (nonatomic, readonly) NSUInteger count;
-- (NSUInteger)countdOfClass:(Class)aClass;
+- (NSUInteger)countOfClass:(Class)aClass;
 - (NSUInteger)countForSelector:(SEL)aSelector;
 
 - (BOOL)getNextDelegate:(id _Nullable * _Nonnull)delPtr delegateQueue:(dispatch_queue_t _Nullable * _Nonnull)dqPtr;

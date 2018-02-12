@@ -11,6 +11,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MMTimer.h"
+#import "MMDiskCache.h"
+
 static inline NSString* mm_document_path() {
     return NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
 }

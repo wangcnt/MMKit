@@ -8,6 +8,15 @@
 
 #import "MMLogManager.h"
 #import "MMCompressedLogFileManager.h"
+#import "MMLogFormatter.h"
+#import "DDLog.h"
+#import "DDTTYLogger.h"
+
+#if DEBUG
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static const DDLogLevel ddLogLevel = DDLogLevelError;
+#endif
 
 @implementation MMLogManager
 
@@ -43,7 +52,7 @@
     //2. 把输出日志写到文件中
 //#if RELEASE
     _fileLogger.logFormatter = logFormatter;
-    [DDLog addLogger:_fileLogger withLevel:DDLogLevelInfo];//错误的写到文件中
+    [DDLog addLogger:_fileLogger withLevel:ddLogLevel];//错误的写到文件中
 //#endif
     
 #if DEBUG

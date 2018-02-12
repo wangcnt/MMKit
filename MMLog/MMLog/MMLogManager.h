@@ -7,14 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CocoaLumberjack.h"
-#import "MMLogFormatter.h"
 
-#if DEBUG
-static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
-#else 
-static const DDLogLevel ddLogLevel = DDLogLevelError;
-#endif
+@class DDFileLogger;
 
 @interface MMLogManager : NSObject
 

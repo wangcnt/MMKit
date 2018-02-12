@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CocoaLumberjack.h"
+#import "DDFileLogger.h"
 
 @interface MMCompressedLogFileManager : DDLogFileManagerDefault {
     BOOL upToDate;

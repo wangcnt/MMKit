@@ -47,7 +47,9 @@
 @end
 
 
-@interface MMOperation : NSOperation
+@interface MMOperation : NSOperation {
+    id<MMRequest> _request;
+}
 
 @property (nonatomic, strong) NSError *error;
 @property (nonatomic, strong, readonly) id<MMRequest> request;  ///< Must be override by suboperation.

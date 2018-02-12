@@ -58,27 +58,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[B sharedInstance] print];
-    [self testMMService];
+//    [[B sharedInstance] print];
+//    [self testMMService];
+//
+//    NSMutableString *string = [[NSMutableString alloc] initWithString:@"aaaba"];
+//    [string deleteCharactersInRange:NSMakeRange(0, 2)];
+//    NSLog(@"string-->%@", string);
     
-    NSMutableString *string = [[NSMutableString alloc] initWithString:@"aaaaa"];
-    string = [NSMutableString stringWithString:@"aaaab"];
-    if([string isKindOfClass:NSMutableString.class]) {
-//        if([string respondsToSelector:@selector(deleteBeforeString:)]) {
-//            [string deleteBeforeString:@"b"];
-//        [string deleteOccurrencesOfString:@"a"];
-        [string JSONObject];
-        [string deleteCharactersInRange:NSMakeRange(0, 2)];
-//        }
-    }
-    NSLog(@"string-->%@", string);
+    [self testDDLog];
     
 //    [self gcdDemo1];
 //    [self gcdDemo2];
 //    [self gcdDemo3];
 //    [self gcdDemo5];
-    [self testDynamicProxy];
+//    [self testDynamicProxy];
     return YES;
+}
+
+- (void)testDDLog {
+//    [[MMLogManager sharedInstance] config];
+//    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self  selector:@selector(writeLogMessages:) userInfo:nil repeats:YES];
+}
+
+- (void)writeLogMessages:(NSTimer *)aTimer {
+//    DDLogVerbose(@"I like cheese");
 }
 
 - (void)testDynamicProxy {
