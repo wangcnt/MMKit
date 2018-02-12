@@ -11,23 +11,33 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MMTimer.h"
-#import "MMDiskCache.h"
+#define define_string(KEY) static NSString const*(KEY) = @#KEY;  /// define_string(ABCDE)
 
-static inline NSString* mm_document_path() {
+static inline NSString *mm_document_path() {
     return NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
 }
 
-static inline NSString* mm_temporary_path() {
+static inline NSString *mm_temporary_path() {
     return NSTemporaryDirectory();
 }
 
-static inline NSString* mm_caches_path() {
+static inline NSString *mm_caches_path() {
     return NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
 }
 
-static inline NSString* mm_library_path() {
+static inline NSString *mm_library_path() {
     return NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject;
+}
+
+static inline NSString *mm_application_name() {
+    NSString *appName = [NSBundle mainBundle].bundleIdentifier;
+    NSMutableArray *components = [NSMutableArray arrayWithArray:[appName componentsSeparatedByString:@"."]];
+    [components removeObject:@""];
+    return [components componentsJoinedByString:@"."];
+}
+
+static inline NSString *mm_bundle_version() {
+    return [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
 }
 
 static inline NSInteger mm_bound_integer(NSInteger value, NSInteger min, NSInteger max) {
@@ -122,4 +132,4 @@ static inline float mm_cos_float(float x) {
 #endif
 }
 
-#endif /* MMInlines_h */
+#endif / *mmInlines_h */
