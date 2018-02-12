@@ -100,6 +100,7 @@
     if (count == 0)
     {
         // Nothing to compress
+        isCompressing = NO;
         upToDate = YES;
         return;
     }
@@ -119,6 +120,7 @@
         i--;
     }
     
+    isCompressing = NO;
     upToDate = YES;
 }
 

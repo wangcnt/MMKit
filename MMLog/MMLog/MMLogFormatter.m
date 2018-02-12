@@ -10,36 +10,48 @@
 
 @implementation MMLogFormatter
 
--(NSString *)formatLogMessage:(DDLogMessage *)logMessage {
-    NSString *loglevel = nil;
-    switch (logMessage.flag) {
+-(NSString *)formatLogMessage:(DDLogMessage *)message {
+    NSString *level = nil;
+    switch (message.flag) {
         case DDLogFlagError: {
-            loglevel = @"[ERROR]->";
+            level = @"[ERROR]->";
             break;
         }
         case DDLogFlagWarning: {
-            loglevel = @"[WARN]-->";
+            level = @"[WARN]-->";
             break;
         }
         case DDLogFlagInfo: {
-            loglevel = @"[INFO]--->";
+            level = @"[INFO]--->";
             break;
         }
         case DDLogFlagDebug: {
-            loglevel = @"[DEBUG]---->";
+            level = @"[DEBUG]---->";
             break;
         }
         case DDLogFlagVerbose: {
-            loglevel = @"[VBOSE]----->";
+            level = @"[VBOSE]----->";
             break;
         }
         default:
             break;
     }
-    return [NSString stringWithFormat:@"%@ %@___line[%ld]__%@",
-            loglevel,
-            logMessage->_function,
-            logMessage->_line,
-            logMessage->_message];
+    static NSDateFormatter *dateFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"YYYY-MM-dd HH:mm:ss SSS";
+    });
+    return [NSString stringWithFormat:@""
+            "Date       : %@\n"
+            "File       : %@\n"
+            "Function   : %@\n"
+            "Line       : %ld\n"
+            "Message    : %@\n\n",
+            [dateFormatter stringFromDate:message.timestamp],
+            message.file.lastPathComponent,
+            message.function,
+            message.line,
+            message.message];
 }
 @end

@@ -81,7 +81,7 @@
 }
 
 - (void)writeLogMessages:(NSTimer *)aTimer {
-    MMLogInfo(@"I like cheese");
+    MMLogWarning(@"I like cheese");
 }
 
 - (void)testDynamicProxy {

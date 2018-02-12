@@ -29,7 +29,7 @@
     if (self) {
         MMCompressedLogFileManager *logFileManager = [[MMCompressedLogFileManager alloc] init];
         _fileLogger = [[DDFileLogger alloc] initWithLogFileManager:logFileManager];
-        _fileLogger.maximumFileSize = 1024 * 1024 *2;
+        _fileLogger.maximumFileSize = 1024 * 1;//1024 *2;
         _fileLogger.rollingFrequency = 60 *60 *24; // 24 hour rolling
         _fileLogger.logFileManager.maximumNumberOfLogFiles = 3;
     }
