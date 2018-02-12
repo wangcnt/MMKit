@@ -16,4 +16,8 @@ FOUNDATION_EXPORT const unsigned char AnalyticsKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <AnalyticsKit/PublicHeader.h>
 
+#import <AnalyticsKit/AnalyticsKit.h>
 
+#import <AnalyticsKit/AKDefines.h>
+#import <AnalyticsKit/AKEvent.h>
+#import <AnalyticsKit/AKEventManager.h>

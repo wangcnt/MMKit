@@ -34,7 +34,7 @@
 - (void)registerPagesWithDictionary:(NSDictionary *)pageDictionary;
 - (void)registerPagesWithFileAtPath:(NSString *)path;
 
-- (void)addEvent:(id<AKEvent>)event;
+- (void)uploadEvent:(id<AKEvent>)event;
 
 - (void)uploadIfNeeds;  ///< Nothing will be done if there is a timer uploading.
 - (void)stopUpoloading;

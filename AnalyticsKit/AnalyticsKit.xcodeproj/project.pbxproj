@@ -10,12 +10,12 @@
 		4D24AAD820307263006777FF /* AnalyticsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AACE20307263006777FF /* AnalyticsKit.framework */; };
 		4D24AADD20307263006777FF /* AnalyticsKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AADC20307263006777FF /* AnalyticsKitTests.m */; };
 		4D24AADF20307263006777FF /* AnalyticsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AAD120307263006777FF /* AnalyticsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D24AAEA20307276006777FF /* AKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AAE820307276006777FF /* AKEvent.h */; };
+		4D24AAEA20307276006777FF /* AKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AAE820307276006777FF /* AKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D24AAEB20307276006777FF /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AAE920307276006777FF /* AKEvent.m */; };
 		4D24AAEC20307276006777FF /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AAE920307276006777FF /* AKEvent.m */; };
 		4D24AAEE203072D3006777FF /* MMArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AAF0203072D3006777FF /* MMArchitecture.framework */; };
 		4D24AAEF203072D3006777FF /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AAF1203072D3006777FF /* MMFoundation.framework */; };
-		4D24AAF420307302006777FF /* AKEventManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AAF220307302006777FF /* AKEventManager.h */; };
+		4D24AAF420307302006777FF /* AKEventManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AAF220307302006777FF /* AKEventManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D24AAF520307302006777FF /* AKEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AAF320307302006777FF /* AKEventManager.m */; };
 		4D24AAF620307302006777FF /* AKEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AAF320307302006777FF /* AKEventManager.m */; };
 		4D24AB5220308528006777FF /* AKHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB4420308526006777FF /* AKHTTPResponse.m */; };
@@ -48,7 +48,7 @@
 		4D24AB7520308551006777FF /* AKUploadResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB7020308551006777FF /* AKUploadResponse.h */; };
 		4D24AB7620308551006777FF /* AKUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB7120308551006777FF /* AKUploadRequest.m */; };
 		4D24AB7720308551006777FF /* AKUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB7120308551006777FF /* AKUploadRequest.m */; };
-		4D24AB7F20309C81006777FF /* AKDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB7E20309C81006777FF /* AKDefines.h */; };
+		4D24AB7F20309C81006777FF /* AKDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB7E20309C81006777FF /* AKDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,19 +229,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D24AB5A20308528006777FF /* AKHTTPRequest.h in Headers */,
+				4D24AAF420307302006777FF /* AKEventManager.h in Headers */,
+				4D24AAEA20307276006777FF /* AKEvent.h in Headers */,
+				4D24AB7F20309C81006777FF /* AKDefines.h in Headers */,
 				4D24AB7520308551006777FF /* AKUploadResponse.h in Headers */,
 				4D24AB5B20308528006777FF /* AKHTTPResponse.h in Headers */,
 				4D24AB5420308528006777FF /* AKHTTPOperation.h in Headers */,
-				4D24AAF420307302006777FF /* AKEventManager.h in Headers */,
 				4D24AB5520308528006777FF /* AKHTTPConnection.h in Headers */,
 				4D24AB7220308551006777FF /* AKUploadRequest.h in Headers */,
 				4D24AB6B20308547006777FF /* AKUploadOperation.h in Headers */,
 				4D24AB5F20308528006777FF /* AKService.h in Headers */,
 				4D24AADF20307263006777FF /* AnalyticsKit.h in Headers */,
-				4D24AAEA20307276006777FF /* AKEvent.h in Headers */,
 				4D24AB6220308528006777FF /* AKHTTPSessionConfiguration.h in Headers */,
 				4D24AB5C20308528006777FF /* AKHTTPSessionManager.h in Headers */,
-				4D24AB7F20309C81006777FF /* AKDefines.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

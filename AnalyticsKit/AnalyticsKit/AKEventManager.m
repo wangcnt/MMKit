@@ -88,7 +88,7 @@
     [self.pageDictionary addEntriesFromDictionary:pageDictionary];
 }
 
-- (void)addEvent:(id<AKEvent>)event {
+- (void)uploadEvent:(id<AKEvent>)event {
     if(!event) {
         return;
     }
@@ -103,10 +103,9 @@
     _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
     dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, _uploadInterval, 0);
     dispatch_source_set_event_handler(_timer, ^{
-        //TODO: 發送請求
+        [self upload];
     });
     dispatch_source_set_cancel_handler(_timer, ^{
-        //TODO: 取消請求
     });
 }
 
