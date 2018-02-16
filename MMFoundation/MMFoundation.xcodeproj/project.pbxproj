@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D24AA29202F182F006777FF /* MMInlines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA28202F182F006777FF /* MMInlines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D24AA29202F182F006777FF /* MMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA28202F182F006777FF /* MMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D24AA37202F1E66006777FF /* MMAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA35202F1E66006777FF /* MMAsyncSocket.m */; };
 		4D24AA38202F1E66006777FF /* MMAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA35202F1E66006777FF /* MMAsyncSocket.m */; };
 		4D24AA39202F1E66006777FF /* MMAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA36202F1E66006777FF /* MMAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,7 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D24AA28202F182F006777FF /* MMInlines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMInlines.h; sourceTree = "<group>"; };
+		4D24AA28202F182F006777FF /* MMDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMDefines.h; sourceTree = "<group>"; };
 		4D24AA35202F1E66006777FF /* MMAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAsyncSocket.m; sourceTree = "<group>"; };
 		4D24AA36202F1E66006777FF /* MMAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAsyncSocket.h; sourceTree = "<group>"; };
 		4D24AA3A202F1E6E006777FF /* MMMulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMulticastDelegate.h; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				4D24AA44202F1F8B006777FF /* MMIDTracker.h */,
 				4D24AA45202F1F8B006777FF /* MMIDTracker.m */,
 				4D7C0F0C202F0149008C6CE0 /* additions */,
-				4D24AA28202F182F006777FF /* MMInlines.h */,
+				4D24AA28202F182F006777FF /* MMDefines.h */,
 				4D7C0EED202F0118008C6CE0 /* MMFoundation.h */,
 				4D7C0EEE202F0118008C6CE0 /* Info.plist */,
 			);
@@ -192,7 +192,7 @@
 				4D7C0F35202F015E008C6CE0 /* NSDataAdditions.h in Headers */,
 				4D7C0F38202F015E008C6CE0 /* NSDictionaryAdditions.h in Headers */,
 				4D7C0F40202F015E008C6CE0 /* NSStringAdditions.h in Headers */,
-				4D24AA29202F182F006777FF /* MMInlines.h in Headers */,
+				4D24AA29202F182F006777FF /* MMDefines.h in Headers */,
 				4D24AA3C202F1E6F006777FF /* MMMulticastDelegate.h in Headers */,
 				4D24AA39202F1E66006777FF /* MMAsyncSocket.h in Headers */,
 				4D24AA46202F1F8B006777FF /* MMIDTracker.h in Headers */,

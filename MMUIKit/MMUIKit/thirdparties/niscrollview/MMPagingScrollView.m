@@ -20,7 +20,7 @@
 
 #import <objc/runtime.h>
 #import "MMViewRecycler.h"
-#import <MMFoundation/MMInlines.h>
+#import <MMFoundation/MMDefines.h>
 
 #if !defined(__has_feature) || !__has_feature(objc_arc)
 #error "Nimbus requires ARC support."

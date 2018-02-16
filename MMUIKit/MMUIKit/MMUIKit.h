@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import <MMUIKit/MMDeviceInfo.h>
-#import <MMUIKit/MMUIInlines.h>
+#import <MMUIKit/MMUIDefines.h>
 
 // contrller
 #import <MMUIKit/MMViewController.h>
