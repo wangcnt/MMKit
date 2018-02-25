@@ -5,10 +5,10 @@
                           User Interface
                                  |
                                  ↓
-                          MMArchitecture
+                          MMArchitecture (#import)
                                  |
                                  ↓
-                          MMServiceCenter
+                          MMServiceCenter (Dynamic Delegate)
                                  ↓
                              MMService (Single/Shared/Global)
                                  |
@@ -38,62 +38,72 @@
                                  |____________________|
 
 2. 作用說明，創建時機：
-   MMService作用說明：
-        a. 它將作為UI與後台的橋樑，傳遞管理所有的UI需求並發向服務器，取回數據持久化後再回調至UI層刷新給用戶；
-        b. MMService僅提供一系列純程池MMOperationQueue，並且MMService將用於上層繼承，實現具體業務任務的創建；
-        c. 它最好在Application範圍內只存在一個對象，這樣方便全局管理業務。
+   2.1. MMServiceCenter
+        2.1.1. 作用說明：
+            a. 它將作為UI與後台的橋樑，傳遞管理所有的UI需求並發向服務器，取回數據持久化後再回調至UI層刷新給用戶；
+            b. MMServiceCenter僅提供一系列純程池MMOperationQueue，用以管理所有的線程任務；
+
+   2.2. MMService作用說明：
+        MMService將用於上層繼承，實現具體業務任務的創建；
 
    MMService以下所有節點均可按協議按需求自定義，它們的創建請遵循以下規則:
 
-   2.1. MMSessionConfiguration
-        2.1.1. 作用說明：
+   2.3. MMSessionConfiguration
+        2.3.1. 作用說明：
             a. 指定一種會話管理器MMSessionManager，用於管理所有的MMConnection連接
             b. 指定一種受MMSessionManager管理的與服務器的連接的MMConnection類型，及其它
                與MMConnection相關的固定配置，如網絡請求隊列，數據持久隊列，並由MMOperation轉儲於每一條MMRequest中；
-        2.1.2. 創建時機，使用方法：
+        2.3.2. 創建時機，使用方法：
             在MMOperation-sendRequest之前被創建並存儲於MMRequest中。
 
-   2.2. MMOperaitonQueue
-        2.2.1. 作用說明：
+   2.4. MMOperaitonQueue
+        2.4.1. 作用說明：
             a. 管理各種同步或異步的任務；
             b. 將只接收MMOperation，並且只接受-addOperation:添加進入的任務；
-        2.2.2. 你表妹時機，使用方法：
+        2.4.2. 創建時機，使用方法：
             由MMService默認創建並不可修改內存地址，只允許修改屬性。
 
-   2.3. MMOperation
-        2.3.1. 作用說明：
+   2.5. MMOperation
+        2.5.1. 作用說明：
             a. 管理著用戶的一條任務，並可採取異步任務機制；
             b. 負責將由MMConnection回調回來的MMResponse裏的臨時數據持久化；
             c. 標識用戶的一個任務已經完成並回調至UI層呈現結果給用戶；
-        2.3.2. 創建時機，使用方法：
+        2.5.2. 創建時機，使用方法：
             在MMService裏創建並被MMService的各種NSOperationQueue管理。
 
-   2.4. MMRequest
-        2.4.1. 作用說明：
+   2.6. MMRequest
+        2.6.1. 作用說明：
             a. 負責用戶請求的信息存儲及網絡交互數據的生成；
             b. 存儲MMSessionConfiguration以指定MMConnection來處理這條用戶的請求；
-            c. 每一條MMRequest將持有一個唯一標識taskIdentifier，這個taskIdentifier會在MMSessionManager裏協
-                同MMRequest.configuration.connectionClass來確定具體的交互協議MMConnection；
-        2.5.2. 創建時機，使用方法：
+            c. 每一條MMRequest將持有一個網絡交互協議MMConnection的唯一標識connectionID，
+                這樣方便於進行鏈式任務；這個標識將在MMSessionManager裏確定具體的交互協議
+                MMConnection，如果有，返回，如果沒有，根據
+                MMRequest.configuration.connectionClass生成一個；
+        2.7.2. 創建時機，使用方法：
             在MMOperation-init方法裏創建，將貫穿於整個MMOperation生命週期;
 
-   2.5. MMSessionManager
-        2.5.1. 作用說明：
-            一個MMSessionManager根據connectionClass管理著一種類別的MMConnection，負責它們的創建，銷燬及任務傳遞和取消；
-        2.5.2. 創建時機，使用方法：
-            創建於MMOperation-sendRequest前。
+   2.7. MMSessionManager
+        2.7.1. 作用說明：
+            a. 一個MMSessionManager根據connectionClass管理著一種類別（即同一種服務地址）的
+                MMConnection，負責它們的創建，銷燬及任務傳遞和取消；
+            b. 如是HTTP請求，一般Manager只需要管理一個Connection；
+            c. 如是Socket請求，那麽可能同一地址，將會有幾種連接同時存在，比如普通任務的請求保
+                持一個連接，特殊任務（可能因狀態值影響普通任務的正常進行）的請求將使用另外一個
+                同地址的連接，如郵件的IMAP協議；
+        2.7.2. 創建時機，使用方法：
+            創建於MMOperation-sendRequest前;
 
-   2.6. MMConnection
-        2.6.1. 作用說明：
+   2.8. MMConnection
+        2.8.1. 作用說明：
             a. 負責一種與服務器交互協議的處理，發送請求，接收數據；
             b. 根據接收數據生成MMResponse以MMRequestCompletion的方式將數據返回給MMOperation進行持久化；
-        2.6.2. 創建時機，使用方法：
+        2.8.2. 創建時機，使用方法：
             MMSessionManager-startRequest:withCompletion:裏根據MMRequest的identifier
             和MMRequest.MMSessionConfiguration.connectionClass來選取或創建；
 
-   2.7. MMResponse
-        2.7.1. 作用說明：
+   2.9. MMResponse
+        2.9.1. 作用說明：
             負責轉換從服務器傳回來的的數據成業務層的臨時數據
-        2.7.2. 創建時機，使用方法：
+        2.9.2. 創建時機，使用方法：
             由MMRequest.responseClass指定, 在MMConnection從服務器取到數據並識別出MMRequest之後被創建;
 

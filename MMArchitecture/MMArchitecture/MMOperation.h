@@ -27,8 +27,6 @@
 @property (nonatomic, assign) NSInteger maxRetryTimes;
 @property (nonatomic, assign) NSInteger retryedTimes;
 
-@property (nonatomic, strong) NSString *taskIdentifier; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
-
 - (void)presendRequest;
 - (BOOL)shouldRetry;
 - (void)loadFinished;
@@ -42,7 +40,7 @@
 @protocol MMSocketOperation <NSObject, MMOperation>
 
 @required
-@property (nonatomic, strong) NSString *taskIdentifier; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
+@property (nonatomic, strong) NSString *connectionID; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
 
 @end
 
@@ -74,5 +72,5 @@
 @end
 
 @interface MMSocketOperation : MMOperation <MMSocketOperation>
-@property (nonatomic, strong) NSString *taskIdentifier; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
+@property (nonatomic, strong) NSString *connectionID; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
 @end

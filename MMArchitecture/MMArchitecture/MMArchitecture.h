@@ -22,6 +22,7 @@ FOUNDATION_EXPORT const unsigned char MMArchitectureVersionString[];
 #import "MMOperationQueue.h"
 #import "MMOperation.h"
 #import "MMRequest.h"
+#import "MMRequestIDGenerator.h"
 #import "MMSessionManager.h"
 #import "MMConnection.h"
 #import "MMResponse.h"

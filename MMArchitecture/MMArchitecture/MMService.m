@@ -58,12 +58,13 @@
 }
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password completion:(void (^)(NSError *error))completion {
-    [self loginWithUsername:username password:password taskIdentifier:nil completion:completion];
+    [self loginWithUsername:username password:password connectionID:nil completion:completion];
 }
 
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password taskIdentifier:(NSString *)taskIdentifier completion:(void (^)(NSError *error))completion {
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password connectionID:(NSString *)connectionID completion:(void (^)(NSError *error))completion {
     MMHTTPOperation *operation = [[MMHTTPOperation alloc] init];
     operation.configuration = _egHTTPConfiguration;
+    operation.connectionID = connectionID;
     __weak typeof(MMHTTPOperation) *weakedOp = operation;
     operation.completionBlock = ^{
         __unused id<MMHTTPResponse> response = (id<MMHTTPResponse>)weakedOp.response;
