@@ -8,7 +8,7 @@
 
 #import "MMDiskCache.h"
 
-#import "MMInlines.h"
+#import "MMDefines.h"
 
 @implementation MMDiskCache
 

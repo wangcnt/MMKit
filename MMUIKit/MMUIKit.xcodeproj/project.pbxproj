@@ -29,7 +29,7 @@
 		4D24AA77202F6426006777FF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AA76202F6426006777FF /* AVFoundation.framework */; };
 		4D9073921C9A99D600AB69EB /* MMMultipleControllersViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9073901C9A99D600AB69EB /* MMMultipleControllersViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D9073931C9A99D600AB69EB /* MMMultipleControllersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9073911C9A99D600AB69EB /* MMMultipleControllersViewController.m */; };
-		4DA5112A20320DC90063C8B1 /* MMUIInlines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA5112920320DC90063C8B1 /* MMUIInlines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DA5112A20320DC90063C8B1 /* MMUIDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA5112920320DC90063C8B1 /* MMUIDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DB9E9F21DDF325300FE43CF /* MMTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DB9E9F01DDF325300FE43CF /* MMTabBarController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DB9E9F31DDF325300FE43CF /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E9F11DDF325300FE43CF /* MMTabBarController.m */; };
 		4DC1FB0F1C242CAB00A39E9D /* MMUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC1FB0E1C242CAB00A39E9D /* MMUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -140,7 +140,7 @@
 		4D24AA76202F6426006777FF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4D9073901C9A99D600AB69EB /* MMMultipleControllersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMultipleControllersViewController.h; sourceTree = "<group>"; };
 		4D9073911C9A99D600AB69EB /* MMMultipleControllersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMultipleControllersViewController.m; sourceTree = "<group>"; };
-		4DA5112920320DC90063C8B1 /* MMUIInlines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMUIInlines.h; sourceTree = "<group>"; };
+		4DA5112920320DC90063C8B1 /* MMUIDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMUIDefines.h; sourceTree = "<group>"; };
 		4DB9E9F01DDF325300FE43CF /* MMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
 		4DB9E9F11DDF325300FE43CF /* MMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabBarController.m; sourceTree = "<group>"; };
 		4DC1FB0B1C242CAB00A39E9D /* MMUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,7 +286,7 @@
 				4DE44A861C24391300FD1D97 /* views */,
 				4DC1FB0E1C242CAB00A39E9D /* MMUIKit.h */,
 				4DC1FB101C242CAB00A39E9D /* Info.plist */,
-				4DA5112920320DC90063C8B1 /* MMUIInlines.h */,
+				4DA5112920320DC90063C8B1 /* MMUIDefines.h */,
 			);
 			path = MMUIKit;
 			sourceTree = "<group>";
@@ -447,7 +447,7 @@
 				4D24AA6E202F4CA4006777FF /* MMViewRecycler.h in Headers */,
 				4D24AA69202F4A92006777FF /* MMPagingScrollViewCell.h in Headers */,
 				4D24AA75202F51E3006777FF /* MMTextField.h in Headers */,
-				4DA5112A20320DC90063C8B1 /* MMUIInlines.h in Headers */,
+				4DA5112A20320DC90063C8B1 /* MMUIDefines.h in Headers */,
 				4D0669FB1DE02BCD0030A480 /* UIButtonAdditions.h in Headers */,
 				4DF250E61DDFF9CB002AB829 /* UIApplicationAdditions.h in Headers */,
 				4DE44AE31C24391300FD1D97 /* MMTableView.h in Headers */,

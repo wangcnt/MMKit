@@ -31,4 +31,4 @@ FOUNDATION_EXPORT const unsigned char MMFoundationVersionString[];
 #import <MMFoundation/MMDiskCache.h>
 #import <MMFoundation/MMMemoryCache.h>
 
-#import <MMFoundation/MMInlines.h>
+#import <MMFoundation/MMDefines.h>

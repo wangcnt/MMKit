@@ -1,3 +1,11 @@
+//
+//  MMTimer.m
+//  MMFoundation
+//
+//  Created by Mark on 15/6/23.
+//  Copyright (c) 2015年 Mark. All rights reserved.
+//
+
 #import "MMTimer.h"
 
 @implementation MMTimer

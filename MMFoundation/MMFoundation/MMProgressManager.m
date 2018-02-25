@@ -17,8 +17,7 @@ static NSString *const kMMProgressManagerBindingHandler     = @"kMMProgressManag
 
 static NSString *const kMMProgressManagerObserverContext    = @"kMMProgressManagerObserverContext";
 
-@interface MMProgressManager()
-{
+@interface MMProgressManager() {
     NSMutableArray *_progressArray;
 }
 
@@ -30,13 +29,13 @@ static NSString *const kMMProgressManagerObserverContext    = @"kMMProgressManag
     static MMProgressManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[MMProgressManager alloc] initWithDoudou];
+        manager = [[MMProgressManager alloc] init];
     });
     
     return manager;
 }
 
-- (instancetype)initWithDoudou {
+- (instancetype)init {
     if(self = [super init]) {
         _progressArray = [NSMutableArray array];
     }
@@ -56,35 +55,48 @@ static NSString *const kMMProgressManagerObserverContext    = @"kMMProgressManag
 
 - (void)removeObserverWithIdentifier:(id)identifier {
     if(!identifier)       return;
-    __block id temp = nil;
-    [_progressArray enumerateObjectsUsingBlock:^(NSProgress *progress, NSUInteger idx, BOOL *stop) {
-        temp = progress.userInfo[kMMProgressManagerBindingIdentifier];
-        if([identifier isEqual:temp]) {
-            [progress removeObserver:self forKeyPath:@"fractionCompleted"];
-            [_progressArray removeObject:progress];
-            *stop = YES;
+    NSProgress *target = nil;
+    for(NSProgress *progress in _progressArray) {
+        target = progress.userInfo[kMMProgressManagerBindingIdentifier];
+        if([identifier isEqual:target]) {
+            break;
+        } else {
+            target = nil;
         }
-    }];
+    }
+    if(target) {
+        [self releaseProgress:target];
+    }
 }
 
 - (void)removeAllProgressObservers {
-    [_progressArray enumerateObjectsUsingBlock:^(NSProgress *progress, NSUInteger idx, BOOL *stop) {
-        [progress removeObserver:self forKeyPath:@"fractionCompleted"];
-    }];
-    [_progressArray removeAllObjects];
+    for(NSProgress *progress in _progressArray) {
+        [self releaseProgress:progress];
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     NSString *cxt = (__bridge NSString *)(context);
-    if([kMMProgressManagerObserverContext isEqualToString:cxt] && [keyPath isEqualToString:@"fractionCompleted"]) {
+    if([kMMProgressManagerObserverContext isEqualToString:cxt]
+       && [keyPath isEqualToString:@"fractionCompleted"]) {
         NSProgress *progress = (NSProgress *)object;
         MMProgressValueDidChangeHandler handler = progress.userInfo[kMMProgressManagerBindingHandler];
-        if(handler) {
+        id identifier = progress.userInfo[kMMProgressManagerBindingIdentifier];
+        if(identifier && handler) {
             handler(progress);
+            [self releaseProgress:progress];
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
+}
+
+- (void)releaseProgress:(NSProgress *)progress {
+    if(!progress) {
+        return;
+    }
+    [progress removeObserver:self forKeyPath:@"fractionCompleted"];
+    [_progressArray removeObject:progress];
 }
 
 @end
