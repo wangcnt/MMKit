@@ -7,18 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MMFoundation/MMIDGenerator.h>
 
-@protocol MMRequestIDGenerator <NSObject>
-
-@optional
-@property (nonatomic, strong) NSString *prefix;
-
-@required
-- (NSString *)nextID;
-
+@protocol MMRequestIDGenerator <NSObject, MMIDGenerator>
 @end
 
-@interface MMDefaultRequestIDGenerator : NSObject <MMRequestIDGenerator>
-@property (nonatomic, strong) NSString *prefix;
-- (NSString *)nextID;   ///< Format: prefix.1/2/3/4/5...
+@interface MMDefaultRequestIDGenerator : MMDefaultIDGenerator <MMRequestIDGenerator>
 @end
