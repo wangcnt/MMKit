@@ -14,7 +14,7 @@
 @protocol MMSessionConfiguration <NSObject>
 @required
 @property (nonatomic, strong) id<MMSessionManager> sessionManager;  ///< The manager that manages a group of similar connections, requests, responses.
-@property (nonatomic, strong) Class<MMConnection> connectionClass;  ///< The connection class that could interact with server, caches and saves the requests, then generates response, callbacks to MMOperation.
+@property (nonatomic, strong) Class<MMConnection> connectionClass;  ///< The connection class that could interact with server, caches and saves the requests, then generates response, callbacks to MMOperation.  It will be created automatically by request type.
 @optional
 @property (nonatomic, strong) dispatch_queue_t task_queue;  ///< The queue that the MMSessionManager runs in, can be serial or concurrent. Default is serial.
 @property (nonatomic, strong) dispatch_queue_t database_queue;  ///< The queue that we handle the data received from server. Default is global.
