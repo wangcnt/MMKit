@@ -3,7 +3,7 @@
 //  MMLog
 //
 //  Created by Mark on 2018/2/13.
-//  Copyright © 2018年 WangQiang. All rights reserved.
+//  Copyright © 2018年 Mark. All rights reserved.
 //
 
 #ifndef MMLogDefines_h

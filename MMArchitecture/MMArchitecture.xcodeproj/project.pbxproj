@@ -143,6 +143,8 @@
 				4D66A021202895040013B3A4 /* MMSessionConfiguration.m */,
 				4D66A02D202895070013B3A4 /* MMRequest.h */,
 				4D66A028202895050013B3A4 /* MMRequest.m */,
+				4D7783A9204308A90016EF9B /* MMRequestIDGenerator.h */,
+				4D7783AA204308A90016EF9B /* MMRequestIDGenerator.m */,
 				4D66A027202895050013B3A4 /* MMSessionManager.h */,
 				4D66A01E202895040013B3A4 /* MMSessionManager.m */,
 				4D66A01B202895030013B3A4 /* MMConnection.h */,
@@ -150,8 +152,6 @@
 				4D66A022202895040013B3A4 /* MMResponse.h */,
 				4D66A029202895060013B3A4 /* MMResponse.m */,
 				4D669FE9202894360013B3A4 /* Info.plist */,
-				4D7783A9204308A90016EF9B /* MMRequestIDGenerator.h */,
-				4D7783AA204308A90016EF9B /* MMRequestIDGenerator.m */,
 			);
 			path = MMArchitecture;
 			sourceTree = "<group>";

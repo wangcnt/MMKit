@@ -3,13 +3,12 @@
 //  MMFoundation
 //
 //  Created by Mark on 2018/2/26.
-//  Copyright © 2018年 WangQiang. All rights reserved.
+//  Copyright © 2018年 Mark. All rights reserved.
 //
 
 #import "MMIDGenerator.h"
 
 @interface MMDefaultIDGenerator ()
-@property (nonatomic, strong) dispatch_semaphore_t semaphore;
 @property (nonatomic, assign) NSInteger count;
 @end
 
