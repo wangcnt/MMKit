@@ -29,8 +29,9 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, strong) id<MMSessionConfiguration> configuration;
 
+@property (nonatomic, strong) NSString *identifier;
+
 @optional
-@property (nonatomic, strong) NSString *taskIdentifier; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
 
 - (void)prepare;
 
@@ -50,7 +51,7 @@ typedef enum : NSUInteger {
 
 @protocol MMSocketRequest <NSObject, MMRequest>
 @required
-@property (nonatomic, strong) NSString *taskIdentifier; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
+@property (nonatomic, strong) NSString *connectionID; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
 @optional
 @end
 
@@ -68,6 +69,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong, readonly) NSData *payload;
 @property (nonatomic, strong) id<MMSessionConfiguration> configuration;
 
+@property (nonatomic, strong) NSString *identifier;
+
 - (void)prepare;
 
 @end
@@ -78,5 +81,5 @@ typedef enum : NSUInteger {
 @end
 
 @interface MMSocketRequest : MMRequest <MMSocketRequest>
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString *connectionID; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
 @end

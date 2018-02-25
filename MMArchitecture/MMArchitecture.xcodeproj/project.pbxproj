@@ -40,6 +40,8 @@
 		4D66A048202895070013B3A4 /* mmarchitecture.readme in Resources */ = {isa = PBXBuildFile; fileRef = 4D66A02B202895060013B3A4 /* mmarchitecture.readme */; };
 		4D66A04A202895070013B3A4 /* MMRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D66A02D202895070013B3A4 /* MMRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D66A05820289ADA0013B3A4 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D66A05920289ADA0013B3A4 /* MMFoundation.framework */; };
+		4D7783AB204308A90016EF9B /* MMRequestIDGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7783A9204308A90016EF9B /* MMRequestIDGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D7783AC204308A90016EF9B /* MMRequestIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7783AA204308A90016EF9B /* MMRequestIDGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		4D66A02B202895060013B3A4 /* mmarchitecture.readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mmarchitecture.readme; sourceTree = "<group>"; };
 		4D66A02D202895070013B3A4 /* MMRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRequest.h; sourceTree = "<group>"; };
 		4D66A05920289ADA0013B3A4 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D7783A9204308A90016EF9B /* MMRequestIDGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMRequestIDGenerator.h; sourceTree = "<group>"; };
+		4D7783AA204308A90016EF9B /* MMRequestIDGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMRequestIDGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 				4D66A022202895040013B3A4 /* MMResponse.h */,
 				4D66A029202895060013B3A4 /* MMResponse.m */,
 				4D669FE9202894360013B3A4 /* Info.plist */,
+				4D7783A9204308A90016EF9B /* MMRequestIDGenerator.h */,
+				4D7783AA204308A90016EF9B /* MMRequestIDGenerator.m */,
 			);
 			path = MMArchitecture;
 			sourceTree = "<group>";
@@ -182,6 +188,7 @@
 				4D66A037202895070013B3A4 /* MMOperationQueue.h in Headers */,
 				4D669FF6202894360013B3A4 /* MMArchitecture.h in Headers */,
 				4D66A040202895070013B3A4 /* MMOperation.h in Headers */,
+				4D7783AB204308A90016EF9B /* MMRequestIDGenerator.h in Headers */,
 				4D24AB7A20308971006777FF /* MMServiceCenter.h in Headers */,
 				4D66A033202895070013B3A4 /* MMSessionConfiguration.h in Headers */,
 				4D66A036202895070013B3A4 /* MMArchitectureConstants.h in Headers */,
@@ -288,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7783AC204308A90016EF9B /* MMRequestIDGenerator.m in Sources */,
 				4D66A044202895070013B3A4 /* MMResponse.m in Sources */,
 				4D66A042202895070013B3A4 /* MMRequest.m in Sources */,
 				4D66A02E202895070013B3A4 /* MMConnection.m in Sources */,

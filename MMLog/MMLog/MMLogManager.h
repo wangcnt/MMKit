@@ -18,7 +18,7 @@
 
 - (void)config;
 
-- (NSArray*)getLogPaths;
+- (NSArray *)getLogPaths;
 - (NSMutableArray *)readLogContent;
 
 @end

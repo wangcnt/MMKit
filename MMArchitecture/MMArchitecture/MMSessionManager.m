@@ -95,7 +95,7 @@
 }
 
 - (id<MMSocketConnection>)connectionWithRequest:(id<MMSocketRequest>)request {
-    return [self connectionWithIdentifier:request.taskIdentifier];
+    return [self connectionWithIdentifier:request.connectionID];
 }
 
 - (id<MMSocketConnection>)connectionWithIdentifier:(NSString *)identifier {
@@ -116,7 +116,7 @@
     if(connection) {
         return connection;
     } else if(createIfNotExists) {
-        connection = [self anyOffworkedConnectionWithIdentifier:identifier];
+        connection = [self generateAConnectionWithIdentifier:identifier];
         [self setupConnection:connection];
         [connection connect];
     }
@@ -124,10 +124,6 @@
 }
 
 - (id<MMSocketConnection>)anyOffworkedConnection {
-    return [self anyOffworkedConnectionWithIdentifier:nil];
-}
-
-- (id<MMSocketConnection>)anyOffworkedConnectionWithIdentifier:(NSString *)identifier {
     id<MMSocketConnection> connection = nil;
     for(id<MMSocketConnection> conn in _connectionDictionary.allValues) {
         if(conn.status == MMConnectionStatusOffworked) {
@@ -136,7 +132,7 @@
         }
     }
     if(!connection) {
-        connection = [self generateAConnectionWithIdentifier:identifier];
+        connection = [self generateAConnectionWithIdentifier:nil];
     }
     [self setupConnection:connection];
     [connection connect];

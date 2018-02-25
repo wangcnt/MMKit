@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "DDFileLogger.h"
 
-@interface MMCompressedLogFileManager : DDLogFileManagerDefault {
-    BOOL upToDate;
-    BOOL isCompressing;
-}
+@interface MMCompressedLogFileManager : DDLogFileManagerDefault 
 
 @end

@@ -11,6 +11,8 @@
 #import "MMRequest.h"
 #import "MMResponse.h"
 #import "MMSessionManager.h"
+#import "MMRequestIDGenerator.h"
+#import "MMSessionConfiguration.h"
 #import <MMFoundation/MMAsyncSocket.h>
 
 NSString *const MMSocketConnectionDefaultIdentifier = @"Default";
@@ -67,7 +69,6 @@ typedef enum : NSUInteger {
         
         _identifier = MMSocketConnectionDefaultIdentifier;
         
-        int testInt = 3;    // test git sourcetree
         _pingInterval = 5;
         _maxPingTimes = 7;
         
@@ -125,8 +126,9 @@ typedef enum : NSUInteger {
         wrapper.request = request;
         wrapper.completion = completion;
         
-        NSAssert(request.taskIdentifier, @"request.identifier must not be nil.");
-        _wrapperDictionary[request.taskIdentifier] = wrapper;
+        id<MMRequestIDGenerator> idGenerator = request.configuration.requestIDGenerator;
+        request.identifier = idGenerator.nextID;
+        _wrapperDictionary[request.identifier] = wrapper;
         [_wrapperArray addObject:wrapper];
 
         if(shouldSend) {
@@ -177,7 +179,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)sendRequest:(id<MMSocketRequest>)request {
-    MMSocketRequestWrapper *wrapper = _wrapperDictionary[request.taskIdentifier];
+    MMSocketRequestWrapper *wrapper = _wrapperDictionary[request.identifier];
     if(wrapper.status == MMSocketRequestStatusWaiting) {
         //TODO: 超時定時器
         
@@ -187,7 +189,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)cancelRequest:(id<MMSocketRequest>)request {
-    MMSocketRequestWrapper *wrapper = _wrapperDictionary[request.taskIdentifier];
+    MMSocketRequestWrapper *wrapper = _wrapperDictionary[request.identifier];
     if(wrapper) {
         wrapper.status = MMSocketRequestStatusCancelled;
     }

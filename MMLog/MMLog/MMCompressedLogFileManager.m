@@ -23,8 +23,9 @@
 #define NSLogInfo(frmt, ...)     do{ if(LOG_LEVEL >= 3) NSLog(frmt, ##__VA_ARGS__); } while(0)
 #define NSLogVerbose(frmt, ...)  do{ if(LOG_LEVEL >= 4) NSLog(frmt, ##__VA_ARGS__); } while(0)
 
-@interface MMCompressedLogFileManager (/* Must be nameless for properties */)
-
+@interface MMCompressedLogFileManager (/* Must be nameless for properties */) {
+    BOOL upToDate;
+}
 @property (readwrite) BOOL isCompressing;
 
 @end
@@ -175,7 +176,7 @@
         }
     });
     NSMutableArray *components = [NSMutableArray arrayWithArray:[_appName componentsSeparatedByString:@"."]];
-    [components removeObject:@""];
+    [components filterUsingPredicate:[NSPredicate predicateWithFormat:@"SELF <> ''"]];
     return [components componentsJoinedByString:@"."];
 }
 

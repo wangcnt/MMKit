@@ -32,7 +32,7 @@ static inline NSString *mm_library_path() {
 static inline NSString *mm_application_name() {
     NSString *appName = [NSBundle mainBundle].bundleIdentifier;
     NSMutableArray *components = [NSMutableArray arrayWithArray:[appName componentsSeparatedByString:@"."]];
-    [components removeObject:@""];
+    [components filterUsingPredicate:[NSPredicate predicateWithFormat:@"SELF <> ''"]];
     return [components componentsJoinedByString:@"."];
 }
 

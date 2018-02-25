@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MMConnection, MMSessionManager;
+@protocol MMConnection, MMSessionManager, MMRequestIDGenerator;
 @class MMSessionManager;
 
 @protocol MMSessionConfiguration <NSObject>
@@ -18,6 +18,7 @@
 @optional
 @property (nonatomic, strong) dispatch_queue_t task_queue;  ///< The queue that the MMSessionManager runs in, can be serial or concurrent. Default is serial.
 @property (nonatomic, strong) dispatch_queue_t database_queue;  ///< The queue that we handle the data received from server. Default is global.
+@property (nonatomic, strong) id<MMRequestIDGenerator> requestIDGenerator; ///< Maybe each request will have an identifier
 @end
 
 @protocol MMHTTPSessionConfiguration <NSObject, MMSessionConfiguration>
@@ -29,24 +30,23 @@
 @end
 
 @protocol MMSocketSessionConfiguration <NSObject, MMSessionConfiguration>
-@property (nonatomic, strong) NSString *urlString;    ///<
 @required
-
 @property (nonatomic, strong) Class<MMConnection> connectionClass;
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, assign) int port;
-
 @optional
 @property (nonatomic, assign) BOOL usesSSL;
-
 @end
 
 
-@interface MMSessionConfiguration : NSObject <MMSessionConfiguration>
+@interface MMSessionConfiguration : NSObject <MMSessionConfiguration> {
+    id<MMRequestIDGenerator> _requestIDGenerator;
+}
 @property (nonatomic, strong) id<MMSessionManager> sessionManager;
 @property (nonatomic, strong) Class<MMConnection> connectionClass;
 @property (nonatomic, strong) dispatch_queue_t task_queue;
 @property (nonatomic, strong) dispatch_queue_t database_queue;
+@property (nonatomic, strong) id<MMRequestIDGenerator> requestIDGenerator;
 @end
 
 @interface MMHTTPSessionConfiguration : MMSessionConfiguration <MMHTTPSessionConfiguration>
@@ -56,10 +56,8 @@
 @end
 
 @interface MMSocketSessionConfiguration : MMSessionConfiguration <MMSocketSessionConfiguration>
-
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, assign) int port;
 @property (nonatomic, assign) BOOL usesSSL;
-
 @end
 
