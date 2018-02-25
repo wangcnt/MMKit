@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, MMDiskCacheFileType) {
 @property (nonatomic, strong, readonly) NSString *libraryPath;
 @property (nonatomic, strong, readonly) NSString *cachesPath;
 
-- (NSString *)logPath;  // Documents/app.log
-- (NSString *)pathWithIdentifier:(NSString *)identifier directoryType:(MMDiskCacheDirectoryType)directoryType fileType:(MMDiskCacheFileType)fileType;
+- (NSString *)logPath;  ///< Already created: Documents/app.log
+- (NSString *)pathWithIdentifier:(NSString *)identifier directoryType:(MMDiskCacheDirectoryType)directoryType fileType:(MMDiskCacheFileType)fileType; ///< Already created.
 
 @end
