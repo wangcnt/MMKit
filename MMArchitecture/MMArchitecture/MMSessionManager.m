@@ -139,7 +139,7 @@
     return connection;
 }
 
-- (NSString *)anyIdentifierForOffworkedConnectionAndCreateIfNeeds {
+- (NSString *)identifierForAnyOffworkedConnection {
     return [self anyOffworkedConnection].identifier;
 }
 
