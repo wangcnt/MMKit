@@ -29,6 +29,8 @@
 		4D24AA83202F6C11006777FF /* MMDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA81202F6C11006777FF /* MMDiskCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D24AA84202F6C11006777FF /* MMDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA82202F6C11006777FF /* MMDiskCache.m */; };
 		4D24AA85202F6C11006777FF /* MMDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA82202F6C11006777FF /* MMDiskCache.m */; };
+		4D7783AF2043189C0016EF9B /* MMIDGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7783AD2043189C0016EF9B /* MMIDGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D7783B02043189C0016EF9B /* MMIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7783AE2043189C0016EF9B /* MMIDGenerator.m */; };
 		4D7C0EF4202F0118008C6CE0 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7C0EEA202F0118008C6CE0 /* MMFoundation.framework */; };
 		4D7C0EF9202F0118008C6CE0 /* MMFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C0EF8202F0118008C6CE0 /* MMFoundationTests.m */; };
 		4D7C0EFB202F0118008C6CE0 /* MMFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7C0EED202F0118008C6CE0 /* MMFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -75,6 +77,8 @@
 		4D24AA79202F673D006777FF /* MMProgressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMProgressManager.m; sourceTree = "<group>"; };
 		4D24AA81202F6C11006777FF /* MMDiskCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMDiskCache.h; sourceTree = "<group>"; };
 		4D24AA82202F6C11006777FF /* MMDiskCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMDiskCache.m; sourceTree = "<group>"; };
+		4D7783AD2043189C0016EF9B /* MMIDGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMIDGenerator.h; sourceTree = "<group>"; };
+		4D7783AE2043189C0016EF9B /* MMIDGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMIDGenerator.m; sourceTree = "<group>"; };
 		4D7C0EEA202F0118008C6CE0 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7C0EED202F0118008C6CE0 /* MMFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMFoundation.h; sourceTree = "<group>"; };
 		4D7C0EEE202F0118008C6CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				4D24AA28202F182F006777FF /* MMDefines.h */,
 				4D7C0EED202F0118008C6CE0 /* MMFoundation.h */,
 				4D7C0EEE202F0118008C6CE0 /* Info.plist */,
+				4D7783AD2043189C0016EF9B /* MMIDGenerator.h */,
+				4D7783AE2043189C0016EF9B /* MMIDGenerator.m */,
 			);
 			path = MMFoundation;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 				4D7C0F32202F015E008C6CE0 /* NSArrayAdditions.h in Headers */,
 				4D24AA7A202F673D006777FF /* MMProgressManager.h in Headers */,
 				4D24AA83202F6C11006777FF /* MMDiskCache.h in Headers */,
+				4D7783AF2043189C0016EF9B /* MMIDGenerator.h in Headers */,
 				4D24AA57202F2C0F006777FF /* MMMemoryCache.h in Headers */,
 				4D7C0F3D202F015E008C6CE0 /* NSFileManagerAdditions.h in Headers */,
 			);
@@ -311,6 +318,7 @@
 				4D24AA55202F2C0F006777FF /* MMMemoryCache.m in Sources */,
 				4D7C0F39202F015E008C6CE0 /* NSDataAdditions.m in Sources */,
 				4D24AA47202F1F8B006777FF /* MMIDTracker.m in Sources */,
+				4D7783B02043189C0016EF9B /* MMIDGenerator.m in Sources */,
 				4D24AA41202F1F40006777FF /* MMTimer.m in Sources */,
 				4D7C0F3B202F015E008C6CE0 /* NSDictionaryAdditions.m in Sources */,
 				4D24AA3D202F1E6F006777FF /* MMMulticastDelegate.m in Sources */,
