@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:QTime/QTime.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AnalyticsKit/AnalyticsKit.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:mmkit.readme">
    </FileRef>
    <FileRef
