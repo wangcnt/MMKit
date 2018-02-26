@@ -7,181 +7,181 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D77840D20442E2C0016EF9B /* QTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D77840320442E2C0016EF9B /* QTime.framework */; };
-		4D77841220442E2C0016EF9B /* QTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D77841120442E2C0016EF9B /* QTimeTests.m */; };
-		4D77841420442E2D0016EF9B /* QTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D77840620442E2C0016EF9B /* QTime.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D77843120442E5A0016EF9B /* QTEmail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D77842720442E5A0016EF9B /* QTEmail.framework */; };
+		4D77843620442E5A0016EF9B /* QTEmailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D77843520442E5A0016EF9B /* QTEmailTests.m */; };
+		4D77843820442E5A0016EF9B /* QTEmail.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D77842A20442E5A0016EF9B /* QTEmail.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4D77840E20442E2C0016EF9B /* PBXContainerItemProxy */ = {
+		4D77843220442E5A0016EF9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4D7783FA20442E2C0016EF9B /* Project object */;
+			containerPortal = 4D77841E20442E5A0016EF9B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4D77840220442E2C0016EF9B;
-			remoteInfo = QTime;
+			remoteGlobalIDString = 4D77842620442E5A0016EF9B;
+			remoteInfo = QTEmail;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D77840320442E2C0016EF9B /* QTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D77840620442E2C0016EF9B /* QTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTime.h; sourceTree = "<group>"; };
-		4D77840720442E2C0016EF9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D77840C20442E2C0016EF9B /* QTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D77841120442E2C0016EF9B /* QTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTimeTests.m; sourceTree = "<group>"; };
-		4D77841320442E2D0016EF9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D77842720442E5A0016EF9B /* QTEmail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTEmail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D77842A20442E5A0016EF9B /* QTEmail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTEmail.h; sourceTree = "<group>"; };
+		4D77842B20442E5A0016EF9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D77843020442E5A0016EF9B /* QTEmailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QTEmailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D77843520442E5A0016EF9B /* QTEmailTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTEmailTests.m; sourceTree = "<group>"; };
+		4D77843720442E5A0016EF9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4D7783FF20442E2C0016EF9B /* Frameworks */ = {
+		4D77842320442E5A0016EF9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4D77840920442E2C0016EF9B /* Frameworks */ = {
+		4D77842D20442E5A0016EF9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D77840D20442E2C0016EF9B /* QTime.framework in Frameworks */,
+				4D77843120442E5A0016EF9B /* QTEmail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4D7783F920442E2C0016EF9B = {
+		4D77841D20442E5A0016EF9B = {
 			isa = PBXGroup;
 			children = (
-				4D77840520442E2C0016EF9B /* QTime */,
-				4D77841020442E2C0016EF9B /* QTimeTests */,
-				4D77840420442E2C0016EF9B /* Products */,
+				4D77842920442E5A0016EF9B /* QTEmail */,
+				4D77843420442E5A0016EF9B /* QTEmailTests */,
+				4D77842820442E5A0016EF9B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4D77840420442E2C0016EF9B /* Products */ = {
+		4D77842820442E5A0016EF9B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D77840320442E2C0016EF9B /* QTime.framework */,
-				4D77840C20442E2C0016EF9B /* QTimeTests.xctest */,
+				4D77842720442E5A0016EF9B /* QTEmail.framework */,
+				4D77843020442E5A0016EF9B /* QTEmailTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4D77840520442E2C0016EF9B /* QTime */ = {
+		4D77842920442E5A0016EF9B /* QTEmail */ = {
 			isa = PBXGroup;
 			children = (
-				4D77840620442E2C0016EF9B /* QTime.h */,
-				4D77840720442E2C0016EF9B /* Info.plist */,
+				4D77842A20442E5A0016EF9B /* QTEmail.h */,
+				4D77842B20442E5A0016EF9B /* Info.plist */,
 			);
-			path = QTime;
+			path = QTEmail;
 			sourceTree = "<group>";
 		};
-		4D77841020442E2C0016EF9B /* QTimeTests */ = {
+		4D77843420442E5A0016EF9B /* QTEmailTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D77841120442E2C0016EF9B /* QTimeTests.m */,
-				4D77841320442E2D0016EF9B /* Info.plist */,
+				4D77843520442E5A0016EF9B /* QTEmailTests.m */,
+				4D77843720442E5A0016EF9B /* Info.plist */,
 			);
-			path = QTimeTests;
+			path = QTEmailTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4D77840020442E2C0016EF9B /* Headers */ = {
+		4D77842420442E5A0016EF9B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D77841420442E2D0016EF9B /* QTime.h in Headers */,
+				4D77843820442E5A0016EF9B /* QTEmail.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4D77840220442E2C0016EF9B /* QTime */ = {
+		4D77842620442E5A0016EF9B /* QTEmail */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D77841720442E2D0016EF9B /* Build configuration list for PBXNativeTarget "QTime" */;
+			buildConfigurationList = 4D77843B20442E5A0016EF9B /* Build configuration list for PBXNativeTarget "QTEmail" */;
 			buildPhases = (
-				4D7783FE20442E2C0016EF9B /* Sources */,
-				4D7783FF20442E2C0016EF9B /* Frameworks */,
-				4D77840020442E2C0016EF9B /* Headers */,
-				4D77840120442E2C0016EF9B /* Resources */,
+				4D77842220442E5A0016EF9B /* Sources */,
+				4D77842320442E5A0016EF9B /* Frameworks */,
+				4D77842420442E5A0016EF9B /* Headers */,
+				4D77842520442E5A0016EF9B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = QTime;
-			productName = QTime;
-			productReference = 4D77840320442E2C0016EF9B /* QTime.framework */;
+			name = QTEmail;
+			productName = QTEmail;
+			productReference = 4D77842720442E5A0016EF9B /* QTEmail.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4D77840B20442E2C0016EF9B /* QTimeTests */ = {
+		4D77842F20442E5A0016EF9B /* QTEmailTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D77841A20442E2D0016EF9B /* Build configuration list for PBXNativeTarget "QTimeTests" */;
+			buildConfigurationList = 4D77843E20442E5A0016EF9B /* Build configuration list for PBXNativeTarget "QTEmailTests" */;
 			buildPhases = (
-				4D77840820442E2C0016EF9B /* Sources */,
-				4D77840920442E2C0016EF9B /* Frameworks */,
-				4D77840A20442E2C0016EF9B /* Resources */,
+				4D77842C20442E5A0016EF9B /* Sources */,
+				4D77842D20442E5A0016EF9B /* Frameworks */,
+				4D77842E20442E5A0016EF9B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4D77840F20442E2C0016EF9B /* PBXTargetDependency */,
+				4D77843320442E5A0016EF9B /* PBXTargetDependency */,
 			);
-			name = QTimeTests;
-			productName = QTimeTests;
-			productReference = 4D77840C20442E2C0016EF9B /* QTimeTests.xctest */;
+			name = QTEmailTests;
+			productName = QTEmailTests;
+			productReference = 4D77843020442E5A0016EF9B /* QTEmailTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4D7783FA20442E2C0016EF9B /* Project object */ = {
+		4D77841E20442E5A0016EF9B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Mark;
 				TargetAttributes = {
-					4D77840220442E2C0016EF9B = {
+					4D77842620442E5A0016EF9B = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
-					4D77840B20442E2C0016EF9B = {
+					4D77842F20442E5A0016EF9B = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 4D7783FD20442E2C0016EF9B /* Build configuration list for PBXProject "QTime" */;
+			buildConfigurationList = 4D77842120442E5A0016EF9B /* Build configuration list for PBXProject "QTEmail" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 4D7783F920442E2C0016EF9B;
-			productRefGroup = 4D77840420442E2C0016EF9B /* Products */;
+			mainGroup = 4D77841D20442E5A0016EF9B;
+			productRefGroup = 4D77842820442E5A0016EF9B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4D77840220442E2C0016EF9B /* QTime */,
-				4D77840B20442E2C0016EF9B /* QTimeTests */,
+				4D77842620442E5A0016EF9B /* QTEmail */,
+				4D77842F20442E5A0016EF9B /* QTEmailTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4D77840120442E2C0016EF9B /* Resources */ = {
+		4D77842520442E5A0016EF9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4D77840A20442E2C0016EF9B /* Resources */ = {
+		4D77842E20442E5A0016EF9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -191,33 +191,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4D7783FE20442E2C0016EF9B /* Sources */ = {
+		4D77842220442E5A0016EF9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4D77840820442E2C0016EF9B /* Sources */ = {
+		4D77842C20442E5A0016EF9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D77841220442E2C0016EF9B /* QTimeTests.m in Sources */,
+				4D77843620442E5A0016EF9B /* QTEmailTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4D77840F20442E2C0016EF9B /* PBXTargetDependency */ = {
+		4D77843320442E5A0016EF9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4D77840220442E2C0016EF9B /* QTime */;
-			targetProxy = 4D77840E20442E2C0016EF9B /* PBXContainerItemProxy */;
+			target = 4D77842620442E5A0016EF9B /* QTEmail */;
+			targetProxy = 4D77843220442E5A0016EF9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		4D77841520442E2D0016EF9B /* Debug */ = {
+		4D77843920442E5A0016EF9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -275,7 +275,7 @@
 			};
 			name = Debug;
 		};
-		4D77841620442E2D0016EF9B /* Release */ = {
+		4D77843A20442E5A0016EF9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -327,7 +327,7 @@
 			};
 			name = Release;
 		};
-		4D77841820442E2D0016EF9B /* Debug */ = {
+		4D77843C20442E5A0016EF9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -337,17 +337,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = QTime/Info.plist;
+				INFOPLIST_FILE = QTEmail/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTime;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTEmail;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		4D77841920442E2D0016EF9B /* Release */ = {
+		4D77843D20442E5A0016EF9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -357,37 +357,37 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = QTime/Info.plist;
+				INFOPLIST_FILE = QTEmail/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTime;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTEmail;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		4D77841B20442E2D0016EF9B /* Debug */ = {
+		4D77843F20442E5A0016EF9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZM5DUKP89C;
-				INFOPLIST_FILE = QTimeTests/Info.plist;
+				INFOPLIST_FILE = QTEmailTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTimeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTEmailTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		4D77841C20442E2D0016EF9B /* Release */ = {
+		4D77844020442E5A0016EF9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZM5DUKP89C;
-				INFOPLIST_FILE = QTimeTests/Info.plist;
+				INFOPLIST_FILE = QTEmailTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTimeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTEmailTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -396,34 +396,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4D7783FD20442E2C0016EF9B /* Build configuration list for PBXProject "QTime" */ = {
+		4D77842120442E5A0016EF9B /* Build configuration list for PBXProject "QTEmail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D77841520442E2D0016EF9B /* Debug */,
-				4D77841620442E2D0016EF9B /* Release */,
+				4D77843920442E5A0016EF9B /* Debug */,
+				4D77843A20442E5A0016EF9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D77841720442E2D0016EF9B /* Build configuration list for PBXNativeTarget "QTime" */ = {
+		4D77843B20442E5A0016EF9B /* Build configuration list for PBXNativeTarget "QTEmail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D77841820442E2D0016EF9B /* Debug */,
-				4D77841920442E2D0016EF9B /* Release */,
+				4D77843C20442E5A0016EF9B /* Debug */,
+				4D77843D20442E5A0016EF9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D77841A20442E2D0016EF9B /* Build configuration list for PBXNativeTarget "QTimeTests" */ = {
+		4D77843E20442E5A0016EF9B /* Build configuration list for PBXNativeTarget "QTEmailTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D77841B20442E2D0016EF9B /* Debug */,
-				4D77841C20442E2D0016EF9B /* Release */,
+				4D77843F20442E5A0016EF9B /* Debug */,
+				4D77844020442E5A0016EF9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4D7783FA20442E2C0016EF9B /* Project object */;
+	rootObject = 4D77841E20442E5A0016EF9B /* Project object */;
 }
