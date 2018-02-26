@@ -2,40 +2,42 @@
 ↑←↓→
 
 1. 架構層的流程依賴關係:
-                          User Interface
-                                 |
-                                 ↓
-                          MMArchitecture (#import)
-                                 |
-                                 ↓
-                          MMServiceCenter (Dynamic Delegate)
-                                 ↓
-                             MMService (Single/Shared/Global)
-                                 |
-          MMSessionConfiguration |
-                                 |
-                          MMOperationQueue
-                                 |
-                                 ↓
-                            MMOperation ←-------------
-                                 |                    |
-                       MMRequest |                    |
-          MMSessionConfiguration |                    |
-             MMRequestCompletion |                    |
-                                 ↓                    |
-                          MMSessionManager            |
-                                 |                    |
-                       MMRequest |                    |
-          MMSessionConfiguration |                    | MMRequestCompletion
-             MMRequestCompletion |                    |
-                                 ↓                    |
-                            MMConnection              |
-                                 |                    |
-                       MMRequest |                    |
-             MMRequestCompletion |                    |
-                                 ↓                    |
-                             MMResponse               |
-                                 |____________________|
+                          User Interface ←--------------------------
+                                 |                                  |
+                                 ↓                                  |
+                          MMArchitecture (#import)                  |
+                                 |                                  |
+                                 ↓                                  |
+                          MMServiceCenter (Dynamic Delegate)        |
+                                 |                                  |
+                                 ↓                                  |  Callback
+                             MMService (Single/Shared/Global)       |
+                                 |                                  |
+          MMSessionConfiguration |                                  |
+                                 ↓                                  |
+                          MMOperationQueue                          |
+                                 |                                  |
+                                 ↓      |----------------------------
+                            MMOperation ←---------------------------
+                                 |                                  |
+                       MMRequest |                                  |
+          MMSessionConfiguration |                                  |
+             MMRequestCompletion |                                  |
+                                 ↓                                  |
+                          MMSessionManager                          |
+                                 |                                  |
+                       MMRequest |                                  |
+          MMSessionConfiguration |                        MMRequestCompletion
+             MMRequestCompletion |                                  |
+                                 ↓                                  |
+                            MMConnection                            |
+                                 |                                  |
+                       MMRequest |                                  |
+             MMRequestCompletion |                                  |
+                                 ↓                                  |
+                             MMResponse                             |
+                                 |                                  |
+                                 |__________________________________|
 
 2. 作用說明，創建時機：
    2.1. MMServiceCenter
@@ -79,6 +81,8 @@
                 這樣方便於進行鏈式任務；這個標識將在MMSessionManager裏確定具體的交互協議
                 MMConnection，如果有，返回，如果沒有，根據
                 MMRequest.configuration.connectionClass生成一個；
+            d. 每個MMSocketRequest將持有一個當前請求的唯一標識，用於取到socket數據後識別
+                出請求。
         2.7.2. 創建時機，使用方法：
             在MMOperation-init方法裏創建，將貫穿於整個MMOperation生命週期;
 
@@ -98,7 +102,7 @@
             a. 負責一種與服務器交互協議的處理，發送請求，接收數據；
             b. 根據接收數據生成MMResponse以MMRequestCompletion的方式將數據返回給MMOperation進行持久化；
         2.8.2. 創建時機，使用方法：
-            MMSessionManager-startRequest:withCompletion:裏根據MMRequest的identifier
+            MMSessionManager-startRequest:withCompletion:裏根據MMRequest的connectionID
             和MMRequest.MMSessionConfiguration.connectionClass來選取或創建；
 
    2.9. MMResponse
