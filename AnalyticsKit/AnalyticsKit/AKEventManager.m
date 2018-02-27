@@ -97,16 +97,19 @@
 }
 
 - (void)uploadIfNeeds {
-    if(!_events.count || _timer)  {
+    if(!_events.count)  {
+        [self stopUpoloading];
         return;
     }
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
-    dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, _uploadInterval, 0);
-    dispatch_source_set_event_handler(_timer, ^{
-        [self upload];
-    });
-    dispatch_source_set_cancel_handler(_timer, ^{
-    });
+    if(!_timer) {
+        _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+        dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, _uploadInterval, 0);
+        dispatch_source_set_event_handler(_timer, ^{
+            [self upload];
+        });
+        dispatch_source_set_cancel_handler(_timer, ^{
+        });
+    }
 }
 
 - (void)upload {
@@ -116,6 +119,9 @@
         } else {
             [_events removeObjectsInArray:events];
             //TODO: wirte into file use MMDiskCache
+            if(!_events.count) {
+                [self stopUpoloading];
+            }
         }
     }];
 }

@@ -10,7 +10,7 @@
 
 @class MMOperationQueue;
 
-@interface MMServiceCenter : NSObject
+@interface MMServiceCenter : NSProxy
 
 // serial queue
 @property (nonatomic, strong, readonly) MMOperationQueue *serialQueue;

@@ -65,13 +65,13 @@
 //    [string deleteToString:@"ba"];
 //    NSLog(@"string-->%@", string);
     
-    [self testDDLog];
+//    [self testDDLog];
     
 //    [self gcdDemo1];
 //    [self gcdDemo2];
 //    [self gcdDemo3];
 //    [self gcdDemo5];
-//    [self testDynamicProxy];
+    [self testDynamicProxy];
     return YES;
 }
 
