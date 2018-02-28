@@ -26,10 +26,21 @@
 + (NSString *)uuid;
 - (NSString *)phoneNumber;
 
-+ (BOOL)version:(NSString *)version1 isGreaterThanVersion:(NSString *)version2;
+- (NSArray<NSNumber *> *)numbers;
 
 + (instancetype)stringWithTimeInterval:(NSTimeInterval)interval;
 + (instancetype)abbreviatedStringWithNumber:(NSInteger)number;
+
+@end
+
+@interface NSString (Version)
+
+- (BOOL)isGreaterThanVersion:(NSString *)version;
+- (BOOL)isNotGreaterThanVersion:(NSString *)version;
+- (BOOL)isSmallerThanVersion:(NSString *)version;
+- (BOOL)isNotSmallerThanVersion:(NSString *)version;
+- (BOOL)isEqualToVersion:(NSString *)version;
+- (NSComparisonResult)compareVersion:(NSString *)version;
 
 @end
 

@@ -72,6 +72,8 @@
 //    [self gcdDemo3];
 //    [self gcdDemo5];
     [self testDynamicProxy];
+    
+    NSComparisonResult greater = [@"a1.b2" compareVersion:@"a1asdf.c1(**HIUHIHIOHIHKHJGYUIOHIbkdsf3"];
     return YES;
 }
 

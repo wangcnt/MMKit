@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MMOperationQueue;
+@protocol MMService;
 
 @interface MMServiceCenter : NSProxy
 
@@ -19,5 +20,7 @@
 @property (nonatomic, strong, readonly) MMOperationQueue *highQueue;
 @property (nonatomic, strong, readonly) MMOperationQueue *defaultQueue;
 @property (nonatomic, strong, readonly) MMOperationQueue *backgroundQueue;
+
+- (void)registerService:(id<MMService>)service withIdentifier:(NSString *)identifier;
 
 @end

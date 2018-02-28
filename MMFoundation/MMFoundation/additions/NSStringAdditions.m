@@ -122,45 +122,6 @@
     return result.length ? result : self;
 }
 
-+ (BOOL)version:(NSString *)version1 isGreaterThanVersion:(NSString *)version2 {
-    NSCharacterSet *charset = [NSCharacterSet characterSetWithCharactersInString:@".,_-"];
-    NSArray *version1Components = [version1 componentsSeparatedByCharactersInSet:charset];
-    NSArray *version2Components = [version2 componentsSeparatedByCharactersInSet:charset];
-    return [NSString versionComponents:version1Components isGreaterThanVersionComponents:version2Components];
-}
-
-+ (BOOL)versionComponents:(NSArray *)version1Components isGreaterThanVersionComponents:(NSArray *)version2Components {
-    if(version1Components.count && !version2Components.count)  return YES;
-    if(!version1Components.count && version2Components.count)  return NO;
-    if(!version1Components.count && !version2Components.count) return YES;
-    
-    __block BOOL greater = NO;
-    __block NSString *version2 = nil;
-    [version1Components enumerateObjectsUsingBlock:^(NSString *version1, NSUInteger idx, BOOL *stop) {
-        // 第一个版本比第二个版本元素多
-        if(idx == version2Components.count) {
-            greater = YES;
-            *stop = YES;
-        } else {
-            version2 = version2Components[idx];
-            int v1 = version1.intValue;
-            int v2 = version2.intValue;
-            if(v1 > v2) {
-                greater = YES;
-                *stop = YES;
-            } else if(v1 < v2) {
-                greater = NO;
-                *stop = YES;
-            } else if(idx+1==version1Components.count && idx+1<version2Components.count) {
-                // 第二个版本比第一个版本元素多
-                greater = NO;
-                *stop = YES;
-            }
-        }
-    }];
-    return greater;
-}
-
 + (instancetype)stringWithTimeInterval:(NSTimeInterval)interval {
     NSTimeInterval dif = [[NSDate date] timeIntervalSince1970] - interval;
     
@@ -222,7 +183,77 @@
     return result;
 }
 
+- (NSArray<NSNumber *> *)numbers {
+    NSMutableArray<NSNumber *> *numbers = [NSMutableArray<NSNumber *> array];
+    NSString *regex = @"\\d+";
+    NSError *error;
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:0 error:&error];
+    [expression enumerateMatchesInString:self options:0 range:NSMakeRange(0, self.length) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
+        [numbers addObject:@([self substringWithRange:match.range].integerValue)];
+    }];
+    return numbers;
+}
+
 @end
+
+
+@implementation NSString (Version)
+
+- (BOOL)isGreaterThanVersion:(NSString *)version {
+    return [self compareVersion:version] == NSOrderedAscending;
+}
+
+- (BOOL)isNotGreaterThanVersion:(NSString *)version {
+    return ![self isGreaterThanVersion:version];
+}
+
+- (BOOL)isSmallerThanVersion:(NSString *)version {
+    return [self compareVersion:version] == NSOrderedDescending;
+}
+
+- (BOOL)isNotSmallerThanVersion:(NSString *)version {
+    return ![self isSmallerThanVersion:version];
+}
+
+- (BOOL)isEqualToVersion:(NSString *)version {
+    return [self compareVersion:version] == NSOrderedSame;
+}
+
+- (NSComparisonResult)compareVersion:(NSString *)version {
+    NSArray<NSNumber *> *numbers1 = self.numbers;
+    NSArray<NSNumber *> *numbers2 = version.numbers;
+    if(numbers1.count && !numbers2.count)  return NSOrderedAscending;
+    if(!numbers1.count && numbers2.count)  return NSOrderedDescending;
+    
+    __block NSComparisonResult result = NSOrderedSame;
+    __block NSNumber *version2 = nil;
+    [numbers1 enumerateObjectsUsingBlock:^(NSNumber *version1, NSUInteger idx, BOOL *stop) {
+        // 最後一個元素時，第一个版本比第二个版本元素多，則大於
+        if(idx == numbers2.count) {
+            result = NSOrderedAscending;
+            *stop = YES;
+        } else {
+            version2 = numbers2[idx];
+            int v1 = version1.intValue;
+            int v2 = version2.intValue;
+            if(v1 > v2) {
+                result = NSOrderedAscending;
+                *stop = YES;
+            } else if(v1 < v2) {
+                result = NSOrderedDescending;
+                *stop = YES;
+            } else if(idx+1==numbers1.count && idx+1<numbers2.count) {
+                // 第二个版本比第一个版本數字元素多
+                result = NSOrderedDescending;
+                *stop = YES;
+            }
+        }
+    }];
+    return result;
+}
+
+@end
+
 
 @implementation NSString (JSON)
 
