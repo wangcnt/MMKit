@@ -59,11 +59,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 //    [[B sharedInstance] print];
-//    [self testMMService];
-//
-//    NSMutableString *string = [[NSMutableString alloc] initWithString:@"aaabaa"];
-//    [string deleteToString:@"ba"];
-//    NSLog(@"string-->%@", string);
+    [self testMMService];
     
 //    [self testDDLog];
     
@@ -71,11 +67,14 @@
 //    [self gcdDemo2];
 //    [self gcdDemo3];
 //    [self gcdDemo5];
-    [self testDynamicProxy];
-    
+//    [self testDynamicProxy];
+//    [self testStringAdditions];
+    return YES;
+}
+
+- (void)testStringAdditions {
     NSComparisonResult greater = [@"a1.b2" compareVersion:@"a1asdf.c2(**HIUHIHIOHIHKHJGYUIOHIbkdsf3"];
     NSArray<NSNumber *> *numbers = [@"1.2.3.4a3b*(Id2" numbers];
-    return YES;
 }
 
 - (void)testDDLog {
@@ -92,7 +91,7 @@
     id<DPPersonProtocol> proxy = [[DPPersonProxy alloc] initWithPerson:person];
 //    [proxy goDie];
 //    [proxy eat];
-//    BOOL isAGoodGuy = [proxy isAGoodGuy];
+    BOOL isAGoodGuy = [proxy isAGoodGuy];
 //    [proxy buyFish:@"娃娃魚" withMoney:50.555];
     [proxy bathWithCompletion:^(BOOL successed) {
         NSLog(@"successed-->%d", successed);
@@ -102,16 +101,9 @@
 - (void)testMMService {
     double begin = CFAbsoluteTimeGetCurrent();
     MMService *service = [[MMService alloc] init];
-    [service startService];
-//    for(int i=0; i<3; i++) {
-//        [service loginWithUsername:@"wangcnt" password:@"Aizaih0" completion:^(NSError *error) {
-//            //            NSLog(@"i............%d", 0);
-//        }];
-//    }
-//    [service.highQueue waitUntilAllOperationsAreFinished];
-    double end = CFAbsoluteTimeGetCurrent();
-    double duaring = end - begin;
-//    NSLog(@"duaring -> %f", duaring);
+    MMServiceCenter *center = [[MMServiceCenter alloc] init];
+    [center registerService:service withIdentifier:@"a"];
+    [center startService];
 }
 
 /**

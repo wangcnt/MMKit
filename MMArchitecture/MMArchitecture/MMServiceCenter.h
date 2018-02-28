@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MMService.h"
 
 @class MMOperationQueue;
-@protocol MMService;
 
-@interface MMServiceCenter : NSProxy
+@interface MMServiceCenter : NSProxy <MMService>
 
 // serial queue
 @property (nonatomic, strong, readonly) MMOperationQueue *serialQueue;
@@ -21,6 +21,7 @@
 @property (nonatomic, strong, readonly) MMOperationQueue *defaultQueue;
 @property (nonatomic, strong, readonly) MMOperationQueue *backgroundQueue;
 
+- (instancetype)init;
 - (void)registerService:(id<MMService>)service withIdentifier:(NSString *)identifier;
 
 @end

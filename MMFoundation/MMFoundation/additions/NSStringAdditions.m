@@ -113,11 +113,8 @@
 
 - (NSString *)phoneNumber {
     NSMutableString *result = [[NSMutableString alloc] init];
-    NSString *regex = @"\\d+";
-    NSError *error;
-    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:0 error:&error];
-    [expression enumerateMatchesInString:self options:0 range:NSMakeRange(0, self.length) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
-        [result appendString:[self substringWithRange:match.range]];
+    [self enumerateIntegersUsingBlock:^(NSInteger integer, BOOL *stop) {
+        [result appendFormat:@"%ld", integer];
     }];
     return result.length ? result : self;
 }
