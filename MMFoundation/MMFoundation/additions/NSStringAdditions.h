@@ -26,7 +26,11 @@
 + (NSString *)uuid;
 - (NSString *)phoneNumber;
 
+- (void)enumerateIntegersUsingBlock:(void (^)(NSInteger integer, BOOL *stop))block;
+- (void)enumerateNumbersUsingBlock:(void (^)(NSNumber *number, BOOL *stop))block;
+- (void)enumerateSubstringsWithRegex:(NSString *)regex usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *stop))block;
 - (NSArray<NSNumber *> *)numbers;
+- (NSArray<NSNumber *> *)integers;
 
 + (instancetype)stringWithTimeInterval:(NSTimeInterval)interval;
 + (instancetype)abbreviatedStringWithNumber:(NSInteger)number;

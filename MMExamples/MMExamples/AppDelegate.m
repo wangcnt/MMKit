@@ -73,7 +73,8 @@
 //    [self gcdDemo5];
     [self testDynamicProxy];
     
-    NSComparisonResult greater = [@"a1.b2" compareVersion:@"a1asdf.c1(**HIUHIHIOHIHKHJGYUIOHIbkdsf3"];
+    NSComparisonResult greater = [@"a1.b2" compareVersion:@"a1asdf.c2(**HIUHIHIOHIHKHJGYUIOHIbkdsf3"];
+    NSArray<NSNumber *> *numbers = [@"1.2.3.4a3b*(Id2" numbers];
     return YES;
 }
 

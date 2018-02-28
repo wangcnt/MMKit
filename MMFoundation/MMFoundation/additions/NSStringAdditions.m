@@ -183,13 +183,44 @@
     return result;
 }
 
-- (NSArray<NSNumber *> *)numbers {
-    NSMutableArray<NSNumber *> *numbers = [NSMutableArray<NSNumber *> array];
-    NSString *regex = @"\\d+";
+- (void)enumerateIntegersUsingBlock:(void (^)(NSInteger integer, BOOL *stop))block {
+    [self enumerateSubstringsWithRegex:@"\\d+" usingBlock:^(NSString *substring, NSRange range, BOOL *stop) {
+        if(block) {
+            block(substring.integerValue, stop);
+        }
+    }];
+}
+
+- (void)enumerateNumbersUsingBlock:(void (^)(NSNumber *number, BOOL *stop))block {
+    [self enumerateSubstringsWithRegex:@"\\d+(.\\d+)?" usingBlock:^(NSString *substring, NSRange range, BOOL *stop) {
+        if(block) {
+            block(@([substring rangeOfString:@"."].length ? substring.doubleValue : substring.integerValue), stop);
+        }
+    }];
+}
+
+- (void)enumerateSubstringsWithRegex:(NSString *)regex usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *gameover))block {
     NSError *error;
     NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:0 error:&error];
     [expression enumerateMatchesInString:self options:0 range:NSMakeRange(0, self.length) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
-        [numbers addObject:@([self substringWithRange:match.range].integerValue)];
+        if(block) {
+            block([self substringWithRange:match.range], match.range, stop);
+        }
+    }];
+}
+
+- (NSArray<NSNumber *> *)integers {
+    NSMutableArray<NSNumber *> *integers = [NSMutableArray<NSNumber *> array];
+    [self enumerateIntegersUsingBlock:^(NSInteger integer, BOOL *stop) {
+        [integers addObject:@(integer)];
+    }];
+    return integers;
+}
+
+- (NSArray<NSNumber *> *)numbers {
+    NSMutableArray<NSNumber *> *numbers = [NSMutableArray<NSNumber *> array];
+    [self enumerateNumbersUsingBlock:^(NSNumber *number, BOOL *stop) {
+        [numbers addObject:number];
     }];
     return numbers;
 }
@@ -220,8 +251,8 @@
 }
 
 - (NSComparisonResult)compareVersion:(NSString *)version {
-    NSArray<NSNumber *> *numbers1 = self.numbers;
-    NSArray<NSNumber *> *numbers2 = version.numbers;
+    NSArray<NSNumber *> *numbers1 = self.integers;
+    NSArray<NSNumber *> *numbers2 = version.integers;
     if(numbers1.count && !numbers2.count)  return NSOrderedAscending;
     if(!numbers1.count && numbers2.count)  return NSOrderedDescending;
     
