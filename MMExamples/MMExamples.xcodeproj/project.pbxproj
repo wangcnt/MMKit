@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D66A04B202899A80013B3A4 /* MMArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D66A04C202899A80013B3A4 /* MMArchitecture.framework */; };
+		4D77844120470C300016EF9B /* AnalyticsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D77844220470C300016EF9B /* AnalyticsKit.framework */; };
 		4D7C0F41202F01C9008C6CE0 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7C0F42202F01C9008C6CE0 /* MMFoundation.framework */; };
 		4D8EB05F201F8E4E00392C16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB05E201F8E4E00392C16 /* AppDelegate.m */; };
 		4D8EB062201F8E4E00392C16 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB061201F8E4E00392C16 /* FirstViewController.m */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		4D66A04C202899A80013B3A4 /* MMArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D77844220470C300016EF9B /* AnalyticsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AnalyticsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7C0F42202F01C9008C6CE0 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8EB05A201F8E4E00392C16 /* MMExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8EB05D201F8E4E00392C16 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D77844120470C300016EF9B /* AnalyticsKit.framework in Frameworks */,
 				4D9EE5172031EBDE0030946B /* MMLog.framework in Frameworks */,
 				4D7C0F41202F01C9008C6CE0 /* MMFoundation.framework in Frameworks */,
 				4D66A04B202899A80013B3A4 /* MMArchitecture.framework in Frameworks */,
@@ -163,6 +166,7 @@
 		4D8EB092201F8E5C00392C16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D77844220470C300016EF9B /* AnalyticsKit.framework */,
 				4D9EE5182031EBDE0030946B /* MMLog.framework */,
 				4D7C0F42202F01C9008C6CE0 /* MMFoundation.framework */,
 				4D66A04C202899A80013B3A4 /* MMArchitecture.framework */,

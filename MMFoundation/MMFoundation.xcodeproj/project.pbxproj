@@ -31,6 +31,10 @@
 		4D24AA85202F6C11006777FF /* MMDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA82202F6C11006777FF /* MMDiskCache.m */; };
 		4D7783AF2043189C0016EF9B /* MMIDGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7783AD2043189C0016EF9B /* MMIDGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D7783B02043189C0016EF9B /* MMIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7783AE2043189C0016EF9B /* MMIDGenerator.m */; };
+		4D778445204823C10016EF9B /* NSInvocationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D778443204823C10016EF9B /* NSInvocationAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D778446204823C10016EF9B /* NSInvocationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D778444204823C10016EF9B /* NSInvocationAdditions.m */; };
+		4D778449204825210016EF9B /* MMProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D778447204825210016EF9B /* MMProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D77844A204825210016EF9B /* MMProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D778448204825210016EF9B /* MMProxy.m */; };
 		4D7C0EF4202F0118008C6CE0 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7C0EEA202F0118008C6CE0 /* MMFoundation.framework */; };
 		4D7C0EF9202F0118008C6CE0 /* MMFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C0EF8202F0118008C6CE0 /* MMFoundationTests.m */; };
 		4D7C0EFB202F0118008C6CE0 /* MMFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7C0EED202F0118008C6CE0 /* MMFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -79,6 +83,10 @@
 		4D24AA82202F6C11006777FF /* MMDiskCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMDiskCache.m; sourceTree = "<group>"; };
 		4D7783AD2043189C0016EF9B /* MMIDGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMIDGenerator.h; sourceTree = "<group>"; };
 		4D7783AE2043189C0016EF9B /* MMIDGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMIDGenerator.m; sourceTree = "<group>"; };
+		4D778443204823C10016EF9B /* NSInvocationAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSInvocationAdditions.h; sourceTree = "<group>"; };
+		4D778444204823C10016EF9B /* NSInvocationAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSInvocationAdditions.m; sourceTree = "<group>"; };
+		4D778447204825210016EF9B /* MMProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMProxy.h; sourceTree = "<group>"; };
+		4D778448204825210016EF9B /* MMProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMProxy.m; sourceTree = "<group>"; };
 		4D7C0EEA202F0118008C6CE0 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7C0EED202F0118008C6CE0 /* MMFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMFoundation.h; sourceTree = "<group>"; };
 		4D7C0EEE202F0118008C6CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,6 +149,8 @@
 				4D24AA35202F1E66006777FF /* MMAsyncSocket.m */,
 				4D24AA3A202F1E6E006777FF /* MMMulticastDelegate.h */,
 				4D24AA3B202F1E6E006777FF /* MMMulticastDelegate.m */,
+				4D778447204825210016EF9B /* MMProxy.h */,
+				4D778448204825210016EF9B /* MMProxy.m */,
 				4D24AA40202F1F40006777FF /* MMTimer.h */,
 				4D24AA3F202F1F40006777FF /* MMTimer.m */,
 				4D24AA81202F6C11006777FF /* MMDiskCache.h */,
@@ -183,6 +193,8 @@
 				4D7C0F30202F015E008C6CE0 /* NSFileManagerAdditions.m */,
 				4D7C0F31202F015E008C6CE0 /* NSStringAdditions.h */,
 				4D7C0F29202F015D008C6CE0 /* NSStringAdditions.m */,
+				4D778443204823C10016EF9B /* NSInvocationAdditions.h */,
+				4D778444204823C10016EF9B /* NSInvocationAdditions.m */,
 			);
 			path = additions;
 			sourceTree = "<group>";
@@ -206,6 +218,8 @@
 				4D7C0F32202F015E008C6CE0 /* NSArrayAdditions.h in Headers */,
 				4D24AA7A202F673D006777FF /* MMProgressManager.h in Headers */,
 				4D24AA83202F6C11006777FF /* MMDiskCache.h in Headers */,
+				4D778449204825210016EF9B /* MMProxy.h in Headers */,
+				4D778445204823C10016EF9B /* NSInvocationAdditions.h in Headers */,
 				4D7783AF2043189C0016EF9B /* MMIDGenerator.h in Headers */,
 				4D24AA57202F2C0F006777FF /* MMMemoryCache.h in Headers */,
 				4D7C0F3D202F015E008C6CE0 /* NSFileManagerAdditions.h in Headers */,
@@ -310,12 +324,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D778446204823C10016EF9B /* NSInvocationAdditions.m in Sources */,
 				4D7C0F3E202F015E008C6CE0 /* NSFileManagerAdditions.m in Sources */,
 				4D24AA84202F6C11006777FF /* MMDiskCache.m in Sources */,
 				4D24AA37202F1E66006777FF /* MMAsyncSocket.m in Sources */,
 				4D24AA7B202F673D006777FF /* MMProgressManager.m in Sources */,
 				4D7C0F36202F015E008C6CE0 /* NSArrayAdditions.m in Sources */,
 				4D24AA55202F2C0F006777FF /* MMMemoryCache.m in Sources */,
+				4D77844A204825210016EF9B /* MMProxy.m in Sources */,
 				4D7C0F39202F015E008C6CE0 /* NSDataAdditions.m in Sources */,
 				4D24AA47202F1F8B006777FF /* MMIDTracker.m in Sources */,
 				4D7783B02043189C0016EF9B /* MMIDGenerator.m in Sources */,

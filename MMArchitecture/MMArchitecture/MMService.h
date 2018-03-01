@@ -15,6 +15,7 @@
 
 @required
 @property (nonatomic, weak) MMServiceCenter *center;
+@property (nonatomic, strong) NSString *identifier;
 
 @optional
 - (void)startService;
@@ -26,6 +27,7 @@
 @interface MMService : NSObject <MMService>
 
 @property (nonatomic, weak) MMServiceCenter *center;
+@property (nonatomic, strong) NSString *identifier;
 
 - (void)startService;
 - (void)restartService;

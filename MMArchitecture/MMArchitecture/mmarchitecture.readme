@@ -8,7 +8,7 @@
                           MMArchitecture (#import)                  |
                                  |                                  |
                                  ↓                                  |
-                          MMServiceCenter (NSProxy)                 |
+                          MMServiceCenter (Multi-delegated NSProxy) |
                                  |                                  |
                                  ↓                               Callback
                              MMService (Single/Shared/Global)       |

@@ -38,7 +38,7 @@
 }
 
 - (void)startService {
-    NSLog(@"app will start service.");
+    NSLog(@"%@ will start service.", self.class);
 }
 
 - (void)restartService {

@@ -20,9 +20,11 @@ FOUNDATION_EXPORT const unsigned char MMFoundationVersionString[];
 #import <MMFoundation/NSDataAdditions.h>
 #import <MMFoundation/NSArrayAdditions.h>
 #import <MMFoundation/NSDictionaryAdditions.h>
+#import <MMFoundation/NSInvocationAdditions.h>
 #import <MMFoundation/NSFileManagerAdditions.h>
 
 #import <MMFoundation/MMTimer.h>
+#import <MMFoundation/MMProxy.h>
 #import <MMFoundation/MMIDTracker.h>
 #import <MMFoundation/MMIDGenerator.h>
 #import <MMFoundation/MMAsyncSocket.h>

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <MMArchitecture/MMArchitecture.h>
 #import <MMFoundation/MMFoundation.h>
+#import <AnalyticsKit/AnalyticsKit.h>
 
 #import "DPPersonProxy.h"
 #import "DPPerson.h"
@@ -99,10 +100,14 @@
 }
 
 - (void)testMMService {
-    double begin = CFAbsoluteTimeGetCurrent();
+    MMServiceCenter<MMService> *center = [[MMServiceCenter<MMService> alloc] init];
+    
     MMService *service = [[MMService alloc] init];
-    MMServiceCenter *center = [[MMServiceCenter alloc] init];
-    [center registerService:service withIdentifier:@"a"];
+    [center registerService:service];
+    
+    AKService *akService = [[AKService alloc] init];
+    [center registerService:akService];
+    
     [center startService];
 }
 

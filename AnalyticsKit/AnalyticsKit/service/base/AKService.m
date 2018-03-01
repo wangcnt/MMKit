@@ -20,6 +20,10 @@
     return self;
 }
 
+- (void)startService {
+    NSLog(@"%@ will start service.", self.class);
+}
+
 - (void)callbackWithCompletion:(void (^)(NSError *error))completion error:(NSError *)error {
     if(completion) {
         dispatch_async(dispatch_get_main_queue(), ^{
