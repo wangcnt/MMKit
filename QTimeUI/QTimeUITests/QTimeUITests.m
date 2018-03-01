@@ -1,18 +1,18 @@
 //
-//  QTimeTests.m
-//  QTimeTests
+//  QTimeUITests.m
+//  QTimeUITests
 //
-//  Created by Mark on 2018/2/26.
+//  Created by Mark on 2018/3/2.
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface QTimeTests : XCTestCase
+@interface QTimeUITests : XCTestCase
 
 @end
 
-@implementation QTimeTests
+@implementation QTimeUITests
 
 - (void)setUp {
     [super setUp];

@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, MMServiceScope) {
 @required
 @property (nonatomic, weak) MMServiceCenter *center;
 @property (nonatomic, assign) MMServiceScope scope;
+@property (nonatomic, assign) BOOL invalid; ///< If YES, all tasks won't be started or callbacked.
 
 @optional
 - (void)startService;
@@ -33,6 +34,7 @@ typedef NS_ENUM(NSInteger, MMServiceScope) {
 
 @property (nonatomic, weak) MMServiceCenter *center;    ///< default is Single.
 @property (nonatomic, assign) MMServiceScope scope;
+@property (nonatomic, assign) BOOL invalid;
 
 - (void)startService;
 - (void)restartService;

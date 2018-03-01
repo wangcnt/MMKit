@@ -1,19 +1,29 @@
 ↑←↓→
 
-各框架之間的依賴關係的原理：
-                QTEmail / MMExamples / MMSamples  (App.UI)
-                               |
-      -------------------------+-----------------------------
-      |                        |                            |
-      ↓                        ↓                            ↓
-   MMUIKit             QTEmailFoundation               MMAnalysis
-      |                        |                            |
-      |            ------------+------------→+←-------------
-      |            ↓                         ↓
-      |       MMDatabase               MMArchitecture
-      |            ↓                         |
-      ------------→+←------------------------
-                   |
-                   ↓
-        MMFoundation  MMLog
+各級別框架之間《自上而下》的依賴關係的原理：
 
+          MMExamples                                MMSamples     ・  (Apps)
+                |                                       |         ・
+・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
+                ↓                                       ↓         ・
+            QTEmailUI -------------->+<--------------QTimeUI      ・
+                |                    |                  |         ・
+                |             -------+-------           |         ・  (UI Frameworks)
+                |             |             ↓           |         ・
+                |             |          MMUIKit        |         ・
+                |             |------|                  |         ・
+・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
+                ↓                    ↓                  ↓         ・
+        QTEmailFoundation       AnalyticsKit    QTimeFoundation   ・
+                |                    ↓                  |         ・
+                |------------------->+<-----------------|         ・
+                                     |                            ・  (Service Frameworks)
+                        -------------+------------                ・
+                        ↓                        ↓                ・
+                MMArchitecture ----------> MMDatabaseKit          ・
+                                                                  ・
+・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
+                                                                  ・
+                           cMMFoundation  MMLog                   ・  (Foundation frameworks)
+                                                                  ・
+                                                                  ・

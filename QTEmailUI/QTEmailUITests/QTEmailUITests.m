@@ -1,18 +1,18 @@
 //
-//  QTEmailTests.m
-//  QTEmailTests
+//  QTEmailUITests.m
+//  QTEmailUITests
 //
-//  Created by Mark on 2018/2/26.
+//  Created by Mark on 2018/3/2.
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface QTEmailTests : XCTestCase
+@interface QTEmailUITests : XCTestCase
 
 @end
 
-@implementation QTEmailTests
+@implementation QTEmailUITests
 
 - (void)setUp {
     [super setUp];

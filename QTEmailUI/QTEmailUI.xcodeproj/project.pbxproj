@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4DD3AED020486133002C3B1A /* QTEmailUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AEC620486133002C3B1A /* QTEmailUI.framework */; };
+		4DD3AED520486133002C3B1A /* QTEmailUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AED420486133002C3B1A /* QTEmailUITests.m */; };
+		4DD3AED720486133002C3B1A /* QTEmailUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AEC920486133002C3B1A /* QTEmailUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DD3AF3D2048623B002C3B1A /* AnalyticsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AF422048623B002C3B1A /* AnalyticsKit.framework */; };
+		4DD3AF3E2048623B002C3B1A /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AF432048623B002C3B1A /* MMFoundation.framework */; };
+		4DD3AF3F2048623B002C3B1A /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AF442048623B002C3B1A /* MMLog.framework */; };
+		4DD3AF402048623B002C3B1A /* MMUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AF452048623B002C3B1A /* MMUIKit.framework */; };
+		4DD3AF412048623B002C3B1A /* QTEmailFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AF462048623B002C3B1A /* QTEmailFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4DD3AED120486133002C3B1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DD3AEBD20486133002C3B1A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DD3AEC520486133002C3B1A;
+			remoteInfo = QTEmailUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4DD3AEC620486133002C3B1A /* QTEmailUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTEmailUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DD3AEC920486133002C3B1A /* QTEmailUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTEmailUI.h; sourceTree = "<group>"; };
+		4DD3AECA20486133002C3B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DD3AECF20486133002C3B1A /* QTEmailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QTEmailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DD3AED420486133002C3B1A /* QTEmailUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTEmailUITests.m; sourceTree = "<group>"; };
+		4DD3AED620486133002C3B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DD3AF422048623B002C3B1A /* AnalyticsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AnalyticsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DD3AF432048623B002C3B1A /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DD3AF442048623B002C3B1A /* MMLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DD3AF452048623B002C3B1A /* MMUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DD3AF462048623B002C3B1A /* QTEmailFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QTEmailFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4DD3AEC220486133002C3B1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DD3AF3D2048623B002C3B1A /* AnalyticsKit.framework in Frameworks */,
+				4DD3AF3E2048623B002C3B1A /* MMFoundation.framework in Frameworks */,
+				4DD3AF3F2048623B002C3B1A /* MMLog.framework in Frameworks */,
+				4DD3AF402048623B002C3B1A /* MMUIKit.framework in Frameworks */,
+				4DD3AF412048623B002C3B1A /* QTEmailFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DD3AECC20486133002C3B1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DD3AED020486133002C3B1A /* QTEmailUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4DD3AEBC20486133002C3B1A = {
+			isa = PBXGroup;
+			children = (
+				4DD3AEC820486133002C3B1A /* QTEmailUI */,
+				4DD3AED320486133002C3B1A /* QTEmailUITests */,
+				4DD3AEC720486133002C3B1A /* Products */,
+				4DD3AF3C2048623B002C3B1A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4DD3AEC720486133002C3B1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DD3AEC620486133002C3B1A /* QTEmailUI.framework */,
+				4DD3AECF20486133002C3B1A /* QTEmailUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4DD3AEC820486133002C3B1A /* QTEmailUI */ = {
+			isa = PBXGroup;
+			children = (
+				4DD3AEC920486133002C3B1A /* QTEmailUI.h */,
+				4DD3AECA20486133002C3B1A /* Info.plist */,
+			);
+			path = QTEmailUI;
+			sourceTree = "<group>";
+		};
+		4DD3AED320486133002C3B1A /* QTEmailUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4DD3AED420486133002C3B1A /* QTEmailUITests.m */,
+				4DD3AED620486133002C3B1A /* Info.plist */,
+			);
+			path = QTEmailUITests;
+			sourceTree = "<group>";
+		};
+		4DD3AF3C2048623B002C3B1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DD3AF422048623B002C3B1A /* AnalyticsKit.framework */,
+				4DD3AF432048623B002C3B1A /* MMFoundation.framework */,
+				4DD3AF442048623B002C3B1A /* MMLog.framework */,
+				4DD3AF452048623B002C3B1A /* MMUIKit.framework */,
+				4DD3AF462048623B002C3B1A /* QTEmailFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4DD3AEC320486133002C3B1A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DD3AED720486133002C3B1A /* QTEmailUI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4DD3AEC520486133002C3B1A /* QTEmailUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DD3AEDA20486133002C3B1A /* Build configuration list for PBXNativeTarget "QTEmailUI" */;
+			buildPhases = (
+				4DD3AEC120486133002C3B1A /* Sources */,
+				4DD3AEC220486133002C3B1A /* Frameworks */,
+				4DD3AEC320486133002C3B1A /* Headers */,
+				4DD3AEC420486133002C3B1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QTEmailUI;
+			productName = QTEmailUI;
+			productReference = 4DD3AEC620486133002C3B1A /* QTEmailUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4DD3AECE20486133002C3B1A /* QTEmailUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DD3AEDD20486133002C3B1A /* Build configuration list for PBXNativeTarget "QTEmailUITests" */;
+			buildPhases = (
+				4DD3AECB20486133002C3B1A /* Sources */,
+				4DD3AECC20486133002C3B1A /* Frameworks */,
+				4DD3AECD20486133002C3B1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4DD3AED220486133002C3B1A /* PBXTargetDependency */,
+			);
+			name = QTEmailUITests;
+			productName = QTEmailUITests;
+			productReference = 4DD3AECF20486133002C3B1A /* QTEmailUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4DD3AEBD20486133002C3B1A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Mark;
+				TargetAttributes = {
+					4DD3AEC520486133002C3B1A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					4DD3AECE20486133002C3B1A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4DD3AEC020486133002C3B1A /* Build configuration list for PBXProject "QTEmailUI" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4DD3AEBC20486133002C3B1A;
+			productRefGroup = 4DD3AEC720486133002C3B1A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4DD3AEC520486133002C3B1A /* QTEmailUI */,
+				4DD3AECE20486133002C3B1A /* QTEmailUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4DD3AEC420486133002C3B1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DD3AECD20486133002C3B1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4DD3AEC120486133002C3B1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DD3AECB20486133002C3B1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DD3AED520486133002C3B1A /* QTEmailUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4DD3AED220486133002C3B1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DD3AEC520486133002C3B1A /* QTEmailUI */;
+			targetProxy = 4DD3AED120486133002C3B1A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4DD3AED820486133002C3B1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4DD3AED920486133002C3B1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4DD3AEDB20486133002C3B1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = ZM5DUKP89C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = QTEmailUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTEmailUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4DD3AEDC20486133002C3B1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = ZM5DUKP89C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = QTEmailUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTEmailUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4DD3AEDE20486133002C3B1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZM5DUKP89C;
+				INFOPLIST_FILE = QTEmailUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTEmailUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4DD3AEDF20486133002C3B1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZM5DUKP89C;
+				INFOPLIST_FILE = QTEmailUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mark..QTEmailUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4DD3AEC020486133002C3B1A /* Build configuration list for PBXProject "QTEmailUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DD3AED820486133002C3B1A /* Debug */,
+				4DD3AED920486133002C3B1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DD3AEDA20486133002C3B1A /* Build configuration list for PBXNativeTarget "QTEmailUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DD3AEDB20486133002C3B1A /* Debug */,
+				4DD3AEDC20486133002C3B1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DD3AEDD20486133002C3B1A /* Build configuration list for PBXNativeTarget "QTEmailUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DD3AEDE20486133002C3B1A /* Debug */,
+				4DD3AEDF20486133002C3B1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4DD3AEBD20486133002C3B1A /* Project object */;
+}

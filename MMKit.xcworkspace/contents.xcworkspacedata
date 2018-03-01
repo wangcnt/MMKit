@@ -2,7 +2,16 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:QTime/QTime.xcodeproj">
+      location = "group:QTimeUI/QTimeUI.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:QTimeFoundation/QTimeFoundation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:QTEmailUI/QTEmailUI.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:QTEmailFoundation/QTEmailFoundation.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:AnalyticsKit/AnalyticsKit.xcodeproj">

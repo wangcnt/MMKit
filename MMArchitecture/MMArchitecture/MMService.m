@@ -46,7 +46,9 @@
 }
 
 - (void)stopService {
-    
+    if(_scope == MMServiceScopeSingle) {
+        _invalid = YES;
+    }
 }
 
 - (void)ping {
