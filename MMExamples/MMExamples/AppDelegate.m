@@ -100,13 +100,17 @@
 }
 
 - (void)testMMService {
-    MMServiceCenter<MMService> *center = [[MMServiceCenter<MMService> alloc] init];
+    MMServiceCenter<MMService, AKService> *center = [[MMServiceCenter<MMService, AKService> alloc] init];
     
     MMService *service = [[MMService alloc] init];
     [center registerService:service];
     
     AKService *akService = [[AKService alloc] init];
     [center registerService:akService];
+    
+    [center uploadEvent:nil withCompletion:^(NSError *error) {
+        NSLog(@"");
+    }];
     
     [center startService];
 }

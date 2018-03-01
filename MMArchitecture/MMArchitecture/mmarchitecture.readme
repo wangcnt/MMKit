@@ -11,7 +11,7 @@
                           MMServiceCenter (Multi-delegated NSProxy) |
                                  |                                  |
                                  ↓                               Callback
-                             MMService (Single/Shared/Global)       |
+                             MMService (Single/Global)              |
                                  |                                  |
           MMSessionConfiguration |                                  |
                                  ↓                                  |
@@ -48,7 +48,9 @@
             c. 它是一個動態代理，會根據Service標識找到並將任務分配給Service
 
    2.2. MMService作用說明：
-        MMService將用於上層實現協議，實現具體業務任務的創建；
+        MMService將用於上層實現協議，實現具體業務任務的創建，分Single和Global兩種類型，
+        Single(maybe MM*Service)可關閉進行切換，Global(AnalyticsKit, MMLog)不可停止。
+；
 
    一般地，普通的業務較單一的App只需要MMService即可。
 

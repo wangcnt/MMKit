@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, MMServiceScope) {
+    MMServiceScopeSingle,    ///< 單一服務
+    MMServiceScopeGlobal     ///< 全局服務，-stopService將失效
+};
+
 @protocol MMSessionConfiguration;
 @class MMOperationQueue, MMServiceCenter;
 
@@ -15,7 +20,7 @@
 
 @required
 @property (nonatomic, weak) MMServiceCenter *center;
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, assign) MMServiceScope scope;
 
 @optional
 - (void)startService;
@@ -26,8 +31,8 @@
 
 @interface MMService : NSObject <MMService>
 
-@property (nonatomic, weak) MMServiceCenter *center;
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, weak) MMServiceCenter *center;    ///< default is Single.
+@property (nonatomic, assign) MMServiceScope scope;
 
 - (void)startService;
 - (void)restartService;

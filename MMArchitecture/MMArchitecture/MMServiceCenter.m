@@ -46,11 +46,29 @@
 }
 
 - (void)unregisterService:(id<MMService>)service {
+    if(service.scope == MMServiceScopeGlobal) {
+        return;
+    }
     [super removeDelegate:service];
+}
+
+- (void)startService:(id<MMService>)service {
+    if(!service) return;
+    [self registerService:service];
+    [service startService];
+}
+
+- (void)stopService:(id<MMService>)service withCompletion:(void (^)(NSError *error))completion {
+    if(service.scope == MMServiceScopeSingle) {
+        [service stopService];
+    }
+    if(completion) {
+        completion(nil);
+    }
 }
 
 @synthesize center;
 
-@synthesize identifier;
+@synthesize scope;
 
 @end

@@ -27,7 +27,7 @@
 }
 
 - (void)addDelegate:(id)delegate {
-    if(delegate) {
+    if(delegate && ![_delegates containsObject:delegate]) {
         [_delegates addObject:delegate];
     }
 }

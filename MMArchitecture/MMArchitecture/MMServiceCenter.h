@@ -25,4 +25,7 @@
 - (void)registerService:(id<MMService>)service;
 - (void)unregisterService:(id<MMService>)service;
 
+- (void)startService:(id<MMService>)service; ///< Different from -startService that starts all registerred services, it starts only a service.
+- (void)stopService:(id<MMService>)service withCompletion:(void (^)(NSError *error))completion; ///< Different from -stopService that stops all single-scoped services, it stops only a single-scoped service.
+
 @end

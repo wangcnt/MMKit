@@ -10,12 +10,13 @@
 
 #import "AKUploadOperation.h"
 #import "AKUploadResponse.h"
+#import <MMArchitecture/MMService.h>
 
 @implementation AKService
 
 - (instancetype)init {
     if (self = [super init]) {
-        
+        self.scope = MMServiceScopeGlobal;
     }
     return self;
 }
