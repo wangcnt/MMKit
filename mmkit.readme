@@ -2,7 +2,7 @@
 
 1. 如果你想慷慨貢獻些什麼，請clone feature/default_yours分支，並提交Pull Requests；
 
-2. MMExamples.app用來編寫測試代碼；
+2. MMSamples.app用來編寫測試代碼；
 
 3. Nothing.framework僅僅是為了使用Cocoapods快速集中查閱參考第三方組件；
 
