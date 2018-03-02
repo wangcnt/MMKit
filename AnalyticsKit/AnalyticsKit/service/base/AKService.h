@@ -11,9 +11,11 @@
 
 @protocol AKEvent;
 
-@interface AKService : MMService <NSObject, AKService>
-
+@protocol AKService <NSObject, MMService>
+@required
 - (void)uploadEvent:(id<AKEvent>)event withCompletion:(void (^)(NSError *error))completion;
 - (void)uploadEvents:(NSArray<id<AKEvent>> *)events withCompletion:(void (^)(NSError *error))completion;
+@end
 
+@interface AKService : MMService <NSObject, AKService>
 @end
