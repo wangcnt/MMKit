@@ -52,7 +52,7 @@
         Single(maybe MM*Service)可關閉進行切換，Global(AnalyticsKit, MMLog)不可停止。
 ；
 
-   一般地，普通的業務較單一的App只需要MMService即可。
+   一般地，普通的業務較單一的App只需要一個MMService即可。
 
    2.3. MMSessionConfiguration
         2.3.1. 作用說明：
@@ -72,7 +72,7 @@
             a. 管理各種同步或異步的任務；
             b. 將只接收MMOperation，並且只接受-addOperation:添加進入的任務；
         2.4.2. 創建時機，使用方法：
-            由MMService默認創建並不可修改值，只允許配置屬性。
+            由MMServiceCenter默認創建並不可修改值，只允許配置屬性。
 
    2.5. MMOperation
         2.5.1. 作用說明：

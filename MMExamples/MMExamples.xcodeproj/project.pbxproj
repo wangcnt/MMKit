@@ -19,12 +19,6 @@
 		4D8EB070201F8E4F00392C16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB06F201F8E4F00392C16 /* main.m */; };
 		4D8EB07A201F8E4F00392C16 /* MMExamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB079201F8E4F00392C16 /* MMExamplesTests.m */; };
 		4D8EB085201F8E4F00392C16 /* MMExamplesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB084201F8E4F00392C16 /* MMExamplesUITests.m */; };
-		4D8EB109202379A700392C16 /* DPPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB108202379A700392C16 /* DPPerson.m */; };
-		4D8EB10A202379A700392C16 /* DPPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB108202379A700392C16 /* DPPerson.m */; };
-		4D8EB10B202379A700392C16 /* DPPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB108202379A700392C16 /* DPPerson.m */; };
-		4D8EB10F20237B1500392C16 /* DPPersonProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB10E20237B1500392C16 /* DPPersonProxy.m */; };
-		4D8EB11020237B1500392C16 /* DPPersonProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB10E20237B1500392C16 /* DPPersonProxy.m */; };
-		4D8EB11120237B1500392C16 /* DPPersonProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EB10E20237B1500392C16 /* DPPersonProxy.m */; };
 		4D9EE5172031EBDE0030946B /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9EE5182031EBDE0030946B /* MMLog.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,11 +62,6 @@
 		4D8EB084201F8E4F00392C16 /* MMExamplesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMExamplesUITests.m; sourceTree = "<group>"; };
 		4D8EB086201F8E4F00392C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D8EB094201F8E5C00392C16 /* MMCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D8EB107202379A700392C16 /* DPPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPPerson.h; sourceTree = "<group>"; };
-		4D8EB108202379A700392C16 /* DPPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPPerson.m; sourceTree = "<group>"; };
-		4D8EB10C20237A2500392C16 /* DPPersonProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPPersonProtocol.h; sourceTree = "<group>"; };
-		4D8EB10D20237B1500392C16 /* DPPersonProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPPersonProxy.h; sourceTree = "<group>"; };
-		4D8EB10E20237B1500392C16 /* DPPersonProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPPersonProxy.m; sourceTree = "<group>"; };
 		4D9EE5182031EBDE0030946B /* MMLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,7 +118,6 @@
 		4D8EB05C201F8E4E00392C16 /* MMExamples */ = {
 			isa = PBXGroup;
 			children = (
-				4D8EB1052023798A00392C16 /* designpatterns */,
 				4D8EB05D201F8E4E00392C16 /* AppDelegate.h */,
 				4D8EB05E201F8E4E00392C16 /* AppDelegate.m */,
 				4D8EB060201F8E4E00392C16 /* FirstViewController.h */,
@@ -173,26 +161,6 @@
 				4D8EB094201F8E5C00392C16 /* MMCore.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4D8EB1052023798A00392C16 /* designpatterns */ = {
-			isa = PBXGroup;
-			children = (
-				4D8EB1062023798A00392C16 /* dynamicproxy */,
-			);
-			path = designpatterns;
-			sourceTree = "<group>";
-		};
-		4D8EB1062023798A00392C16 /* dynamicproxy */ = {
-			isa = PBXGroup;
-			children = (
-				4D8EB10C20237A2500392C16 /* DPPersonProtocol.h */,
-				4D8EB107202379A700392C16 /* DPPerson.h */,
-				4D8EB108202379A700392C16 /* DPPerson.m */,
-				4D8EB10D20237B1500392C16 /* DPPersonProxy.h */,
-				4D8EB10E20237B1500392C16 /* DPPersonProxy.m */,
-			);
-			path = dynamicproxy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,8 +298,6 @@
 			files = (
 				4D8EB065201F8E4E00392C16 /* SecondViewController.m in Sources */,
 				4D8EB05F201F8E4E00392C16 /* AppDelegate.m in Sources */,
-				4D8EB109202379A700392C16 /* DPPerson.m in Sources */,
-				4D8EB10F20237B1500392C16 /* DPPersonProxy.m in Sources */,
 				4D8EB070201F8E4F00392C16 /* main.m in Sources */,
 				4D8EB062201F8E4E00392C16 /* FirstViewController.m in Sources */,
 			);
@@ -341,8 +307,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D8EB11020237B1500392C16 /* DPPersonProxy.m in Sources */,
-				4D8EB10A202379A700392C16 /* DPPerson.m in Sources */,
 				4D8EB07A201F8E4F00392C16 /* MMExamplesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,8 +315,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D8EB11120237B1500392C16 /* DPPersonProxy.m in Sources */,
-				4D8EB10B202379A700392C16 /* DPPerson.m in Sources */,
 				4D8EB085201F8E4F00392C16 /* MMExamplesUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,10 +11,6 @@
 #import <MMFoundation/MMFoundation.h>
 #import <AnalyticsKit/AnalyticsKit.h>
 
-#import "DPPersonProxy.h"
-#import "DPPerson.h"
-#import "DPPersonProtocol.h"
-
 #import <MMLog/MMLog.h>
 
 
@@ -85,18 +81,6 @@
 
 - (void)writeLogMessages:(NSTimer *)aTimer {
     MMLogWarning(@"I like cheese");
-}
-
-- (void)testDynamicProxy {
-    DPPerson *person = [[DPPerson alloc] init];
-    id<DPPersonProtocol> proxy = [[DPPersonProxy alloc] initWithPerson:person];
-//    [proxy goDie];
-//    [proxy eat];
-    BOOL isAGoodGuy = [proxy isAGoodGuy];
-//    [proxy buyFish:@"娃娃魚" withMoney:50.555];
-    [proxy bathWithCompletion:^(BOOL successed) {
-        NSLog(@"successed-->%d", successed);
-    }];
 }
 
 - (void)testMMService {
