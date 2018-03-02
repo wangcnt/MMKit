@@ -1,12 +1,11 @@
 workspace 'MMKit'
 
-project 'MMSamples/MMSamples.xcodeproj'
-project 'MMLog/MMLog.xcodeproj'
+project 'Nothing/Nothing.xcodeproj'
 
-target :MMSamples do
+target :Nothing do
     platform:ios, '9.0'
     
-    pod 'RunTrace', '~> 1.2'
+    #pod 'RunTrace', '~> 1.2'
     #pod 'DACircularProgress', '2.3.1'
     pod 'Masonry' , '~> 1.1.0'
     #pod 'MJExtension', '~> 3.0.13’
@@ -31,10 +30,10 @@ target :MMSamples do
     #pod 'GPUImage', '~> 0.1.7'
     #pod 'FlatUIKit', '~> 1.6.2'
     pod 'iCarousel', '~> 1.8.3'
-    pod 'Nimbus', '~> 1.3.0'
+    #pod 'Nimbus', '~> 1.3.0'
     pod 'SWTableViewCell', '~> 0.3.7'
     #pod 'CRToast', '~> 0.0.9'
-    pod 'M13ProgressSuite', '~> 1.2.8'
+    #pod 'M13ProgressSuite', '~> 1.2.8'
     
     #pod 'JSONKit', '~> 1.4'
     
@@ -47,6 +46,6 @@ target :MMSamples do
     #pod 'YYCategories', '~> 1.0.4'
     #pod 'YYDispatchQueuePool', '~> 1.0'
     
-    project 'MMSamples/MMSamples.xcodeproj'
+    project 'Nothing/Nothing.xcodeproj'
 end
 

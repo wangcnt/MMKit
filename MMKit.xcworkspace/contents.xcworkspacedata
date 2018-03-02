@@ -41,6 +41,9 @@
       location = "group:MMSamples/MMSamples.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Nothing/Nothing.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
