@@ -38,9 +38,6 @@
       location = "group:MMUIKit/MMUIKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:MMSamples/MMSamples.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Nothing/Nothing.xcodeproj">
    </FileRef>
    <FileRef
