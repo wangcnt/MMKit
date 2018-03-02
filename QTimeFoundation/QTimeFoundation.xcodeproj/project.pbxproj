@@ -7,20 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D906C8E2049BA4B005044F0 /* QTService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C8C2049BA4B005044F0 /* QTService.h */; };
-		4D906C8F2049BA4B005044F0 /* QTService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C8D2049BA4B005044F0 /* QTService.m */; };
-		4D906C972049BBA9005044F0 /* QTSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C952049BBA9005044F0 /* QTSessionManager.h */; };
+		4D906C972049BBA9005044F0 /* QTSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C952049BBA9005044F0 /* QTSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906C982049BBA9005044F0 /* QTSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C962049BBA9005044F0 /* QTSessionManager.m */; };
-		4D906C9B2049BBD3005044F0 /* QTSessionConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C992049BBD3005044F0 /* QTSessionConfiguration.h */; };
+		4D906C9B2049BBD3005044F0 /* QTSessionConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C992049BBD3005044F0 /* QTSessionConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906C9C2049BBD3005044F0 /* QTSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C9A2049BBD3005044F0 /* QTSessionConfiguration.m */; };
-		4D906C9F2049BBE2005044F0 /* QTRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C9D2049BBE2005044F0 /* QTRequest.h */; };
+		4D906C9F2049BBE2005044F0 /* QTRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C9D2049BBE2005044F0 /* QTRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906CA02049BBE2005044F0 /* QTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C9E2049BBE2005044F0 /* QTRequest.m */; };
-		4D906CA32049BBF3005044F0 /* QTResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CA12049BBF3005044F0 /* QTResponse.h */; };
+		4D906CA32049BBF3005044F0 /* QTResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CA12049BBF3005044F0 /* QTResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906CA42049BBF3005044F0 /* QTResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CA22049BBF3005044F0 /* QTResponse.m */; };
-		4D906CA72049BC02005044F0 /* QTConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CA52049BC02005044F0 /* QTConnection.h */; };
+		4D906CA72049BC02005044F0 /* QTConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CA52049BC02005044F0 /* QTConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906CA82049BC02005044F0 /* QTConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CA62049BC02005044F0 /* QTConnection.m */; };
-		4D906CAB2049BC0E005044F0 /* QTOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CA92049BC0E005044F0 /* QTOperation.h */; };
+		4D906CAB2049BC0E005044F0 /* QTOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CA92049BC0E005044F0 /* QTOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906CAC2049BC0E005044F0 /* QTOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CAA2049BC0E005044F0 /* QTOperation.m */; };
+		4D906CB12049C4BD005044F0 /* QTService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CAF2049C4BD005044F0 /* QTService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D906CB22049C4BD005044F0 /* QTService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CB02049C4BD005044F0 /* QTService.m */; };
+		4D906CB62049C63F005044F0 /* QTInviteOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CB42049C63F005044F0 /* QTInviteOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D906CB72049C63F005044F0 /* QTInviteOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CB52049C63F005044F0 /* QTInviteOperation.m */; };
+		4D906CBA2049C788005044F0 /* QTInviteRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CB82049C788005044F0 /* QTInviteRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D906CBB2049C788005044F0 /* QTInviteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CB92049C788005044F0 /* QTInviteRequest.m */; };
+		4D906CBE2049C8B7005044F0 /* QTInviteResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CBC2049C8B7005044F0 /* QTInviteResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D906CBF2049C8B7005044F0 /* QTInviteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CBD2049C8B7005044F0 /* QTInviteResponse.m */; };
+		4D906CC62049CBB1005044F0 /* QTInviteSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CC42049CBB1005044F0 /* QTInviteSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D906CC72049CBB1005044F0 /* QTInviteSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CC52049CBB1005044F0 /* QTInviteSessionManager.m */; };
+		4D906CCA2049CE51005044F0 /* QTInviteConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CC82049CE51005044F0 /* QTInviteConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D906CCB2049CE51005044F0 /* QTInviteConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CC92049CE51005044F0 /* QTInviteConnection.m */; };
 		4DD3AEF42048617F002C3B1A /* QTimeFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AEEA2048617F002C3B1A /* QTimeFoundation.framework */; };
 		4DD3AEF92048617F002C3B1A /* QTimeFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AEF82048617F002C3B1A /* QTimeFoundationTests.m */; };
 		4DD3AEFB2048617F002C3B1A /* QTimeFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AEED2048617F002C3B1A /* QTimeFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,8 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D906C8C2049BA4B005044F0 /* QTService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTService.h; sourceTree = "<group>"; };
-		4D906C8D2049BA4B005044F0 /* QTService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTService.m; sourceTree = "<group>"; };
 		4D906C952049BBA9005044F0 /* QTSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTSessionManager.h; sourceTree = "<group>"; };
 		4D906C962049BBA9005044F0 /* QTSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTSessionManager.m; sourceTree = "<group>"; };
 		4D906C992049BBD3005044F0 /* QTSessionConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTSessionConfiguration.h; sourceTree = "<group>"; };
@@ -56,6 +64,18 @@
 		4D906CA62049BC02005044F0 /* QTConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTConnection.m; sourceTree = "<group>"; };
 		4D906CA92049BC0E005044F0 /* QTOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTOperation.h; sourceTree = "<group>"; };
 		4D906CAA2049BC0E005044F0 /* QTOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTOperation.m; sourceTree = "<group>"; };
+		4D906CAF2049C4BD005044F0 /* QTService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTService.h; sourceTree = "<group>"; };
+		4D906CB02049C4BD005044F0 /* QTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTService.m; sourceTree = "<group>"; };
+		4D906CB42049C63F005044F0 /* QTInviteOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTInviteOperation.h; sourceTree = "<group>"; };
+		4D906CB52049C63F005044F0 /* QTInviteOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTInviteOperation.m; sourceTree = "<group>"; };
+		4D906CB82049C788005044F0 /* QTInviteRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTInviteRequest.h; sourceTree = "<group>"; };
+		4D906CB92049C788005044F0 /* QTInviteRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTInviteRequest.m; sourceTree = "<group>"; };
+		4D906CBC2049C8B7005044F0 /* QTInviteResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTInviteResponse.h; sourceTree = "<group>"; };
+		4D906CBD2049C8B7005044F0 /* QTInviteResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTInviteResponse.m; sourceTree = "<group>"; };
+		4D906CC42049CBB1005044F0 /* QTInviteSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTInviteSessionManager.h; sourceTree = "<group>"; };
+		4D906CC52049CBB1005044F0 /* QTInviteSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTInviteSessionManager.m; sourceTree = "<group>"; };
+		4D906CC82049CE51005044F0 /* QTInviteConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTInviteConnection.h; sourceTree = "<group>"; };
+		4D906CC92049CE51005044F0 /* QTInviteConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTInviteConnection.m; sourceTree = "<group>"; };
 		4DD3AEEA2048617F002C3B1A /* QTimeFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTimeFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD3AEED2048617F002C3B1A /* QTimeFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTimeFoundation.h; sourceTree = "<group>"; };
 		4DD3AEEE2048617F002C3B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +116,8 @@
 		4D906C902049BB40005044F0 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				4D906CAF2049C4BD005044F0 /* QTService.h */,
+				4D906CB02049C4BD005044F0 /* QTService.m */,
 				4D906C992049BBD3005044F0 /* QTSessionConfiguration.h */,
 				4D906C9A2049BBD3005044F0 /* QTSessionConfiguration.m */,
 				4D906CA92049BC0E005044F0 /* QTOperation.h */,
@@ -110,6 +132,37 @@
 				4D906CA62049BC02005044F0 /* QTConnection.m */,
 			);
 			path = base;
+			sourceTree = "<group>";
+		};
+		4D906CAD2049C488005044F0 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				4D906CC42049CBB1005044F0 /* QTInviteSessionManager.h */,
+				4D906CC52049CBB1005044F0 /* QTInviteSessionManager.m */,
+				4D906CC82049CE51005044F0 /* QTInviteConnection.h */,
+				4D906CC92049CE51005044F0 /* QTInviteConnection.m */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		4D906CAE2049C488005044F0 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4D906CB82049C788005044F0 /* QTInviteRequest.h */,
+				4D906CB92049C788005044F0 /* QTInviteRequest.m */,
+				4D906CBC2049C8B7005044F0 /* QTInviteResponse.h */,
+				4D906CBD2049C8B7005044F0 /* QTInviteResponse.m */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		4D906CB32049C59E005044F0 /* operation */ = {
+			isa = PBXGroup;
+			children = (
+				4D906CB42049C63F005044F0 /* QTInviteOperation.h */,
+				4D906CB52049C63F005044F0 /* QTInviteOperation.m */,
+			);
+			path = operation;
 			sourceTree = "<group>";
 		};
 		4DD3AEE02048617F002C3B1A = {
@@ -134,11 +187,12 @@
 		4DD3AEEC2048617F002C3B1A /* QTimeFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				4D906CB32049C59E005044F0 /* operation */,
+				4D906CAE2049C488005044F0 /* protocol */,
+				4D906CAD2049C488005044F0 /* service */,
 				4D906C902049BB40005044F0 /* base */,
 				4DD3AEED2048617F002C3B1A /* QTimeFoundation.h */,
 				4DD3AEEE2048617F002C3B1A /* Info.plist */,
-				4D906C8C2049BA4B005044F0 /* QTService.h */,
-				4D906C8D2049BA4B005044F0 /* QTService.m */,
 			);
 			path = QTimeFoundation;
 			sourceTree = "<group>";
@@ -171,14 +225,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D906CBA2049C788005044F0 /* QTInviteRequest.h in Headers */,
 				4D906CA32049BBF3005044F0 /* QTResponse.h in Headers */,
 				4D906CAB2049BC0E005044F0 /* QTOperation.h in Headers */,
 				4D906CA72049BC02005044F0 /* QTConnection.h in Headers */,
+				4D906CBE2049C8B7005044F0 /* QTInviteResponse.h in Headers */,
+				4D906CCA2049CE51005044F0 /* QTInviteConnection.h in Headers */,
 				4D906C972049BBA9005044F0 /* QTSessionManager.h in Headers */,
 				4DD3AEFB2048617F002C3B1A /* QTimeFoundation.h in Headers */,
 				4D906C9F2049BBE2005044F0 /* QTRequest.h in Headers */,
-				4D906C8E2049BA4B005044F0 /* QTService.h in Headers */,
 				4D906C9B2049BBD3005044F0 /* QTSessionConfiguration.h in Headers */,
+				4D906CC62049CBB1005044F0 /* QTInviteSessionManager.h in Headers */,
+				4D906CB12049C4BD005044F0 /* QTService.h in Headers */,
+				4D906CB62049C63F005044F0 /* QTInviteOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,10 +342,15 @@
 				4D906CA02049BBE2005044F0 /* QTRequest.m in Sources */,
 				4D906C9C2049BBD3005044F0 /* QTSessionConfiguration.m in Sources */,
 				4D906CAC2049BC0E005044F0 /* QTOperation.m in Sources */,
+				4D906CCB2049CE51005044F0 /* QTInviteConnection.m in Sources */,
+				4D906CC72049CBB1005044F0 /* QTInviteSessionManager.m in Sources */,
+				4D906CB72049C63F005044F0 /* QTInviteOperation.m in Sources */,
 				4D906CA42049BBF3005044F0 /* QTResponse.m in Sources */,
 				4D906C982049BBA9005044F0 /* QTSessionManager.m in Sources */,
+				4D906CBF2049C8B7005044F0 /* QTInviteResponse.m in Sources */,
+				4D906CB22049C4BD005044F0 /* QTService.m in Sources */,
+				4D906CBB2049C788005044F0 /* QTInviteRequest.m in Sources */,
 				4D906CA82049BC02005044F0 /* QTConnection.m in Sources */,
-				4D906C8F2049BA4B005044F0 /* QTService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -410,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

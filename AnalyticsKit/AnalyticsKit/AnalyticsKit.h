@@ -18,7 +18,6 @@ FOUNDATION_EXPORT const unsigned char AnalyticsKitVersionString[];
 
 #import <AnalyticsKit/AnalyticsKit.h>
 
-#import <AnalyticsKit/AKDefines.h>
 #import <AnalyticsKit/AKEvent.h>
 #import <AnalyticsKit/AKEventManager.h>
 

@@ -1,5 +1,5 @@
 //
-//  QTOperation.m
+//  QTInviteOperation.h
 //  QTimeFoundation
 //
 //  Created by Mark on 2018/3/3.
@@ -8,8 +8,8 @@
 
 #import "QTOperation.h"
 
-@implementation QTOperation
-@end
+@interface QTInviteOperation : QTHTTPOperation
 
-@implementation QTHTTPOperation
+- (instancetype)initWithNames:(NSArray<NSString *> *)names;
+
 @end

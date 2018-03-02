@@ -1,5 +1,5 @@
 //
-//  QTRequest.m
+//  QTInviteRequest.h
 //  QTimeFoundation
 //
 //  Created by Mark on 2018/3/3.
@@ -8,8 +8,6 @@
 
 #import "QTRequest.h"
 
-@implementation QTRequest
-@end
-
-@implementation QTHTTPRequest
+@interface QTInviteRequest : QTHTTPRequest
+@property (nonatomic, strong) NSArray<NSString *> *names;
 @end

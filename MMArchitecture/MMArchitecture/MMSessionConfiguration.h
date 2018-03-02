@@ -31,7 +31,6 @@
 
 @protocol MMSocketSessionConfiguration <NSObject, MMSessionConfiguration>
 @required
-@property (nonatomic, strong) Class<MMConnection> connectionClass;
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, assign) int port;
 @optional

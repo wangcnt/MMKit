@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AKDefines.h"
-
-@protocol AKEvent;
+@protocol AKEvent, AKService;
 
 @interface AKEventManager : NSObject
 

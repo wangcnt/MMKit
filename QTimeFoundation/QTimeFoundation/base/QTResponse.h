@@ -8,6 +8,14 @@
 
 #import <MMArchitecture/MMArchitecture.h>
 
-@interface QTResponse : MMResponse
+@protocol QTResponse <MMResponse>
+@end
 
+@protocol QTHTTPResponse <QTResponse>
+@end
+
+@interface QTResponse : MMResponse <QTResponse>
+@end
+
+@interface QTHTTPResponse : QTResponse <QTHTTPResponse>
 @end

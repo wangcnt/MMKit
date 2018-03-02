@@ -174,6 +174,8 @@
 @synthesize response = _response;
 @synthesize request = _request;
 @synthesize timeoutInterval = _timeoutInterval;
+@synthesize sessionManager = _sessionManager;
+@synthesize consumedTimestamp = _consumedTimestamp;
 
 @end
 

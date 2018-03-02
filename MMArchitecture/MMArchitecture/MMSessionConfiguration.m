@@ -29,9 +29,12 @@
 
 @implementation MMHTTPSessionConfiguration
 @synthesize urlString = _urlString;
+@synthesize token = _token;
+@synthesize userAgent = _userAgent;
 @end
 
 @implementation MMSocketSessionConfiguration
 @synthesize port = _port;
 @synthesize host = _host;
+@synthesize usesSSL = _usesSSL;
 @end

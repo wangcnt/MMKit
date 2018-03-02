@@ -9,5 +9,7 @@
 #import "QTConnection.h"
 
 @implementation QTConnection
+@end
 
+@implementation QTHTTPConnection
 @end

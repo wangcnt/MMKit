@@ -1,8 +1,8 @@
 //
 //  SecondViewController.m
-//  MMExamples
+//  MMSamples
 //
-//  Created by Mark on 2018/1/30.
+//  Created by Mark on 2018/3/3.
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 

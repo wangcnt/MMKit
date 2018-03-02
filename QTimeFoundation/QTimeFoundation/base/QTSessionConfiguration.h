@@ -8,6 +8,14 @@
 
 #import <MMArchitecture/MMArchitecture.h>
 
-@interface QTSessionConfiguration : MMSessionConfiguration
+@protocol QTSessionConfiguration <MMSessionConfiguration>
+@end
 
+@protocol QTHTTPSessionConfiguration <QTSessionConfiguration>
+@end
+
+@interface QTSessionConfiguration : MMSessionConfiguration <QTSessionConfiguration>
+@end
+
+@interface QTHTTPSessionConfiguration : QTSessionConfiguration <QTHTTPSessionConfiguration>
 @end

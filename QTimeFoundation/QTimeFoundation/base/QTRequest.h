@@ -8,6 +8,14 @@
 
 #import <MMArchitecture/MMArchitecture.h>
 
-@interface QTRequest : MMRequest
+@protocol QTRequest <MMRequest>
+@end
 
+@protocol QTHTTPRequest <QTRequest>
+@end
+
+@interface QTRequest : MMRequest <QTRequest>
+@end
+
+@interface QTHTTPRequest : QTRequest <QTHTTPRequest>
 @end

@@ -8,6 +8,14 @@
 
 #import <MMArchitecture/MMArchitecture.h>
 
-@interface QTSessionManager : MMSessionManager
+@protocol QTSessionManager <MMSessionManager>
+@end
 
+@protocol QTHTTPSessionManager <QTSessionManager>
+@end
+
+@interface QTSessionManager : MMSessionManager <QTSessionManager>
+@end
+
+@interface QTHTTPSessionManager : QTSessionManager <QTHTTPSessionManager>
 @end

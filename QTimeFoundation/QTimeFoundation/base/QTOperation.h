@@ -8,6 +8,14 @@
 
 #import <MMArchitecture/MMArchitecture.h>
 
-@interface QTOperation : MMOperation
+@protocol QTOperation <MMOperation>
+@end
 
+@protocol QTHTTPOperation <QTOperation>
+@end
+
+@interface QTOperation : MMOperation
+@end
+
+@interface QTHTTPOperation : QTOperation <QTHTTPOperation>
 @end

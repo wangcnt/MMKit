@@ -1,50 +1,22 @@
 //
 //  AppDelegate.m
-//  MMExamples
+//  MMSamples
 //
-//  Created by Mark on 2018/1/30.
+//  Created by Mark on 2018/3/3.
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
 #import "AppDelegate.h"
+
+#import <AnalyticsKit/AnalyticsKit.h>
+#import <MMLog/MMLog.h>
 #import <MMArchitecture/MMArchitecture.h>
 #import <MMFoundation/MMFoundation.h>
-#import <AnalyticsKit/AnalyticsKit.h>
+#import <MMUIKit/MMUIKit.h>
+#import <QTimeUI/QTimeUI.h>
 
-#import <MMLog/MMLog.h>
-
-
-@interface A : NSObject
-+ (instancetype)sharedInstance;
-- (void)print;
-@end
-
-@implementation A
-+ (instancetype)sharedInstance {
-    static A *instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[A alloc] init];
-    });
-    return instance;
-}
-- (void)print {
-    NSLog(@"A haha");
-}
-@end
-
-@interface B : A
-@end
-
-@implementation B
-- (void)print {
-    NSLog(@"B haha");
-}
-@end
-
-@interface MTUserDefaults : NSUserDefaults
-- (void)print;
-@end
+#import "FirstViewController.h"
+#import "SecondViewController.h"
 
 @interface AppDelegate ()
 
@@ -55,17 +27,41 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//    [[B sharedInstance] print];
-    [self testMMService];
+    //    [[B sharedInstance] print];
+    [self testMMServiceCenter];
     
-//    [self testDDLog];
+    //    [self testDDLog];
     
-//    [self gcdDemo1];
-//    [self gcdDemo2];
-//    [self gcdDemo3];
-//    [self gcdDemo5];
-//    [self testDynamicProxy];
-//    [self testStringAdditions];
+    //    [self gcdDemo1];
+    //    [self gcdDemo2];
+    //    [self gcdDemo3];
+    //    [self gcdDemo5];
+    //    [self testDynamicProxy];
+    //    [self testStringAdditions];
+    
+    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _window.backgroundColor = [UIColor whiteColor];
+    
+    MMTabBarController *tabController = [[MMTabBarController alloc] init];
+    
+    FirstViewController *fController = [[FirstViewController alloc] init];
+    MMNavigationController *fNavController = [[MMNavigationController alloc] initWithRootViewController:fController];
+    fNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"First" image:nil tag:1];
+    
+    SecondViewController *sController = [[SecondViewController alloc] init];
+    MMNavigationController *sNavController = [[MMNavigationController alloc] initWithRootViewController:sController];
+    sNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Second" image:nil tag:2];
+    
+    QTHomepageViewController *timeController = [[QTHomepageViewController alloc] init];
+    MMNavigationController *timeNavController = [[MMNavigationController alloc] initWithRootViewController:timeController];
+    timeNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Time" image:nil tag:3];
+    
+    tabController.viewControllers = @[fNavController, sNavController, timeNavController];
+    
+    _window.rootViewController = tabController;
+    
+    [_window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -83,7 +79,7 @@
     MMLogWarning(@"I like cheese");
 }
 
-- (void)testMMService {
+- (void)testMMServiceCenter {
     MMServiceCenter<MMService, AKService> *center = [[MMServiceCenter<MMService, AKService> alloc] init];
     center.scope = MMServiceScopeGlobal;
     NSLog(@"center.scope --> %ld", center.scope);

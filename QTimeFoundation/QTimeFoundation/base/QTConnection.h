@@ -8,6 +8,14 @@
 
 #import <MMArchitecture/MMArchitecture.h>
 
-@interface QTConnection : MMConnection
+@protocol QTConnection <MMConnection>
+@end
 
+@protocol QTHTTPConnection <QTConnection>
+@end
+
+@interface QTConnection : MMConnection <QTConnection>
+@end
+
+@interface QTHTTPConnection : QTConnection <QTHTTPConnection>
 @end

@@ -33,6 +33,11 @@ typedef enum : NSUInteger {
 } MMSocketConnectionLoginStatus;
 
 @protocol MMConnection <NSObject>
+- (void)sendRequest:(id<MMRequest>)request withCompletion:(MMRequestCompletion)completion;
+
+- (void)cancelRequest:(id<MMRequest>)request;
+- (void)cancelRequests:(NSArray<id<MMRequest>> *)requests;
+- (void)cancelAllRequests;
 @end
 
 @protocol MMHTTPConnection <NSObject, MMConnection>
@@ -58,18 +63,9 @@ typedef enum : NSUInteger {
 - (void)connect;
 - (void)disconnect;
 
-@optional
-- (void)sendRequest:(id<MMRequest>)request withCompletion:(MMRequestCompletion)completion;
-
-- (void)cancelRequest:(id<MMRequest>)request;
-- (void)cancelRequests:(NSArray<id<MMRequest>> *)requests;
-- (void)cancelAllRequests;
-
 @end
 
-
-
-@interface MMConnection : NSObject
+@interface MMConnection : NSObject <MMConnection>
 @end
 
 @interface MMHTTPConnection : MMConnection <MMHTTPConnection>

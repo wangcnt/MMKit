@@ -9,5 +9,7 @@
 #import "QTResponse.h"
 
 @implementation QTResponse
+@end
 
+@implementation QTHTTPResponse
 @end

@@ -9,5 +9,7 @@
 #import "QTSessionConfiguration.h"
 
 @implementation QTSessionConfiguration
+@end
 
+@implementation QTHTTPSessionConfiguration
 @end
