@@ -1,10 +1,12 @@
 ↑←↓→
 
-1. MMExamples.app用來編寫測試代碼；
+1. 如果你想慷慨貢獻些什麼，請clone feature/default_yours分支，並提交Pull Requests；
 
-2. Nothing.framework僅僅是為了使用Cocoapods快速集中查閱參考第三方組件；
+2. MMExamples.app用來編寫測試代碼；
 
-3. 各級別框架之間《自上而下》的依賴關係的原理：
+3. Nothing.framework僅僅是為了使用Cocoapods快速集中查閱參考第三方組件；
+
+4. 各級別框架之間《自上而下》的依賴關係的原理：
 
         MMExamples                                MMSamples     ・  (Apps)
             |                                       |         ・
