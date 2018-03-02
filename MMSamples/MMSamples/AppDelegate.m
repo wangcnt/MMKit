@@ -56,7 +56,9 @@
     MMNavigationController *timeNavController = [[MMNavigationController alloc] initWithRootViewController:timeController];
     timeNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Time" image:nil tag:3];
     
-    tabController.viewControllers = @[fNavController, sNavController, timeNavController];
+    tabController.viewControllers = @[fNavController, sNavController
+//                                      , timeNavController
+                                      ];
     
     _window.rootViewController = tabController;
     
