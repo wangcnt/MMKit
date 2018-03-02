@@ -38,6 +38,7 @@
 		4DCB0DFD1C24730600339CF9 /* MMTranslucentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */; };
 		4DCB0DFE1C24730600339CF9 /* MMTranslucentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */; };
 		4DCB0DFF1C24730600339CF9 /* MMTranslucentViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DCB0DFC1C24730600339CF9 /* MMTranslucentViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DD3B0202049A873002C3B1A /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3B0212049A873002C3B1A /* Masonry.framework */; };
 		4DE44A991C24391300FD1D97 /* MMNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A5A1C24391300FD1D97 /* MMNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE44A9A1C24391300FD1D97 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A5B1C24391300FD1D97 /* MMNavigationController.m */; };
 		4DE44A9B1C24391300FD1D97 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A5B1C24391300FD1D97 /* MMNavigationController.m */; };
@@ -109,7 +110,6 @@
 		4DF250E31DDFF8AF002AB829 /* UIFontAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF250E11DDFF8AF002AB829 /* UIFontAdditions.m */; };
 		4DF250E61DDFF9CB002AB829 /* UIApplicationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DF250E41DDFF9CB002AB829 /* UIApplicationAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DF250E71DDFF9CB002AB829 /* UIApplicationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF250E51DDFF9CB002AB829 /* UIApplicationAdditions.m */; };
-		730C86C604FF08964BE42A4B /* libPods-MMUIKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC96E1851FC24C9DA3AE7E7 /* libPods-MMUIKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +151,7 @@
 		4DC1FB1C1C242CAB00A39E9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTranslucentViewController.m; sourceTree = "<group>"; };
 		4DCB0DFC1C24730600339CF9 /* MMTranslucentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTranslucentViewController.h; sourceTree = "<group>"; };
+		4DD3B0212049A873002C3B1A /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE44A5A1C24391300FD1D97 /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
 		4DE44A5B1C24391300FD1D97 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
 		4DE44A5E1C24391300FD1D97 /* MMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMViewController.h; sourceTree = "<group>"; };
@@ -201,8 +202,6 @@
 		4DF250E11DDFF8AF002AB829 /* UIFontAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFontAdditions.m; sourceTree = "<group>"; };
 		4DF250E41DDFF9CB002AB829 /* UIApplicationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIApplicationAdditions.h; sourceTree = "<group>"; };
 		4DF250E51DDFF9CB002AB829 /* UIApplicationAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIApplicationAdditions.m; sourceTree = "<group>"; };
-		58334F7DB38A314D8ADB4771 /* Pods-MMUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMUIKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MMUIKit/Pods-MMUIKit.release.xcconfig"; sourceTree = "<group>"; };
-		AE3D4A2C6009F382C669765C /* Pods-MMUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMUIKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MMUIKit/Pods-MMUIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		BFC96E1851FC24C9DA3AE7E7 /* libPods-MMUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMUIKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -211,9 +210,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD3B0202049A873002C3B1A /* Masonry.framework in Frameworks */,
 				4D24AA77202F6426006777FF /* AVFoundation.framework in Frameworks */,
 				4D24AA2A202F189B006777FF /* MMFoundation.framework in Frameworks */,
-				730C86C604FF08964BE42A4B /* libPods-MMUIKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +230,7 @@
 		17F53A5A1298DDD63E52DA9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DD3B0212049A873002C3B1A /* Masonry.framework */,
 				4D24AA76202F6426006777FF /* AVFoundation.framework */,
 				4D24AA2B202F189B006777FF /* MMFoundation.framework */,
 				BFC96E1851FC24C9DA3AE7E7 /* libPods-MMUIKit.a */,
@@ -258,7 +258,6 @@
 				4DC1FB0D1C242CAB00A39E9D /* MMUIKit */,
 				4DC1FB191C242CAB00A39E9D /* MMUIKitTests */,
 				4DC1FB0C1C242CAB00A39E9D /* Products */,
-				6CF604B1E861D1FE155B9D64 /* Pods */,
 				17F53A5A1298DDD63E52DA9E /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -402,15 +401,6 @@
 			path = views;
 			sourceTree = "<group>";
 		};
-		6CF604B1E861D1FE155B9D64 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AE3D4A2C6009F382C669765C /* Pods-MMUIKit.debug.xcconfig */,
-				58334F7DB38A314D8ADB4771 /* Pods-MMUIKit.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -465,12 +455,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DC1FB1F1C242CAB00A39E9D /* Build configuration list for PBXNativeTarget "MMUIKit" */;
 			buildPhases = (
-				420D2F754031B0CB52552583 /* [CP] Check Pods Manifest.lock */,
 				4DC1FB061C242CAB00A39E9D /* Sources */,
 				4DC1FB071C242CAB00A39E9D /* Frameworks */,
 				4DC1FB081C242CAB00A39E9D /* Headers */,
 				4DC1FB091C242CAB00A39E9D /* Resources */,
-				A1B3ECCC5CE38C946A591465 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -550,42 +538,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		420D2F754031B0CB52552583 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MMUIKit-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A1B3ECCC5CE38C946A591465 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MMUIKit/Pods-MMUIKit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4DC1FB061C242CAB00A39E9D /* Sources */ = {
@@ -769,7 +721,6 @@
 		};
 		4DC1FB201C242CAB00A39E9D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE3D4A2C6009F382C669765C /* Pods-MMUIKit.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -786,7 +737,6 @@
 		};
 		4DC1FB211C242CAB00A39E9D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58334F7DB38A314D8ADB4771 /* Pods-MMUIKit.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

@@ -1,7 +1,6 @@
 workspace 'MMKit'
 
 project 'MMSamples/MMSamples.xcodeproj'
-project 'MMUIKit/MMUIKit.xcodeproj'
 project 'MMLog/MMLog.xcodeproj'
 
 target :MMSamples do
@@ -49,14 +48,5 @@ target :MMSamples do
     #pod 'YYDispatchQueuePool', '~> 1.0'
     
     project 'MMSamples/MMSamples.xcodeproj'
-end
-
-
-target :MMUIKit do
-    platform:ios, '9.0'
-    
-    pod 'Masonry' , '~> 1.1.0'
-    
-    project 'MMUIKit/MMUIKit.xcodeproj'
 end
 
