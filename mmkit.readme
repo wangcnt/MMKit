@@ -15,15 +15,15 @@
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
                 ↓                    ↓                  ↓         ・
         QTEmailFoundation       AnalyticsKit    QTimeFoundation   ・
-                |                    ↓                  |         ・
+                |                                       |         ・  (Service Frameworks)
                 |------------------->+<-----------------|         ・
-                                     |                            ・  (Service Frameworks)
-                        -------------+------------                ・
-                        ↓                        ↓                ・
-                MMArchitecture ----------> MMDatabaseKit          ・
-                                                                  ・
+                                     |                            ・  
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
+                ---------------------+-------------------         ・
+                ↓                    ↓                  ↓         ・
+        MMArchitecture        MMDatabaseKit           MMLog       ・  (Foundation frameworks)
                                                                   ・
-                           MMFoundation  MMLog                    ・  (Foundation frameworks)
+・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
+                                MMFoundation                      ・
                                                                   ・
-                                                                  ・
+
