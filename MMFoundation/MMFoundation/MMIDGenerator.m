@@ -42,4 +42,6 @@
     return nil;
 }
 
+@synthesize prefix = _prefix;
+
 @end

@@ -30,6 +30,13 @@
     return [[NSString alloc] initWithData:self.payload encoding:NSUTF8StringEncoding];
 }
 
+@synthesize identifier = _identifier;
+@synthesize responseClass = _responseClass;
+@synthesize payload = _payload;
+@synthesize timeoutInterval = _timeoutInterval;
+@synthesize command = _command;
+@synthesize type = _type;
+
 @end
 
 @implementation MMHTTPRequest
@@ -101,5 +108,5 @@
 @end
 
 @implementation MMSocketRequest
-
+@synthesize connectionID = _connectionID;
 @end

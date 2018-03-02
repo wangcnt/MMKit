@@ -25,7 +25,7 @@
 }
 
 - (void)startRequest:(id<MMRequest>)request withCompletion:(MMRequestCompletion)completion {
-    id<MMSessionConfiguration> configuration = request.configuration;
+    __unused id<MMSessionConfiguration> configuration = request.configuration;
 }
 
 @end
@@ -168,6 +168,10 @@
         connection.status = MMConnectionStatusOffworked;
     }
 }
+
+@synthesize pingInterval = _pingInterval;
+@synthesize port = _port;
+@synthesize host = _host;
 
 @end
 

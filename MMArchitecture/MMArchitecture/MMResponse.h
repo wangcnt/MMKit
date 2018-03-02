@@ -43,27 +43,12 @@
 @end
 
 @interface MMResponse : NSObject <MMResponse>
-
-@property (nonatomic, strong, readonly) NSMutableData *buffer;
-@property (nonatomic, strong) id<MMRequest> request;
-@property (nonatomic, strong) NSError *error;
-@property (nonatomic, assign) BOOL streamable;  ///< parse during receiving data from server
-@property (nonatomic, assign, readonly) BOOL shouldParse;
-
-- (void)receiveData:(NSData *)data;
-
 @end
 
 @interface MMHTTPResponse : MMResponse <MMHTTPResponse>
-
-- (instancetype)initWithRequest:(id<MMRequest>)request urlResponse:(NSURLResponse *)urlResponse;
-- (void)analyzeURLResponseHeaders;
-
 @end
 
 @interface MMSocketResponse : MMResponse <MMSocketResponse>
-@property (nonatomic, assign) BOOL logined;
-@property (nonatomic, assign) BOOL logining;
 @end
 
 

@@ -295,4 +295,15 @@ typedef enum : NSUInteger {
     
 }
 
+@synthesize manager = _manager;
+@synthesize pingInterval = _pingInterval;
+@synthesize status = _status;
+@synthesize type = _type;
+@synthesize loginStatus = _loginStatus;
+@synthesize buffer = _buffer;
+@synthesize host = _host;
+@synthesize identifier = _identifier;
+@synthesize port = _port;
+@synthesize completion_queue = _completion_queue;
+
 @end

@@ -14,12 +14,10 @@
 @property (nonatomic, strong) NSString *prefix;
 
 @required
-- (NSString *)nextID;
+- (NSString *)nextID;   ///< Format: prefix.1/2/3/4/5...  & it's better that using semaphore to make thread safe when overriding.
 
 @end
 
 @interface MMDefaultIDGenerator : NSObject <MMIDGenerator>
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;   ///< Default value = 1.
-@property (nonatomic, strong) NSString *prefix;
-- (NSString *)nextID;   ///< Format: prefix.1/2/3/4/5...  & it's better that using semaphore to make thread safe when overriding.
 @end

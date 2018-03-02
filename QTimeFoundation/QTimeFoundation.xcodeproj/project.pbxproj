@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D906C8E2049BA4B005044F0 /* QTService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C8C2049BA4B005044F0 /* QTService.h */; };
+		4D906C8F2049BA4B005044F0 /* QTService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C8D2049BA4B005044F0 /* QTService.m */; };
+		4D906C972049BBA9005044F0 /* QTSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C952049BBA9005044F0 /* QTSessionManager.h */; };
+		4D906C982049BBA9005044F0 /* QTSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C962049BBA9005044F0 /* QTSessionManager.m */; };
+		4D906C9B2049BBD3005044F0 /* QTSessionConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C992049BBD3005044F0 /* QTSessionConfiguration.h */; };
+		4D906C9C2049BBD3005044F0 /* QTSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C9A2049BBD3005044F0 /* QTSessionConfiguration.m */; };
+		4D906C9F2049BBE2005044F0 /* QTRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C9D2049BBE2005044F0 /* QTRequest.h */; };
+		4D906CA02049BBE2005044F0 /* QTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C9E2049BBE2005044F0 /* QTRequest.m */; };
+		4D906CA32049BBF3005044F0 /* QTResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CA12049BBF3005044F0 /* QTResponse.h */; };
+		4D906CA42049BBF3005044F0 /* QTResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CA22049BBF3005044F0 /* QTResponse.m */; };
+		4D906CA72049BC02005044F0 /* QTConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CA52049BC02005044F0 /* QTConnection.h */; };
+		4D906CA82049BC02005044F0 /* QTConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CA62049BC02005044F0 /* QTConnection.m */; };
+		4D906CAB2049BC0E005044F0 /* QTOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CA92049BC0E005044F0 /* QTOperation.h */; };
+		4D906CAC2049BC0E005044F0 /* QTOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CAA2049BC0E005044F0 /* QTOperation.m */; };
 		4DD3AEF42048617F002C3B1A /* QTimeFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AEEA2048617F002C3B1A /* QTimeFoundation.framework */; };
 		4DD3AEF92048617F002C3B1A /* QTimeFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AEF82048617F002C3B1A /* QTimeFoundationTests.m */; };
 		4DD3AEFB2048617F002C3B1A /* QTimeFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AEED2048617F002C3B1A /* QTimeFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +42,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D906C8C2049BA4B005044F0 /* QTService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTService.h; sourceTree = "<group>"; };
+		4D906C8D2049BA4B005044F0 /* QTService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTService.m; sourceTree = "<group>"; };
+		4D906C952049BBA9005044F0 /* QTSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTSessionManager.h; sourceTree = "<group>"; };
+		4D906C962049BBA9005044F0 /* QTSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTSessionManager.m; sourceTree = "<group>"; };
+		4D906C992049BBD3005044F0 /* QTSessionConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTSessionConfiguration.h; sourceTree = "<group>"; };
+		4D906C9A2049BBD3005044F0 /* QTSessionConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTSessionConfiguration.m; sourceTree = "<group>"; };
+		4D906C9D2049BBE2005044F0 /* QTRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTRequest.h; sourceTree = "<group>"; };
+		4D906C9E2049BBE2005044F0 /* QTRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTRequest.m; sourceTree = "<group>"; };
+		4D906CA12049BBF3005044F0 /* QTResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTResponse.h; sourceTree = "<group>"; };
+		4D906CA22049BBF3005044F0 /* QTResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTResponse.m; sourceTree = "<group>"; };
+		4D906CA52049BC02005044F0 /* QTConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTConnection.h; sourceTree = "<group>"; };
+		4D906CA62049BC02005044F0 /* QTConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTConnection.m; sourceTree = "<group>"; };
+		4D906CA92049BC0E005044F0 /* QTOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTOperation.h; sourceTree = "<group>"; };
+		4D906CAA2049BC0E005044F0 /* QTOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTOperation.m; sourceTree = "<group>"; };
 		4DD3AEEA2048617F002C3B1A /* QTimeFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTimeFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD3AEED2048617F002C3B1A /* QTimeFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTimeFoundation.h; sourceTree = "<group>"; };
 		4DD3AEEE2048617F002C3B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +93,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D906C902049BB40005044F0 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				4D906C992049BBD3005044F0 /* QTSessionConfiguration.h */,
+				4D906C9A2049BBD3005044F0 /* QTSessionConfiguration.m */,
+				4D906CA92049BC0E005044F0 /* QTOperation.h */,
+				4D906CAA2049BC0E005044F0 /* QTOperation.m */,
+				4D906C952049BBA9005044F0 /* QTSessionManager.h */,
+				4D906C962049BBA9005044F0 /* QTSessionManager.m */,
+				4D906C9D2049BBE2005044F0 /* QTRequest.h */,
+				4D906C9E2049BBE2005044F0 /* QTRequest.m */,
+				4D906CA12049BBF3005044F0 /* QTResponse.h */,
+				4D906CA22049BBF3005044F0 /* QTResponse.m */,
+				4D906CA52049BC02005044F0 /* QTConnection.h */,
+				4D906CA62049BC02005044F0 /* QTConnection.m */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
 		4DD3AEE02048617F002C3B1A = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +134,11 @@
 		4DD3AEEC2048617F002C3B1A /* QTimeFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				4D906C902049BB40005044F0 /* base */,
 				4DD3AEED2048617F002C3B1A /* QTimeFoundation.h */,
 				4DD3AEEE2048617F002C3B1A /* Info.plist */,
+				4D906C8C2049BA4B005044F0 /* QTService.h */,
+				4D906C8D2049BA4B005044F0 /* QTService.m */,
 			);
 			path = QTimeFoundation;
 			sourceTree = "<group>";
@@ -121,7 +171,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D906CA32049BBF3005044F0 /* QTResponse.h in Headers */,
+				4D906CAB2049BC0E005044F0 /* QTOperation.h in Headers */,
+				4D906CA72049BC02005044F0 /* QTConnection.h in Headers */,
+				4D906C972049BBA9005044F0 /* QTSessionManager.h in Headers */,
 				4DD3AEFB2048617F002C3B1A /* QTimeFoundation.h in Headers */,
+				4D906C9F2049BBE2005044F0 /* QTRequest.h in Headers */,
+				4D906C8E2049BA4B005044F0 /* QTService.h in Headers */,
+				4D906C9B2049BBD3005044F0 /* QTSessionConfiguration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D906CA02049BBE2005044F0 /* QTRequest.m in Sources */,
+				4D906C9C2049BBD3005044F0 /* QTSessionConfiguration.m in Sources */,
+				4D906CAC2049BC0E005044F0 /* QTOperation.m in Sources */,
+				4D906CA42049BBF3005044F0 /* QTResponse.m in Sources */,
+				4D906C982049BBA9005044F0 /* QTSessionManager.m in Sources */,
+				4D906CA82049BC02005044F0 /* QTConnection.m in Sources */,
+				4D906C8F2049BA4B005044F0 /* QTService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

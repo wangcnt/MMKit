@@ -28,6 +28,11 @@
     [_buffer appendData:data];
 }
 
+@synthesize error = _error;
+@synthesize request = _request;
+@synthesize buffer = _buffer;
+@synthesize streamable = _streamable;
+
 @end
 
 @implementation MMHTTPResponse

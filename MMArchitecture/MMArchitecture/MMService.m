@@ -76,4 +76,10 @@
     [self.center.highQueue addOperation:operation];
 }
 
+
+
+@synthesize invalid = _invalid;
+@synthesize center = _center;
+@synthesize scope = _scope;
+
 @end

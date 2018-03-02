@@ -167,6 +167,14 @@
     return self.endTimestamp - self.startTimestamp;
 }
 
+@synthesize error = _error;
+@synthesize configuration = _configuration;
+@synthesize retryedTimes = _retryedTimes;
+@synthesize maxRetryTimes = _maxRetryTimes;
+@synthesize response = _response;
+@synthesize request = _request;
+@synthesize timeoutInterval = _timeoutInterval;
+
 @end
 
 @implementation MMHTTPOperation

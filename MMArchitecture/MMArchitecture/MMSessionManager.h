@@ -58,35 +58,11 @@
 @end
 
 @interface MMSessionManager : NSObject <MMSessionManager>
-
-- (void)startRequest:(id<MMRequest>)request withCompletion:(MMRequestCompletion)completion;
-
-- (void)cancelRequest:(id<MMRequest>)request;
-- (void)cancelRequests:(NSArray<id<MMRequest>> *)requests;
-- (void)cancelAllRequests;
-
 @end
 
 @interface MMHTTPSessionManager : MMSessionManager <MMHTTPSessionManager>
-
 @end
 
 @interface MMSocketSessionManager : MMSessionManager <MMSocketSessionManager>
-
-@property (nonatomic, strong) NSString *host;
-@property (nonatomic, assign) int port;
-@property (nonatomic, assign) NSTimeInterval pingInterval;
-@property (nonatomic, strong, readonly) id<MMSocketConnection> defaultConnection;   ///< 默認連接，需要有登錄狀態
-@property (nonatomic, strong, readonly) id<MMSocketConnection> freeConnection;  ///< 無需登錄直接請求數據的連接
-@property (nonatomic, strong) void (^autologinHandler)(NSString *identifier);
-
-- (void)connect;
-- (void)disconnect;
-
-- (MMSocketConnectionLoginStatus)loginStatusForConnectionWithIdentifier:(NSString *)identifier;
-- (NSString *)identifierForAnyOffworkedConnection;  ///< Get identifier for any offworked connection, if there is no offworked connection, then create one with group-type.
-
-- (void)setConnectionFinishedWithIdentifier:(NSString *)identifier;    ///< When MMSocketConnection with group type has been finished, you must set the connection to MMConnectionStatusOffworked in order to reuse it at next time.
-
 @end
 

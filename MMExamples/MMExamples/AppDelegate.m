@@ -85,6 +85,8 @@
 
 - (void)testMMService {
     MMServiceCenter<MMService, AKService> *center = [[MMServiceCenter<MMService, AKService> alloc] init];
+    center.scope = MMServiceScopeGlobal;
+    NSLog(@"center.scope --> %ld", center.scope);
     
     MMService *service = [[MMService alloc] init];
     [center registerService:service];

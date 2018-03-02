@@ -31,20 +31,4 @@ typedef NS_ENUM(NSInteger, MMServiceScope) {
 @end
 
 @interface MMService : NSObject <MMService>
-
-@property (nonatomic, weak) MMServiceCenter *center;    ///< default is Single.
-@property (nonatomic, assign) MMServiceScope scope;
-@property (nonatomic, assign) BOOL invalid;
-
-- (void)startService;
-- (void)restartService;
-- (void)stopService;
-
-- (void)ping;
-
-- (void)startServiceWithSessionConfigurations:(NSArray<id<MMSessionConfiguration>> *)configurations;
-
-// example:
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password completion:(void (^)(NSError *error))completion;
-
 @end

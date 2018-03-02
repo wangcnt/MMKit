@@ -61,25 +61,10 @@ typedef enum : NSUInteger {
     @protected
     id<MMSessionConfiguration> _configuration;
 }
-
-@property (nonatomic, strong, readonly) NSString *command;
-@property (nonatomic, assign, readonly) Class<MMResponse> responseClass;
-@property (nonatomic, assign) NSTimeInterval timeoutInterval;   ///< default : 60s, minimum : 10s
-@property (nonatomic, assign, readonly) MMRequestType type;
-@property (nonatomic, strong, readonly) NSData *payload;
-@property (nonatomic, strong) id<MMSessionConfiguration> configuration;
-
-@property (nonatomic, strong) NSString *identifier;
-
-- (void)prepare;
-
 @end
 
 @interface MMHTTPRequest : MMRequest <MMHTTPRequest>
-@property (nonatomic, strong, readonly) NSString *urlString;
-@property (nonatomic, strong, readonly) NSMutableURLRequest *urlRequest;
 @end
 
 @interface MMSocketRequest : MMRequest <MMSocketRequest>
-@property (nonatomic, strong) NSString *connectionID; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
 @end

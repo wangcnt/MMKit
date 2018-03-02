@@ -42,22 +42,11 @@
 @interface MMSessionConfiguration : NSObject <MMSessionConfiguration> {
     id<MMRequestIDGenerator> _requestIDGenerator;
 }
-@property (nonatomic, strong) id<MMSessionManager> sessionManager;
-@property (nonatomic, strong) Class<MMConnection> connectionClass;
-@property (nonatomic, strong) dispatch_queue_t task_queue;
-@property (nonatomic, strong) dispatch_queue_t database_queue;
-@property (nonatomic, strong) id<MMRequestIDGenerator> requestIDGenerator;
 @end
 
 @interface MMHTTPSessionConfiguration : MMSessionConfiguration <MMHTTPSessionConfiguration>
-@property (nonatomic, strong) NSString *urlString;
-@property (nonatomic, strong) NSString *userAgent;
-@property (nonatomic, strong) NSString *token;
 @end
 
 @interface MMSocketSessionConfiguration : MMSessionConfiguration <MMSocketSessionConfiguration>
-@property (nonatomic, strong) NSString *host;
-@property (nonatomic, assign) int port;
-@property (nonatomic, assign) BOOL usesSSL;
 @end
 

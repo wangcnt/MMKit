@@ -19,12 +19,19 @@
     return _requestIDGenerator;
 }
 
+@synthesize sessionManager = _sessionManager;
+@synthesize connectionClass = _connectionClass;
+@synthesize task_queue = _task_queue;
+@synthesize database_queue = _database_queue;
+@synthesize requestIDGenerator = _requestIDGenerator;
+
 @end
 
 @implementation MMHTTPSessionConfiguration
-
+@synthesize urlString = _urlString;
 @end
 
 @implementation MMSocketSessionConfiguration
-
+@synthesize port = _port;
+@synthesize host = _host;
 @end
