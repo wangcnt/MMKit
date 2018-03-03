@@ -5,7 +5,7 @@
                                 App
                                  |
                                  ↓
-                            UI Frameworks ←-------------------------
+                            UI Frameworks <--------------------------
                                  |                                  |
                                  ↓                                  |
                          Service Framework (1-1 with MMServerCenter)|
