@@ -57,7 +57,7 @@
     timeNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Time" image:nil tag:3];
     
     tabController.viewControllers = @[fNavController, sNavController
-//                                      , timeNavController
+                                      , timeNavController
                                       ];
     
     _window.rootViewController = tabController;

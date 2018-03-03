@@ -32,21 +32,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // invite button
+    UIImage *image = [UIImage imageWithColor:[UIColor purpleColor] size:CGSizeMake(10, 10)];
+    image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)];
     _button = [[MMButton alloc] init];
     _button.layer.cornerRadius = 4;
     _button.layer.masksToBounds = YES;
-    UIImage *image = [UIImage imageWithColor:[UIColor purpleColor] size:CGSizeMake(10, 10)];
-    image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)];
+    _button.eventableInset = UIEdgeInsetsMake(-50, -50, -50, -50);
     [_button setBackgroundImage:image forState:UIControlStateNormal];
     [_button setTitle:@"Invite" forState:UIControlStateNormal];
     [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    _button.eventableInset = UIEdgeInsetsMake(-50, -50, -50, -50);
     [_button addTarget:self action:@selector(invite:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_button];
     [_button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(100);
+        make.centerX.mas_equalTo(_button.superview);
         make.top.mas_equalTo(250);
-        make.size.mas_equalTo(CGSizeMake(100, 0));
+        make.size.mas_equalTo(CGSizeMake(100, 30));
     }];
     
     _messageLabel = [[MMLabel alloc] init];
@@ -54,7 +56,7 @@
     _messageLabel.textColor = [UIColor purpleColor];
     [self.view addSubview:_messageLabel];
     [_messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(_button).offset(30);
+        make.top.mas_equalTo(_button.mas_bottom).offset(30);
         make.centerX.mas_equalTo(_button.superview);
     }];
     [self updateLabelWithText:@"Click button to invite."];

@@ -23,10 +23,9 @@
 - (instancetype)init {
     if(self = [super init]) {
         QTInviteSessionManager *inviteSessionManager = [[QTInviteSessionManager alloc] init];
-        
         _sessionConfiguration = [[QTHTTPSessionConfiguration alloc] init];
-        _sessionConfiguration.database_queue = dispatch_queue_create("com.markwong.time.db.queue", NULL);
-        _sessionConfiguration.task_queue = dispatch_queue_create("com.markwong.time.task.queue", NULL);
+        _sessionConfiguration.database_queue = dispatch_queue_create("com.markwong.time.db.queue", DISPATCH_QUEUE_SERIAL);
+        _sessionConfiguration.task_queue = dispatch_queue_create("com.markwong.time.task.queue", DISPATCH_QUEUE_SERIAL);
         _sessionConfiguration.connectionClass = QTInviteConnection.class;
         _sessionConfiguration.sessionManager = inviteSessionManager;
     }
@@ -36,12 +35,10 @@
 - (void)inviteTheGirlWithName:(NSString *)name completion:(void (^)(NSError *error))completion {
     if(!name) return;
     QTInviteOperation *operation = [[QTInviteOperation alloc] initWithNames:@[name]];
-    operation.configuration = nil;
+    operation.configuration = _sessionConfiguration;
     __weak typeof(QTInviteOperation) *weakedOp = operation;
     operation.completionBlock = ^{
-        if(completion) {
-            completion(weakedOp.error);
-        };
+        [self callbackWithCompletion:completion error:weakedOp.error toMainThread:YES];
     };
     [self.center.defaultQueue addOperation:operation];
 }

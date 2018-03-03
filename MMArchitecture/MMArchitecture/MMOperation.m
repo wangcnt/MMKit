@@ -24,8 +24,7 @@
 @implementation MMOperation
 
 - (instancetype)init {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         _timeoutInterval = 60;
     }
     return self;

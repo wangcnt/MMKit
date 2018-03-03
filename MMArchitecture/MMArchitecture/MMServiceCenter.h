@@ -15,12 +15,14 @@
 @interface MMServiceCenter : MMProxy <MMService>
 
 // serial queue
-@property (nonatomic, strong, readonly) MMOperationQueue *serialQueue;
+@property (nonatomic, strong, readonly) MMOperationQueue *serialQueue;  ///> 不應該提供，多插件的話可能阻塞，應該單插件化
 
 // concurrent queue
 @property (nonatomic, strong, readonly) MMOperationQueue *highQueue;
 @property (nonatomic, strong, readonly) MMOperationQueue *defaultQueue;
 @property (nonatomic, strong, readonly) MMOperationQueue *backgroundQueue;
+
++ (instancetype)defaultCenter;
 
 - (void)registerService:(id<MMService>)service;
 - (void)unregisterService:(id<MMService>)service;

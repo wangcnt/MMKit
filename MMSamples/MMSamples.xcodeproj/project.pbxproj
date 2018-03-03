@@ -18,6 +18,7 @@
 		4D906CF82049D7F0005044F0 /* MMUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFD2049D7F0005044F0 /* MMUIKit.framework */; };
 		4D906CF92049D7F0005044F0 /* QTimeFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFE2049D7F0005044F0 /* QTimeFoundation.framework */; };
 		4D906CFA2049D7F0005044F0 /* QTimeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFF2049D7F0005044F0 /* QTimeUI.framework */; };
+		4D906D00204A5F8A005044F0 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D01204A5F8A005044F0 /* Masonry.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		4D906CFD2049D7F0005044F0 /* MMUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906CFE2049D7F0005044F0 /* QTimeFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QTimeFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906CFF2049D7F0005044F0 /* QTimeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QTimeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D906D01204A5F8A005044F0 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D906D00204A5F8A005044F0 /* Masonry.framework in Frameworks */,
 				4D906CF62049D7F0005044F0 /* AnalyticsKit.framework in Frameworks */,
 				4D906CF72049D7F0005044F0 /* MMLog.framework in Frameworks */,
 				4D906CF82049D7F0005044F0 /* MMUIKit.framework in Frameworks */,
@@ -92,6 +95,7 @@
 		4D906CF52049D7F0005044F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D906D01204A5F8A005044F0 /* Masonry.framework */,
 				4D906CFB2049D7F0005044F0 /* AnalyticsKit.framework */,
 				4D906CFC2049D7F0005044F0 /* MMLog.framework */,
 				4D906CFD2049D7F0005044F0 /* MMUIKit.framework */,

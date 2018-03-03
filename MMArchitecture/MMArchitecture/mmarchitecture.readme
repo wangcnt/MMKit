@@ -8,7 +8,7 @@
                           MMArchitecture (#import)                  |
                                  |                                  |
                                  ↓                                  |
-                          MMServiceCenter (Multi-delegated NSProxy) |
+                          MMServiceCenter (Optional NSProxy)        |
                                  |                                  |
                                  ↓                               Callback
                              MMService (Single/Global)              |
@@ -45,7 +45,7 @@
             a. 它將作為UI與後台的橋樑，傳遞管理所有的UI需求並發向服務器，取回並處理數據後再回
                 調至UI層刷新給用戶；
             b. MMServiceCenter將提供一系列純程池MMOperationQueue，用以管理所有的線程及任務；
-            c. 它是一個動態代理，會根據Service標識找到並將任務分配給Service
+            c. 它是一個可選的多委託動態代理，將把任務分配給所有實現MMService協議的MMService。
 
    2.2. MMService作用說明：
         MMService將用於上層實現協議，實現具體業務任務的創建，分Single和Global兩種類型，

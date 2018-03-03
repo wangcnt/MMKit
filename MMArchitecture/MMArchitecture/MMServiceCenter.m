@@ -18,6 +18,15 @@
 
 @implementation MMServiceCenter
 
++ (instancetype)defaultCenter {
+    static MMServiceCenter *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[MMServiceCenter alloc] init];
+    });
+    return instance;
+}
+
 - (void)initialize {
     [super initialize];
     _serialQueue = [[MMOperationQueue alloc] init];
@@ -67,8 +76,8 @@
     }
 }
 
-@synthesize center;
-
-@synthesize scope;
+@synthesize center = _center;
+@synthesize scope = _scope;
+@synthesize invalid = _invalid;
 
 @end

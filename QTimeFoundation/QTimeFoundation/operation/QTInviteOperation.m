@@ -28,4 +28,11 @@
     return self;
 }
 
+- (void)loadFinished {
+    dispatch_async(self.configuration.database_queue, ^{
+        NSLog(@"Persisting...");
+    });
+    [super loadFinished];
+}
+
 @end

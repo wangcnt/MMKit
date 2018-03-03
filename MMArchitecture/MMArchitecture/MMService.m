@@ -33,8 +33,32 @@
         _egHTTPConfiguration.token = @"token.token";
         _egHTTPConfiguration.task_queue = task_queue;
         _egHTTPConfiguration.sessionManager = egHTTPSessionManager;
+        
+        self.center = [MMServiceCenter defaultCenter];
     }
     return self;
+}
+
+- (void)callbackWithObjectedCompletion:(void (^)(id obj, NSError *error))completion object:(id)object error:(NSError *)error toMainThread:(BOOL)toMainThread {
+    if(!completion) return;
+    if(toMainThread) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(object, error);
+        });
+    } else {
+        completion(object, error);
+    }
+}
+
+- (void)callbackWithCompletion:(void (^)(NSError *error))completion error:(NSError *)error toMainThread:(BOOL)toMainThread {
+    if(!completion) return;
+    if(toMainThread) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(error);
+        });
+    } else {
+        completion(error);
+    }
 }
 
 - (void)startService {
