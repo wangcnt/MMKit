@@ -21,7 +21,7 @@
 @property (nonatomic, strong) id<MMRequestIDGenerator> requestIDGenerator; ///< Maybe each request will have an identifier
 @end
 
-@protocol MMHTTPSessionConfiguration <NSObject, MMSessionConfiguration>
+@protocol MMHTTPSessionConfiguration <MMSessionConfiguration>
 @required
 @property (nonatomic, strong) NSString *urlString;
 @optional
@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSString *token;
 @end
 
-@protocol MMSocketSessionConfiguration <NSObject, MMSessionConfiguration>
+@protocol MMSocketSessionConfiguration <MMSessionConfiguration>
 @required
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, assign) int port;

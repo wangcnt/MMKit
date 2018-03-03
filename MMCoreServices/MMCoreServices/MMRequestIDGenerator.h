@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MMFoundation/MMIDGenerator.h>
 
-@protocol MMRequestIDGenerator <NSObject, MMIDGenerator>
+@protocol MMRequestIDGenerator <MMIDGenerator>
 @end
 
 @interface MMDefaultRequestIDGenerator : MMDefaultIDGenerator <MMRequestIDGenerator>

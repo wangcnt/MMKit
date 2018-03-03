@@ -25,7 +25,7 @@
 
 @end
 
-@protocol MMHTTPResponse <NSObject, MMResponse>
+@protocol MMHTTPResponse <MMResponse>
 
 @required
 @property (nonatomic, strong, readonly) NSURLResponse *urlResponse;
@@ -36,7 +36,7 @@
 
 @end
 
-@protocol MMSocketResponse <NSObject, MMResponse>
+@protocol MMSocketResponse <MMResponse>
 @required
 @property (nonatomic, assign) BOOL logined;
 @property (nonatomic, assign) BOOL logining;

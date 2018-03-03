@@ -10,8 +10,6 @@
 
 @implementation MMResponse
 
-@synthesize shouldParse = _shouldParse;
-
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -32,6 +30,7 @@
 @synthesize request = _request;
 @synthesize buffer = _buffer;
 @synthesize streamable = _streamable;
+@synthesize shouldParse = _shouldParse;
 
 @end
 

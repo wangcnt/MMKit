@@ -19,7 +19,7 @@
     NSAssert([op respondsToSelector:@selector(error)], @"Operation MUST responds to @selector(error);");
     MMOperation *operation = (MMOperation *)op;
     if(operation.step) {
-        operation.step(MMRequestStepPreparing);
+        operation.step(MMRequestStepWaiting);
     }
     [super addOperation:op];
 }

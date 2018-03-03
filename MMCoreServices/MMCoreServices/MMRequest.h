@@ -34,7 +34,7 @@ typedef enum : NSUInteger {
 
 @end
 
-@protocol MMHTTPRequest <NSObject, MMRequest>
+@protocol MMHTTPRequest <MMRequest>
 
 @required
 @property (nonatomic, strong, readonly) NSString *urlString;
@@ -46,7 +46,7 @@ typedef enum : NSUInteger {
 
 @end
 
-@protocol MMSocketRequest <NSObject, MMRequest>
+@protocol MMSocketRequest <MMRequest>
 @required
 @property (nonatomic, strong) NSString *connectionID; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
 @optional

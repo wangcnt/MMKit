@@ -73,7 +73,9 @@
 - (void)invite:(id)sender {
     [self updateLabelWithText:@"Inviting..."];
     [[QTServiceCenter sharedInstance] inviteTheGirlWithName:@"Ning ning" step:^(MMRequestStep step) {
-        [self updateLabelWithText:mm_default_step_name_with_step(step)];
+        if(step != MMRequestStepFinished) {
+            [self updateLabelWithText:mm_default_step_name_with_step(step)];
+        }
     } completion:^(NSError *error) {
         NSString *text = error ? error.localizedDescription : @"Bingo!";
         [self updateLabelWithText:text];

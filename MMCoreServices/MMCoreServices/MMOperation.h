@@ -35,10 +35,10 @@
 
 @end
 
-@protocol MMHTTPOperation <NSObject, MMOperation>
+@protocol MMHTTPOperation <MMOperation>
 @end
 
-@protocol MMSocketOperation <NSObject, MMOperation>
+@protocol MMSocketOperation <MMOperation>
 @required
 @property (nonatomic, strong) NSString *connectionID; ///< MMSocketConnection's identifier. @see MMSocketConnectionType
 @end

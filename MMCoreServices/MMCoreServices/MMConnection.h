@@ -40,10 +40,10 @@ typedef enum : NSUInteger {
 - (void)cancelAllRequests;
 @end
 
-@protocol MMHTTPConnection <NSObject, MMConnection>
+@protocol MMHTTPConnection <MMConnection>
 @end
 
-@protocol MMSocketConnection <NSObject, MMConnection>
+@protocol MMSocketConnection <MMConnection>
 
 @required
 @property (nonatomic, strong, readonly) NSMutableData *buffer;

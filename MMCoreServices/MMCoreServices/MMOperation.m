@@ -11,6 +11,7 @@
 #import "MMRequest.h"
 #import "MMSessionManager.h"
 #import "MMSessionConfiguration.h"
+#import "MMResponse.h"
 
 @interface MMOperation ()
 @property (nonatomic, assign) BOOL scheduled;
@@ -32,6 +33,7 @@
 
 - (void)start {
     NSAssert(self.request, @"request must not be nil.");
+    sleep(arc4random() % 5 + 2);
     if(_step) {
         _step(MMRequestStepPreparing);
     }
@@ -120,6 +122,7 @@
     // override by subclasses
     
     if(!self.error) {
+        self.error = _response.error;
         //TODO: write the error into the long file in the sandbox 
     }
     
