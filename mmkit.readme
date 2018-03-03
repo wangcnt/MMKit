@@ -1,6 +1,7 @@
 ↑←↓→
 
-1. 如果你想慷慨貢獻些什麼，請clone feature/default_diy分支，並提交Pull Requests；
+1. 如果你想慷慨貢獻些什麼，請克隆"feature/default_diy"分支，或者從"feature/default"下新建分支，
+    並提交Pull Requests；
 
 2. MMSamples.app用來編寫測試代碼；
 
