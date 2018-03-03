@@ -32,6 +32,8 @@
 		4D906CCA2049CE51005044F0 /* QTInviteConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906CC82049CE51005044F0 /* QTInviteConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906CCB2049CE51005044F0 /* QTInviteConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CC92049CE51005044F0 /* QTInviteConnection.m */; };
 		4D906DCC204A9A5B005044F0 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906DCD204A9A5B005044F0 /* MMCoreServices.framework */; };
+		4DB95610204AEB42004F5E30 /* QTServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9560E204AEB41004F5E30 /* QTServiceCenter.m */; };
+		4DB95611204AEB42004F5E30 /* QTServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DB9560F204AEB41004F5E30 /* QTServiceCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DD3AEF42048617F002C3B1A /* QTimeFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AEEA2048617F002C3B1A /* QTimeFoundation.framework */; };
 		4DD3AEF92048617F002C3B1A /* QTimeFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AEF82048617F002C3B1A /* QTimeFoundationTests.m */; };
 		4DD3AEFB2048617F002C3B1A /* QTimeFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AEED2048617F002C3B1A /* QTimeFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -78,6 +80,8 @@
 		4D906CC82049CE51005044F0 /* QTInviteConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTInviteConnection.h; sourceTree = "<group>"; };
 		4D906CC92049CE51005044F0 /* QTInviteConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTInviteConnection.m; sourceTree = "<group>"; };
 		4D906DCD204A9A5B005044F0 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DB9560E204AEB41004F5E30 /* QTServiceCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTServiceCenter.m; sourceTree = "<group>"; };
+		4DB9560F204AEB41004F5E30 /* QTServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTServiceCenter.h; sourceTree = "<group>"; };
 		4DD3AEEA2048617F002C3B1A /* QTimeFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTimeFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD3AEED2048617F002C3B1A /* QTimeFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTimeFoundation.h; sourceTree = "<group>"; };
 		4DD3AEEE2048617F002C3B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 		4D906CAD2049C488005044F0 /* service */ = {
 			isa = PBXGroup;
 			children = (
+				4DB9560F204AEB41004F5E30 /* QTServiceCenter.h */,
+				4DB9560E204AEB41004F5E30 /* QTServiceCenter.m */,
 				4D906CC42049CBB1005044F0 /* QTInviteSessionManager.h */,
 				4D906CC52049CBB1005044F0 /* QTInviteSessionManager.m */,
 				4D906CC82049CE51005044F0 /* QTInviteConnection.h */,
@@ -236,6 +242,7 @@
 				4D906CBE2049C8B7005044F0 /* QTInviteResponse.h in Headers */,
 				4D906CCA2049CE51005044F0 /* QTInviteConnection.h in Headers */,
 				4D906C972049BBA9005044F0 /* QTSessionManager.h in Headers */,
+				4DB95611204AEB42004F5E30 /* QTServiceCenter.h in Headers */,
 				4DD3AEFB2048617F002C3B1A /* QTimeFoundation.h in Headers */,
 				4D906C9F2049BBE2005044F0 /* QTRequest.h in Headers */,
 				4D906C9B2049BBD3005044F0 /* QTSessionConfiguration.h in Headers */,
@@ -353,6 +360,7 @@
 				4D906C982049BBA9005044F0 /* QTSessionManager.m in Sources */,
 				4D906CBF2049C8B7005044F0 /* QTInviteResponse.m in Sources */,
 				4D906CB22049C4BD005044F0 /* QTService.m in Sources */,
+				4DB95610204AEB42004F5E30 /* QTServiceCenter.m in Sources */,
 				4D906CBB2049C788005044F0 /* QTInviteRequest.m in Sources */,
 				4D906CA82049BC02005044F0 /* QTConnection.m in Sources */,
 			);

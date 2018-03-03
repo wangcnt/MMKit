@@ -5,7 +5,7 @@ project 'Nothing/Nothing.xcodeproj'
 target :Nothing do
     platform:ios, '9.0'
     
-    #pod 'RunTrace', '~> 1.2'
+    pod 'RunTrace'
     #pod 'DACircularProgress', '2.3.1'
     pod 'Masonry' , '~> 1.1.0'
     #pod 'MJExtension', '~> 3.0.13’
@@ -20,11 +20,11 @@ target :Nothing do
     pod 'POP+MCAnimate', '~> 2.0.1'
     pod 'BlocksKit', '~> 2.2.5'
     #pod 'JSONModel', '~> 1.7.0'
-    #pod 'MBProgressHUD', '~> 1.1.0'
-    #pod 'ZXingObjC', '~> 3.2.2'
+#    pod 'MBProgressHUD', '~> 1.1.0'
+#    pod 'ZXingObjC', '~> 3.2.2'
     #pod 'TencentOpenApiSDK', '2.9.5'
     #pod 'Weixin', '~> 1.6.2'
-    #pod 'NimbusKit-AttributedLabel', '~> 1.0.0'
+#    pod 'NimbusKit-AttributedLabel', '~> 1.0.0'
     #pod 'Texture', '~> 2.6'
     
     #pod 'GPUImage', '~> 0.1.7'
@@ -33,9 +33,9 @@ target :Nothing do
     #pod 'Nimbus', '~> 1.3.0'
     pod 'SWTableViewCell', '~> 0.3.7'
     #pod 'CRToast', '~> 0.0.9'
-    #pod 'M13ProgressSuite', '~> 1.2.8'
-    
-    #pod 'JSONKit', '~> 1.4'
+#    pod 'M13ProgressSuite', '~> 1.2.8'
+
+    pod 'JSONKit', '~> 1.4'
     
     
     #pod 'YYKit', '~> 1.0.9'

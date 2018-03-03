@@ -23,4 +23,5 @@ FOUNDATION_EXPORT const unsigned char QTimeFoundationVersionString[];
 #import "QTRequest.h"
 #import "QTResponse.h"
 #import "QTConnection.h"
+#import "QTServiceCenter.h"
 
