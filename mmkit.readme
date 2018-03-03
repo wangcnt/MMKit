@@ -24,7 +24,7 @@
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
             ↓                    ↓                  ↓         ・
     QTEmailFoundation       AnalyticsKit    QTimeFoundation   ・
-            |                                       |         ・  (Service Frameworks)
+            |                    ↓                  |         ・  (Service Frameworks)
             |------------------->+<-----------------|         ・
                                  |                            ・
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・

@@ -26,7 +26,7 @@
     sleep(arc4random() % 5 + 2);
     Class clazz = (Class)request.responseClass;
     QTResponse *response = [[clazz alloc] init];
-    response.error = arc4random() % 2 ? nil : [NSError errorWithDomain:@"QTServiceErrorDomain" code:4 userInfo:@{NSLocalizedDescriptionKey : @"Who you're invited is really a man..."}];
+    response.error = arc4random() % 2 ? nil : [NSError errorWithDomain:@"QTServiceErrorDomain" code:4 userInfo:@{NSLocalizedDescriptionKey : @"Who you've invited is really a man..."}];
     
     // persisting
     if(request.step) {
