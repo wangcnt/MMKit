@@ -11,9 +11,9 @@
 #import <QTimeFoundation/QTimeFoundation.h>
 #import <MMUIKit/MMUIKit.h>
 #import <Masonry/Masonry.h>
+#import "QTServiceCenter.h"
 
 @interface QTHomepageViewController ()
-@property (nonatomic, strong) QTService *service;
 @property (nonatomic, strong) MMButton *button;
 @property (nonatomic, strong) MMLabel *messageLabel;
 @end
@@ -24,7 +24,6 @@
 {
     self = [super init];
     if (self) {
-        _service = [[QTService alloc] init];
     }
     return self;
 }
@@ -73,7 +72,7 @@
 
 - (void)invite:(id)sender {
     [self updateLabelWithText:@"Inviting..."];
-    [_service inviteTheGirlWithName:@"Ning ning" completion:^(NSError *error) {
+    [[QTServiceCenter sharedInstance] inviteTheGirlWithName:@"Ning ning" completion:^(NSError *error) {
         NSString *text = error ? error.localizedDescription : @"Bingo!";
         [self updateLabelWithText:text];
     }];

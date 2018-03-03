@@ -42,6 +42,8 @@
 		4D66A05820289ADA0013B3A4 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D66A05920289ADA0013B3A4 /* MMFoundation.framework */; };
 		4D7783AB204308A90016EF9B /* MMRequestIDGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7783A9204308A90016EF9B /* MMRequestIDGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D7783AC204308A90016EF9B /* MMRequestIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7783AA204308A90016EF9B /* MMRequestIDGenerator.m */; };
+		4D906D04204A72F4005044F0 /* MMApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906D02204A72F4005044F0 /* MMApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D906D05204A72F4005044F0 /* MMApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906D03204A72F4005044F0 /* MMApplication.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		4D66A05920289ADA0013B3A4 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7783A9204308A90016EF9B /* MMRequestIDGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMRequestIDGenerator.h; sourceTree = "<group>"; };
 		4D7783AA204308A90016EF9B /* MMRequestIDGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMRequestIDGenerator.m; sourceTree = "<group>"; };
+		4D906D02204A72F4005044F0 /* MMApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMApplication.h; sourceTree = "<group>"; };
+		4D906D03204A72F4005044F0 /* MMApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMApplication.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				4D66A02B202895060013B3A4 /* mmarchitecture.readme */,
+				4D906D02204A72F4005044F0 /* MMApplication.h */,
+				4D906D03204A72F4005044F0 /* MMApplication.m */,
 				4D669FE8202894360013B3A4 /* MMArchitecture.h */,
 				4D66A01F202895040013B3A4 /* MMArchitectureConstants.h */,
 				4D24AB7820308971006777FF /* MMServiceCenter.h */,
@@ -191,6 +197,7 @@
 				4D7783AB204308A90016EF9B /* MMRequestIDGenerator.h in Headers */,
 				4D24AB7A20308971006777FF /* MMServiceCenter.h in Headers */,
 				4D66A033202895070013B3A4 /* MMSessionConfiguration.h in Headers */,
+				4D906D04204A72F4005044F0 /* MMApplication.h in Headers */,
 				4D66A036202895070013B3A4 /* MMArchitectureConstants.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +310,7 @@
 				4D66A038202895070013B3A4 /* MMSessionConfiguration.m in Sources */,
 				4D24AB7B20308971006777FF /* MMServiceCenter.m in Sources */,
 				4D66A03B202895070013B3A4 /* MMOperation.m in Sources */,
+				4D906D05204A72F4005044F0 /* MMApplication.m in Sources */,
 				4D66A031202895070013B3A4 /* MMService.m in Sources */,
 				4D66A034202895070013B3A4 /* MMSessionManager.m in Sources */,
 			);

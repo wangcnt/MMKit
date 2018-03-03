@@ -33,8 +33,6 @@
         _egHTTPConfiguration.token = @"token.token";
         _egHTTPConfiguration.task_queue = task_queue;
         _egHTTPConfiguration.sessionManager = egHTTPSessionManager;
-        
-        self.center = [MMServiceCenter defaultCenter];
     }
     return self;
 }
@@ -81,23 +79,6 @@
 
 - (void)startServiceWithSessionConfigurations:(NSArray<id<MMSessionConfiguration>> *)configurations {
     
-}
-
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password completion:(void (^)(NSError *error))completion {
-    [self loginWithUsername:username password:password connectionID:nil completion:completion];
-}
-
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password connectionID:(NSString *)connectionID completion:(void (^)(NSError *error))completion {
-    MMHTTPOperation *operation = [[MMHTTPOperation alloc] init];
-    operation.configuration = _egHTTPConfiguration;
-    __weak typeof(MMHTTPOperation) *weakedOp = operation;
-    operation.completionBlock = ^{
-        __unused id<MMHTTPResponse> response = (id<MMHTTPResponse>)weakedOp.response;
-        if(completion) {
-            completion(weakedOp.error);
-        }
-    };
-    [self.center.highQueue addOperation:operation];
 }
 
 

@@ -23,15 +23,14 @@ typedef NS_ENUM(NSInteger, MMServiceScope) {
 @property (nonatomic, assign) MMServiceScope scope;
 @property (nonatomic, assign) BOOL invalid; ///< If YES, all tasks won't be started or callbacked.
 
-@required
-- (void)callbackWithObjectedCompletion:(void (^)(id obj, NSError *error))completion object:(id)object error:(NSError *)error toMainThread:(BOOL)toMainThread;
-- (void)callbackWithCompletion:(void (^)(NSError *error))completion error:(NSError *)error toMainThread:(BOOL)toMainThread;
 
 @optional
 - (void)startService;
 - (void)restartService;
 - (void)stopService;
 
+- (void)callbackWithObjectedCompletion:(void (^)(id obj, NSError *error))completion object:(id)object error:(NSError *)error toMainThread:(BOOL)toMainThread;
+- (void)callbackWithCompletion:(void (^)(NSError *error))completion error:(NSError *)error toMainThread:(BOOL)toMainThread;
 @end
 
 @interface MMService : NSObject <MMService>

@@ -10,6 +10,8 @@
 		4D906C6F2049B7EB005044F0 /* QTHomepageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C6D2049B7EB005044F0 /* QTHomepageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906C702049B7EB005044F0 /* QTHomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C6E2049B7EB005044F0 /* QTHomepageViewController.m */; };
 		4D906CCC2049D25C005044F0 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CCD2049D25C005044F0 /* Masonry.framework */; };
+		4D906D08204A7400005044F0 /* QTServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906D06204A7400005044F0 /* QTServiceCenter.h */; };
+		4D906D09204A7400005044F0 /* QTServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906D07204A7400005044F0 /* QTServiceCenter.m */; };
 		4DD3AF18204861AD002C3B1A /* QTimeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AF0E204861AC002C3B1A /* QTimeUI.framework */; };
 		4DD3AF1D204861AD002C3B1A /* QTimeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AF1C204861AD002C3B1A /* QTimeUITests.m */; };
 		4DD3AF1F204861AD002C3B1A /* QTimeUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AF11204861AC002C3B1A /* QTimeUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +36,8 @@
 		4D906C6D2049B7EB005044F0 /* QTHomepageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTHomepageViewController.h; sourceTree = "<group>"; };
 		4D906C6E2049B7EB005044F0 /* QTHomepageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTHomepageViewController.m; sourceTree = "<group>"; };
 		4D906CCD2049D25C005044F0 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D906D06204A7400005044F0 /* QTServiceCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTServiceCenter.h; sourceTree = "<group>"; };
+		4D906D07204A7400005044F0 /* QTServiceCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTServiceCenter.m; sourceTree = "<group>"; };
 		4DD3AF0E204861AC002C3B1A /* QTimeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTimeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD3AF11204861AC002C3B1A /* QTimeUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTimeUI.h; sourceTree = "<group>"; };
 		4DD3AF12204861AC002C3B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 				4DD3AF12204861AC002C3B1A /* Info.plist */,
 				4D906C6D2049B7EB005044F0 /* QTHomepageViewController.h */,
 				4D906C6E2049B7EB005044F0 /* QTHomepageViewController.m */,
+				4D906D06204A7400005044F0 /* QTServiceCenter.h */,
+				4D906D07204A7400005044F0 /* QTServiceCenter.m */,
 			);
 			path = QTimeUI;
 			sourceTree = "<group>";
@@ -133,6 +139,7 @@
 			files = (
 				4D906C6F2049B7EB005044F0 /* QTHomepageViewController.h in Headers */,
 				4DD3AF1F204861AD002C3B1A /* QTimeUI.h in Headers */,
+				4D906D08204A7400005044F0 /* QTServiceCenter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D906C702049B7EB005044F0 /* QTHomepageViewController.m in Sources */,
+				4D906D09204A7400005044F0 /* QTServiceCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

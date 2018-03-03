@@ -1,24 +1,30 @@
 
 ↑←↓→
 
-1. 架構層的流程依賴關係:
-                          User Interface ←--------------------------
+1. MMArchitecture層與整個App的流程依賴關係:
+                                App
+                                 |
+                                 ↓
+                            UI Frameworks ←-------------------------
                                  |                                  |
+                                 ↓                                  |
+                         Service Framework (1-1 with MMServerCenter)|
+                                 |             (一對一)              |
                                  ↓                                  |
                           MMArchitecture (#import)                  |
+                                 |                               Callback
+                                 ↓                                  |
+                          MMServiceCenter (Multi-delegated NSProxy) |
                                  |                                  |
                                  ↓                                  |
-                          MMServiceCenter (Optional NSProxy)        |
-                                 |                                  |
-                                 ↓                               Callback
                              MMService (Single/Global)              |
                                  |                                  |
           MMSessionConfiguration |                                  |
                                  ↓                                  |
                           MMOperationQueue                          |
                                  |                                  |
-                                 ↓      |----------------------------
-                            MMOperation ←---------------------------
+                                 ↓                                  |
+                            MMOperation =============================
                                  |                                  |
                        MMRequest |                                  |
           MMSessionConfiguration |                                  |
@@ -42,10 +48,10 @@
 2. 作用說明，創建時機：
    2.1. MMServiceCenter
         2.1.1. 作用說明：
-            a. 它將作為UI與後台的橋樑，傳遞管理所有的UI需求並發向服務器，取回並處理數據後再回
-                調至UI層刷新給用戶；
-            b. MMServiceCenter將提供一系列純程池MMOperationQueue，用以管理所有的線程及任務；
-            c. 它是一個可選的多委託動態代理，將把任務分配給所有實現MMService協議的MMService。
+            a. 它將作為與一個UIFramework和Service framework形成一對一關係的與後台交互的橋樑，
+                傳遞管理所有的UI需求並發向服務器，完成任務後回調至UI層刷新給用戶；
+            b. 它是一個可選的多委託動態代理，將把任務分配給註冊進這個center的實現MMService協議的
+                所有MMService。
 
    2.2. MMService作用說明：
         MMService將用於上層實現協議，實現具體業務任務的創建，分Single和Global兩種類型，

@@ -40,7 +40,7 @@
     operation.completionBlock = ^{
         [self callbackWithCompletion:completion error:weakedOp.error toMainThread:YES];
     };
-    [self.center.defaultQueue addOperation:operation];
+    [[MMApplication sharedInstance].defaultQueue addOperation:operation];
 }
 
 @end

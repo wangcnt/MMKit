@@ -48,7 +48,7 @@
     operation.completionBlock = ^{
         [self callbackWithCompletion:completion error:wop.response.error];
     };
-    [self.center.backgroundQueue addOperation:operation];
+    [[MMApplication sharedInstance].backgroundQueue addOperation:operation];
 }
 
 @end

@@ -18,32 +18,11 @@
 
 @implementation MMServiceCenter
 
-+ (instancetype)defaultCenter {
-    static MMServiceCenter *instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[MMServiceCenter alloc] init];
-    });
-    return instance;
-}
-
 - (void)initialize {
     [super initialize];
     _serialQueue = [[MMOperationQueue alloc] init];
     _serialQueue.maxConcurrentOperationCount = 1;
     _serialQueue.qualityOfService = NSQualityOfServiceUserInteractive;
-    
-    _highQueue = [[MMOperationQueue alloc] init];
-    _highQueue.maxConcurrentOperationCount = 3;
-    _highQueue.qualityOfService = NSQualityOfServiceUserInteractive;
-    
-    _defaultQueue = [[MMOperationQueue alloc] init];
-    _defaultQueue.maxConcurrentOperationCount = 3;
-    _defaultQueue.qualityOfService = NSQualityOfServiceDefault;
-    
-    _backgroundQueue = [[MMOperationQueue alloc] init];
-    _backgroundQueue.maxConcurrentOperationCount = 3;
-    _backgroundQueue.qualityOfService = NSQualityOfServiceBackground;
     
     _serviceDictionary = [[NSMutableDictionary<NSString *, id<MMService>> alloc] initWithCapacity:1];
     _serviceArray = [NSMutableArray<id<MMService>> arrayWithCapacity:1];
