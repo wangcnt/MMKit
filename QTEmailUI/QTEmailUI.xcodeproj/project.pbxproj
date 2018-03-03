@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D906DCE204A9A7B005044F0 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906DCF204A9A7B005044F0 /* MMCoreServices.framework */; };
 		4DD3AED020486133002C3B1A /* QTEmailUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AEC620486133002C3B1A /* QTEmailUI.framework */; };
 		4DD3AED520486133002C3B1A /* QTEmailUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AED420486133002C3B1A /* QTEmailUITests.m */; };
 		4DD3AED720486133002C3B1A /* QTEmailUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AEC920486133002C3B1A /* QTEmailUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D906DCF204A9A7B005044F0 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD3AEC620486133002C3B1A /* QTEmailUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTEmailUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD3AEC920486133002C3B1A /* QTEmailUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTEmailUI.h; sourceTree = "<group>"; };
 		4DD3AECA20486133002C3B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D906DCE204A9A7B005044F0 /* MMCoreServices.framework in Frameworks */,
 				4DD3AF3D2048623B002C3B1A /* AnalyticsKit.framework in Frameworks */,
 				4DD3AF3E2048623B002C3B1A /* MMFoundation.framework in Frameworks */,
 				4DD3AF3F2048623B002C3B1A /* MMLog.framework in Frameworks */,
@@ -105,6 +108,7 @@
 		4DD3AF3C2048623B002C3B1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D906DCF204A9A7B005044F0 /* MMCoreServices.framework */,
 				4DD3AF422048623B002C3B1A /* AnalyticsKit.framework */,
 				4DD3AF432048623B002C3B1A /* MMFoundation.framework */,
 				4DD3AF442048623B002C3B1A /* MMLog.framework */,

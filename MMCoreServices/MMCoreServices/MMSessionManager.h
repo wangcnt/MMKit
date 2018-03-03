@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MMArchitectureConstants.h"
+#import "MMCoreDefines.h"
 #import "MMConnection.h"
 
 @protocol MMRequest, MMSocketConnection;

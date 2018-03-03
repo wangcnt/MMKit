@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MMCoreDefines.h"
+
 @protocol MMRequest, MMSocketRequest, MMResponse, MMSessionManager, MMConnection, MMSessionConfiguration;
 
 @protocol MMOperation <NSObject>
 
-@required
 @property (nonatomic, strong) id<MMSessionConfiguration> configuration;
 @property (nonatomic, strong) NSError *error;
 
@@ -25,6 +26,8 @@
 
 @property (nonatomic, assign) NSInteger maxRetryTimes;
 @property (nonatomic, assign) NSInteger retryedTimes;
+
+@property (nonatomic, strong) MMRequestStepHandler step;
 
 - (void)presendRequest;
 - (BOOL)shouldRetry;

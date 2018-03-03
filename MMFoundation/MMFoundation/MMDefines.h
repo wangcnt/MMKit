@@ -1,13 +1,13 @@
 //
-//  MMInlines.h
+//  MMDefines.h
 //  MMFoundation
 //
 //  Created by Mark on 2018/2/10.
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
-#ifndef MMInlines_h
-#define MMInlines_h
+#ifndef MMDefines_h
+#define MMDefines_h
 
 #import <Foundation/Foundation.h>
 
@@ -132,4 +132,4 @@ static inline float mm_cos_float(float x) {
 #endif
 }
 
-#endif / *mmInlines_h */
+#endif / *MMDefines_h */

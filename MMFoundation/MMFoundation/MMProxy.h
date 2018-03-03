@@ -3,7 +3,7 @@
 //  MMFoundation
 //
 //  Created by Mark on 2018/3/1.
-//  Copyright © 2018年 WangQiang. All rights reserved.
+//  Copyright © 2018年 Mark. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

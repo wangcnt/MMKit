@@ -1,7 +1,7 @@
 
 ↑←↓→
 
-1. MMArchitecture層與整個App的流程依賴關係:
+1. MMCoreServices層與整個App的流程依賴關係:
                                 App
                                  |
                                  ↓
@@ -11,7 +11,7 @@
                          Service Framework (1-1 with MMServerCenter)|
                                  |             (一對一)              |
                                  ↓                                  |
-                          MMArchitecture (#import)                  |
+                          MMCoreServices (#import)                  |
                                  |                               Callback
                                  ↓                                  |
                           MMServiceCenter (Multi-delegated NSProxy) |

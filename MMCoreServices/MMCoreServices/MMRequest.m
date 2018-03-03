@@ -36,6 +36,7 @@
 @synthesize timeoutInterval = _timeoutInterval;
 @synthesize command = _command;
 @synthesize type = _type;
+@synthesize step = _step;
 
 @end
 

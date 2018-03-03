@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
-#import <MMArchitecture/MMArchitecture.h>
+#import <MMCoreServices/MMCoreServices.h>
 
 @protocol QTResponse <MMResponse>
 @end

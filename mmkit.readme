@@ -29,7 +29,7 @@
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
         -------------------------+---------------------       ・
         ↓                ↓              ↓             ↓       ・
-  MMArchitecture   MMDatabaseKit      MMLog      AFNetworking ・  (Foundation Frameworks)
+  MMCoreServices   MMDatabaseKit      MMLog      AFNetworking ・  (Foundation Frameworks)
                                                               ・
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
                            MMFoundation                       ・

@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MMSamples/MMSamples.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AFNetworking/AFNetworking.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Masonry/Masonry.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MMCoreServices/MMCoreServices.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:QTimeUI/QTimeUI.xcodeproj">
    </FileRef>
    <FileRef
@@ -21,12 +33,6 @@
    </FileRef>
    <FileRef
       location = "group:MMFoundation/MMFoundation.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MMArchitecture/MMArchitecture.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MMExamples/MMExamples.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MMDatabaseKit/MMDatabaseKit.xcodeproj">

@@ -13,12 +13,26 @@
 @implementation QTInviteConnection
 
 - (void)sendRequest:(id<MMRequest>)request withCompletion:(MMRequestCompletion)completion {
-    int seconds = arc4random() % 5 + 2;
-    NSLog(@"%@ing...", request.command);
-    sleep(seconds);
+    // receiving
+    if(request.step) {
+        request.step(MMRequestStepReceiving);
+    }
+    sleep(arc4random() % 5 + 2);
+    
+    // parsing
+    if(request.step) {
+        request.step(MMRequestStepParsing);
+    }
+    sleep(arc4random() % 5 + 2);
     Class clazz = (Class)request.responseClass;
     QTResponse *response = [[clazz alloc] init];
-    response.error = seconds / 2 ? nil : [NSError errorWithDomain:@"QTServiceErrorDomain" code:4 userInfo:@{NSLocalizedDescriptionKey : @"Who you're invited is really a man..."}];
+    response.error = arc4random() / 2 ? nil : [NSError errorWithDomain:@"QTServiceErrorDomain" code:4 userInfo:@{NSLocalizedDescriptionKey : @"Who you're invited is really a man..."}];
+    
+    // persisting
+    if(request.step) {
+        request.step(MMRequestStepPersisting);
+    }
+    sleep(arc4random() % 5 + 2);
     if(completion) {
         completion(response);
     }

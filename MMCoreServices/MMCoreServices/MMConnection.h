@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MMArchitectureConstants.h"
+#import "MMCoreDefines.h"
 
 FOUNDATION_EXPORT NSString *const MMSocketConnectionDefaultIdentifier;
 FOUNDATION_EXPORT NSString *const MMSocketConnectionFreeIdentifier;

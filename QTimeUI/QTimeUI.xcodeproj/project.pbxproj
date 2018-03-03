@@ -12,6 +12,7 @@
 		4D906CCC2049D25C005044F0 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CCD2049D25C005044F0 /* Masonry.framework */; };
 		4D906D08204A7400005044F0 /* QTServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906D06204A7400005044F0 /* QTServiceCenter.h */; };
 		4D906D09204A7400005044F0 /* QTServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906D07204A7400005044F0 /* QTServiceCenter.m */; };
+		4D906DCA204A9A4D005044F0 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906DCB204A9A4D005044F0 /* MMCoreServices.framework */; };
 		4DD3AF18204861AD002C3B1A /* QTimeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD3AF0E204861AC002C3B1A /* QTimeUI.framework */; };
 		4DD3AF1D204861AD002C3B1A /* QTimeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AF1C204861AD002C3B1A /* QTimeUITests.m */; };
 		4DD3AF1F204861AD002C3B1A /* QTimeUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AF11204861AC002C3B1A /* QTimeUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,6 +39,7 @@
 		4D906CCD2049D25C005044F0 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906D06204A7400005044F0 /* QTServiceCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTServiceCenter.h; sourceTree = "<group>"; };
 		4D906D07204A7400005044F0 /* QTServiceCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTServiceCenter.m; sourceTree = "<group>"; };
+		4D906DCB204A9A4D005044F0 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD3AF0E204861AC002C3B1A /* QTimeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTimeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD3AF11204861AC002C3B1A /* QTimeUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTimeUI.h; sourceTree = "<group>"; };
 		4DD3AF12204861AC002C3B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D906DCA204A9A4D005044F0 /* MMCoreServices.framework in Frameworks */,
 				4D906CCC2049D25C005044F0 /* Masonry.framework in Frameworks */,
 				4DD3AF4720486243002C3B1A /* MMUIKit.framework in Frameworks */,
 				4DD3AF2F204861DF002C3B1A /* MMFoundation.framework in Frameworks */,
@@ -120,6 +123,7 @@
 		4DD3AF28204861C5002C3B1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D906DCB204A9A4D005044F0 /* MMCoreServices.framework */,
 				4D906CCD2049D25C005044F0 /* Masonry.framework */,
 				4DD3AF4820486243002C3B1A /* MMUIKit.framework */,
 				4DD3AF30204861DF002C3B1A /* MMFoundation.framework */,

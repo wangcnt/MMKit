@@ -6,11 +6,11 @@
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
-#import <MMArchitecture/MMArchitecture.h>
+#import <MMCoreServices/MMCoreServices.h>
 
 @protocol QTService <MMService>
 
-- (void)inviteTheGirlWithName:(NSString *)name completion:(void (^)(NSError *error))completion;
+- (void)inviteTheGirlWithName:(NSString *)name step:(MMRequestStepHandler)step completion:(void (^)(NSError *error))completion;
 
 @end
 

@@ -10,7 +10,7 @@
 
 #import <AnalyticsKit/AnalyticsKit.h>
 #import <MMLog/MMLog.h>
-#import <MMArchitecture/MMArchitecture.h>
+#import <MMCoreServices/MMCoreServices.h>
 #import <MMFoundation/MMFoundation.h>
 #import <MMUIKit/MMUIKit.h>
 #import <QTimeUI/QTimeUI.h>

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MMArchitectureConstants.h"
+#import "MMCoreDefines.h"
 
 @protocol MMResponse, MMSessionConfiguration, MMHTTPSessionConfiguration, MMSocketSessionConfiguration;
 
@@ -20,18 +20,15 @@ typedef enum : NSUInteger {
 
 @protocol MMRequest <NSObject>
 
-@required
 @property (nonatomic, strong, readonly) NSData *payload;
 @property (nonatomic, strong, readonly) NSString *command;
 @property (nonatomic, assign, readonly) Class<MMResponse> responseClass;
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
 @property (nonatomic, assign, readonly) MMRequestType type;
-
 @property (nonatomic, strong) id<MMSessionConfiguration> configuration;
-
 @property (nonatomic, strong) NSString *identifier;
 
-@optional
+@property (nonatomic, strong) MMRequestStepHandler step;
 
 - (void)prepare;
 

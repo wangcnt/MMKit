@@ -32,6 +32,10 @@
 
 - (void)start {
     NSAssert(self.request, @"request must not be nil.");
+    if(_step) {
+        _step(MMRequestStepPreparing);
+    }
+    sleep(arc4random() % 5 + 2);
     
     _startTimestamp = CFAbsoluteTimeGetCurrent();
     
@@ -126,6 +130,10 @@
     [self didChangeValueForKey:@"isFinished"];
     [self didChangeValueForKey:@"isExecuting"];
     
+    if(_step) {
+        _step(MMRequestStepFinished);
+    }
+    
     _endTimestamp = CFAbsoluteTimeGetCurrent();
 }
 
@@ -162,6 +170,13 @@
     }
 }
 
+- (void)setStep:(MMRequestStepHandler)step {
+    if(_step != step) {
+        _step = step;
+        self.request.step = _step;
+    }
+}
+
 - (double)consumedTimestamp {
     return self.endTimestamp - self.startTimestamp;
 }
@@ -175,6 +190,7 @@
 @synthesize timeoutInterval = _timeoutInterval;
 @synthesize sessionManager = _sessionManager;
 @synthesize consumedTimestamp = _consumedTimestamp;
+@synthesize step = _step;
 
 @end
 
@@ -214,5 +230,7 @@
     NSAssert([configuration conformsToProtocol:@protocol(MMSocketSessionConfiguration)], @"Configuration MUST conforms to protocol: MMSocketSessionConfiguration.");
     super.configuration = configuration;
 }
+
+@synthesize connectionID = _connectionID;
 
 @end

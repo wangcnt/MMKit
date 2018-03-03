@@ -12,7 +12,7 @@
 #import "QTSessionConfiguration.h"
 #import "QTInviteConnection.h"
 #import "QTInviteSessionManager.h"
-#import <MMArchitecture/MMArchitecture.h>
+#import <MMCoreServices/MMCoreServices.h>
 
 @interface QTService ()
 @property (nonatomic, strong) QTSessionConfiguration *sessionConfiguration;
@@ -32,10 +32,17 @@
     return self;
 }
 
-- (void)inviteTheGirlWithName:(NSString *)name completion:(void (^)(NSError *error))completion {
+- (void)inviteTheGirlWithName:(NSString *)name step:(MMRequestStepHandler)step completion:(void (^)(NSError *error))completion {
     if(!name) return;
     QTInviteOperation *operation = [[QTInviteOperation alloc] initWithNames:@[name]];
     operation.configuration = _sessionConfiguration;
+    operation.step = ^(MMRequestStep stp) {
+        if(step) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                step(stp);
+            });
+        }
+    };
     __weak typeof(QTInviteOperation) *weakedOp = operation;
     operation.completionBlock = ^{
         [self callbackWithCompletion:completion error:weakedOp.error toMainThread:YES];
