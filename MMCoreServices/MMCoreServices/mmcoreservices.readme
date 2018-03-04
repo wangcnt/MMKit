@@ -5,35 +5,36 @@
                                 App
                                  |
                                  ↓
-                            UI Frameworks <--------------------------
+                            UI Framework  <--------------------------
                                  |                                  |
+                                 | (1-to-*)                         |
                                  ↓                                  |
-                         Service Framework (1-1 with MMServerCenter)|
-                                 |             (一對一)              |
-                                 ↓                                  |
-                          MMCoreServices (#import)                  |
-                                 |                               Callback
+                         Service Framework                          |
+                                 |                                  |
+                                 | (1-to-1)                         |
                                  ↓                                  |
                           MMServiceCenter (Multi-delegated NSProxy) |
                                  |                                  |
+                                 | (1-to-*)                         |
                                  ↓                                  |
                              MMService (Single/Global)              |
-                                 |                                  |
+                                 |                               Callback
           MMSessionConfiguration |                                  |
                                  ↓                                  |
-                          MMOperationQueue                          |
+                         MMOperationQueue (from MMApplication)      |
                                  |                                  |
+                                 | (1-to-*)                         |
                                  ↓                                  |
                             MMOperation =============================
                                  |                                  |
                        MMRequest |                                  |
-          MMSessionConfiguration |                                  |
+          MMSessionConfiguration | (1-to-1)                         |
              MMRequestCompletion |                                  |
                                  ↓                                  |
                           MMSessionManager                          |
                                  |                                  |
                        MMRequest |                                  |
-          MMSessionConfiguration |                        MMRequestCompletion
+          MMSessionConfiguration | (1-to-*)                MMRequestCompletion
              MMRequestCompletion |                                  |
                                  ↓                                  |
                             MMConnection                            |
@@ -78,7 +79,7 @@
             a. 管理各種同步或異步的任務；
             b. 將只接收MMOperation，並且只接受-addOperation:添加進入的任務；
         2.4.2. 創建時機，使用方法：
-            由MMServiceCenter默認創建並不可修改值，只允許配置屬性。
+            由MMApplication默認創建並不可修改值，只允許配置屬性。
 
    2.5. MMOperation
         2.5.1. 作用說明：
