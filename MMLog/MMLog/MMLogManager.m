@@ -39,6 +39,17 @@
     return self;
 }
 
+- (void)setLogsDirectory:(NSString *)logsDirectory {
+    if(_logsDirectory != logsDirectory) {
+        _logsDirectory = logsDirectory;
+        MMCompressedLogFileManager *logFileManager = [[MMCompressedLogFileManager alloc] init];
+        _fileLogger = [[DDFileLogger alloc] initWithLogFileManager:logFileManager];
+        _fileLogger.maximumFileSize = _maximumFileSize;
+        _fileLogger.rollingFrequency = _rollingFrequency;
+        _fileLogger.logFileManager.maximumNumberOfLogFiles = _maximumNumberOfLogFiles;
+    }
+}
+
 - (void)setMaximumFileSize:(unsigned long long)maximumFileSize {
     if(_maximumFileSize != maximumFileSize) {
         _maximumFileSize = maximumFileSize;

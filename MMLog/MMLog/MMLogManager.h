@@ -14,6 +14,8 @@
 @property (nonatomic, assign) NSTimeInterval rollingFrequency;  ///< Default = 24h
 @property (nonatomic, assign) int maximumNumberOfLogFiles;  ///< Default = 3
 
+@property (nonatomic, strong) NSString *logsDirectory;   ///< Root directory
+
 + (instancetype)sharedInstance;
 
 - (NSArray *)logPaths;

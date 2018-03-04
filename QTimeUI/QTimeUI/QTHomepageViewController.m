@@ -59,7 +59,7 @@
     _messageLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_messageLabel];
     [_messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(_button.mas_bottom).offset(30);
+        make.top.mas_equalTo(_button.mas_bottom).offset(MAX(30, fabs(_button.eventableInset.bottom)));
         make.centerX.mas_equalTo(_button.superview);
     }];
     [self updateLabelWithText:@"Click button to invite."];
