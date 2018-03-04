@@ -8,17 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class DDFileLogger;
-
 @interface MMLogManager : NSObject
 
-@property (nonatomic,strong) DDFileLogger *fileLogger;
+@property (nonatomic, assign) unsigned long long maximumFileSize;   ///< Default = 2M
+@property (nonatomic, assign) NSTimeInterval rollingFrequency;  ///< Default = 24h
+@property (nonatomic, assign) int maximumNumberOfLogFiles;  ///< Default = 3
 
 + (instancetype)sharedInstance;
 
-- (void)config;
-
-- (NSArray *)getLogPaths;
-- (NSMutableArray *)readLogContent;
+- (NSArray *)logPaths;
+- (NSMutableArray<NSString *> *)readLogs;
 
 @end

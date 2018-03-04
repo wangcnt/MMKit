@@ -19,6 +19,7 @@
 #import <sys/attr.h>
 #import <sys/xattr.h>
 #import <libkern/OSAtomic.h>
+#import <MMFoundation/MMDefines.h>
 
 #if !__has_feature(objc_arc)
 #error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
@@ -290,7 +291,7 @@ unsigned long long const kDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; // 20
 - (NSDateFormatter *)logFileDateFormatter {
     NSMutableDictionary *dictionary = [[NSThread currentThread]
                                        threadDictionary];
-    NSString *dateFormat = @"yyyy'-'MM'-'dd'--'HH'-'mm'-'ss'-'SSS'";
+    NSString *dateFormat = @"yyyy'-'MM'-'dd' 'HH'-'mm'-'ss' 'SSS'";
     NSString *key = [NSString stringWithFormat:@"logFileDateFormatter.%@", dateFormat];
     NSDateFormatter *dateFormatter = dictionary[key];
 
@@ -483,23 +484,7 @@ unsigned long long const kDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; // 20
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (NSString *)applicationName {
-    static NSString *_appName;
-    static dispatch_once_t onceToken;
-
-    dispatch_once(&onceToken, ^{
-        _appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
-
-        if (!_appName) {
-            _appName = [[NSProcessInfo processInfo] processName];
-        }
-
-        if (!_appName) {
-            _appName = @"";
-        }
-    });
-    NSMutableArray *components = [NSMutableArray arrayWithArray:[_appName componentsSeparatedByString:@"."]];
-    [components filterUsingPredicate:[NSPredicate predicateWithFormat:@"SELF <> ''"]];
-    return [components componentsJoinedByString:@"."];
+    return mm_application_name();
 }
 
 @end
@@ -527,7 +512,7 @@ unsigned long long const kDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; // 20
         } else {
             _dateFormatter = [[NSDateFormatter alloc] init];
             [_dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4]; // 10.4+ style
-            [_dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm:ss:SSS"];
+            [_dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss:SSS"];
         }
     }
 

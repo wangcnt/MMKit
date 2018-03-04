@@ -30,7 +30,7 @@
     //    [[B sharedInstance] print];
     [self testMMServiceCenter];
     
-    //    [self testDDLog];
+        [self testDDLog];
     
     //    [self gcdDemo1];
     //    [self gcdDemo2];
@@ -90,7 +90,9 @@
 }
 
 - (void)testDDLog {
-    [[MMLogManager sharedInstance] config];
+    [MMLogManager sharedInstance].maximumFileSize = 1024 * 1024 * 1;   // 1M
+    [MMLogManager sharedInstance].rollingFrequency = 60; // 1 minute
+    NSLog(@"log path-->%@", [MMLogManager sharedInstance].logPaths);
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self  selector:@selector(writeLogMessages:) userInfo:nil repeats:YES];
 }
 
