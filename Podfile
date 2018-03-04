@@ -6,6 +6,7 @@ target :Nothing do
     platform:ios, '9.0'
     
     pod 'RunTrace'
+    pod 'UICKeyChainStore'
     #pod 'DACircularProgress', '2.3.1'
     pod 'Masonry' , '~> 1.1.0'
     #pod 'MJExtension', '~> 3.0.13’

@@ -67,6 +67,7 @@ PODS:
   - ReactiveObjC (3.1.0)
   - RunTrace (1.2)
   - SWTableViewCell (0.3.7)
+  - UICKeyChainStore (2.1.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
@@ -80,6 +81,7 @@ DEPENDENCIES:
   - ReactiveObjC (~> 3.1.0)
   - RunTrace
   - SWTableViewCell (~> 0.3.7)
+  - UICKeyChainStore
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -93,7 +95,8 @@ SPEC CHECKSUMS:
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   RunTrace: 4daf5c37b5d8dc0afdb7767eee7c34e1d7794336
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+  UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
 
-PODFILE CHECKSUM: 023606a8fe24e2381d40df60b97f6de1c7c9b3d5
+PODFILE CHECKSUM: f52b9486276cff926fe80cc2dc244880030ec87c
 
 COCOAPODS: 1.4.0
