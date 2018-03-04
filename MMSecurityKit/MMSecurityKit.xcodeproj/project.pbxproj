@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		4D49BCA2204C3C150077D047 /* MMSecurityKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D49BCA0204C3C150077D047 /* MMSecurityKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D49BCAA204C59800077D047 /* MMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D49BCA8204C59800077D047 /* MMKeychain.m */; };
+		4D49BCAB204C59800077D047 /* MMKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D49BCA9204C59800077D047 /* MMKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4D49BC9D204C3C150077D047 /* MMSecurityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMSecurityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D49BCA0204C3C150077D047 /* MMSecurityKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSecurityKit.h; sourceTree = "<group>"; };
 		4D49BCA1204C3C150077D047 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D49BCA8204C59800077D047 /* MMKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMKeychain.m; sourceTree = "<group>"; };
+		4D49BCA9204C59800077D047 /* MMKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMKeychain.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,8 @@
 			isa = PBXGroup;
 			children = (
 				4D49BCA0204C3C150077D047 /* MMSecurityKit.h */,
+				4D49BCA9204C59800077D047 /* MMKeychain.h */,
+				4D49BCA8204C59800077D047 /* MMKeychain.m */,
 				4D49BCA1204C3C150077D047 /* Info.plist */,
 			);
 			path = MMSecurityKit;
@@ -59,6 +65,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D49BCAB204C59800077D047 /* MMKeychain.h in Headers */,
 				4D49BCA2204C3C150077D047 /* MMSecurityKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D49BCAA204C59800077D047 /* MMKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
