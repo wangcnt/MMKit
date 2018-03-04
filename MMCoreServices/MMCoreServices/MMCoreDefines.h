@@ -24,16 +24,32 @@ typedef NS_ENUM(NSInteger, MMRequestStep) {
     MMRequestStepFinished      ///< 任務完成
 };
 
-FOUNDATION_STATIC_INLINE NSString *mm_default_step_name_with_step(MMRequestStep step) {
-    if(step < MMRequestStepPreparing || step > MMRequestStepFinished) {
+FOUNDATION_STATIC_INLINE NSString *mm_default_step_name_with_step_cn(MMRequestStep step) {
+    if(step < MMRequestStepWaiting || step > MMRequestStepFinished) {
         return @"";
     }
     return @[@"正在等待任務開始...",
-             @"等待發送請求...",
+             @"正在發送請求...",
              @"正在接收數據...",
              @"正在解析數據...",
              @"正在將數據寫入本地...",
              @"任務完成."][step];
+}
+
+FOUNDATION_STATIC_INLINE NSString *mm_default_step_name_with_step_en(MMRequestStep step) {
+    if(step < MMRequestStepWaiting || step > MMRequestStepFinished) {
+        return @"";
+    }
+    return @[@"Waiting...",
+             @"Sending...",
+             @"Receving...",
+             @"Parsing...",
+             @"Persisting...",
+             @"Completed."][step];
+}
+
+FOUNDATION_STATIC_INLINE NSString *mm_default_step_name_with_step(MMRequestStep step) {
+    return mm_default_step_name_with_step_en(step);
 }
 
 typedef void (^MMRequestStepHandler)(MMRequestStep step);

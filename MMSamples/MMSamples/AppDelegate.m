@@ -39,6 +39,25 @@
     //    [self testDynamicProxy];
     //    [self testStringAdditions];
     
+    NSArray *strs = @[@"c", @"b", @"a", @"啊"];
+    for(int i=0; i<strs.count; i++) {
+        NSString *str = strs[i];
+        ;
+        NSLog(@"strs[%d]-->%@", i, str);
+    }
+    int j = 255;
+    BOOL result = [self testChangeReturnValueWhenDebugging];
+    
+    [self setupWindow];
+    
+    return YES;
+}
+
+- (BOOL)testChangeReturnValueWhenDebugging {
+    return YES;
+}
+
+- (void)setupWindow {
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _window.backgroundColor = [UIColor whiteColor];
     
@@ -62,7 +81,7 @@
     
     [_window makeKeyAndVisible];
     
-    return YES;
+    NSLog(@"1");
 }
 
 - (void)testStringAdditions {

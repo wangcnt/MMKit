@@ -28,11 +28,11 @@
             |------------------->+<-----------------|         ・
                                  |                            ・
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
-        -------------------------+---------------------       ・
-        ↓                ↓              ↓             ↓       ・
-  MMCoreServices   MMDatabaseKit      MMLog      AFNetworking ・  (Foundation Frameworks)
-                                                              ・
+                -----------------+---------------             ・
+                ↓                ↓              ↓             ・
+          MMCoreServices   MMDatabaseKit      MMLog           ・  (Foundation Frameworks)
+                                                              ・   (每個子工程必須依賴)
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
-                           MMFoundation                       ・
+    AFNetworking    Masonry   MMFoundation      MMUIKit       ・
                                                               ・
 
