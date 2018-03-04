@@ -30,7 +30,7 @@
     //    [[B sharedInstance] print];
     [self testMMServiceCenter];
     
-        [self testDDLog];
+    [self testDDLog];
     
     //    [self gcdDemo1];
     //    [self gcdDemo2];
@@ -45,8 +45,8 @@
         ;
         NSLog(@"strs[%d]-->%@", i, str);
     }
-    int j = 255;
-    BOOL result = [self testChangeReturnValueWhenDebugging];
+    __unused int j = 255;
+    __unused BOOL result = [self testChangeReturnValueWhenDebugging];
     
     [self setupWindow];
     
@@ -63,17 +63,17 @@
     
     MMTabBarController *tabController = [[MMTabBarController alloc] init];
     
-    FirstViewController *fController = [[FirstViewController alloc] init];
-    MMNavigationController *fNavController = [[MMNavigationController alloc] initWithRootViewController:fController];
-    fNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"First" image:nil tag:1];
-    
-    SecondViewController *sController = [[SecondViewController alloc] init];
-    MMNavigationController *sNavController = [[MMNavigationController alloc] initWithRootViewController:sController];
-    sNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Second" image:nil tag:2];
-    
     QTHomepageViewController *timeController = [[QTHomepageViewController alloc] init];
     MMNavigationController *timeNavController = [[MMNavigationController alloc] initWithRootViewController:timeController];
     timeNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Time" image:nil tag:3];
+    
+    FirstViewController *fController = [[FirstViewController alloc] init];
+    MMNavigationController *fNavController = [[MMNavigationController alloc] initWithRootViewController:fController];
+    fNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"First" image:nil tag:2];
+    
+    SecondViewController *sController = [[SecondViewController alloc] init];
+    MMNavigationController *sNavController = [[MMNavigationController alloc] initWithRootViewController:sController];
+    sNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Second" image:nil tag:3];
     
     tabController.viewControllers = @[timeNavController, fNavController, sNavController];
     
@@ -85,8 +85,8 @@
 }
 
 - (void)testStringAdditions {
-    NSComparisonResult greater = [@"a1.b2" compareVersion:@"a1asdf.c2(**HIUHIHIOHIHKHJGYUIOHIbkdsf3"];
-    NSArray<NSNumber *> *numbers = [@"1.2.3.4a3b*(Id2" numbers];
+    __unused NSComparisonResult greater = [@"a1.b2" compareVersion:@"a1asdf.c2(**HIUHIHIOHIHKHJGYUIOHIbkdsf3"];
+    __unused NSArray<NSNumber *> *numbers = [@"1.2.3.4a3b*(Id2" numbers];
 }
 
 - (void)testDDLog {
