@@ -10,10 +10,10 @@
 
 @interface NSFileManager(Additions)
 
-- (BOOL)createFolderAtPath:(NSString *)path;
+- (BOOL)createFolderAtPathIfNeeds:(NSString *)path;
 
 - (BOOL)writeInfo:(id)info toFileAtPath:(NSString *)path;
 
-- (BOOL)clear:(NSString *)path;
+- (BOOL)clearAtPath:(NSString *)path;
 
 @end

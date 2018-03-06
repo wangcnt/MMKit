@@ -36,7 +36,7 @@ QTimeFoundation    -------+-------   QTEmailFoundation                   ・
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
    |         |         -------------------+----------------------        ・
    ↓         ↓         ↓           ↓            ↓               ↓        ・
-Masonry <- MMUIKit  AFNetworking  MMLog -> MMFoundation <- MMSecurityKit ・
-             |                                  ↑                        ・
-             ------------------------------------                        ・
+Masonry   MMUIKit  AFNetworking  MMLog -> MMFoundation <- MMSecurityKit ・
+   ↑         |                                  ↑                        ・
+   ----------+-----------------------------------                        ・
                                                                          ・

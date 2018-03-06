@@ -22,12 +22,17 @@
 
 - (instancetype)init {
     if(self = [super init]) {
+        // sessionConfiguration 1
+        // ..
         QTInviteSessionManager *inviteSessionManager = [[QTInviteSessionManager alloc] init];
         _sessionConfiguration = [[QTHTTPSessionConfiguration alloc] init];
         _sessionConfiguration.database_queue = dispatch_queue_create("com.markwong.time.db.queue", DISPATCH_QUEUE_SERIAL);
         _sessionConfiguration.task_queue = dispatch_queue_create("com.markwong.time.task.queue", DISPATCH_QUEUE_SERIAL);
         _sessionConfiguration.connectionClass = QTInviteConnection.class;
         _sessionConfiguration.sessionManager = inviteSessionManager;
+        
+        // sessionConfiguration 2
+        // ..
     }
     return self;
 }

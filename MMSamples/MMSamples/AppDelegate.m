@@ -30,7 +30,10 @@
     //    [[B sharedInstance] print];
     [self testMMServiceCenter];
     
-    [self testDDLog];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", @"key"];
+    BOOL res = [predicate evaluateWithObject:@"keY"];
+    NSLog(@"res -> %d", res);
+//    [self testDDLog];
     
     //    [self gcdDemo1];
     //    [self gcdDemo2];

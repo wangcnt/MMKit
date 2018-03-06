@@ -35,7 +35,7 @@
 - (void)uploadEvent:(id<AKEvent>)event;
 
 - (void)uploadIfNeeds;  ///< Nothing will be done if there is a timer uploading.
-- (void)stopUpoloading;
+- (void)stopUploading;
 
 - (void)startTimingForTaskWithId:(NSString *)taskId;
 - (NSTimeInterval)duaringForTaskWithId:(NSString *)taskId;

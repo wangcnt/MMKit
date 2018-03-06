@@ -33,6 +33,17 @@
     return result;
 }
 
+- (NSObject *)objectForCDKey:(NSString *)key {
+    if([key isKindOfClass:NSString.class]) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[cd] %@", key];
+        NSString *newKey = [self.allKeys filteredArrayUsingPredicate:predicate].firstObject;
+        if(newKey) {
+            return self[newKey];
+        }
+    }
+    return self[key];
+}
+
 @end
 
 

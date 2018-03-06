@@ -9,12 +9,13 @@
 #import "MMDiskCache.h"
 
 #import "MMDefines.h"
+#import "NSFileManagerAdditions.h"
 
 @implementation MMDiskCache
 
 @synthesize documentsPath = _documentsPath, temporaryPath = _temporaryPath, libraryPath = _libraryPath, cachesPath = _cachesPath;
 
-- (instancetype)sharedInstance {
++ (instancetype)sharedInstance {
     static MMDiskCache *cache;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -23,35 +24,41 @@
     return cache;
 }
 
-- (NSString *)logPath {
-    return [self pathWithIdentifier:nil directoryType:MMDiskCacheDirectoryTypeDocument fileType:MMDiskCacheFileTypeLog];
+- (NSString *)pathWithDirectoryMask:(MMDirectoryMask)mask account:(NSString *)account {
+    return [self pathWithDirectoryMask:mask account:account module:nil];
 }
 
-- (NSString *)pathWithIdentifier:(NSString *)identifier directoryType:(MMDiskCacheDirectoryType)directoryType fileType:(MMDiskCacheFileType)fileType {
-    if(fileType == MMDiskCacheFileTypeLog) {
-        return [mm_document_path() stringByAppendingString:[self filenameWithFileType:MMDiskCacheFileTypeLog]];
-    } else {
-        NSString *directory = [self pathWithDirectoryType:directoryType];
-        if(!directory.length) {
-            return nil;
-        }
-        NSString *filename = [self filenameWithFileType:fileType];
-        if(filename.length) {
-            if(!identifier.length) {
-                identifier = @"public";
-            }
-            directory = [[directory stringByAppendingPathComponent:identifier] stringByAppendingPathComponent:filename];
-            BOOL isDirectory;
-            if(![[NSFileManager defaultManager] fileExistsAtPath:directory isDirectory:&isDirectory] || !isDirectory) {
-                NSError *error;
-                if(![[NSFileManager defaultManager] createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:&error] || error) {
-                    return nil;
-                }
-            }
-            return directory;
-        }
+- (NSString *)pathWithDirectoryMask:(MMDirectoryMask)mask account:(NSString *)account module:(NSString *)module {
+    // eg. Documents/
+    NSString *directory = [self directoryWithMask:mask];
+    if(!directory.length) {
         return nil;
     }
+    
+    NSFileManager *fileManger = [NSFileManager defaultManager];
+    if(account.length) {
+        // eg. Documents/users
+        directory = [directory stringByAppendingPathComponent:@"users"];
+        if(![fileManger createFolderAtPathIfNeeds:directory]) {
+            return nil;
+        }
+        
+        // eg. Documents/users/404298011
+        directory = [directory stringByAppendingPathComponent:account];
+        if(![fileManger createFolderAtPathIfNeeds:directory]) {
+            return nil;
+        }
+        
+        // eg. Documents/users/404298011/im
+        // eg. Documents/users/404298011/addressbook
+        if(module.length) {
+            directory = [directory stringByAppendingPathComponent:module];
+            if(![fileManger createFolderAtPathIfNeeds:directory]) {
+                return nil;
+            }
+        }
+    }
+    return directory;
 }
 
 - (NSString *)documentsPath {
@@ -82,19 +89,18 @@
     return _libraryPath;
 }
 
-- (NSString *)pathWithDirectoryType:(MMDiskCacheDirectoryType)type {
-    return (type == MMDiskCacheDirectoryTypeDocument ? mm_document_path() :
-            type == MMDiskCacheDirectoryTypeTemporary ? mm_temporary_path() :
-            type == MMDiskCacheDirectoryTypeCache ? mm_caches_path() :
-            type == MMDiskCacheDirectoryTypeLibrary ? mm_library_path() :
+- (NSString *)directoryWithMask:(MMDirectoryMask)mask {
+    return (mask == MMDirectoryMaskDocument ? mm_document_path() :
+            mask == MMDirectoryMaskTemporary ? mm_temporary_path() :
+            mask == MMDirectoryMaskCaches ? mm_caches_path() :
+            mask == MMDirectoryMaskLibrary ? mm_library_path() :
             nil);
 }
 
 - (NSString *)filenameWithFileType:(MMDiskCacheFileType)type {
-    return (type == MMDiskCacheFileTypeLog ? @"app.log" :
-            type == MMDiskCacheFileTypeDatabase ? @"db" :
-            type == MMDiskCacheFileTypeImage ? @"image" :
-            type == MMDiskCacheFileTypeVideo ? @"video" : @"public");
+    return (type == MMDiskCacheFileTypeImage ? @"image" :
+            type == MMDiskCacheFileTypeVideo ? @"video" :
+            @"");
 }
 
 @end

@@ -10,6 +10,7 @@
 
 #import "AKEvent.h"
 #import "AKService.h"
+#import <MMFoundation/MMDiskCache.h>
 
 @interface AKEventManager ()
 @property (nonatomic, strong) NSMutableDictionary<NSString *, NSString *> *taskDictionary;
@@ -37,8 +38,13 @@
         _pageDictionary = [NSMutableDictionary<NSString *, NSString *> dictionary];
         _events = [NSMutableArray<id<AKEvent>> array];
         _timeDictionary = [NSMutableDictionary<NSString *, NSNumber *> dictionary];
+        [self loadEvents];
     }
     return self;
+}
+
+- (void)loadEvents {
+    [MMDiskCache sharedInstance];
 }
 
 - (id<AKService>)service {
@@ -47,6 +53,16 @@
         //TODO: sessionConfiguration
     }
     return _service;
+}
+
+- (void)setUploadInterval:(NSTimeInterval)uploadInterval {
+    if(_uploadInterval != uploadInterval) {
+        _uploadInterval = uploadInterval;
+        if(_timer) {
+            [self stopUploading];
+            [self scheduleTimerIfNeeds];
+        }
+    }
 }
 
 - (void)setCurrentUserWithId:(NSString *)userId username:(NSString *)username {
@@ -98,9 +114,13 @@
 
 - (void)uploadIfNeeds {
     if(!_events.count)  {
-        [self stopUpoloading];
+        [self stopUploading];
         return;
     }
+    [self scheduleTimerIfNeeds];
+}
+
+- (void)scheduleTimerIfNeeds {
     if(!_timer) {
         _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
         dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, _uploadInterval, 0);
@@ -114,19 +134,19 @@
 
 - (void)upload {
     NSArray<id<AKEvent>> *events = _events;
-    [_service uploadEvents:events withCompletion:^(NSError *error) {
+    [self.service uploadEvents:events withCompletion:^(NSError *error) {
         if(error) {
         } else {
             [_events removeObjectsInArray:events];
             //TODO: wirte into file use MMDiskCache
             if(!_events.count) {
-                [self stopUpoloading];
+                [self stopUploading];
             }
         }
     }];
 }
 
-- (void)stopUpoloading {
+- (void)stopUploading {
     [self stopTimer];
 }
 

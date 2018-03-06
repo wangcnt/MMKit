@@ -47,7 +47,7 @@
 		4D24AB7520308551006777FF /* AKUploadResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AB7020308551006777FF /* AKUploadResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D24AB7620308551006777FF /* AKUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB7120308551006777FF /* AKUploadRequest.m */; };
 		4D24AB7720308551006777FF /* AKUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB7120308551006777FF /* AKUploadRequest.m */; };
-		4DB95606204A9ED7004F5E30 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB95607204A9ED7004F5E30 /* MMCoreServices.framework */; };
+		4D321F43204EEF6F006B9B36 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D321F44204EEF6F006B9B36 /* MMCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +93,7 @@
 		4D24AB6F20308551006777FF /* AKUploadResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKUploadResponse.m; sourceTree = "<group>"; };
 		4D24AB7020308551006777FF /* AKUploadResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKUploadResponse.h; sourceTree = "<group>"; };
 		4D24AB7120308551006777FF /* AKUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKUploadRequest.m; sourceTree = "<group>"; };
+		4D321F44204EEF6F006B9B36 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DB95607204A9ED7004F5E30 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DB95606204A9ED7004F5E30 /* MMCoreServices.framework in Frameworks */,
+				4D321F43204EEF6F006B9B36 /* MMCoreServices.framework in Frameworks */,
 				4D24AAEF203072D3006777FF /* MMFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +163,7 @@
 		4D24AAED203072D3006777FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D321F44204EEF6F006B9B36 /* MMCoreServices.framework */,
 				4DB95607204A9ED7004F5E30 /* MMCoreServices.framework */,
 				4D24AAF0203072D3006777FF /* MMArchitecture.framework */,
 				4D24AAF1203072D3006777FF /* MMFoundation.framework */,

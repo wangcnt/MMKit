@@ -11,6 +11,7 @@
 @interface NSDictionary(Additions)
 
 - (NSMutableDictionary *)mutableDeepCopy;
+- (NSObject *)objectForCDKey:(NSString *)key;   ///< Case-insensived objectForKey:
 
 @end
 
