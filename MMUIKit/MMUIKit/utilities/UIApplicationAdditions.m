@@ -8,6 +8,7 @@
 
 #import "UIApplicationAdditions.h"
 #import <MMFoundation/MMFoundation.h>
+#import "MMUIDefines.h"
 
 @implementation UIApplication(Additions)
 
@@ -62,6 +63,43 @@
     NSMutableArray *components = [NSMutableArray arrayWithArray:[appName componentsSeparatedByString:@"."]];
     [components filterUsingPredicate:[NSPredicate predicateWithFormat:@"SELF <> ''"]];
     return [components componentsJoinedByString:@"."];
+}
+
+- (UIViewController *)topViewControllerForController:(UIViewController *)controller {
+    if (controller.presentedViewController) {
+        return [self topViewControllerForController:controller.presentedViewController];
+    } else if ([controller isKindOfClass:[UISplitViewController class]]) {
+        UISplitViewController *svc = (UISplitViewController*) controller;
+        if (svc.viewControllers.count) {
+            return [self topViewControllerForController:svc.viewControllers.lastObject];
+        }
+    } else if ([controller isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *svc = (UINavigationController*) controller;
+        if (svc.viewControllers.count) {
+            return [self topViewControllerForController:svc.topViewController];
+        }
+    } else if ([controller isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *svc = (UITabBarController *)controller;
+        if (svc.viewControllers.count > 0) {
+            return [self topViewControllerForController:svc.selectedViewController];
+        }
+    }
+    return controller;
+}
+
+- (UIViewController *)currentViewController {
+    UIViewController *controller = mm_main_window().rootViewController;
+    return [self topViewControllerForController:controller];
+}
+
+- (UINavigationController *)currentNavigatonController {
+    return [self currentViewController].navigationController;
+}
+
+- (BOOL)rate {
+    NSString *identifier = mm_bundle_identifier();
+    NSString *urlString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", identifier];
+    return [self openURL:[NSURL URLWithString:urlString]];
 }
 
 @end

@@ -76,7 +76,10 @@
     }];
 }
 
-- (void)invite:(id)sender {
+- (void)invite:(id)sender {    
+//    QTHomepageViewController *controller = [[QTHomepageViewController alloc] init];
+//    [self.navigationController pushViewController:controller animated:YES];
+    
     _button.enabled = NO;
     [[QTServiceCenter sharedInstance] inviteTheGirlWithName:@"Ning ning" step:^(MMRequestStep step) {
         if(step != MMRequestStepFinished) {

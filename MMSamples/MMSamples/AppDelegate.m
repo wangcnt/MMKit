@@ -18,9 +18,7 @@
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 
-@interface AppDelegate ()
-
-@end
+#import "MMSafeSignleton.h"
 
 @implementation AppDelegate
 
@@ -29,6 +27,13 @@
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
     [self testMMServiceCenter];
+    [self testInstalledAllApps];
+//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+    id shared = [MMSafeSignleton sharedInstance];
+    MMSafeSignleton *inited = [[MMSafeSignleton alloc] init];
+    id copied = [inited copy];
+    id mutableCopied = [inited mutableCopy];
+    NSLog(@"safe.singleton.name-->%@", [MMSafeSignleton sharedInstance].name);
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", @"key"];
     BOOL res = [predicate evaluateWithObject:@"keY"];
@@ -54,6 +59,18 @@
     [self setupWindow];
     
     return YES;
+}
+
+- (void)testInstalledAllApps {
+    Class c =NSClassFromString(@"LSApplicationWorkspace");
+    id s = [(id)c performSelector:NSSelectorFromString(@"defaultWorkspace")];
+    NSArray *array = [s performSelector:NSSelectorFromString(@"allInstalledApplications")];
+    for (id item in array) {
+        NSLog(@"%@-%@",
+              [item performSelector:NSSelectorFromString(@"applicationIdentifier")],
+              [item performSelector:NSSelectorFromString(@"bundleVersion")]);
+        //NSLog(@"%@",[item performSelector:NSSelectorFromString(@"bundleIdentifier")]);
+    }
 }
 
 - (BOOL)testChangeReturnValueWhenDebugging {

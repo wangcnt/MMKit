@@ -82,7 +82,6 @@ typedef NS_ENUM(NSInteger, MMDirectoryCategory) {
     MMDirectoryCategoryImage,
     MMDirectoryCategoryAudio,
     MMDirectoryCategoryDatabase,
-    MMDirectoryCategory
     MMDirectoryCategoryOther
 };
 

@@ -8,16 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray(Additions)
+@interface NSArray (Additions)
+- (BOOL)isEmpty;
 - (NSMutableArray *)mutableDeepCopy;
 @end
 
+
+@interface NSArray (Numbers)
+
+// Be aware of that 0 will be return if length==0
+- (float)maxFloat;
+- (float)minFloat;
+- (float)floatSum;
+- (float)floatAverage;
+- (NSInteger)maxInteger;
+- (NSInteger)minInteger;
+- (NSInteger)integerSum;
+- (NSInteger)integerAverage;
+
+@end
 
 @interface NSArray(JSON)
 - (NSString *)JSONString;
 @end
 
 
-@interface NSMutableArray(Additions)
+@interface NSMutableArray (Additions)
 - (void)reverseAllObjects;
 @end

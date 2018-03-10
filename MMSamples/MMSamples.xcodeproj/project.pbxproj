@@ -20,6 +20,7 @@
 		4D906CFA2049D7F0005044F0 /* QTimeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFF2049D7F0005044F0 /* QTimeUI.framework */; };
 		4D906D00204A5F8A005044F0 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D01204A5F8A005044F0 /* Masonry.framework */; };
 		4D906DC8204A9A2F005044F0 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */; };
+		4D9BC37920540A4F007FE60C /* MMSafeSignleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC37820540A4F007FE60C /* MMSafeSignleton.m */; };
 		4DB9560C204AA46C004F5E30 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB9560D204AA46C004F5E30 /* MMFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,8 @@
 		4D906CFF2049D7F0005044F0 /* QTimeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QTimeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906D01204A5F8A005044F0 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D9BC37720540A4F007FE60C /* MMSafeSignleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSafeSignleton.h; sourceTree = "<group>"; };
+		4D9BC37820540A4F007FE60C /* MMSafeSignleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMSafeSignleton.m; sourceTree = "<group>"; };
 		4DB9560D204AA46C004F5E30 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,6 +87,7 @@
 		4D906CDB2049D7C7005044F0 /* MMSamples */ = {
 			isa = PBXGroup;
 			children = (
+				4D9BC37620540A37007FE60C /* test */,
 				4D906CDC2049D7C7005044F0 /* AppDelegate.h */,
 				4D906CDD2049D7C8005044F0 /* AppDelegate.m */,
 				4D906CDF2049D7C8005044F0 /* FirstViewController.h */,
@@ -111,6 +115,15 @@
 				4D906CFF2049D7F0005044F0 /* QTimeUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D9BC37620540A37007FE60C /* test */ = {
+			isa = PBXGroup;
+			children = (
+				4D9BC37720540A4F007FE60C /* MMSafeSignleton.h */,
+				4D9BC37820540A4F007FE60C /* MMSafeSignleton.m */,
+			);
+			path = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +198,7 @@
 			files = (
 				4D906CE42049D7C8005044F0 /* SecondViewController.m in Sources */,
 				4D906CDE2049D7C8005044F0 /* AppDelegate.m in Sources */,
+				4D9BC37920540A4F007FE60C /* MMSafeSignleton.m in Sources */,
 				4D906CEF2049D7C8005044F0 /* main.m in Sources */,
 				4D906CE12049D7C8005044F0 /* FirstViewController.m in Sources */,
 			);

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UIButton(MMBlocks)
+@interface UIButton (Additions)
+
+- (void)setTouchUpInsideHandler:(void (^)(UIButton *button))handler;
 
 @end

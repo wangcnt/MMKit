@@ -12,6 +12,10 @@
 
 @implementation NSDictionary(Additions)
 
+- (BOOL)isEmpty {
+    return [self isKindOfClass:NSNull.class] || !self.allKeys.count;
+}
+
 - (NSMutableDictionary *)mutableDeepCopy {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     for(int i=0; i<self.allKeys.count; i++) {

@@ -33,10 +33,13 @@
 #import <MMUIKit/UIFontAdditions.h>
 #import <MMUIKit/UIViewAdditions.h>
 #import <MMUIKit/UIColorAdditions.h>
+#import <MMUIKit/CALayerAdditions.h>
+#import <MMUIKit/UILabelAdditions.h>
 #import <MMUIKit/UIImageAdditions.h>
 #import <MMUIKit/UIButtonAdditions.h>
 #import <MMUIKit/UIDeviceAdditions.h>
 #import <MMUIKit/UISearchBarAdditions.h>
+#import <MMUIKit/UIScrollViewAdditions.h>
 #import <MMUIKit/UITabBarItemAdditions.h>
 #import <MMUIKit/UIApplicationAdditions.h>
 #import <MMUIKit/UIViewControllerAdditions.h>

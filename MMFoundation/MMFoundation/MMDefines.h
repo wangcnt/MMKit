@@ -11,7 +11,47 @@
 
 #import <Foundation/Foundation.h>
 
-#define define_string(KEY) static NSString const*(KEY) = @#KEY;  /// define_string(ABCDE)
+#define define_string(KEY)      static NSString const*(KEY) = @#KEY;  /// define_string(ABCDE)
+#define __weakify__(type)       __weak typeof(type) weak##type = type;
+#define __strongify__(type)     __strong typeof(type) stronged##type = type;
+
+#define __singleton__(CLASS_NAME)                           \
+static CLASS_NAME *instance = nil;                          \
++ (instancetype)sharedInstance {                            \
+    static dispatch_once_t token;                           \
+    dispatch_once(&token, ^{                                \
+        if(instance == nil) {                               \
+            instance = [[CLASS_NAME alloc] init];           \
+        }                                                   \
+    });                                                     \
+    return instance;                                        \
+}                                                           \
+                                                            \
++ (instancetype)allocWithZone:(struct _NSZone *)zone {      \
+    static dispatch_once_t token;                           \
+    dispatch_once(&token, ^{                                \
+        if(instance == nil) {                               \
+            instance = [super allocWithZone:zone];          \
+        }                                                   \
+    });                                                     \
+    return instance;                                        \
+}                                                           \
+                                                            \
+- (instancetype)copy {                                      \
+    return self;                                            \
+}                                                           \
+                                                            \
+- (instancetype)mutableCopy {                               \
+    return self;                                            \
+}                                                           \
+
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(@"%@", __LINE__, [NSString stringWithFormat:__VA_ARGS__])
+#else
+#define NSLog(...)
+#endif
+
 
 static inline NSString *mm_document_path() {
     return NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
@@ -29,15 +69,43 @@ static inline NSString *mm_library_path() {
     return NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject;
 }
 
+static inline NSUserDefaults *mm_user_defaults() {
+    return [NSUserDefaults standardUserDefaults];
+}
+
+static inline NSString *mm_current_language() {
+    return [NSLocale preferredLanguages].firstObject;
+}
+
+static inline NSString *mm_bundle_identifier() {
+    return [NSBundle mainBundle].bundleIdentifier;
+}
+
 static inline NSString *mm_application_name() {
-    NSString *appName = [NSBundle mainBundle].bundleIdentifier;
+    NSString *appName = mm_bundle_identifier();
     NSMutableArray *components = [NSMutableArray arrayWithArray:[appName componentsSeparatedByString:@"."]];
     [components filterUsingPredicate:[NSPredicate predicateWithFormat:@"SELF <> ''"]];
     return [components componentsJoinedByString:@"."];
 }
 
 static inline NSString *mm_bundle_version() {
-    return [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+    return [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+}
+
+static inline NSString *mm_str_int(NSInteger integer) {
+    return [NSString stringWithFormat:@"%ld", integer];
+}
+
+static inline NSString *mm_str_float(float flt) {
+    return [NSString stringWithFormat:@"%f", flt];
+}
+
+static inline float mm_degrees_2_radian(float degrees) {
+    return M_PI * degrees / 180.0;
+}
+
+static inline float mm_radian_2_drgrees(float radian) {
+    return radian * 180.0 / M_PI;
 }
 
 static inline NSInteger mm_bound_integer(NSInteger value, NSInteger min, NSInteger max) {

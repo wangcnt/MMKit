@@ -12,6 +12,18 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+static inline BOOL mm_is_iphone() {
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
+}
+
+static inline BOOL mm_is_ipad() {
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+}
+
+static inline BOOL mm_device_is_iphone_x() {
+    return CGSizeEqualToSize(CGSizeMake(1125, 2436), [UIScreen mainScreen].currentMode.size);
+}
+
 static inline void mm_remove_keyboard() {
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
@@ -40,6 +52,22 @@ static inline float mm_system_version_is_equal(float version) {
     return mm_system_version() == version;
 }
 
+static inline UIApplication *mm_application() {
+    return [UIApplication sharedApplication];
+}
+
+static inline id<UIApplicationDelegate> mm_app_delegate() {
+    return mm_application().delegate;
+}
+
+static inline UIWindow *mm_main_window() {
+    return mm_app_delegate().window;
+}
+
+static inline UIViewController *mm_root_controller() {
+    return mm_main_window().rootViewController;
+}
+
 static inline UIColor *mm_clear_color()       { return [UIColor clearColor]; }
 static inline UIColor *mm_blue_color()        { return [UIColor blueColor]; }
 static inline UIColor *mm_red_color()         { return [UIColor redColor]; }
@@ -60,7 +88,6 @@ static inline UIColor *mm_random_color()      {
                            green:(float)(arc4random()%1000)/1000.0
                             blue:(float)(arc4random()%1000)/1000.0
                            alpha:(float)(arc4random()%1000)/1000.0];
-    
 }
 
 static inline UIColor *mm_rgba_color(r, g, b, a)  {

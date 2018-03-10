@@ -10,14 +10,9 @@
 
 @implementation MMButton
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
-{
-    CGRect bounds = self.bounds;
-    bounds.origin.x += self.eventableInset.left;
-    bounds.origin.y += self.eventableInset.top;
-    bounds.size.width -= (self.eventableInset.left+self.eventableInset.right);
-    bounds.size.height -= (self.eventableInset.top+self.eventableInset.bottom);
-    return CGRectContainsPoint(bounds, point);
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    CGRect insetedRect = UIEdgeInsetsInsetRect(self.bounds, self.eventableInset);
+    return CGRectContainsPoint(insetedRect, point);
 }
 
 @end

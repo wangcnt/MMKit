@@ -29,6 +29,12 @@
 		4D24AA77202F6426006777FF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AA76202F6426006777FF /* AVFoundation.framework */; };
 		4D9073921C9A99D600AB69EB /* MMMultipleControllersViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9073901C9A99D600AB69EB /* MMMultipleControllersViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D9073931C9A99D600AB69EB /* MMMultipleControllersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9073911C9A99D600AB69EB /* MMMultipleControllersViewController.m */; };
+		4D9BC374205404D1007FE60C /* CALayerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC372205404D1007FE60C /* CALayerAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D9BC375205404D1007FE60C /* CALayerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC373205404D1007FE60C /* CALayerAdditions.m */; };
+		4D9BC37C205413BB007FE60C /* UIScrollViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC37A205413BB007FE60C /* UIScrollViewAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D9BC37D205413BB007FE60C /* UIScrollViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC37B205413BB007FE60C /* UIScrollViewAdditions.m */; };
+		4D9BC38020541472007FE60C /* UILabelAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC37E20541472007FE60C /* UILabelAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D9BC38120541472007FE60C /* UILabelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC37F20541472007FE60C /* UILabelAdditions.m */; };
 		4DA5112A20320DC90063C8B1 /* MMUIDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA5112920320DC90063C8B1 /* MMUIDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DB95608204A9F70004F5E30 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB95609204A9F70004F5E30 /* Masonry.framework */; };
 		4DB9E9F21DDF325300FE43CF /* MMTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DB9E9F01DDF325300FE43CF /* MMTabBarController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -140,6 +146,12 @@
 		4D24AA76202F6426006777FF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4D9073901C9A99D600AB69EB /* MMMultipleControllersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMultipleControllersViewController.h; sourceTree = "<group>"; };
 		4D9073911C9A99D600AB69EB /* MMMultipleControllersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMultipleControllersViewController.m; sourceTree = "<group>"; };
+		4D9BC372205404D1007FE60C /* CALayerAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CALayerAdditions.h; sourceTree = "<group>"; };
+		4D9BC373205404D1007FE60C /* CALayerAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CALayerAdditions.m; sourceTree = "<group>"; };
+		4D9BC37A205413BB007FE60C /* UIScrollViewAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAdditions.h; sourceTree = "<group>"; };
+		4D9BC37B205413BB007FE60C /* UIScrollViewAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewAdditions.m; sourceTree = "<group>"; };
+		4D9BC37E20541472007FE60C /* UILabelAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UILabelAdditions.h; sourceTree = "<group>"; };
+		4D9BC37F20541472007FE60C /* UILabelAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UILabelAdditions.m; sourceTree = "<group>"; };
 		4DA5112920320DC90063C8B1 /* MMUIDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMUIDefines.h; sourceTree = "<group>"; };
 		4DB95609204A9F70004F5E30 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DB9E9F01DDF325300FE43CF /* MMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
@@ -160,7 +172,6 @@
 		4DE44A601C24391300FD1D97 /* MMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWebViewController.h; sourceTree = "<group>"; };
 		4DE44A611C24391300FD1D97 /* MMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWebViewController.m; sourceTree = "<group>"; };
 		4DE44A631C24391300FD1D97 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		4DE44A641C24391300FD1D97 /* MMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMConstants.h; sourceTree = "<group>"; };
 		4DE44A671C24391300FD1D97 /* SloppySwiper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SloppySwiper.h; sourceTree = "<group>"; };
 		4DE44A681C24391300FD1D97 /* SloppySwiper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SloppySwiper.m; sourceTree = "<group>"; };
 		4DE44A691C24391300FD1D97 /* SSWAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWAnimator.h; sourceTree = "<group>"; };
@@ -281,7 +292,6 @@
 				4DE44A591C24391300FD1D97 /* controllers */,
 				4DE44A621C24391300FD1D97 /* frameworks */,
 				4DE44A631C24391300FD1D97 /* PrefixHeader.pch */,
-				4DE44A641C24391300FD1D97 /* MMConstants.h */,
 				4DE44A651C24391300FD1D97 /* thirdparties */,
 				4DE44A6D1C24391300FD1D97 /* utilities */,
 				4DE44A861C24391300FD1D97 /* views */,
@@ -376,6 +386,12 @@
 				4DF250E51DDFF9CB002AB829 /* UIApplicationAdditions.m */,
 				4D0669F91DE02BCD0030A480 /* UIButtonAdditions.h */,
 				4D0669FA1DE02BCD0030A480 /* UIButtonAdditions.m */,
+				4D9BC372205404D1007FE60C /* CALayerAdditions.h */,
+				4D9BC373205404D1007FE60C /* CALayerAdditions.m */,
+				4D9BC37A205413BB007FE60C /* UIScrollViewAdditions.h */,
+				4D9BC37B205413BB007FE60C /* UIScrollViewAdditions.m */,
+				4D9BC37E20541472007FE60C /* UILabelAdditions.h */,
+				4D9BC37F20541472007FE60C /* UILabelAdditions.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -440,6 +456,9 @@
 				4D24AA69202F4A92006777FF /* MMPagingScrollViewCell.h in Headers */,
 				4D24AA75202F51E3006777FF /* MMTextField.h in Headers */,
 				4DA5112A20320DC90063C8B1 /* MMUIDefines.h in Headers */,
+				4D9BC37C205413BB007FE60C /* UIScrollViewAdditions.h in Headers */,
+				4D9BC38020541472007FE60C /* UILabelAdditions.h in Headers */,
+				4D9BC374205404D1007FE60C /* CALayerAdditions.h in Headers */,
 				4D0669FB1DE02BCD0030A480 /* UIButtonAdditions.h in Headers */,
 				4DF250E61DDFF9CB002AB829 /* UIApplicationAdditions.h in Headers */,
 				4DE44AE31C24391300FD1D97 /* MMTableView.h in Headers */,
@@ -560,6 +579,7 @@
 				4D24AA65202F4A92006777FF /* MMPagingScrollView.m in Sources */,
 				4DCB0DFD1C24730600339CF9 /* MMTranslucentViewController.m in Sources */,
 				4DE44AAE1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.m in Sources */,
+				4D9BC37D205413BB007FE60C /* UIScrollViewAdditions.m in Sources */,
 				4DE44AAB1C24391300FD1D97 /* SSWAnimator.m in Sources */,
 				4DE44AB71C24391300FD1D97 /* UIColorAdditions.m in Sources */,
 				4DE44ADB1C24391300FD1D97 /* MMLabel.m in Sources */,
@@ -569,11 +589,13 @@
 				4DE44AE71C24391300FD1D97 /* MMTableViewCell.m in Sources */,
 				4DE44AA81C24391300FD1D97 /* SloppySwiper.m in Sources */,
 				4D24AA6F202F4CA4006777FF /* MMViewRecycler.m in Sources */,
+				4D9BC375205404D1007FE60C /* CALayerAdditions.m in Sources */,
 				4DE44AEA1C24391300FD1D97 /* MMTextView.m in Sources */,
 				4D24AA73202F51E3006777FF /* MMTextField.m in Sources */,
 				4D24AA5B202F48C7006777FF /* MMDeviceInfo.m in Sources */,
 				4DE44AE41C24391300FD1D97 /* MMTableView.m in Sources */,
 				4DF250E31DDFF8AF002AB829 /* UIFontAdditions.m in Sources */,
+				4D9BC38120541472007FE60C /* UILabelAdditions.m in Sources */,
 				4DF250E71DDFF9CB002AB829 /* UIApplicationAdditions.m in Sources */,
 				4DE44AD21C24391300FD1D97 /* UIViewControllerAdditions.m in Sources */,
 				4DE44AD81C24391300FD1D97 /* MMButton.m in Sources */,

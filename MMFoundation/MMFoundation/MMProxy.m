@@ -9,6 +9,7 @@
 #import "MMProxy.h"
 
 #import "NSInvocationAdditions.h"
+#import "MMDefines.h"
 
 @interface MMProxy ()
 @property (nonatomic, strong) NSMutableArray *delegates;

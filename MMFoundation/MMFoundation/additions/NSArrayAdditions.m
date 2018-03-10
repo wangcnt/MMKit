@@ -9,7 +9,11 @@
 #import "NSArrayAdditions.h"
 #import "NSDictionaryAdditions.h"
 
-@implementation NSArray(Additions)
+@implementation NSArray (Additions)
+
+- (BOOL)isEmpty {
+    return [self isKindOfClass:NSNull.class] || !self.count;
+}
 
 - (NSMutableArray *)mutableDeepCopy {
     NSMutableArray *result = [NSMutableArray array];
@@ -33,7 +37,60 @@
 
 @end
 
-@implementation NSArray(JSON)
+
+@implementation NSArray (Numbers)
+
+- (float)maxFloat {
+    float max = 0;
+    max =[[self valueForKeyPath:@"@max.floatValue"] floatValue];
+    return max;
+}
+
+- (float)minFloat {
+    float min = 0;
+    min =[[self valueForKeyPath:@"@min.floatValue"] floatValue];
+    return min;
+}
+
+- (float)floatSum {
+    float sum = 0;
+    sum = [[self valueForKeyPath:@"@sum.floatValue"] floatValue];
+    return sum;
+}
+
+- (float)floatAverage {
+    float avg = 0;
+    avg = [[self valueForKeyPath:@"@avg.floatValue"] floatValue];
+    return avg;
+}
+
+- (NSInteger)maxInteger {
+    NSInteger max = 0;
+    max = [[self valueForKeyPath:@"@max.floatValue"] integerValue];
+    return max;
+}
+
+- (NSInteger)minInteger {
+    NSInteger min = 0;
+    min = [[self valueForKeyPath:@"@min.floatValue"] integerValue];
+    return min;
+}
+
+- (NSInteger)integerSum {
+    NSInteger sum = 0;
+    sum = [[self valueForKeyPath:@"@sum.floatValue"] integerValue];
+    return sum;
+}
+
+- (NSInteger)integerAverage {
+    NSInteger avg = 0;
+    avg = [[self valueForKeyPath:@"@avg.floatValue"] integerValue];
+    return avg;
+}
+
+@end
+
+@implementation NSArray (JSON)
 
 - (NSString *)JSONString {
     if ([NSJSONSerialization isValidJSONObject:self]) {
@@ -49,7 +106,7 @@
 
 @end
 
-@implementation NSMutableArray(Additions)
+@implementation NSMutableArray (Additions)
 
 - (void)reverseAllObjects {
     NSInteger count = self.count;

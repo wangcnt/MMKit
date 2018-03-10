@@ -10,6 +10,7 @@
 
 @interface NSDictionary(Additions)
 
+- (BOOL)isEmpty;
 - (NSMutableDictionary *)mutableDeepCopy;
 - (NSObject *)objectForCDKey:(NSString *)key;   ///< Case-insensived objectForKey:
 

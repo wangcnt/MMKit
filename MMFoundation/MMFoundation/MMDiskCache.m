@@ -24,10 +24,6 @@
     return cache;
 }
 
-- (NSString *)directoryWithMask:(MMDirectoryMask)mask {
-    return [self directoryWithMask:mask account:nil];
-}
-
 - (NSString *)directoryWithMask:(MMDirectoryMask)mask account:(NSString *)account {
     return [self directoryWithMask:mask account:account module:nil];
 }
@@ -42,8 +38,6 @@
     if(!directory.length) {
         return nil;
     }
-    
-    NSMutableString *aaa = [NSMutableString string];
     
     NSFileManager *fileManger = [NSFileManager defaultManager];
     if(account.length && module.length) {
@@ -105,12 +99,6 @@
             mask == MMDirectoryMaskCaches ? self.cachesPath :
             mask == MMDirectoryMaskLibrary ? self.libraryPath :
             nil);
-}
-
-- (NSString *)filenameWithFileType:(MMDiskCacheFileType)type {
-    return (type == MMDiskCacheFileTypeImage ? @"image" :
-            type == MMDiskCacheFileTypeVideo ? @"video" :
-            @"");
 }
 
 @end

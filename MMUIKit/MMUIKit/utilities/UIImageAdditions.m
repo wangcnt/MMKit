@@ -36,6 +36,25 @@
     return image;
 }
 
++ (UIImage *)roundedImageWithImage:(UIImage *)image {
+    CGFloat width = image.size.width;
+    CGFloat height = image.size.height;
+    CGFloat redius = ((width <= height) ? width : height)/2;
+    CGRect  rect = CGRectMake(width/2-redius, height/2-redius, redius*2, redius*2);
+    
+    CGImageRef sourceImageRef = [image CGImage];
+    CGImageRef newImageRef = CGImageCreateWithImageInRect(sourceImageRef, rect);
+    UIImage *newImage = [UIImage imageWithCGImage:newImageRef];
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(newImage.size.width, newImage.size.height), NO, 0);
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(newImage.size.width/2, newImage.size.height/2) radius:redius startAngle:0 endAngle:M_PI*2 clockwise:0];
+    [path addClip];
+    [newImage drawAtPoint:CGPointZero];
+    UIImage *imageCut = UIGraphicsGetImageFromCurrentImageContext();
+    
+    return imageCut;
+}
+
 - (UIImage*)compressToSize:(CGSize)size {
     // Create a graphics image context
     UIGraphicsBeginImageContext(size);
@@ -323,6 +342,200 @@
     }
     
     return originalSize;
+}
+
+- (UIColor *)pixelColorAtPoint:(CGPoint)point {
+    UIColor* color = nil;
+    CGImageRef inImage = self.CGImage;
+    CGContextRef cgctx = [self createARGBBitmapContext];
+    
+    if (cgctx == NULL) {
+        return nil; /* error */
+    }
+    size_t w = CGImageGetWidth(inImage);
+    size_t h = CGImageGetHeight(inImage);
+    CGRect rect = {{0,0},{w,h}};
+    
+    CGContextDrawImage(cgctx, rect, inImage);
+    unsigned char* data = CGBitmapContextGetData (cgctx);
+    if (data != NULL) {
+        int offset = 4*((w*round(point.y))+round(point.x));
+        int alpha =  data[offset];
+        int red = data[offset+1];
+        int green = data[offset+2];
+        int blue = data[offset+3];
+        color = [UIColor colorWithRed:(red/255.0f) green:(green/255.0f) blue:
+                 (blue/255.0f) alpha:(alpha/255.0f)];
+    }
+    CGContextRelease(cgctx);
+    if (data) {
+        free(data);
+    }
+    return color;
+}
+
+- (CGContextRef)createARGBBitmapContext
+{
+    CGImageRef inImage = self.CGImage;
+    CGContextRef context = NULL;
+    CGColorSpaceRef colorSpace;
+    void *bitmapData;
+    unsigned long bitmapByteCount;
+    unsigned long bitmapBytesPerRow;
+    
+    // Get image width, height. We'll use the entire image.
+    size_t pixelsWide = CGImageGetWidth(inImage);
+    size_t pixelsHigh = CGImageGetHeight(inImage);
+    
+    // Declare the number of bytes per row. Each pixel in the bitmap in this
+    // example is represented by 4 bytes; 8 bits each of red, green, blue, and
+    // alpha.
+    bitmapBytesPerRow   = (pixelsWide * 4);
+    bitmapByteCount     = (bitmapBytesPerRow * pixelsHigh);
+    
+    // Use the generic RGB color space.
+    colorSpace = CGColorSpaceCreateDeviceRGB();
+    
+    if (colorSpace == NULL)
+    {
+        fprintf(stderr,"Error allocating color space\n");
+        return NULL;
+    }
+    
+    // Allocate memory for image data. This is the destination in memory
+    // where any drawing to the bitmap context will be rendered.
+    bitmapData = malloc(bitmapByteCount);
+    if (bitmapData == NULL)
+    {
+        fprintf(stderr,"Memory not allocated!");
+        CGColorSpaceRelease(colorSpace);
+        return NULL;
+    }
+    
+    // Create the bitmap context. We want pre-multiplied ARGB, 8-bits
+    // per component. Regardless of what the source image format is
+    // (CMYK, Grayscale, and so on) it will be converted over to the format
+    // specified here by CGBitmapContextCreate.
+    context = CGBitmapContextCreate(bitmapData,
+                                    pixelsWide,
+                                    pixelsHigh,
+                                    8,   // bits per component
+                                    bitmapBytesPerRow,
+                                    colorSpace,
+                                    kCGImageAlphaPremultipliedFirst);
+    if (context == NULL)
+    {
+        free(bitmapData);
+        fprintf(stderr,"Context not created!");
+    }
+    
+    // Make sure and release colorspace before returning
+    CGColorSpaceRelease(colorSpace);
+    
+    return context;
+}
+
+- (UIImage *)bluredImageWithMaskImage:(UIImage *)maskImage radius:(CGFloat)radius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor {
+    CGRect imageRect = { CGPointZero, self.size };
+    UIImage *effectImage = self;
+    
+    BOOL hasBlur = radius > __FLT_EPSILON__;
+    BOOL hasSaturationChange = fabs(saturationDeltaFactor - 1.) > __FLT_EPSILON__;
+    if (hasBlur || hasSaturationChange) {
+        UIGraphicsBeginImageContextWithOptions(self.size, NO, [[UIScreen mainScreen] scale]);
+        CGContextRef effectInContext = UIGraphicsGetCurrentContext();
+        CGContextScaleCTM(effectInContext, 1.0, -1.0);
+        CGContextTranslateCTM(effectInContext, 0, -self.size.height);
+        CGContextDrawImage(effectInContext, imageRect, self.CGImage);
+        
+        vImage_Buffer effectInBuffer;
+        effectInBuffer.data = CGBitmapContextGetData(effectInContext);
+        effectInBuffer.width = CGBitmapContextGetWidth(effectInContext);
+        effectInBuffer.height = CGBitmapContextGetHeight(effectInContext);
+        effectInBuffer.rowBytes = CGBitmapContextGetBytesPerRow(effectInContext);
+        
+        UIGraphicsBeginImageContextWithOptions(self.size, NO, [[UIScreen mainScreen] scale]);
+        CGContextRef effectOutContext = UIGraphicsGetCurrentContext();
+        vImage_Buffer effectOutBuffer;
+        effectOutBuffer.data = CGBitmapContextGetData(effectOutContext);
+        effectOutBuffer.width = CGBitmapContextGetWidth(effectOutContext);
+        effectOutBuffer.height = CGBitmapContextGetHeight(effectOutContext);
+        effectOutBuffer.rowBytes = CGBitmapContextGetBytesPerRow(effectOutContext);
+        
+        if (hasBlur) {
+            CGFloat inputRadius = radius * [[UIScreen mainScreen] scale];
+            int radius = floor(inputRadius * 3. * sqrt(2 * M_PI) / 4 + 0.5);
+            if (radius % 2 != 1) {
+                radius += 1; // force radius to be odd so that the three box-blur methodology works.
+            }
+            vImageBoxConvolve_ARGB8888(&effectInBuffer, &effectOutBuffer, NULL, 0, 0, radius, radius, 0, kvImageEdgeExtend);
+            vImageBoxConvolve_ARGB8888(&effectOutBuffer, &effectInBuffer, NULL, 0, 0, radius, radius, 0, kvImageEdgeExtend);
+            vImageBoxConvolve_ARGB8888(&effectInBuffer, &effectOutBuffer, NULL, 0, 0, radius, radius, 0, kvImageEdgeExtend);
+        }
+        BOOL effectImageBuffersAreSwapped = NO;
+        if (hasSaturationChange) {
+            CGFloat s = saturationDeltaFactor;
+            CGFloat floatingPointSaturationMatrix[] = {
+                0.0722 + 0.9278 * s, 0.0722 - 0.0722 * s, 0.0722 - 0.0722 * s, 0,
+                0.7152 - 0.7152 * s, 0.7152 + 0.2848 * s, 0.7152 - 0.7152 * s, 0,
+                0.2126 - 0.2126 * s, 0.2126 - 0.2126 * s, 0.2126 + 0.7873 * s, 0,
+                0, 0, 0, 1,
+            };
+            const int32_t divisor = 256;
+            NSUInteger matrixSize = sizeof(floatingPointSaturationMatrix) / sizeof(floatingPointSaturationMatrix[0]);
+            int16_t saturationMatrix[matrixSize];
+            for (NSUInteger i = 0; i < matrixSize; ++i) {
+                saturationMatrix[i] = (int16_t)roundf(floatingPointSaturationMatrix[i] * divisor);
+            }
+            if (hasBlur) {
+                vImageMatrixMultiply_ARGB8888(&effectOutBuffer, &effectInBuffer, saturationMatrix, divisor, NULL, NULL, kvImageNoFlags);
+                effectImageBuffersAreSwapped = YES;
+            }
+            else {
+                vImageMatrixMultiply_ARGB8888(&effectInBuffer, &effectOutBuffer, saturationMatrix, divisor, NULL, NULL, kvImageNoFlags);
+            }
+        }
+        if (!effectImageBuffersAreSwapped)
+            effectImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        if (effectImageBuffersAreSwapped)
+            effectImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    // 开启上下文 用于输出图像
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, [[UIScreen mainScreen] scale]);
+    CGContextRef outputContext = UIGraphicsGetCurrentContext();
+    CGContextScaleCTM(outputContext, 1.0, -1.0);
+    CGContextTranslateCTM(outputContext, 0, -self.size.height);
+    
+    // 开始画底图
+    CGContextDrawImage(outputContext, imageRect, self.CGImage);
+    
+    // 开始画模糊效果
+    if (hasBlur) {
+        CGContextSaveGState(outputContext);
+        if (maskImage) {
+            CGContextClipToMask(outputContext, imageRect, maskImage.CGImage);
+        }
+        CGContextDrawImage(outputContext, imageRect, effectImage.CGImage);
+        CGContextRestoreGState(outputContext);
+    }
+    
+    // 添加颜色渲染
+    if (tintColor) {
+        CGContextSaveGState(outputContext);
+        CGContextSetFillColorWithColor(outputContext, tintColor.CGColor);
+        CGContextFillRect(outputContext, imageRect);
+        CGContextRestoreGState(outputContext);
+    }
+    
+    // 输出成品,并关闭上下文
+    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return outputImage;
 }
 
 @end

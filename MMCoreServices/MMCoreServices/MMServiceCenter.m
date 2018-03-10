@@ -18,14 +18,15 @@
 
 @implementation MMServiceCenter
 
-- (void)initialize {
-    [super initialize];
+- (instancetype)init {
+    self = [super init];
     _serialQueue = [[MMOperationQueue alloc] init];
     _serialQueue.maxConcurrentOperationCount = 1;
     _serialQueue.qualityOfService = NSQualityOfServiceUserInteractive;
     
     _serviceDictionary = [[NSMutableDictionary<NSString *, id<MMService>> alloc] initWithCapacity:1];
     _serviceArray = [NSMutableArray<id<MMService>> arrayWithCapacity:1];
+    return self;
 }
 
 - (void)registerService:(id<MMService>)service {

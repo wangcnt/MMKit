@@ -13,4 +13,9 @@
 - (NSString *)applicationSize;
 - (NSString *)applicationName;
 
+- (UIViewController *)currentViewController;
+- (UINavigationController *)currentNavigatonController;
+
+- (BOOL)rate;
+
 @end

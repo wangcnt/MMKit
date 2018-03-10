@@ -46,6 +46,8 @@
 		4D906D69204A7EEA005044F0 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906D55204A7EE9005044F0 /* UIWebView+AFNetworking.m */; };
 		4D906D6A204A7EEA005044F0 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906D56204A7EE9005044F0 /* AFNetworkActivityIndicatorManager.h */; };
 		4D906D6B204A7EEA005044F0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4D906D57204A7EE9005044F0 /* LICENSE */; };
+		4D9BC38420546389007FE60C /* AFNetworkReachabilityManagerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC38220546389007FE60C /* AFNetworkReachabilityManagerAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D9BC38520546389007FE60C /* AFNetworkReachabilityManagerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC38320546389007FE60C /* AFNetworkReachabilityManagerAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		4D906D55204A7EE9005044F0 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		4D906D56204A7EE9005044F0 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		4D906D57204A7EE9005044F0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4D9BC38220546389007FE60C /* AFNetworkReachabilityManagerAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManagerAdditions.h; sourceTree = "<group>"; };
+		4D9BC38320546389007FE60C /* AFNetworkReachabilityManagerAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManagerAdditions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,8 @@
 				4D906D43204A7EE9005044F0 /* README.md */,
 				4D906D44204A7EE9005044F0 /* UIKit+AFNetworking */,
 				4D906D18204A7E5E005044F0 /* Info.plist */,
+				4D9BC38220546389007FE60C /* AFNetworkReachabilityManagerAdditions.h */,
+				4D9BC38320546389007FE60C /* AFNetworkReachabilityManagerAdditions.m */,
 			);
 			path = AFNetworking;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 				4D906D31204A7EDE005044F0 /* AFHTTPSessionManager.h in Headers */,
 				4D906D34204A7EDE005044F0 /* AFHTTPRequestOperationManager.h in Headers */,
 				4D906D39204A7EDE005044F0 /* AFURLConnectionOperation.h in Headers */,
+				4D9BC38420546389007FE60C /* AFNetworkReachabilityManagerAdditions.h in Headers */,
 				4D906D32204A7EDE005044F0 /* AFHTTPRequestOperation.h in Headers */,
 				4D906D60204A7EEA005044F0 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
 				4D906D5B204A7EE9005044F0 /* UIButton+AFNetworking.h in Headers */,
@@ -286,6 +293,7 @@
 				4D906D33204A7EDE005044F0 /* AFHTTPRequestOperationManager.m in Sources */,
 				4D906D69204A7EEA005044F0 /* UIWebView+AFNetworking.m in Sources */,
 				4D906D5E204A7EE9005044F0 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				4D9BC38520546389007FE60C /* AFNetworkReachabilityManagerAdditions.m in Sources */,
 				4D906D67204A7EEA005044F0 /* UIButton+AFNetworking.m in Sources */,
 				4D906D3B204A7EDE005044F0 /* AFHTTPSessionManager.m in Sources */,
 				4D906D3F204A7EDE005044F0 /* AFURLResponseSerialization.m in Sources */,

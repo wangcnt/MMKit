@@ -22,6 +22,8 @@ FOUNDATION_EXPORT const unsigned char AFNetworkingVersionString[];
 #ifndef _AFNETWORKING_
 #define _AFNETWORKING_
 
+#import "AFNetworkReachabilityManagerAdditions.h"
+
 #import "AFURLRequestSerialization.h"
 #import "AFURLResponseSerialization.h"
 #import "AFSecurityPolicy.h"
