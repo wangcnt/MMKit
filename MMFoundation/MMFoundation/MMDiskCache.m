@@ -24,40 +24,50 @@
     return cache;
 }
 
-- (NSString *)pathWithDirectoryMask:(MMDirectoryMask)mask account:(NSString *)account {
-    return [self pathWithDirectoryMask:mask account:account module:nil];
+- (NSString *)directoryWithMask:(MMDirectoryMask)mask {
+    return [self directoryWithMask:mask account:nil];
 }
 
-- (NSString *)pathWithDirectoryMask:(MMDirectoryMask)mask account:(NSString *)account module:(NSString *)module {
+- (NSString *)directoryWithMask:(MMDirectoryMask)mask account:(NSString *)account {
+    return [self directoryWithMask:mask account:account module:nil];
+}
+
+- (NSString *)directoryWithMask:(MMDirectoryMask)mask account:(NSString *)account module:(NSString *)module {
+    return [self directoryWithMask:mask account:account module:module category:nil];
+}
+
+- (NSString *)directoryWithMask:(MMDirectoryMask)mask account:(NSString *)account module:(NSString *)module category:(NSString *)category {
     // eg. Documents/
     NSString *directory = [self directoryWithMask:mask];
     if(!directory.length) {
         return nil;
     }
     
+    NSMutableString *aaa = [NSMutableString string];
+    
     NSFileManager *fileManger = [NSFileManager defaultManager];
-    if(account.length) {
+    if(account.length && module.length) {
         // eg. Documents/users
         directory = [directory stringByAppendingPathComponent:@"users"];
-        if(![fileManger createFolderAtPathIfNeeds:directory]) {
-            return nil;
-        }
-        
         // eg. Documents/users/404298011
         directory = [directory stringByAppendingPathComponent:account];
+        // eg. Documents/users/404298011/im
+        // eg. Documents/users/404298011/addressbook
+        directory = [directory stringByAppendingPathComponent:module];
         if(![fileManger createFolderAtPathIfNeeds:directory]) {
             return nil;
         }
-        
-        // eg. Documents/users/404298011/im
-        // eg. Documents/users/404298011/addressbook
-        if(module.length) {
-            directory = [directory stringByAppendingPathComponent:module];
-            if(![fileManger createFolderAtPathIfNeeds:directory]) {
-                return nil;
-            }
+    }
+    
+    if(category.length) {
+        // eg. Documents/videos/
+        // eg. Documents/users/404298011/addressbook/videos
+        directory = [directory stringByAppendingPathComponent:category];
+        if(![fileManger createFolderAtPathIfNeeds:directory]) {
+            return nil;
         }
     }
+    
     return directory;
 }
 
@@ -90,10 +100,10 @@
 }
 
 - (NSString *)directoryWithMask:(MMDirectoryMask)mask {
-    return (mask == MMDirectoryMaskDocument ? mm_document_path() :
-            mask == MMDirectoryMaskTemporary ? mm_temporary_path() :
-            mask == MMDirectoryMaskCaches ? mm_caches_path() :
-            mask == MMDirectoryMaskLibrary ? mm_library_path() :
+    return (mask == MMDirectoryMaskDocument ? self.documentsPath :
+            mask == MMDirectoryMaskTemporary ? self.temporaryPath :
+            mask == MMDirectoryMaskCaches ? self.cachesPath :
+            mask == MMDirectoryMaskLibrary ? self.libraryPath :
             nil);
 }
 

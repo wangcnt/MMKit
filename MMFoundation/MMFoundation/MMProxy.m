@@ -17,13 +17,8 @@
 @implementation MMProxy
 
 - (instancetype)init {
-    [self initialize];
-    return self;
-}
-
-- (void)initialize {
     _delegates = [NSMutableArray arrayWithCapacity:2];
-    // override by subproxy
+    return self;
 }
 
 - (void)addDelegate:(id)delegate {
@@ -69,6 +64,15 @@
             [duplicatedInvocation invokeWithTarget:delegate];
         }
     }
+}
+
+- (BOOL)hasDelegateThatRespondsToSelector:(SEL)selector {
+    for(id delegate in _delegates) {
+        if([delegate respondsToSelector:selector]) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 @end

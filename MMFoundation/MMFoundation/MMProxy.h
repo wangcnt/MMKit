@@ -16,10 +16,11 @@
 @interface MMProxy : NSProxy
 
 - (instancetype)init;
-- (void)initialize;
 
 - (void)addDelegate:(id)delegate;
 - (void)removeDelegate:(id)delegate;
 - (void)removeAllDelegates;
+
+- (BOOL)hasDelegateThatRespondsToSelector:(SEL)selector;
 
 @end

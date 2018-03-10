@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 /**
+ * Account-based disk cache.
+ *
  * [] : 目錄
  * <> : 文件
  *
@@ -16,6 +18,10 @@
  *    [users]
  *        [user-1]
  *            [module-1]
+ *                [video]
+ *                [/video]
+ *                [image]
+ *                [/image]
  *            [/module-1]
  *            [module-2]
  *            [/module-2]
@@ -70,9 +76,14 @@ typedef NS_ENUM(NSInteger, MMDirectoryMask) {
     MMDirectoryMaskCaches
 };
 
-typedef NS_ENUM(NSInteger, MMDiskCacheFileType) {
-    MMDiskCacheFileTypeImage,
-    MMDiskCacheFileTypeVideo
+typedef NS_ENUM(NSInteger, MMDirectoryCategory) {
+    MMDirectoryCategoryUnknown,
+    MMDirectoryCategoryVideo,
+    MMDirectoryCategoryImage,
+    MMDirectoryCategoryAudio,
+    MMDirectoryCategoryDatabase,
+    MMDirectoryCategory
+    MMDirectoryCategoryOther
 };
 
 @interface MMDiskCache : NSObject
@@ -86,8 +97,9 @@ typedef NS_ENUM(NSInteger, MMDiskCacheFileType) {
 
 - (NSString *)directoryWithMask:(MMDirectoryMask)mask;
 
-- (NSString *)pathWithDirectoryMask:(MMDirectoryMask)mask account:(NSString *)account;
-- (NSString *)pathWithDirectoryMask:(MMDirectoryMask)mask account:(NSString *)account module:(NSString *)module; ///< module: MMServiceCenter.name
+- (NSString *)directoryWithMask:(MMDirectoryMask)mask account:(NSString *)account;
+- (NSString *)directoryWithMask:(MMDirectoryMask)mask account:(NSString *)account module:(NSString *)module; ///< module: MMServiceCenter.name
+- (NSString *)directoryWithMask:(MMDirectoryMask)mask account:(NSString *)account module:(NSString *)module category:(NSString *)category;  // Format: mask/(users/account/module/)category, that means users, account and module will be ignored if either account or module is empty. Eg.: Documents/users/404298011/im/images, Documents/images.
 
 @end
 
