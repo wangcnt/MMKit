@@ -32,6 +32,12 @@ typedef NS_OPTIONS(NSUInteger, NSStringMatchingOptions) {
 
 + (NSString *)uuid;
 + (NSString *)timestamp;
+- (void)enumerateSubstringsWithRegex:(NSString *)regex usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *stop))block;
+
+@end
+
+@interface NSString (Number)
+
 - (NSString *)phoneNumber;
 
 /**
@@ -46,7 +52,6 @@ typedef NS_OPTIONS(NSUInteger, NSStringMatchingOptions) {
 
 - (void)enumerateIntegersUsingBlock:(void (^)(NSInteger integer, BOOL *stop))block;
 - (void)enumerateNumbersUsingBlock:(void (^)(NSNumber *number, BOOL *stop))block;
-- (void)enumerateSubstringsWithRegex:(NSString *)regex usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *stop))block;
 - (NSArray<NSNumber *> *)numbers;
 - (NSArray<NSNumber *> *)integers;
 

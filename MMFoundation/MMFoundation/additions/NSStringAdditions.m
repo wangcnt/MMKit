@@ -94,6 +94,20 @@
     return @([[NSDate date] timeIntervalSince1970]*1000).stringValue;
 }
 
+- (void)enumerateSubstringsWithRegex:(NSString *)regex usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *gameover))block {
+    NSError *error;
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:0 error:&error];
+    [expression enumerateMatchesInString:self options:0 range:NSMakeRange(0, self.length) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
+        if(block) {
+            block([self substringWithRange:match.range], match.range, stop);
+        }
+    }];
+}
+
+@end
+
+@implementation NSString (Number)
+
 - (NSString *)phoneNumber {
     NSMutableString *result = [[NSMutableString alloc] init];
     [self enumerateIntegersUsingBlock:^(NSInteger integer, BOOL *stop) {
@@ -120,16 +134,6 @@
     [self enumerateSubstringsWithRegex:@"\\d+(.\\d+)?" usingBlock:^(NSString *substring, NSRange range, BOOL *stop) {
         if(block) {
             block(@([substring rangeOfString:@"."].length ? substring.doubleValue : substring.integerValue), stop);
-        }
-    }];
-}
-
-- (void)enumerateSubstringsWithRegex:(NSString *)regex usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *gameover))block {
-    NSError *error;
-    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:0 error:&error];
-    [expression enumerateMatchesInString:self options:0 range:NSMakeRange(0, self.length) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
-        if(block) {
-            block([self substringWithRange:match.range], match.range, stop);
         }
     }];
 }
