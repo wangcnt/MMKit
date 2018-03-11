@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIButtonAdditions.h"
+#import "UIControlAdditions.h"
+
 @interface MMButton : UIButton
 
 @property (nonatomic, assign) UIEdgeInsets eventableInset;

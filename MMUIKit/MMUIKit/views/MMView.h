@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIViewAdditions.h"
+#import "UIResponderAdditions.h"
+
 @interface MMView : UIView
 
 @property (nonatomic, assign) UIEdgeInsets  contentsEdges;      ///< 子控件与self的四边边距

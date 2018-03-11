@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UILabelAdditions.h"
+
 typedef enum
 {
     MMTextVerticalAlignmentMiddle,
