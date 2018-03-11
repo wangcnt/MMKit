@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char MMSecurityKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <MMSecurityKit/PublicHeader.h>
 
-#import "MMKeychain.h"
+#import <MMSecurityKit/MMKeychain.h>

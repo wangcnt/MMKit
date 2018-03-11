@@ -39,6 +39,7 @@
 #import <MMUIKit/UIDeviceAdditions.h>
 #import <MMUIKit/UIControlAdditions.h>
 #import <MMUIKit/UISearchBarAdditions.h>
+#import <MMUIKit/UIImageViewAdditions.h>
 #import <MMUIKit/UIResponderAdditions.h>
 #import <MMUIKit/UIScrollViewAdditions.h>
 #import <MMUIKit/UITabBarItemAdditions.h>

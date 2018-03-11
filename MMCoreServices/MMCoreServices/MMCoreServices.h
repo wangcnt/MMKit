@@ -16,15 +16,15 @@ FOUNDATION_EXPORT const unsigned char MMCoreServicesVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <MMCoreServices/PublicHeader.h>
 
-#import "MMApplication.h"
-#import "MMServiceCenter.h"
-#import "MMService.h"
-#import "MMSessionConfiguration.h"
-#import "MMOperationQueue.h"
-#import "MMOperation.h"
-#import "MMRequest.h"
-#import "MMRequestIDGenerator.h"
-#import "MMSessionManager.h"
-#import "MMConnection.h"
-#import "MMResponse.h"
-#import "MMCoreDefines.h"
+#import <MMCoreServices/MMApplication.h>
+#import <MMCoreServices/MMServiceCenter.h>
+#import <MMCoreServices/MMService.h>
+#import <MMCoreServices/MMSessionConfiguration.h>
+#import <MMCoreServices/MMOperationQueue.h>
+#import <MMCoreServices/MMOperation.h>
+#import <MMCoreServices/MMRequest.h>
+#import <MMCoreServices/MMRequestIDGenerator.h>
+#import <MMCoreServices/MMSessionManager.h>
+#import <MMCoreServices/MMConnection.h>
+#import <MMCoreServices/MMResponse.h>
+#import <MMCoreServices/MMCoreDefines.h>

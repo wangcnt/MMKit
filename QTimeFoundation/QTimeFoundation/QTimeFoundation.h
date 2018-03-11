@@ -16,12 +16,12 @@ FOUNDATION_EXPORT const unsigned char QTimeFoundationVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <QTimeFoundation/PublicHeader.h>
 
-#import "QTService.h"
-#import "QTSessionConfiguration.h"
-#import "QTOperation.h"
-#import "QTSessionManager.h"
-#import "QTRequest.h"
-#import "QTResponse.h"
-#import "QTConnection.h"
-#import "QTServiceCenter.h"
+#import <QTimeFoundation/QTService.h>
+#import <QTimeFoundation/QTSessionConfiguration.h>
+#import <QTimeFoundation/QTOperation.h>
+#import <QTimeFoundation/QTSessionManager.h>
+#import <QTimeFoundation/QTRequest.h>
+#import <QTimeFoundation/QTResponse.h>
+#import <QTimeFoundation/QTConnection.h>
+#import <QTimeFoundation/QTServiceCenter.h>
 
