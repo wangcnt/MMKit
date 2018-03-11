@@ -52,4 +52,10 @@
     return (flag && !error);
 }
 
+- (BOOL)addSkipBackupAttributeToFile:(NSString *)path {
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
+    NSError *error;
+    return [url setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:&error] && !error;
+}
+
 @end

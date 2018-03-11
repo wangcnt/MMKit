@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_OPTIONS(NSUInteger, NSStringMatchingOptions) {
+    NSStringMatchingOptionNone = 1 << 0,
+    NSStringMatchingOptionFavorSmallerWords = 1 << 1,
+    NSStringMatchingOptionReducedLongStringPenalty = 1 << 2
+};
+
 @interface NSString(Additions)
 
-
-- (NSString *)percentEscapedString;
-- (instancetype)gb18030edStringWithData:(NSData *)data;
 - (NSString *)md5edString;
-- (NSString *)stringByDeletingEmoji;
 
 - (NSString *)pinyin;
 - (NSString *)firstletter;
@@ -23,14 +25,13 @@
 
 - (NSString *)stringByTrimmingWhitespace;
 - (NSString *)stringByTrimmingWhitespaceAndNewlines;
-- (NSString *)stringByStrippingHTML;
 
 - (NSString *)reversedString;
 
 - (NSString *)text;   /// 转换成文本，防nil
 
-+ (instancetype)stringWithBytes:(unsigned long long)bytes;
 + (NSString *)uuid;
++ (NSString *)timestamp;
 - (NSString *)phoneNumber;
 
 /**
@@ -49,8 +50,48 @@
 - (NSArray<NSNumber *> *)numbers;
 - (NSArray<NSNumber *> *)integers;
 
-+ (instancetype)stringWithTimeInterval:(NSTimeInterval)interval;
-+ (instancetype)abbreviatedStringWithNumber:(NSInteger)number;
+@end
+
+@interface NSString (HumanizedFormat)
+
++ (NSString *)stringWithBytes:(unsigned long long)bytes;  ///< 12KB, 26.3MB, 576bytes
++ (NSString *)stringWithTimeInterval:(NSTimeInterval)interval;  ///< 一年前，半年前，几月前，刚才，几小时前,  几分钟前，几天前，yyyy-MM-dd. Referenced by 1970.
++ (NSString *)abbreviatedStringWithNumber:(NSInteger)number;   ///< 324, 3k+, 3w+, 3kw+
+
+@end
+
+@interface NSString (Networking)
+
+- (NSString *)percentEscapedString;
+- (NSString *)queryParameters;
+- (NSString *)stringByAppendingQueryParameters:(NSDictionary *)parameters;
+- (NSString *)stringByDeletingQueryParameters;
+- (NSString *)stringByDeletingURLPrefix;
+- (NSString *)stringByStrippingHTML;
+- (NSString *)stringByDeletingScripts;
+
+@end
+
+@interface NSString (Coding)
+
++ (NSString *)stringWithUnicodeString:(NSString *)unicodeString;
+- (NSString *)gb18030edStringWithData:(NSData *)data;
+- (NSString *)stringByDeletingEmoji;
+
+@end
+
+@interface NSString (MIME)
+
+- (NSString *)MIMEType;
++ (NSString *)MIMETypeForExtension:(NSString *)extension;
+
+@end
+
+@interface NSString (MatchingScore)
+
+- (float)scoreAgainst:(NSString *)otherString;
+- (float)scoreAgainst:(NSString *)otherString fuzziness:(NSNumber *)fuzziness;
+- (float)scoreAgainst:(NSString *)anotherString fuzziness:(NSNumber *)fuzziness options:(NSStringMatchingOptions)options;
 
 @end
 
@@ -58,14 +99,16 @@
 
 - (BOOL)matchesRegex:(NSString *)regex;
 - (BOOL)isEmpty;
+- (BOOL)containsWhitespace;
+- (BOOL)containsChinese;
 - (BOOL)containsEmoji;
-- (BOOL)isMobileNumberClassification;;
+- (BOOL)containsCharacterInString:(NSString *)inString;
+- (BOOL)isMobileNumberClassification;
 - (BOOL)isMobileNumber;
 - (BOOL)isEmailAddress;
 - (BOOL)isCarNumber;
 - (BOOL)isMacAddress;
 - (BOOL)isHTTPOrHTTPSUrl;
-- (BOOL)containsChinese;
 - (BOOL)isPostalCode;
 - (BOOL)isTax;
 - (BOOL)isIP;

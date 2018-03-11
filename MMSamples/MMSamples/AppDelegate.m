@@ -27,6 +27,9 @@
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
     [self testMMServiceCenter];
+    
+    id result = [@"aaa" componentsSeparatedByString:@"b"];
+    NSLog(@"");
 //    [self testInstalledAllApps];
 //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
 //    [self testSafeSingleton];

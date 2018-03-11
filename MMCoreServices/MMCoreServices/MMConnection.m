@@ -10,6 +10,8 @@
 
 #import "MMRequest.h"
 #import "MMResponse.h"
+#import "MMOperation.h"
+#import "MMApplication.h"
 #import "MMSessionManager.h"
 #import "MMRequestIDGenerator.h"
 #import "MMSessionConfiguration.h"
@@ -36,6 +38,18 @@ typedef enum : NSUInteger {
 @end
 
 @implementation MMConnection
+- (void)cancelAllRequests {
+}
+
+- (void)cancelRequest:(id<MMRequest>)request {
+}
+
+- (void)cancelRequests:(NSArray<id<MMRequest>> *)requests {
+}
+
+- (void)sendRequest:(id<MMRequest>)request withCompletion:(MMRequestCompletion)completion {
+}
+
 @end
 
 @implementation MMHTTPConnection
@@ -164,7 +178,7 @@ typedef enum : NSUInteger {
                     saveRequestAndSaveOrNot(NO);
                     _manager.autologinHandler(_identifier);
                 } else {
-                    NSError *error = [NSError errorWithDomain:@"com.markwong.mmcoreservices." code:111 userInfo:@{NSLocalizedDescriptionKey : @"Please login first."}];
+                    NSError *error = [NSError errorWithDomain:MMCoreServicesErrorDomain code:MMCoreServicesErrorCodeNeedsLogin userInfo:@{NSLocalizedDescriptionKey : @"Please login first."}];
                     Class clazz = (Class)request.responseClass;
                     id<MMSocketResponse> response = [[clazz alloc] init];
                     response.error = error;
@@ -292,7 +306,6 @@ typedef enum : NSUInteger {
     [_buffer appendData:data];
     id<MMSocketResponse> response;
     [response receiveData:data];
-    
 }
 
 @synthesize manager = _manager;

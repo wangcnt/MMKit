@@ -14,6 +14,7 @@
 #import "MMResponse.h"
 #import <MMFoundation/MMDefines.h>
 #import "MMApplication.h"
+#import <MMFoundation/NSExceptionAdditions.h>
 
 typedef NS_ENUM(NSInteger, MMAsyncOperationState) {
     MMAsyncOperationStatePreparing,
@@ -23,18 +24,19 @@ typedef NS_ENUM(NSInteger, MMAsyncOperationState) {
 
 static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState state) {
     switch (state) {
-        case MMAsyncOperationStatePreparing:        return @"isReady";
+        case MMAsyncOperationStatePreparing:    return @"isReady";
         case MMAsyncOperationStateExecuting:    return @"isExecuting";
         case MMAsyncOperationStateFinished:     return @"isFinished";
     }
 }
 
-@interface MMOperation ()
+@interface MMOperation () {
+    double _startTimestamp;
+    double _endTimestamp;
+    dispatch_queue_t _dispatch_queue;
+}
 @property(nonatomic, assign) MMAsyncOperationState state;
-@property(nonatomic, strong, readonly) dispatch_queue_t dispatchQueue;
 
-@property (nonatomic, assign, readonly) double startTimestamp;
-@property (nonatomic, assign, readonly) double endTimestamp;
 @end
 
 @implementation MMOperation
@@ -43,8 +45,8 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
     if (self = [super init]) {
         _timeoutInterval = 60;
         NSString *identifier = [NSString stringWithFormat:@"%@.%@(%p)", mm_application_name(), NSStringFromClass(self.class), self];
-        _dispatchQueue = dispatch_queue_create(identifier.UTF8String, DISPATCH_QUEUE_SERIAL);
-        dispatch_queue_set_specific(_dispatchQueue, (__bridge const void *)(_dispatchQueue), (__bridge void *)(self), NULL);
+        _dispatch_queue = dispatch_queue_create(identifier.UTF8String, DISPATCH_QUEUE_SERIAL);
+        dispatch_queue_set_specific(_dispatch_queue, (__bridge const void *)(_dispatch_queue), (__bridge void *)(self), NULL);
     }
     return self;
 }
@@ -70,17 +72,20 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
 }
 
 - (void)performBlockAndWait:(dispatch_block_t)block {
-    void *context = dispatch_get_specific((__bridge const void *)(self.dispatchQueue));
+    void *context = dispatch_get_specific((__bridge const void *)(_dispatch_queue));
     if (context == (__bridge void *)(self)) {
         block();
     } else {
-        dispatch_sync(self.dispatchQueue, block);
+        dispatch_sync(_dispatch_queue, block);
     }
 }
 
 - (void)start {
     @autoreleasepool {
-        NSAssert(self.request, @"request must not be nil.");
+        Protocol *requestProtocol = @protocol(MMRequest);
+        Protocol *configurationProtocol = @protocol(MMSessionConfiguration);
+        NSAssert([self.request conformsToProtocol:requestProtocol], @"%@.request MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(requestProtocol));
+        NSAssert([self.configuration conformsToProtocol:configurationProtocol], @"%@.configuration MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(configurationProtocol));
         
 #if DEBUG
         sleep(arc4random() % 5 + 2);
@@ -109,7 +114,6 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
             }
         }];
         if(shouldContinue) {
-            // Execute async task
             NSException *exception = nil;
             @try {
                 [self sendRequest];
@@ -119,7 +123,7 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
             }
             @finally {
                 if(exception) {
-                    self.error = [NSError errorWithDomain:MMCoreServicesErrorDomain code:MMCoreServicesErrorCodeException userInfo:@{NSLocalizedDescriptionKey : [NSArray arrayWithArray:exception.callStackSymbols]}];
+                    self.error = [NSError errorWithDomain:MMCoreServicesErrorDomain code:MMCoreServicesErrorCodeException userInfo:@{NSLocalizedDescriptionKey : [NSArray arrayWithArray:exception.backtrace]}];
                     [self loadFinished];
                 }
             }
@@ -147,8 +151,7 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
 }
 
 - (void)sendRequest {
-    NSAssert(self.sessionManager, @"Session Manager must not be nil.");
-    
+    _error = nil;
     _response = nil;
     
     [self.request prepare];
@@ -174,9 +177,6 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
 }
 
 - (void)presendRequest {
-    if(self.request && self.configuration)  {
-        self.request.configuration = self.configuration;
-    }
 }
 
 - (BOOL)shouldRetry {
@@ -228,7 +228,7 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
 }
 
 - (double)consumedTimestamp {
-    return self.endTimestamp - self.startTimestamp;
+    return _endTimestamp - _startTimestamp;
 }
 
 @synthesize error = _error;
@@ -247,18 +247,12 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
 @implementation MMHTTPOperation
 
 - (void)start {
-    NSAssert([super.request conformsToProtocol:@protocol(MMHTTPRequest)], @"request MUST conform to protocol: MMHTTPRequest.");
+    Protocol *requestProtocol = @protocol(MMHTTPRequest);
+    Protocol *configurationProtocol = @protocol(MMHTTPSessionConfiguration);
+    NSAssert([super.request conformsToProtocol:requestProtocol], @"%@.request MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(requestProtocol));
+    NSAssert([super.configuration conformsToProtocol:configurationProtocol], @"%@.configuration MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(configurationProtocol));
+    
     [super start];
-}
-
-- (void)sendRequest {
-    NSAssert([self.sessionManager conformsToProtocol:@protocol(MMHTTPSessionManager)], @"Session Manager MUST conform to protocol: MMHTTPSessionManager.");
-    [super sendRequest];
-}
-
-- (void)setConfiguration:(id<MMSessionConfiguration>)configuration {
-    NSAssert([configuration conformsToProtocol:@protocol(MMHTTPSessionConfiguration)], @"Configuration MUST conforms to protocol: MMHTTPSessionConfiguration.");
-    super.configuration = configuration;
 }
 
 @end
@@ -267,18 +261,12 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
 @implementation MMSocketOperation
 
 - (void)start {
-    NSAssert([super.request conformsToProtocol:@protocol(MMSocketRequest)], @"request MUST conform to protocol: MMSocketRequest.");
+    Protocol *requestProtocol = @protocol(MMSocketRequest);
+    Protocol *configurationProtocol = @protocol(MMSocketSessionConfiguration);
+    NSAssert([super.request conformsToProtocol:requestProtocol], @"%@.request MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(requestProtocol));
+    NSAssert([super.configuration conformsToProtocol:configurationProtocol], @"%@.configuration MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(configurationProtocol));
+
     [super start];
-}
-
-- (void)senMMequest {
-    NSAssert([self.sessionManager conformsToProtocol:@protocol(MMSocketSessionManager)], @"Session Manager MUST conform to protocol: MMSocketSessionManager.");
-    [super sendRequest];
-}
-
-- (void)setConfiguration:(id<MMSessionConfiguration>)configuration {
-    NSAssert([configuration conformsToProtocol:@protocol(MMSocketSessionConfiguration)], @"Configuration MUST conforms to protocol: MMSocketSessionConfiguration.");
-    super.configuration = configuration;
 }
 
 @synthesize connectionID = _connectionID;
