@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, MMAsyncOperationState) {
     MMAsyncOperationStateFinished
 };
 
-static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState state) {
+static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState state) {
     switch (state) {
         case MMAsyncOperationStatePreparing:    return @"isReady";
         case MMAsyncOperationStateExecuting:    return @"isExecuting";
@@ -133,8 +133,8 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
 
 - (void)setState:(MMAsyncOperationState)state {
     [self performBlockAndWait:^{
-        NSString *oldStateKey = MMKeyPathFromAsyncOperationState(_state);
-        NSString *newStateKey = MMKeyPathFromAsyncOperationState(state);
+        NSString *oldStateKey = MMAsyncOperationKeyPathForState(_state);
+        NSString *newStateKey = MMAsyncOperationKeyPathForState(state);
         
         [self willChangeValueForKey:oldStateKey];
         [self willChangeValueForKey:newStateKey];
@@ -151,12 +151,17 @@ static inline NSString *MMKeyPathFromAsyncOperationState(MMAsyncOperationState s
 }
 
 - (void)sendRequest {
+    // 每次发请求之前清空error和response
     _error = nil;
     _response = nil;
     
+    // 先各自准备
     [self.request prepare];
+    
+    // 再由NSOperation补充
     [self presendRequest];
     
+    // 发送出去
     __weak typeof(self) weakedSelf = self;
     dispatch_block_t block = ^ {
         [weakedSelf.sessionManager startRequest:weakedSelf.request withCompletion:^(id<MMResponse> res) {

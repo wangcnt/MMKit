@@ -76,6 +76,7 @@ typedef NS_ENUM(NSInteger, MMDirectoryMask) {
     MMDirectoryMaskCaches
 };
 
+// unused
 typedef NS_ENUM(NSInteger, MMDirectoryCategory) {
     MMDirectoryCategoryUnknown,
     MMDirectoryCategoryVideo,

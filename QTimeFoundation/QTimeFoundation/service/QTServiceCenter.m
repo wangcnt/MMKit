@@ -23,7 +23,6 @@
 {
     self = [super init];
     if (self) {
-        self.name = @"qtime";
         QTService *service = [[QTService alloc] init];
         [self registerService:service];
     }

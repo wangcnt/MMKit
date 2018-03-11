@@ -10,7 +10,7 @@
 
 @implementation NSInvocation (Additions)
 
-- (instancetype)duplicate {
+- (NSInvocation *)duplicatedInvocation {
     NSMethodSignature *signature = self.methodSignature;
 
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];

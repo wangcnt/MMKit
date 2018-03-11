@@ -10,6 +10,6 @@
 
 @interface NSInvocation (Additions)
 
-- (instancetype)duplicate;
+- (NSInvocation *)duplicatedInvocation;
 
 @end

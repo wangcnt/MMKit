@@ -61,7 +61,7 @@
     SEL selector = invocation.selector;
     for (id delegate in _delegates) {
         if ([delegate respondsToSelector:selector]) {
-            NSInvocation *duplicatedInvocation = [invocation duplicate];
+            NSInvocation *duplicatedInvocation = [invocation duplicatedInvocation];
             [duplicatedInvocation invokeWithTarget:delegate];
         }
     }

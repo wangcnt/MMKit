@@ -13,11 +13,16 @@
 @implementation MMOperationQueue
 
 - (void)addOperation:(NSOperation *)op {
-    NSAssert([op conformsToProtocol:@protocol(MMOperation)], @"Operation MUST conforms to protocol: MMOperation.");
+    Protocol *protocol = @protocol(MMOperation);
+    NSAssert([op conformsToProtocol:protocol], @"Operation MUST conforms to protocol: %@.", NSStringFromProtocol(protocol));
     
-    NSAssert([op respondsToSelector:@selector(configuration)], @"Operation MUST responds to @selector(configuration);");
-    NSAssert([op respondsToSelector:@selector(error)], @"Operation MUST responds to @selector(error);");
-    MMOperation *operation = (MMOperation *)op;
+    SEL configurationSelector = @selector(configuration);
+    NSAssert([op respondsToSelector:configurationSelector], @"Operation MUST responds to %@.", NSStringFromSelector(configurationSelector));
+    
+    SEL errorSelector = @selector(error);
+    NSAssert([op respondsToSelector:errorSelector], @"Operation MUST responds to %@.", NSStringFromSelector(errorSelector));
+    
+    id<MMOperation> operation = (id<MMOperation>)op;
     if(operation.step) {
         operation.step(MMRequestStepWaiting);
     }
@@ -25,12 +30,12 @@
 }
 
 - (void)addOperations:(NSArray<NSOperation *> *)ops waitUntilFinished:(BOOL)wait API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0)) {
-    NSAssert(1==2, @"Please use -addOperation: with MMOperation");
+    NSAssert(1==2, @"Please use -addOperation: with %@-protocolled NSOperation", NSStringFromProtocol(@protocol(MMOperation)));
     // do nothing.
 }
 
 - (void)addOperationWithBlock:(void (^)(void))block {
-    NSAssert(1==2, @"Please use -addOperation: with MMOperation.");
+    NSAssert(1==2, @"Please use -addOperation: with %@-protocolled NSOperation", NSStringFromProtocol(@protocol(MMOperation)));
     // do nothing.
 }
 

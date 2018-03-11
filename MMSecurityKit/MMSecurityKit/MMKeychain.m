@@ -8,7 +8,7 @@
 
 #import "MMKeychain.h"
 
-NSString * const MMKeychainErrorDomain = @"com.markwong.mmkeychain";
+NSString * const MMKeychainErrorDomain = @"com.markwong.mmsecuritykit.mmkeychain";
 static NSString *_defaultService;
 
 @interface MMKeychain ()

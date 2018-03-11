@@ -86,6 +86,5 @@
 @synthesize invalid = _invalid;
 @synthesize center = _center;
 @synthesize scope = _scope;
-@synthesize name = _name;
 
 @end
