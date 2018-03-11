@@ -12,6 +12,7 @@
 #import <MMLog/MMLog.h>
 #import <MMCoreServices/MMCoreServices.h>
 #import <MMFoundation/MMFoundation.h>
+#import <MMFoundation/NSExceptionAdditions.h>
 #import <MMUIKit/MMUIKit.h>
 #import <QTimeUI/QTimeUI.h>
 
@@ -27,6 +28,9 @@
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
     [self testMMServiceCenter];
+    
+    NSException *exception = [NSException exceptionWithName:@"" reason:@"" userInfo:@{}];
+    exception.backtrace;
     
     id result = [@"aaa" componentsSeparatedByString:@"b"];
     NSLog(@"");
@@ -96,7 +100,18 @@
     
     [_window makeKeyAndVisible];
     
-    NSLog(@"1");
+    NSString *result = [_window subhierarchyString];
+    NSLog(@"window.hierarchy:%@", result);
+    __block int count = 0;
+    [_window enumerateSubviewsRecursively:YES usingBlock:^(UIView *subview, BOOL *stop) {
+        if([subview isKindOfClass:UILabel.class]) {
+            count ++;
+            if(count == 3) {
+                *stop = YES;
+            }
+        }
+        NSLog(@"subview -> %@", subview.class);
+    }];
 }
 
 - (void)testStringAdditions {

@@ -21,8 +21,8 @@
 
 - (void)drawPlaceholderInRect:(CGRect)rect {
     if (self.placeholderTextColor != nil || self.placeholderFont != nil) {
-        CGContextRef cx = UIGraphicsGetCurrentContext();
-        CGContextSaveGState(cx);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSaveGState(context);
         if (self.placeholderTextColor) {
             [self.placeholderTextColor setFill];
         }
@@ -33,7 +33,7 @@
                                      NSParagraphStyleAttributeName : paragraphStyle
                                      };
         [self.placeholder drawInRect:rect withAttributes:attributes];
-        CGContextRestoreGState(cx);
+        CGContextRestoreGState(context);
     } else {
         [super drawPlaceholderInRect:rect];
     }
@@ -52,5 +52,7 @@
     }
     return UIEdgeInsetsInsetRect(bounds, self.textInsets);
 }
+
+
 
 @end

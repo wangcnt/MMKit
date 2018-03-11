@@ -10,7 +10,7 @@
 
 #import <CoreText/CoreText.h>
 
-@implementation UIFont(MMCustom)
+@implementation UIFont (MMCustom)
 
 + (UIFont *)fontWithTTFAtURL:(NSURL *)URL size:(CGFloat)size{
     BOOL isLocalFile = [URL isFileURL];

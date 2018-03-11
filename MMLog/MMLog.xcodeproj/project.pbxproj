@@ -16,6 +16,7 @@
 		4D752C972031653200BD7B1A /* MMCompressedLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D752C952031653200BD7B1A /* MMCompressedLogFileManager.m */; };
 		4D752C982031653200BD7B1A /* MMCompressedLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D752C952031653200BD7B1A /* MMCompressedLogFileManager.m */; };
 		4D752C9A203165B400BD7B1A /* MMCompressedLogFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D752C99203165B400BD7B1A /* MMCompressedLogFileManager.h */; };
+		4D8B5348205549F700FB3BDF /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8B5349205549F700FB3BDF /* MMFoundation.framework */; };
 		4D91DB4E201628C900DEB9A0 /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D91DB44201628C900DEB9A0 /* MMLog.framework */; };
 		4D91DB53201628C900DEB9A0 /* MMLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D91DB52201628C900DEB9A0 /* MMLogTests.m */; };
 		4D91DB55201628C900DEB9A0 /* MMLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D91DB47201628C900DEB9A0 /* MMLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,6 +67,8 @@
 		4D24AA8F202F81B6006777FF /* MMLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLogFormatter.h; sourceTree = "<group>"; };
 		4D752C952031653200BD7B1A /* MMCompressedLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCompressedLogFileManager.m; sourceTree = "<group>"; };
 		4D752C99203165B400BD7B1A /* MMCompressedLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCompressedLogFileManager.h; sourceTree = "<group>"; };
+		4D8B5347205549F100FB3BDF /* MMSecurityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMSecurityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D8B5349205549F700FB3BDF /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D91DB44201628C900DEB9A0 /* MMLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D91DB47201628C900DEB9A0 /* MMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMLog.h; sourceTree = "<group>"; };
 		4D91DB48201628C900DEB9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D8B5348205549F700FB3BDF /* MMFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,12 +125,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D8B5345205549F100FB3BDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D8B5349205549F700FB3BDF /* MMFoundation.framework */,
+				4D8B5347205549F100FB3BDF /* MMSecurityKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4D91DB3A201628C900DEB9A0 = {
 			isa = PBXGroup;
 			children = (
 				4D91DB46201628C900DEB9A0 /* MMLog */,
 				4D91DB51201628C900DEB9A0 /* MMLogTests */,
 				4D91DB45201628C900DEB9A0 /* Products */,
+				4D8B5345205549F100FB3BDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

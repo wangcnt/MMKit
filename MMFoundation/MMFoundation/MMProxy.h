@@ -10,8 +10,7 @@
 
 /**
  *  多協議動態代理
- *  
- *  屬性初始化寫在-initialize裏，init僅提供代理入口, 內部將調用-initialize
+ *
  */
 @interface MMProxy : NSProxy
 

@@ -36,6 +36,10 @@
 #error This class requires automatic reference counting
 #endif
 
+void cleanupBuffer(void *userData, void *buf_data) {
+    free(buf_data);
+}
+
 @implementation UIImage(Additions)
 
 + (UIImage *)roundedImageWithImage:(UIImage *)image {
@@ -437,107 +441,187 @@
     return context;
 }
 
-- (UIImage *)bluredImageWithMaskImage:(UIImage *)maskImage radius:(CGFloat)radius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor {
-    CGRect imageRect = { CGPointZero, self.size };
-    UIImage *effectImage = self;
+- (UIImage *)blurredImageWithMaskImage:(UIImage *)maskImage size:(CGSize)blurSize tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor
+{
+#define ENABLE_BLUR                     1
+#define ENABLE_SATURATION_ADJUSTMENT    1
+#define ENABLE_TINT                     1
     
-    BOOL hasBlur = radius > __FLT_EPSILON__;
+    // Check pre-conditions.
+    if (self.size.width < 1 || self.size.height < 1)
+    {
+        NSLog(@"*** error: invalid size: (%.2f x %.2f). Both dimensions must be >= 1: %@", self.size.width, self.size.height, self);
+        return nil;
+    }
+    if (!self.CGImage)
+    {
+        NSLog(@"*** error: inputImage must be backed by a CGImage: %@", self);
+        return nil;
+    }
+    if (maskImage && !maskImage.CGImage)
+    {
+        NSLog(@"*** error: effectMaskImage must be backed by a CGImage: %@", maskImage);
+        return nil;
+    }
+    
+    BOOL hasBlur = blurSize.width > __FLT_EPSILON__ || blurSize.height > __FLT_EPSILON__;
     BOOL hasSaturationChange = fabs(saturationDeltaFactor - 1.) > __FLT_EPSILON__;
-    if (hasBlur || hasSaturationChange) {
-        UIGraphicsBeginImageContextWithOptions(self.size, NO, [[UIScreen mainScreen] scale]);
-        CGContextRef effectInContext = UIGraphicsGetCurrentContext();
-        CGContextScaleCTM(effectInContext, 1.0, -1.0);
-        CGContextTranslateCTM(effectInContext, 0, -self.size.height);
-        CGContextDrawImage(effectInContext, imageRect, self.CGImage);
-        
+    
+    CGImageRef inputCGImage = self.CGImage;
+    CGFloat inputImageScale = self.scale;
+    CGBitmapInfo inputImageBitmapInfo = CGImageGetBitmapInfo(inputCGImage);
+    CGImageAlphaInfo inputImageAlphaInfo = (inputImageBitmapInfo & kCGBitmapAlphaInfoMask);
+    
+    CGSize outputImageSizeInPoints = self.size;
+    CGRect outputImageRectInPoints = { CGPointZero, outputImageSizeInPoints };
+    
+    // Set up output context.
+    BOOL useOpaqueContext;
+    if (inputImageAlphaInfo == kCGImageAlphaNone || inputImageAlphaInfo == kCGImageAlphaNoneSkipLast || inputImageAlphaInfo == kCGImageAlphaNoneSkipFirst)
+        useOpaqueContext = YES;
+    else
+        useOpaqueContext = NO;
+    UIGraphicsBeginImageContextWithOptions(outputImageRectInPoints.size, useOpaqueContext, inputImageScale);
+    CGContextRef outputContext = UIGraphicsGetCurrentContext();
+    CGContextScaleCTM(outputContext, 1.0, -1.0);
+    CGContextTranslateCTM(outputContext, 0, -outputImageRectInPoints.size.height);
+    
+    if (hasBlur || hasSaturationChange)
+    {
         vImage_Buffer effectInBuffer;
-        effectInBuffer.data = CGBitmapContextGetData(effectInContext);
-        effectInBuffer.width = CGBitmapContextGetWidth(effectInContext);
-        effectInBuffer.height = CGBitmapContextGetHeight(effectInContext);
-        effectInBuffer.rowBytes = CGBitmapContextGetBytesPerRow(effectInContext);
+        vImage_Buffer scratchBuffer1;
         
-        UIGraphicsBeginImageContextWithOptions(self.size, NO, [[UIScreen mainScreen] scale]);
-        CGContextRef effectOutContext = UIGraphicsGetCurrentContext();
-        vImage_Buffer effectOutBuffer;
-        effectOutBuffer.data = CGBitmapContextGetData(effectOutContext);
-        effectOutBuffer.width = CGBitmapContextGetWidth(effectOutContext);
-        effectOutBuffer.height = CGBitmapContextGetHeight(effectOutContext);
-        effectOutBuffer.rowBytes = CGBitmapContextGetBytesPerRow(effectOutContext);
+        vImage_Buffer *inputBuffer;
+        vImage_Buffer *outputBuffer;
         
-        if (hasBlur) {
-            CGFloat inputRadius = radius * [[UIScreen mainScreen] scale];
-            int radius = floor(inputRadius * 3. * sqrt(2 * M_PI) / 4 + 0.5);
-            if (radius % 2 != 1) {
-                radius += 1; // force radius to be odd so that the three box-blur methodology works.
-            }
-            vImageBoxConvolve_ARGB8888(&effectInBuffer, &effectOutBuffer, NULL, 0, 0, radius, radius, 0, kvImageEdgeExtend);
-            vImageBoxConvolve_ARGB8888(&effectOutBuffer, &effectInBuffer, NULL, 0, 0, radius, radius, 0, kvImageEdgeExtend);
-            vImageBoxConvolve_ARGB8888(&effectInBuffer, &effectOutBuffer, NULL, 0, 0, radius, radius, 0, kvImageEdgeExtend);
+        vImage_CGImageFormat format = {
+            .bitsPerComponent = 8,
+            .bitsPerPixel = 32,
+            .colorSpace = NULL,
+            // (kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little)
+            // requests a BGRA buffer.
+            .bitmapInfo = kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little,
+            .version = 0,
+            .decode = NULL,
+            .renderingIntent = kCGRenderingIntentDefault
+        };
+        
+        vImage_Error e = vImageBuffer_InitWithCGImage(&effectInBuffer, &format, NULL, self.CGImage, kvImagePrintDiagnosticsToConsole);
+        if (e != kvImageNoError)
+        {
+            NSLog(@"*** error: vImageBuffer_InitWithCGImage returned error code %zi for inputImage: %@", e, self);
+            UIGraphicsEndImageContext();
+            return nil;
         }
-        BOOL effectImageBuffersAreSwapped = NO;
-        if (hasSaturationChange) {
+        
+        vImageBuffer_Init(&scratchBuffer1, effectInBuffer.height, effectInBuffer.width, format.bitsPerPixel, kvImageNoFlags);
+        inputBuffer = &effectInBuffer;
+        outputBuffer = &scratchBuffer1;
+        
+#if ENABLE_BLUR
+        if (hasBlur)
+        {
+            CGFloat radiusX = [self gaussianBlurRadiusWithBlurRadius:blurSize.width * inputImageScale];
+            CGFloat radiusY = [self gaussianBlurRadiusWithBlurRadius:blurSize.height * inputImageScale];
+            
+            NSInteger tempBufferSize = vImageBoxConvolve_ARGB8888(inputBuffer, outputBuffer, NULL, 0, 0, radiusY, radiusX, NULL, kvImageGetTempBufferSize | kvImageEdgeExtend);
+            void *tempBuffer = malloc(tempBufferSize);
+            
+            vImageBoxConvolve_ARGB8888(inputBuffer, outputBuffer, tempBuffer, 0, 0, radiusY, radiusX, NULL, kvImageEdgeExtend);
+            vImageBoxConvolve_ARGB8888(outputBuffer, inputBuffer, tempBuffer, 0, 0, radiusY, radiusX, NULL, kvImageEdgeExtend);
+            vImageBoxConvolve_ARGB8888(inputBuffer, outputBuffer, tempBuffer, 0, 0, radiusY, radiusX, NULL, kvImageEdgeExtend);
+            
+            free(tempBuffer);
+            
+            vImage_Buffer *temp = inputBuffer;
+            inputBuffer = outputBuffer;
+            outputBuffer = temp;
+        }
+#endif
+        
+#if ENABLE_SATURATION_ADJUSTMENT
+        if (hasSaturationChange)
+        {
             CGFloat s = saturationDeltaFactor;
+            // These values appear in the W3C Filter Effects spec:
+            // https://dvcs.w3.org/hg/FXTF/raw-file/default/filters/index.html#grayscaleEquivalent
+            //
             CGFloat floatingPointSaturationMatrix[] = {
-                0.0722 + 0.9278 * s, 0.0722 - 0.0722 * s, 0.0722 - 0.0722 * s, 0,
-                0.7152 - 0.7152 * s, 0.7152 + 0.2848 * s, 0.7152 - 0.7152 * s, 0,
-                0.2126 - 0.2126 * s, 0.2126 - 0.2126 * s, 0.2126 + 0.7873 * s, 0,
-                0, 0, 0, 1,
+                0.0722 + 0.9278 * s,  0.0722 - 0.0722 * s,  0.0722 - 0.0722 * s,  0,
+                0.7152 - 0.7152 * s,  0.7152 + 0.2848 * s,  0.7152 - 0.7152 * s,  0,
+                0.2126 - 0.2126 * s,  0.2126 - 0.2126 * s,  0.2126 + 0.7873 * s,  0,
+                0,                    0,                    0,                    1,
             };
             const int32_t divisor = 256;
-            NSUInteger matrixSize = sizeof(floatingPointSaturationMatrix) / sizeof(floatingPointSaturationMatrix[0]);
+            NSUInteger matrixSize = sizeof(floatingPointSaturationMatrix)/sizeof(floatingPointSaturationMatrix[0]);
             int16_t saturationMatrix[matrixSize];
             for (NSUInteger i = 0; i < matrixSize; ++i) {
                 saturationMatrix[i] = (int16_t)roundf(floatingPointSaturationMatrix[i] * divisor);
             }
-            if (hasBlur) {
-                vImageMatrixMultiply_ARGB8888(&effectOutBuffer, &effectInBuffer, saturationMatrix, divisor, NULL, NULL, kvImageNoFlags);
-                effectImageBuffersAreSwapped = YES;
-            }
-            else {
-                vImageMatrixMultiply_ARGB8888(&effectInBuffer, &effectOutBuffer, saturationMatrix, divisor, NULL, NULL, kvImageNoFlags);
-            }
+            vImageMatrixMultiply_ARGB8888(inputBuffer, outputBuffer, saturationMatrix, divisor, NULL, NULL, kvImageNoFlags);
+            
+            vImage_Buffer *temp = inputBuffer;
+            inputBuffer = outputBuffer;
+            outputBuffer = temp;
         }
-        if (!effectImageBuffersAreSwapped)
-            effectImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+#endif
         
-        if (effectImageBuffersAreSwapped)
-            effectImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-    }
-    
-    // 开启上下文 用于输出图像
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, [[UIScreen mainScreen] scale]);
-    CGContextRef outputContext = UIGraphicsGetCurrentContext();
-    CGContextScaleCTM(outputContext, 1.0, -1.0);
-    CGContextTranslateCTM(outputContext, 0, -self.size.height);
-    
-    // 开始画底图
-    CGContextDrawImage(outputContext, imageRect, self.CGImage);
-    
-    // 开始画模糊效果
-    if (hasBlur) {
-        CGContextSaveGState(outputContext);
-        if (maskImage) {
-            CGContextClipToMask(outputContext, imageRect, maskImage.CGImage);
+        CGImageRef effectCGImage;
+        if ( (effectCGImage = vImageCreateCGImageFromBuffer(inputBuffer, &format, &cleanupBuffer, NULL, kvImageNoAllocate, NULL)) == NULL ) {
+            effectCGImage = vImageCreateCGImageFromBuffer(inputBuffer, &format, NULL, NULL, kvImageNoFlags, NULL);
+            free(inputBuffer->data);
         }
-        CGContextDrawImage(outputContext, imageRect, effectImage.CGImage);
+        if (maskImage) {
+            // Only need to draw the base image if the effect image will be masked.
+            CGContextDrawImage(outputContext, outputImageRectInPoints, inputCGImage);
+        }
+        
+        // draw effect image
+        CGContextSaveGState(outputContext);
+        if (maskImage)
+            CGContextClipToMask(outputContext, outputImageRectInPoints, maskImage.CGImage);
+        CGContextDrawImage(outputContext, outputImageRectInPoints, effectCGImage);
         CGContextRestoreGState(outputContext);
+        
+        // Cleanup
+        CGImageRelease(effectCGImage);
+        free(outputBuffer->data);
+    }
+    else
+    {
+        // draw base image
+        CGContextDrawImage(outputContext, outputImageRectInPoints, inputCGImage);
     }
     
-    // 添加颜色渲染
-    if (tintColor) {
+#if ENABLE_TINT
+    // Add in color tint.
+    if (tintColor)
+    {
         CGContextSaveGState(outputContext);
         CGContextSetFillColorWithColor(outputContext, tintColor.CGColor);
-        CGContextFillRect(outputContext, imageRect);
+        CGContextFillRect(outputContext, outputImageRectInPoints);
         CGContextRestoreGState(outputContext);
     }
+#endif
     
-    // 输出成品,并关闭上下文
+    // Output image is ready.
     UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return outputImage;
+#undef ENABLE_BLUR
+#undef ENABLE_SATURATION_ADJUSTMENT
+#undef ENABLE_TINT
+}
+
+- (CGFloat)gaussianBlurRadiusWithBlurRadius:(CGFloat)blurRadius
+{
+    if (blurRadius - 2. < __FLT_EPSILON__) {
+        blurRadius = 2.;
+    }
+    uint32_t radius = floor((blurRadius * 3. * sqrt(2 * M_PI) / 4 + 0.5) / 2);
+    radius |= 1; // force radius to be odd so that the three box-blur methodology works.
+    return radius;
 }
 
 //高效添加圆角图片
@@ -825,8 +909,7 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
 
 - (UIImage *)imageScaledToSize:(CGSize)size
 {
-    if (CGSizeEqualToSize(self.size, size))
-    {
+    if (CGSizeEqualToSize(self.size, size)) {
         return self;
     }
     

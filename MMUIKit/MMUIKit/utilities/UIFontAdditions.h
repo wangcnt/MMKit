@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UIFont(MMCustom)
+@interface UIFont (MMCustom)
 
 + (UIFont *)fontWithTTFAtPath:(NSString *)path size:(CGFloat)size;
 

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import <MMUIKit/MMDeviceInfo.h>
 #import <MMUIKit/MMUIDefines.h>
 
 // contrller
@@ -38,10 +37,13 @@
 #import <MMUIKit/UIImageAdditions.h>
 #import <MMUIKit/UIButtonAdditions.h>
 #import <MMUIKit/UIDeviceAdditions.h>
+#import <MMUIKit/UIControlAdditions.h>
 #import <MMUIKit/UISearchBarAdditions.h>
+#import <MMUIKit/UIResponderAdditions.h>
 #import <MMUIKit/UIScrollViewAdditions.h>
 #import <MMUIKit/UITabBarItemAdditions.h>
 #import <MMUIKit/UIApplicationAdditions.h>
+#import <MMUIKit/UIBarButtonItemAdditions.h>
 #import <MMUIKit/UIViewControllerAdditions.h>
 #import <MMUIKit/UINavigationItemAdditions.h>
 #import <MMUIKit/UITabBarControllerAdditions.h>

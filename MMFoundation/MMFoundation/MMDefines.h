@@ -47,7 +47,7 @@ static CLASS_NAME *instance = nil;                          \
 
 
 #ifdef DEBUG
-#define NSLog(...) NSLog(@"%@", __LINE__, [NSString stringWithFormat:__VA_ARGS__])
+#define NSLog(...) NSLog(__VA_ARGS__)
 #else
 #define NSLog(...)
 #endif

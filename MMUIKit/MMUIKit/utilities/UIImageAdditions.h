@@ -20,7 +20,7 @@
 
 - (UIImage *)blurredImageWithRadius:(CGFloat)radius iterations:(NSUInteger)iterations tintColor:(UIColor *)tintColor;
 
-- (UIImage *)bluredImageWithMaskImage:(UIImage *)maskImage radius:(CGFloat)radius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor;
+- (UIImage *)blurredImageWithMaskImage:(UIImage *)maskImage size:(CGSize)blurSize tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor;
 
 + (UIImage *)headerImageInVideoAtPath:(NSString *)path;
 

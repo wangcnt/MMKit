@@ -48,7 +48,8 @@
 - (UIViewController *)belongedViewController;   ///< 找出直属的UIViewController
 - (UIView *)findSubviewForClass:(Class)clazz;   ///< 找出该视图所有的子视图中的指定class的第一個视图
 - (void)enumerateSubviewsRecursively:(BOOL)recursively usingBlock:(void (^)(UIView *subview, BOOL *stop))block;    ///< 遍历所有的子视图，可配置是否遞歸遍歷所有的子視圖，並可以隨時停止遍歷
-- (void)printSubhierarchy;  ///< 打印视图的所有的子层级结构
+
+- (NSString *)subhierarchyString;
 
 @end
 

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D8B534A20554A0F00FB3BDF /* AnalyticsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFB2049D7F0005044F0 /* AnalyticsKit.framework */; };
 		4D906CDE2049D7C8005044F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CDD2049D7C8005044F0 /* AppDelegate.m */; };
 		4D906CE12049D7C8005044F0 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CE02049D7C8005044F0 /* FirstViewController.m */; };
 		4D906CE42049D7C8005044F0 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CE32049D7C8005044F0 /* SecondViewController.m */; };
 		4D906CE92049D7C8005044F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D906CE82049D7C8005044F0 /* Assets.xcassets */; };
 		4D906CEC2049D7C8005044F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D906CEA2049D7C8005044F0 /* LaunchScreen.storyboard */; };
 		4D906CEF2049D7C8005044F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CEE2049D7C8005044F0 /* main.m */; };
-		4D906CF62049D7F0005044F0 /* AnalyticsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFB2049D7F0005044F0 /* AnalyticsKit.framework */; };
 		4D906CF72049D7F0005044F0 /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFC2049D7F0005044F0 /* MMLog.framework */; };
 		4D906CF82049D7F0005044F0 /* MMUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFD2049D7F0005044F0 /* MMUIKit.framework */; };
 		4D906CF92049D7F0005044F0 /* QTimeFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFE2049D7F0005044F0 /* QTimeFoundation.framework */; };
@@ -53,10 +53,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D8B534A20554A0F00FB3BDF /* AnalyticsKit.framework in Frameworks */,
 				4DB9560C204AA46C004F5E30 /* MMFoundation.framework in Frameworks */,
 				4D906DC8204A9A2F005044F0 /* MMCoreServices.framework in Frameworks */,
 				4D906D00204A5F8A005044F0 /* Masonry.framework in Frameworks */,
-				4D906CF62049D7F0005044F0 /* AnalyticsKit.framework in Frameworks */,
 				4D906CF72049D7F0005044F0 /* MMLog.framework in Frameworks */,
 				4D906CF82049D7F0005044F0 /* MMUIKit.framework in Frameworks */,
 				4D906CF92049D7F0005044F0 /* QTimeFoundation.framework in Frameworks */,

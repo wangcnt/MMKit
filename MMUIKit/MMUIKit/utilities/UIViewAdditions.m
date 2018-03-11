@@ -124,8 +124,8 @@
 
 - (UIView *)findSubviewForClass:(Class)clazz {
     __block UIView *target = nil;
-    BOOL shouldContinue;
-    [self enumerateSubviewsRecursively:YES shouldContinue:&shouldContinue usingBlock:^(UIView *subview, BOOL *stop) {
+    BOOL shouldStop;
+    [self enumerateSubviewsRecursively:YES shouldStop:&shouldStop usingBlock:^(UIView *subview, BOOL *stop) {
         if([subview isKindOfClass:clazz]) {
             target = subview;
             *stop = YES;
@@ -135,37 +135,39 @@
 }
 
 - (void)enumerateSubviewsRecursively:(BOOL)recursively usingBlock:(void (^)(UIView *subview, BOOL *stop))block {
-    BOOL shouldContinue;
-    [self enumerateSubviewsRecursively:recursively shouldContinue:&shouldContinue usingBlock:block];
+    BOOL shouldStop = NO;
+    [self enumerateSubviewsRecursively:recursively shouldStop:&shouldStop usingBlock:block];
 }
 
-- (void)enumerateSubviewsRecursively:(BOOL)recursively shouldContinue:(BOOL *)shouldContinue usingBlock:(void (^)(UIView *subview, BOOL *stop))block {
+- (void)enumerateSubviewsRecursively:(BOOL)recursively shouldStop:(BOOL *)shouldStop usingBlock:(void (^)(UIView *subview, BOOL *stop))block {
     if(!block) return;
     for(UIView *subview in self.subviews) {
-        block(subview, shouldContinue);
-        if(shouldContinue && recursively) {
-            [subview enumerateSubviewsRecursively:recursively shouldContinue:shouldContinue usingBlock:block];
-        } else {
+        if(*shouldStop || !recursively) {
             break;
         }
+        block(subview, shouldStop);
+        if(*shouldStop || !recursively) {
+            break;
+        }
+        [subview enumerateSubviewsRecursively:recursively shouldStop:shouldStop usingBlock:block];
     }
 }
 
-- (void)printSubhierarchy
-{
-    NSLog(@"====================================================================");
-    [self printSubhierarchyWithView:self level:0];
-    NSLog(@"====================================================================");
+- (NSString *)subhierarchyString {
+    NSMutableString *result = [NSMutableString string];
+    [self saveSubhierarchyWithView:self level:0 intoString:result];
+    return result;
 }
 
-- (void)printSubhierarchyWithView:(UIView *)view level:(int)level {
+- (void)saveSubhierarchyWithView:(UIView *)view level:(int)level intoString:(NSMutableString *)result  {
+    [result appendString:@"\n"];
     NSMutableString *space = [[NSMutableString alloc] initWithCapacity:4];
     for(int i=0; i<level; i++) {
-        [space appendString:@"|---"];
+        [result appendString:@"|---"];
     }
-    NSLog(@"%@%@.%zd.%@", space, [view class], view.tag, view);
+    [result appendFormat:@"%@%@-%d.%d.%d.%d-%zd", space, NSStringFromClass(view.class), (int)view.x, (int)view.y, (int)view.width, (int)view.height, view.tag];
     [view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull subview, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self printSubhierarchyWithView:subview level:level+1];
+        [self saveSubhierarchyWithView:subview level:level+1 intoString:result];
     }];
 }
 
@@ -206,3 +208,4 @@
 }
 
 @end
+

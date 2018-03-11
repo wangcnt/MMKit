@@ -89,23 +89,39 @@
     }
 }
 #pragma mark - Noti Event
-- (void)textViewBeginNoti:(NSNotification*)noti {
+- (void)textViewBeginNoti:(NSNotification*)notification {
 }
 
-- (void)textViewEndNoti:(NSNotification*)noti {
+- (void)textViewEndNoti:(NSNotification*)notification {
 }
 
-- (void)textDidChange:(NSNotification*)noti {
+- (void)textDidChange:(NSNotification*)notification {
+    if(notification.object != self) return;
+    
     _placeholderLabel.hidden = self.text.length;
-    if(self.markedTextRange.start == self.markedTextRange.end) {
-        if (self.text.length > _maxLength) {
-            self.text = [self.text substringToIndex:_maxLength];
+    NSString *text = self.text;
+    //获取高亮部分
+    UITextRange *markedRange = self.markedTextRange;
+    UITextPosition *position = [self positionFromPosition:markedRange.start offset:0];
+    
+    if ( (!position ||!markedRange)
+        && (_maxLength && text.length > _maxLength)) {
+        NSRange rangeIndex = [text rangeOfComposedCharacterSequenceAtIndex:_maxLength];
+        if (rangeIndex.length == 1) {
+            self.text = [text substringToIndex:_maxLength];
+        } else {
+            NSRange range = [text rangeOfComposedCharacterSequencesForRange:NSMakeRange(0, _maxLength)];
+            NSInteger length;
+            if (range.length > _maxLength) {
+                length = range.length - rangeIndex.length;
+            }else{
+                length = range.length;
+            }
+            self.text = [text substringWithRange:NSMakeRange(0, length)];
         }
         if(_textDidChangeHandler) {
             _textDidChangeHandler(self);
         }
-    } else {
-        // 有联想
     }
 }
 
