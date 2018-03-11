@@ -532,12 +532,12 @@
     [self replaceCharactersInRange:NSMakeRange(0, self.length) withString:temp];
 }
 
-- (void)replaceOccurrencesOfString:(NSString *)source withString:(NSString *)replacement {
-    [self replaceOccurrencesOfString:source withString:replacement options:0 range:NSMakeRange(0, self.length)];
+- (NSUInteger)replaceOccurrencesOfString:(NSString *)source withString:(NSString *)replacement {
+    return [self replaceOccurrencesOfString:source withString:replacement options:0 range:NSMakeRange(0, self.length)];
 }
 
-- (void)deleteOccurrencesOfString:(NSString *)string {
-    [self replaceOccurrencesOfString:string withString:@""];
+- (NSUInteger)deleteOccurrencesOfString:(NSString *)string {
+    return [self replaceOccurrencesOfString:string withString:@""];
 }
 
 - (void)deleteBeforeString:(NSString *)string {

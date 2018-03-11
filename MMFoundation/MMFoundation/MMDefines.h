@@ -100,11 +100,11 @@ static inline NSString *mm_str_float(float flt) {
     return [NSString stringWithFormat:@"%f", flt];
 }
 
-static inline float mm_degrees_2_radian(float degrees) {
+static inline float mm_degrees_to_radian(float degrees) {
     return M_PI * degrees / 180.0;
 }
 
-static inline float mm_radian_2_drgrees(float radian) {
+static inline float mm_radian_to_drgrees(float radian) {
     return radian * 180.0 / M_PI;
 }
 

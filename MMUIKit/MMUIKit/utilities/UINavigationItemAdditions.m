@@ -15,7 +15,7 @@
 
 - (void)setLeftBarButtonItem:(UIBarButtonItem *)leftBarButtonItem indent:(float)indent {
     if(!leftBarButtonItem)  return;
-    indent = abs(indent);
+    indent = fabsf(indent);
     if(indent) {
         leftBarButtonItem.imageInsets = UIEdgeInsetsMake(0, -indent, 0, indent);
     }
@@ -24,7 +24,7 @@
 
 - (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem indent:(float)indent {
     if(!rightBarButtonItem) return;
-    indent = abs(indent);
+    indent = fabsf(indent);
     if(indent) {
         rightBarButtonItem.imageInsets = UIEdgeInsetsMake(0, -indent, 0, indent);
     }

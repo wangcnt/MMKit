@@ -55,6 +55,8 @@
 		4D7C0F40202F015E008C6CE0 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7C0F31202F015E008C6CE0 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D9BC3702053FE1A007FE60C /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC36E2053FE1A007FE60C /* NSObjectAdditions.h */; };
 		4D9BC3712053FE1A007FE60C /* NSObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC36F2053FE1A007FE60C /* NSObjectAdditions.m */; };
+		4D9BC38820547238007FE60C /* NSDateAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC38620547238007FE60C /* NSDateAdditions.h */; };
+		4D9BC38920547238007FE60C /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC38720547238007FE60C /* NSDateAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		4D7C0F31202F015E008C6CE0 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
 		4D9BC36E2053FE1A007FE60C /* NSObjectAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObjectAdditions.h; sourceTree = "<group>"; };
 		4D9BC36F2053FE1A007FE60C /* NSObjectAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObjectAdditions.m; sourceTree = "<group>"; };
+		4D9BC38620547238007FE60C /* NSDateAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDateAdditions.h; sourceTree = "<group>"; };
+		4D9BC38720547238007FE60C /* NSDateAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDateAdditions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,8 @@
 				4D778444204823C10016EF9B /* NSInvocationAdditions.m */,
 				4D9BC36E2053FE1A007FE60C /* NSObjectAdditions.h */,
 				4D9BC36F2053FE1A007FE60C /* NSObjectAdditions.m */,
+				4D9BC38620547238007FE60C /* NSDateAdditions.h */,
+				4D9BC38720547238007FE60C /* NSDateAdditions.m */,
 			);
 			path = additions;
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 				4D24AA29202F182F006777FF /* MMDefines.h in Headers */,
 				4D24AA3C202F1E6F006777FF /* MMMulticastDelegate.h in Headers */,
 				4D24AA39202F1E66006777FF /* MMAsyncSocket.h in Headers */,
+				4D9BC38820547238007FE60C /* NSDateAdditions.h in Headers */,
 				4D24AA46202F1F8B006777FF /* MMIDTracker.h in Headers */,
 				4D24AA43202F1F40006777FF /* MMTimer.h in Headers */,
 				4D7C0F32202F015E008C6CE0 /* NSArrayAdditions.h in Headers */,
@@ -333,6 +340,7 @@
 			files = (
 				4D778446204823C10016EF9B /* NSInvocationAdditions.m in Sources */,
 				4D7C0F3E202F015E008C6CE0 /* NSFileManagerAdditions.m in Sources */,
+				4D9BC38920547238007FE60C /* NSDateAdditions.m in Sources */,
 				4D24AA84202F6C11006777FF /* MMDiskCache.m in Sources */,
 				4D24AA37202F1E66006777FF /* MMAsyncSocket.m in Sources */,
 				4D24AA7B202F673D006777FF /* MMProgressManager.m in Sources */,

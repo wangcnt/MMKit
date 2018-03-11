@@ -95,9 +95,9 @@
 
 - (void)reverse;
 
-- (void)replaceOccurrencesOfString:(NSString *)source withString:(NSString *)replacement;
+- (NSUInteger)replaceOccurrencesOfString:(NSString *)source withString:(NSString *)replacement;
 
-- (void)deleteOccurrencesOfString:(NSString *)string;
+- (NSUInteger)deleteOccurrencesOfString:(NSString *)string;
 
 //!!!:
 - (void)deleteBeforeString:(NSString *)string;  ///< aaabaa:ba -> baa

@@ -16,9 +16,11 @@ FOUNDATION_EXPORT const unsigned char MMFoundationVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <MMFoundation/PublicHeader.h>
 
-#import <MMFoundation/NSStringAdditions.h>
 #import <MMFoundation/NSDataAdditions.h>
+#import <MMFoundation/NSDateAdditions.h>
 #import <MMFoundation/NSArrayAdditions.h>
+#import <MMFoundation/NSStringAdditions.h>
+#import <MMFoundation/NSObjectAdditions.h>
 #import <MMFoundation/NSDictionaryAdditions.h>
 #import <MMFoundation/NSInvocationAdditions.h>
 #import <MMFoundation/NSFileManagerAdditions.h>
