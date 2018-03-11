@@ -53,9 +53,9 @@
 		4D7C0F3E202F015E008C6CE0 /* NSFileManagerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C0F30202F015E008C6CE0 /* NSFileManagerAdditions.m */; };
 		4D7C0F3F202F015E008C6CE0 /* NSFileManagerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C0F30202F015E008C6CE0 /* NSFileManagerAdditions.m */; };
 		4D7C0F40202F015E008C6CE0 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7C0F31202F015E008C6CE0 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D9BC3702053FE1A007FE60C /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC36E2053FE1A007FE60C /* NSObjectAdditions.h */; };
+		4D9BC3702053FE1A007FE60C /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC36E2053FE1A007FE60C /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D9BC3712053FE1A007FE60C /* NSObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC36F2053FE1A007FE60C /* NSObjectAdditions.m */; };
-		4D9BC38820547238007FE60C /* NSDateAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC38620547238007FE60C /* NSDateAdditions.h */; };
+		4D9BC38820547238007FE60C /* NSDateAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC38620547238007FE60C /* NSDateAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D9BC38920547238007FE60C /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC38720547238007FE60C /* NSDateAdditions.m */; };
 /* End PBXBuildFile section */
 
@@ -225,17 +225,17 @@
 				4D24AA29202F182F006777FF /* MMDefines.h in Headers */,
 				4D24AA3C202F1E6F006777FF /* MMMulticastDelegate.h in Headers */,
 				4D24AA39202F1E66006777FF /* MMAsyncSocket.h in Headers */,
-				4D9BC38820547238007FE60C /* NSDateAdditions.h in Headers */,
 				4D24AA46202F1F8B006777FF /* MMIDTracker.h in Headers */,
 				4D24AA43202F1F40006777FF /* MMTimer.h in Headers */,
 				4D7C0F32202F015E008C6CE0 /* NSArrayAdditions.h in Headers */,
 				4D24AA7A202F673D006777FF /* MMProgressManager.h in Headers */,
 				4D24AA83202F6C11006777FF /* MMDiskCache.h in Headers */,
+				4D9BC38820547238007FE60C /* NSDateAdditions.h in Headers */,
+				4D9BC3702053FE1A007FE60C /* NSObjectAdditions.h in Headers */,
 				4D778449204825210016EF9B /* MMProxy.h in Headers */,
 				4D778445204823C10016EF9B /* NSInvocationAdditions.h in Headers */,
 				4D7783AF2043189C0016EF9B /* MMIDGenerator.h in Headers */,
 				4D24AA57202F2C0F006777FF /* MMMemoryCache.h in Headers */,
-				4D9BC3702053FE1A007FE60C /* NSObjectAdditions.h in Headers */,
 				4D7C0F3D202F015E008C6CE0 /* NSFileManagerAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

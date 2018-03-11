@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MMCoreDefines.h"
 #import "MMOperationQueue.h"
+
+MMCORESERVICES_EXPORT NSString *const MMCoreServicesErrorDomain;
 
 @interface MMApplication : NSObject
 

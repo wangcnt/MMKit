@@ -9,11 +9,18 @@
 #ifndef MMCoreDefines_h
 #define MMCoreDefines_h
 
+#define MMCORESERVICES_EXPORT extern
+
 #define mm_system_version() [UIDevice currentDevice].systemVersion.floatValue
 
 @protocol MMResponse;
 
 typedef void (^MMRequestCompletion)(id<MMResponse> res);
+
+typedef NS_ENUM(NSInteger, MMCoreServicesErrorCode) {
+    MMCoreServicesErrorCodeOperationCancelled,
+    MMCoreServicesErrorCodeException,
+};
 
 typedef NS_ENUM(NSInteger, MMRequestStep) {
     MMRequestStepWaiting,      ///< 正在等待任務開始...

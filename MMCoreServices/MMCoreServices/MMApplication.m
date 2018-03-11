@@ -8,6 +8,8 @@
 
 #import "MMApplication.h"
 
+NSString *const MMCoreServicesErrorDomain = @"MMCoreServicesErrorDomain";
+
 @implementation MMApplication
 
 + (instancetype)sharedInstance {

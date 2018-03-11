@@ -27,17 +27,10 @@
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
     [self testMMServiceCenter];
-    [self testInstalledAllApps];
+//    [self testInstalledAllApps];
 //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-    id shared = [MMSafeSignleton sharedInstance];
-    MMSafeSignleton *inited = [[MMSafeSignleton alloc] init];
-    id copied = [inited copy];
-    id mutableCopied = [inited mutableCopy];
-    NSLog(@"safe.singleton.name-->%@", [MMSafeSignleton sharedInstance].name);
+//    [self testSafeSingleton];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", @"key"];
-    BOOL res = [predicate evaluateWithObject:@"keY"];
-    NSLog(@"res -> %d", res);
 //    [self testDDLog];
     
     //    [self gcdDemo1];
@@ -46,19 +39,18 @@
     //    [self gcdDemo5];
     //    [self testDynamicProxy];
     //    [self testStringAdditions];
-    
-    NSArray *strs = @[@"c", @"b", @"a", @"啊"];
-    for(int i=0; i<strs.count; i++) {
-        NSString *str = strs[i];
-        ;
-        NSLog(@"strs[%d]-->%@", i, str);
-    }
-    __unused int j = 255;
-    __unused BOOL result = [self testChangeReturnValueWhenDebugging];
-    
+
     [self setupWindow];
     
     return YES;
+}
+
+- (void)testSafeSingleton {
+    id shared = [MMSafeSignleton sharedInstance];
+    MMSafeSignleton *inited = [[MMSafeSignleton alloc] init];
+    id copied = [inited copy];
+    id mutableCopied = [inited mutableCopy];
+    NSLog(@"safe.singleton.name-->%@", [MMSafeSignleton sharedInstance].name);
 }
 
 - (void)testInstalledAllApps {
@@ -123,7 +115,7 @@
 - (void)testMMServiceCenter {
     MMServiceCenter<MMService, AKService> *center = [[MMServiceCenter<MMService, AKService> alloc] init];
     center.scope = MMServiceScopeGlobal;
-    NSLog(@"center.scope --> %ld", center.scope);
+    NSLog(@"center.scope --> %d", center.scope);
     
     MMService *service = [[MMService alloc] init];
     [center registerService:service];
