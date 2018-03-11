@@ -25,7 +25,7 @@ static char *const UIBarButtonItemHandlerKey = "UIBarButtonItemHandlerKey";
     return objc_getAssociatedObject(self, UIBarButtonItemHandlerKey);
 }
 
-- (void)setActionBlock:(UIBarButtonItemHandler)handler {
+- (void)setHandler:(UIBarButtonItemHandler)handler {
     if (handler != self.handler) {
         [self willChangeValueForKey:@"handler"];
         objc_setAssociatedObject(self, UIBarButtonItemHandlerKey, handler, OBJC_ASSOCIATION_COPY);

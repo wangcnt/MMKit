@@ -11,5 +11,5 @@
 typedef void (^UIBarButtonItemHandler)(UIBarButtonItem *item);
 
 @interface UIBarButtonItem (Additions)
-
+@property (nonatomic, copy) UIBarButtonItemHandler handler;
 @end
