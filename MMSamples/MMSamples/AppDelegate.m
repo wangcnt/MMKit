@@ -20,6 +20,7 @@
 #import "SecondViewController.h"
 
 #import "MMSafeSignleton.h"
+#import "MMSomething.h"
 
 @implementation AppDelegate
 
@@ -27,13 +28,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
-    [self testMMServiceCenter];
+//    [self testMMServiceCenter];
     
-    NSException *exception = [NSException exceptionWithName:@"" reason:@"" userInfo:@{}];
-    exception.backtrace;
+    [self testInvokeWithBlockArgument];
     
-    id result = [@"aaa" componentsSeparatedByString:@"b"];
-    NSLog(@"");
 //    [self testInstalledAllApps];
 //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
 //    [self testSafeSingleton];
@@ -48,15 +46,16 @@
     //    [self testStringAdditions];
 
     [self setupWindow];
+//    [self testEnumerateSubviews];
     
     return YES;
 }
 
 - (void)testSafeSingleton {
-    id shared = [MMSafeSignleton sharedInstance];
+    __unused id shared = [MMSafeSignleton sharedInstance];
     MMSafeSignleton *inited = [[MMSafeSignleton alloc] init];
-    id copied = [inited copy];
-    id mutableCopied = [inited mutableCopy];
+    __unused id copied = [inited copy];
+    __unused id mutableCopied = [inited mutableCopy];
     NSLog(@"safe.singleton.name-->%@", [MMSafeSignleton sharedInstance].name);
 }
 
@@ -74,6 +73,27 @@
 
 - (BOOL)testChangeReturnValueWhenDebugging {
     return YES;
+}
+
+- (void)testInvokeWithBlockArgument {
+    NSString *identifier = @"Mark Wong";
+    void (^completion)(MMSomething *) = ^ (MMSomething *something) {
+        [something print];
+    };
+    MMSomething *something = [[MMSomething alloc] init];
+    SEL selector = @selector(fetchSomethingWithIdentifier:completion:);
+    NSMethodSignature *signature = [something methodSignatureForSelector:selector];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    invocation.target = something;
+    invocation.selector = selector;
+    [invocation setArgument:&identifier atIndex:2];
+    [invocation setArgument:&completion atIndex:3];
+    [invocation retainArguments];
+    
+    NSLog(@"I will be back in 5s.");
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [invocation invoke];
+    });
 }
 
 - (void)setupWindow {
@@ -99,7 +119,9 @@
     _window.rootViewController = tabController;
     
     [_window makeKeyAndVisible];
-    
+}
+
+- (void)testEnumerateSubviews {
     NSString *result = [_window subhierarchyString];
     NSLog(@"window.hierarchy:%@", result);
     __block int count = 0;
@@ -117,6 +139,7 @@
 - (void)testStringAdditions {
     __unused NSComparisonResult greater = [@"a1.b2" compareVersion:@"a1asdf.c2(**HIUHIHIOHIHKHJGYUIOHIbkdsf3"];
     __unused NSArray<NSNumber *> *numbers = [@"1.2.3.4a3b*(Id2" numbers];
+    NSLog(@"");
 }
 
 - (void)testDDLog {
@@ -133,7 +156,7 @@
 - (void)testMMServiceCenter {
     MMServiceCenter<MMService, AKService> *center = [[MMServiceCenter<MMService, AKService> alloc] init];
     center.scope = MMServiceScopeGlobal;
-    NSLog(@"center.scope --> %d", center.scope);
+    NSLog(@"center.scope --> %ld", center.scope);
     
     MMService *service = [[MMService alloc] init];
     [center registerService:service];
