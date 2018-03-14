@@ -15,6 +15,7 @@
 
 @protocol MMResponse;
 
+typedef void (^MMRequestProgressHandler)(float progress);
 typedef void (^MMRequestCompletion)(id<MMResponse> res);
 
 typedef NS_ENUM(NSInteger, MMCoreServicesErrorCode) {

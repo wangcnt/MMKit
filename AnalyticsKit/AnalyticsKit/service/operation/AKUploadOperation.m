@@ -25,15 +25,8 @@
     return self;
 }
 
-- (void)setEvents:(NSArray<id<AKEvent>> *)events {
-    if(_events != events) {
-        _events = events;
-        _uploadRequest.events = _events;
-    }
-}
-
-- (void)presendRequest {
-    [super presendRequest];
+- (void)willStart {
+    [super willStart];
     _uploadRequest.events = _events;
 }
 

@@ -23,8 +23,8 @@
     NSAssert([op respondsToSelector:errorSelector], @"Operation MUST responds to %@.", NSStringFromSelector(errorSelector));
     
     id<MMOperation> operation = (id<MMOperation>)op;
-    if(operation.step) {
-        operation.step(MMRequestStepWaiting);
+    if(operation.stepHandler) {
+        operation.stepHandler(MMRequestStepWaiting);
     }
     [super addOperation:op];
 }

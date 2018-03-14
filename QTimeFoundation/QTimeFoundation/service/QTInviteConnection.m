@@ -14,14 +14,14 @@
 
 - (void)sendRequest:(id<MMRequest>)request withCompletion:(MMRequestCompletion)completion {
     // receiving
-    if(request.step) {
-        request.step(MMRequestStepReceiving);
+    if(request.stepHandler) {
+        request.stepHandler(MMRequestStepReceiving);
     }
     sleep(arc4random() % 5 + 2);
     
     // parsing
-    if(request.step) {
-        request.step(MMRequestStepParsing);
+    if(request.stepHandler) {
+        request.stepHandler(MMRequestStepParsing);
     }
     sleep(arc4random() % 5 + 2);
     Class clazz = (Class)request.responseClass;
@@ -29,8 +29,8 @@
     response.error = arc4random() % 2 ? nil : [NSError errorWithDomain:MMCoreServicesErrorDomain code:4 userInfo:@{NSLocalizedDescriptionKey : @"Who you've invited is really a man..."}];
     
     // persisting
-    if(request.step) {
-        request.step(MMRequestStepPersisting);
+    if(request.stepHandler) {
+        request.stepHandler(MMRequestStepPersisting);
     }
     sleep(arc4random() % 5 + 2);
     if(completion) {

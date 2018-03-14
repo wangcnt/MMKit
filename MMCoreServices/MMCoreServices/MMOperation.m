@@ -80,6 +80,12 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
     }
 }
 
+- (void)willStart {
+    self.request.configuration = self.configuration;
+    self.request.progressHandler = self.progressHandler;
+    self.request.stepHandler = self.stepHandler;
+}
+
 - (void)start {
     @autoreleasepool {
         Protocol *requestProtocol = @protocol(MMRequest);
@@ -87,11 +93,13 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
         NSAssert([self.request conformsToProtocol:requestProtocol], @"%@.request MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(requestProtocol));
         NSAssert([self.configuration conformsToProtocol:configurationProtocol], @"%@.configuration MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(configurationProtocol));
         
+        [self willStart];
+        
 #if DEBUG
         sleep(arc4random() % 5 + 2);
 #endif
-        if(_step) {
-            _step(MMRequestStepPreparing);
+        if(_stepHandler) {
+            _stepHandler(MMRequestStepPreparing);
         }
 #if DEBUG
         sleep(arc4random() % 5 + 2);
@@ -159,7 +167,7 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
     [self.request prepare];
     
     // 再由NSOperation补充
-    [self presendRequest];
+    [self willSend];
     
     // 发送出去
     __weak typeof(self) weakedSelf = self;
@@ -181,14 +189,10 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
     }
 }
 
-- (void)presendRequest {
+- (void)willSend {
 }
 
 - (BOOL)shouldRetry {
-    return NO;
-}
-
-- (BOOL)shouldContinue {
     return NO;
 }
 
@@ -200,35 +204,10 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
             self.error = _response.error;
             //TODO: write the error into the long file in the sandbox
         }
-        if(_step) {
-            _step(MMRequestStepFinished);
+        if(_stepHandler) {
+            _stepHandler(MMRequestStepFinished);
         }
         _endTimestamp = CFAbsoluteTimeGetCurrent();
-    }
-}
-
-- (void)setConfiguration:(id<MMSessionConfiguration>)configuration {
-    if(_configuration != configuration) {
-        _configuration = configuration;
-        if(self.request) {
-            self.request.configuration = _configuration;
-        }
-    }
-}
-
-- (void)setRequest:(id<MMRequest>)request {
-    if(_request != request) {
-        _request = request;
-        if(self.configuration) {
-            _request.configuration = self.configuration;
-        }
-    }
-}
-
-- (void)setStep:(MMRequestStepHandler)step {
-    if(_step != step) {
-        _step = step;
-        self.request.step = _step;
     }
 }
 
@@ -245,7 +224,8 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
 @synthesize timeoutInterval = _timeoutInterval;
 @synthesize sessionManager = _sessionManager;
 @synthesize consumedTimestamp = _consumedTimestamp;
-@synthesize step = _step;
+@synthesize stepHandler = _stepHandler;
+@synthesize progressHandler = _progressHandler;
 
 @end
 

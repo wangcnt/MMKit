@@ -29,11 +29,16 @@
 @property (nonatomic, assign) NSInteger maxRetryTimes;
 @property (nonatomic, assign) NSInteger retryedTimes;
 
-@property (nonatomic, strong) MMRequestStepHandler step;
+@property (nonatomic, strong) MMRequestStepHandler stepHandler;
+@property (nonatomic, strong) MMRequestProgressHandler progressHandler;
 
-- (void)presendRequest;
-- (BOOL)shouldRetry;
-- (void)loadFinished;
+- (void)willStart;  ///< At begining of NSOperation-start, you can make associations amoung configurations here to make sure that the real request can be made. MUST: [super willStart];
+
+- (void)willSend;  ///< After -willStart and every state in current NSOperation is OK, I will send the current request to MMSessionManager to access to server, so you can do some AOP configurations for requests. Before -willSend, every request could prepare itself first with message MMRequest-prepare.
+
+- (BOOL)shouldRetry;    ///< After -willSend, the request was sent to server yet, it takes some time to fetch data from server, when received, you can make a decision to retry the current request or continue the next request here with resetting the response and error to nil, if no need to retry, -loadFinished will be invoked. NO will be returned by default;
+
+- (void)loadFinished;   ///< MUST: [super loadFinished] to finish current NSOperation.
 
 @end
 
@@ -48,6 +53,7 @@
 
 @interface MMOperation : NSOperation <MMOperation> {
     id<MMRequest> _request;
+    MMRequestProgressHandler _progressHandler;
 }
 @end
 

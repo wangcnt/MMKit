@@ -36,7 +36,9 @@
 @synthesize timeoutInterval = _timeoutInterval;
 @synthesize command = _command;
 @synthesize type = _type;
-@synthesize step = _step;
+@synthesize stepHandler = _stepHandler;
+
+@synthesize progressHandler = _progressHandler;
 
 @end
 

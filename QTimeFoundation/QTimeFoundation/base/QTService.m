@@ -41,7 +41,7 @@
     if(!name) return;
     QTInviteOperation *operation = [[QTInviteOperation alloc] initWithNames:@[name]];
     operation.configuration = _sessionConfiguration;
-    operation.step = ^(MMRequestStep stp) {
+    operation.stepHandler = ^(MMRequestStep stp) {
         if(step) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 step(stp);
