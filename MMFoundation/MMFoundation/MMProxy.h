@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  多協議動態代理
+ *  多協議動態代理，暂不支持代理Block属性
  *
  */
 @interface MMProxy : NSProxy

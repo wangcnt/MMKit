@@ -47,13 +47,12 @@ static const void *UIControlEventsHandlerArray = &UIControlEventsHandlerArray;
     NSMutableArray *handlerArray = [self handlerArray];
     NSMutableArray *removing = [NSMutableArray arrayWithCapacity:[handlerArray count]];
     
-    [handlerArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        UIControlEventsHandlerWrapper *target = obj;
+    for(UIControlEventsHandlerWrapper *target in handlerArray) {
         if (target.controlEvents == controlEvents) {
             [removing addObject:target];
             [self removeTarget:target action:@selector(invoke:) forControlEvents:controlEvents];
         }
-    }];
+    };
     
     [handlerArray removeObjectsInArray:removing];
 }
