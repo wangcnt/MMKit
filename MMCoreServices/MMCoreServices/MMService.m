@@ -30,7 +30,7 @@
         MMHTTPSessionManager *egHTTPSessionManager = [[MMHTTPSessionManager alloc] init];
         _egHTTPConfiguration = [[MMHTTPSessionConfiguration alloc] init];
 //        _egHTTPConfiguration.userAgent = @"haha";
-        _egHTTPConfiguration.token = @"token.token";
+        [_egHTTPConfiguration setHeaderEntriesWithEntries:@{@"token" : @"token.token", @"User-Agent" : @"haha"}];
         _egHTTPConfiguration.task_queue = task_queue;
         _egHTTPConfiguration.sessionManager = egHTTPSessionManager;
     }

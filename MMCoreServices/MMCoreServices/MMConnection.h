@@ -18,7 +18,7 @@ FOUNDATION_EXPORT NSString *const MMSocketConnectionFreeIdentifier;
 typedef enum : NSUInteger {
     MMSocketConnectionTypeDefault,  ///< Any task, needs login manually.
     MMSocketConnectionTypeFree,     ///< Needs not to login.
-    MMSocketConnectionTypeGroup    ///< A group of tasks that will be executed in an alone connection, needs login automatically.
+    MMSocketConnectionTypeGroup     ///< A group of tasks that will be executed in an alone connection, needs login manually
 } MMSocketConnectionType;
 
 typedef enum : NSUInteger {
@@ -33,11 +33,12 @@ typedef enum : NSUInteger {
 } MMSocketConnectionLoginStatus;
 
 @protocol MMConnection <NSObject>
+
 - (void)sendRequest:(id<MMRequest>)request withCompletion:(MMRequestCompletion)completion;
 
-- (void)cancelRequest:(id<MMRequest>)request;
-- (void)cancelRequests:(NSArray<id<MMRequest>> *)requests;
-- (void)cancelAllRequests;
+- (void)cancelRequest:(id<MMRequest>)request withError:(NSError *)error;
+- (void)cancelAllRequestsWithError:(NSError *)error;
+
 @end
 
 @protocol MMHTTPConnection <MMConnection>
@@ -55,8 +56,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) MMSocketConnectionLoginStatus loginStatus;
 
 @property (nonatomic, assign) NSTimeInterval pingInterval;
-
-@property (nonatomic, strong) dispatch_queue_t completion_queue;
 @property (nonatomic, weak) id<MMSocketSessionManager> manager;
 
 @required

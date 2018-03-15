@@ -38,13 +38,10 @@ typedef enum : NSUInteger {
 @end
 
 @implementation MMConnection
-- (void)cancelAllRequests {
+- (void)cancelAllRequestsWithError:(NSError *)error {
 }
 
-- (void)cancelRequest:(id<MMRequest>)request {
-}
-
-- (void)cancelRequests:(NSArray<id<MMRequest>> *)requests {
+- (void)cancelRequest:(id<MMRequest>)request withError:(NSError *)error {
 }
 
 - (void)sendRequest:(id<MMRequest>)request withCompletion:(MMRequestCompletion)completion {
@@ -122,10 +119,18 @@ typedef enum : NSUInteger {
     [_socket disconnect];
 }
 
-- (void)callbackWithCompletion:(MMRequestCompletion)completion response:(id<MMSocketResponse>)response {
+- (id<MMSocketResponse>)responseForRequest:(id<MMSocketRequest>)request {
+    Class clazz = (Class)request.responseClass;
+    id<MMSocketResponse> response = [[clazz alloc] init];
+    response.request = request;
+    return response;
+}
+
+- (void)finishWithCompletion:(MMRequestCompletion)completion response:(id<MMSocketResponse>)response {
     if(completion) {
-        if(_completion_queue) {
-            dispatch_async(self.completion_queue, ^{
+        dispatch_queue_t database_queue = response.request.configuration.database_queue;
+        if(database_queue) {
+            dispatch_async(database_queue, ^{
                 completion(response);
             });
         } else {
@@ -135,61 +140,29 @@ typedef enum : NSUInteger {
 }
 
 - (void)sendRequest:(id<MMSocketRequest>)request withCompletion:(MMRequestCompletion)completion {
-    void (^saveRequestAndSaveOrNot)(BOOL) = ^ (BOOL shouldSend) {
+    void (^saveRequestAndSendOrNot)(BOOL) = ^ (BOOL shouldSend) {
         MMSocketRequestWrapper *wrapper = [[MMSocketRequestWrapper alloc] init];
         wrapper.request = request;
         wrapper.completion = completion;
         
         id<MMRequestIDGenerator> idGenerator = request.configuration.requestIDGenerator;
         request.identifier = idGenerator.nextID;
+        
+        dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
         _wrapperDictionary[request.identifier] = wrapper;
         [_wrapperArray addObject:wrapper];
+        dispatch_semaphore_signal(_semaphore);
 
         if(shouldSend) {
             [self sendRequest:request];
         }
     };
     
-    if(_connected) {
-        if(_type == MMSocketConnectionTypeFree) {
-            saveRequestAndSaveOrNot(YES);
-        } else {
-            if(_loginStatus == MMSocketConnectionLoginStatusLogined) {
-                if(request.type == MMRequestTypeLogin) {
-                    Class clazz = (Class)request.responseClass;
-                    id<MMSocketResponse> response = [[clazz alloc] init];
-                    response.logined = YES;
-                    [self callbackWithCompletion:completion response:response];
-                } else {
-                    saveRequestAndSaveOrNot(YES);
-                }
-            } else if(_loginStatus == MMSocketConnectionLoginStatusLogining) {
-                if(request.type == MMRequestTypeLogin) {
-                    Class clazz = (Class)request.responseClass;
-                    id<MMSocketResponse> response = [[clazz alloc] init];
-                    response.logining = YES;
-                    [self callbackWithCompletion:completion response:response];
-                } else {
-                    // 登錄成功自動發送
-                    saveRequestAndSaveOrNot(NO);
-                }
-            } else {
-                if(_manager.autologinHandler) {
-                    saveRequestAndSaveOrNot(NO);
-                    _manager.autologinHandler(_identifier);
-                } else {
-                    NSError *error = [NSError errorWithDomain:MMCoreServicesErrorDomain code:MMCoreServicesErrorCodeNeedsLogin userInfo:@{NSLocalizedDescriptionKey : @"Please login first."}];
-                    Class clazz = (Class)request.responseClass;
-                    id<MMSocketResponse> response = [[clazz alloc] init];
-                    response.error = error;
-                    [self callbackWithCompletion:completion response:response];
-                }
-            }
-        }
-    } else {
-        saveRequestAndSaveOrNot(NO);
+    if(!self.connected) {
         [self connect];
     }
+    
+    saveRequestAndSendOrNot(self.connected);
 }
 
 - (void)sendRequest:(id<MMSocketRequest>)request {
@@ -202,31 +175,50 @@ typedef enum : NSUInteger {
     }
 }
 
-- (void)cancelRequest:(id<MMSocketRequest>)request {
-    MMSocketRequestWrapper *wrapper = _wrapperDictionary[request.identifier];
-    if(wrapper) {
-        wrapper.status = MMSocketRequestStatusCancelled;
-    }
+- (NSError *)errorForCancelledRequest:(id<MMSocketRequest>)request {
+    return [NSError errorWithDomain:MMCoreServicesErrorDomain
+                               code:MMCoreServicesErrorCodeRequestCancelled
+                           userInfo:@{NSLocalizedDescriptionKey : @"Request was cancelled.",
+                                      @"request" : request.command}];
 }
 
 - (void)cancelRequest:(id<MMSocketRequest>)request withError:(NSError *)error {
+    dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
     
-}
-
-- (void)cancelRequests:(NSArray<id<MMSocketRequest>> *)requests {
-    for(id<MMSocketRequest> request in requests) {
-        [self cancelRequest:request];
+    MMSocketRequestWrapper *wrapper = _wrapperDictionary[request.identifier];
+    if(wrapper) {
+        wrapper.status = MMSocketRequestStatusCancelled;
+        if(wrapper.completion) {
+            id<MMSocketResponse> response = [self responseForRequest:request];
+            response.error = error;
+            [self finishWithCompletion:wrapper.completion response:response];
+        }
     }
-}
-
-- (void)cancelAllRequests {
-    for(id<MMSocketRequest> request in _wrapperArray) {
-        [self cancelRequest:request];
-    }
+    [_wrapperArray removeObject:request];
+    [_wrapperDictionary removeObjectForKey:request.identifier];
+    
+    dispatch_semaphore_signal(_semaphore);
 }
 
 - (void)cancelAllRequestsWithError:(NSError *)error {
+    dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
     
+    for(id<MMSocketRequest> request in _wrapperArray) {
+        MMSocketRequestWrapper *wrapper = _wrapperDictionary[request.identifier];
+        if(wrapper) {
+            wrapper.status = MMSocketRequestStatusCancelled;
+            if(wrapper.completion) {
+                id<MMSocketResponse> response = [self responseForRequest:request];
+                response.error = error;
+                [self finishWithCompletion:wrapper.completion response:response];
+            }
+        }
+    }
+    
+    [_wrapperDictionary removeAllObjects];
+    [_wrapperArray removeAllObjects];
+    
+    dispatch_semaphore_signal(_semaphore);
 }
 
 - (void)startPing {
@@ -265,11 +257,11 @@ typedef enum : NSUInteger {
     _connecting = NO;
     
     [self stopPing];
+    
     [sock readDataWithTimeout:0 tag:2];
     
     // 自動發動緩存的請求
-    MMSocketRequestWrapper *wrapper = _wrapperArray.firstObject;
-    if(wrapper) {
+    for(MMSocketRequestWrapper *wrapper in _wrapperArray) {
         if(wrapper.status == MMSocketRequestStatusWaiting) {
             [self sendRequest:wrapper.request];
         }
@@ -277,7 +269,10 @@ typedef enum : NSUInteger {
 }
 
 - (void)socketDidDisconnect:(MMAsyncSocket *)sock withError:(NSError *)err {
-    BOOL disconnectedByUser = [sock.userData[MMSocketUserInfoDisconnectedByUserKey] boolValue];
+    BOOL disconnectedByUser = NO;
+    if([sock.userData isKindOfClass:NSDictionary.class]) {
+        disconnectedByUser = [sock.userData[MMSocketUserInfoDisconnectedByUserKey] boolValue];
+    }
     if(_pingTimer && _pingTimes < _maxPingTimes) {
         _connecting = !disconnectedByUser;
     } else {
@@ -286,13 +281,11 @@ typedef enum : NSUInteger {
     
     _loginStatus = MMSocketConnectionLoginStatusTraveller;
     _connected = NO;
-    if(disconnectedByUser) {
-        //TODO: 報錯用戶取消
-        [self cancelAllRequests];
-    } else {
-        for(MMSocketRequestWrapper *wrapper in _wrapperArray) {
-            wrapper.status = MMSocketRequestStatusWaiting;
-        }
+    NSString *message = [NSString stringWithFormat:@"Socket closed by %@", disconnectedByUser ? @"user" : @"server"];
+    NSError *error = [NSError errorWithDomain:MMCoreServicesErrorDomain code:MMCoreServicesErrorCodeRequestCancelled userInfo:@{NSLocalizedDescriptionKey : message}];
+    [self cancelAllRequestsWithError:error];
+    
+    if(!disconnectedByUser && _type==MMSocketConnectionTypeDefault) {
         [self startPing];
     }
 }
@@ -317,6 +310,5 @@ typedef enum : NSUInteger {
 @synthesize host = _host;
 @synthesize identifier = _identifier;
 @synthesize port = _port;
-@synthesize completion_queue = _completion_queue;
 
 @end

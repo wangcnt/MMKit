@@ -28,30 +28,40 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
-//    [self testMMServiceCenter];
+//    [self test_MMServiceCenter];
     
-    [self testInvokeWithBlockArgument];
+//    [self test_InvokeWithBlockArgument];
+    [self test_OverrideProperty];
     
-//    [self testInstalledAllApps];
+//    [self test_InstalledAllApps];
 //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-//    [self testSafeSingleton];
+//    [self test_SafeSingleton];
     
-//    [self testDDLog];
+//    [self test_DDLog];
     
     //    [self gcdDemo1];
     //    [self gcdDemo2];
     //    [self gcdDemo3];
     //    [self gcdDemo5];
-    //    [self testDynamicProxy];
-    //    [self testStringAdditions];
+    //    [self test_DynamicProxy];
+    //    [self test_StringAdditions];
 
     [self setupWindow];
-//    [self testEnumerateSubviews];
+//    [self test_EnumerateSubviews];
     
     return YES;
 }
 
-- (void)testSafeSingleton {
+- (void)test_OverrideProperty {
+    B *b = [[B alloc] init];
+    b.ha = @"haaaaaa";
+    
+    MMSubthing *sth = [[MMSubthing alloc] init];
+    sth.a = b;
+    [sth print];
+}
+
+- (void)test_SafeSingleton {
     __unused id shared = [MMSafeSignleton sharedInstance];
     MMSafeSignleton *inited = [[MMSafeSignleton alloc] init];
     __unused id copied = [inited copy];
@@ -59,7 +69,7 @@
     NSLog(@"safe.singleton.name-->%@", [MMSafeSignleton sharedInstance].name);
 }
 
-- (void)testInstalledAllApps {
+- (void)test_InstalledAllApps {
     Class c =NSClassFromString(@"LSApplicationWorkspace");
     id s = [(id)c performSelector:NSSelectorFromString(@"defaultWorkspace")];
     NSArray *array = [s performSelector:NSSelectorFromString(@"allInstalledApplications")];
@@ -71,11 +81,11 @@
     }
 }
 
-- (BOOL)testChangeReturnValueWhenDebugging {
+- (BOOL)test_ChangeReturnValueWhenDebugging {
     return YES;
 }
 
-- (void)testInvokeWithBlockArgument {
+- (void)test_InvokeWithBlockArgument {
     NSString *identifier = @"Mark Wong";
     void (^completion)(MMSomething *) = ^ (MMSomething *something) {
         [something print];
@@ -121,7 +131,7 @@
     [_window makeKeyAndVisible];
 }
 
-- (void)testEnumerateSubviews {
+- (void)test_EnumerateSubviews {
     NSString *result = [_window subhierarchyString];
     NSLog(@"window.hierarchy:%@", result);
     __block int count = 0;
@@ -136,13 +146,13 @@
     }];
 }
 
-- (void)testStringAdditions {
+- (void)test_StringAdditions {
     __unused NSComparisonResult greater = [@"a1.b2" compareVersion:@"a1asdf.c2(**HIUHIHIOHIHKHJGYUIOHIbkdsf3"];
     __unused NSArray<NSNumber *> *numbers = [@"1.2.3.4a3b*(Id2" numbers];
     NSLog(@"");
 }
 
-- (void)testDDLog {
+- (void)test_DDLog {
     [MMLogManager sharedInstance].maximumFileSize = 1024 * 1024 * 1;   // 1M
     [MMLogManager sharedInstance].rollingFrequency = 60; // 1 minute
     NSLog(@"log path-->%@", [MMLogManager sharedInstance].logPaths);
@@ -153,7 +163,7 @@
     MMLogWarning(@"I like cheese");
 }
 
-- (void)testMMServiceCenter {
+- (void)test_MMServiceCenter {
     MMServiceCenter<MMService, AKService> *center = [[MMServiceCenter<MMService, AKService> alloc] init];
     center.scope = MMServiceScopeGlobal;
     NSLog(@"center.scope --> %ld", center.scope);

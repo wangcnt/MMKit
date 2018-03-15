@@ -27,10 +27,38 @@
 
 @end
 
+@interface MMHTTPSessionConfiguration ()
+@property (nonatomic, strong) NSMutableDictionary *headerDictionary;
+@end
+
 @implementation MMHTTPSessionConfiguration
+
 @synthesize urlString = _urlString;
-@synthesize token = _token;
-@synthesize userAgent = _userAgent;
+@synthesize headerEntries = _headerEntries;
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _headerDictionary = [NSMutableDictionary dictionary];
+    }
+    return self;
+}
+
+- (void)setHeaderWithField:(NSString *)field value:(NSString *)value {
+    if(field && value) {
+        [self setHeaderEntriesWithEntries:@{field : value}];
+    }
+}
+
+- (void)setHeaderEntriesWithEntries:(NSDictionary *)headerEntries {
+    [_headerDictionary addEntriesFromDictionary:headerEntries];
+}
+
+- (NSDictionary *)headerEntries {
+    return _headerDictionary;
+}
+
 @end
 
 @implementation MMSocketSessionConfiguration

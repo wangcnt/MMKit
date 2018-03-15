@@ -55,13 +55,6 @@
     return _urlRequest;
 }
 
-- (void)setConfiguration:(id<MMSessionConfiguration>)configuration {
-    if(![configuration conformsToProtocol:@protocol(MMHTTPSessionConfiguration)]){
-        return;
-    }
-    super.configuration = configuration;
-}
-
 - (NSString *)urlString {
     NSString *urlString = nil;
     id<MMHTTPSessionConfiguration> configuration = (id<MMHTTPSessionConfiguration>)self.configuration;
@@ -71,37 +64,14 @@
     return urlString;
 }
 
-- (NSString *)userAgent {
-    NSString *userAgent = nil;
-    id<MMHTTPSessionConfiguration> configuration = (id<MMHTTPSessionConfiguration>)self.configuration;
-    if(configuration) {
-        userAgent = configuration.userAgent;
-    }
-    return userAgent;
-}
-
-- (NSString *)token {
-    NSString *token = nil;
-    id<MMHTTPSessionConfiguration> configuration = (id<MMHTTPSessionConfiguration>)self.configuration;
-    if(configuration) {
-        token = configuration.token;
-    }
-    return token;
-}
-
 - (void)prepare {
-    if(!_configuration || ![_configuration conformsToProtocol:@protocol(MMHTTPSessionConfiguration)]) {
-        _configuration = [[MMHTTPSessionConfiguration alloc] init];
-    }
     self.urlRequest.timeoutInterval = MAX(self.timeoutInterval, 10);
-    NSString *userAgent = [self userAgent];
-    if(userAgent) {
-        [self.urlRequest addValue:userAgent forHTTPHeaderField:@"User-Agent"];
-    }
-    NSString *token = [self token];
-    if(token) {
-        [self.urlRequest addValue:token forHTTPHeaderField:@"token"];
-    }
+    
+    id<MMHTTPSessionConfiguration> configuration = (id<MMHTTPSessionConfiguration>)self.configuration;
+    [configuration.headerEntries enumerateKeysAndObjectsUsingBlock:^(NSString *field, NSString *value, BOOL *stop) {
+        [self.urlRequest setValue:value forHTTPHeaderField:field];
+    }];
+    
     NSData *payload = self.payload;
     if(payload.length) {
         self.urlRequest.HTTPBody = self.payload;

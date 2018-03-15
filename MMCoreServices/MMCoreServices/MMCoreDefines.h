@@ -21,7 +21,7 @@ typedef void (^MMRequestCompletion)(id<MMResponse> res);
 typedef NS_ENUM(NSInteger, MMCoreServicesErrorCode) {
     MMCoreServicesErrorCodeOperationCancelled,
     MMCoreServicesErrorCodeException,
-    MMCoreServicesErrorCodeNeedsLogin
+    MMCoreServicesErrorCodeRequestCancelled
 };
 
 typedef NS_ENUM(NSInteger, MMRequestStep) {

@@ -25,8 +25,9 @@
 @required
 @property (nonatomic, strong) NSString *urlString;
 @optional
-@property (nonatomic, strong) NSString *userAgent;
-@property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong, readonly) NSDictionary *headerEntries;
+- (void)setHeaderWithField:(NSString *)field value:(NSString *)value;
+- (void)setHeaderEntriesWithEntries:(NSDictionary *)headerEntries;
 @end
 
 @protocol MMSocketSessionConfiguration <MMSessionConfiguration>
