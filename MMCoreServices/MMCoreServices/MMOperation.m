@@ -159,10 +159,6 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
 }
 
 - (void)sendRequest {
-    // 每次发请求之前清空error和response
-    _error = nil;
-    _response = nil;
-    
     // 先各自准备
     [self.request prepare];
     
@@ -173,11 +169,19 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
     __weak typeof(self) weakedSelf = self;
     dispatch_block_t block = ^ {
         [weakedSelf.sessionManager startRequest:weakedSelf.request withCompletion:^(id<MMResponse> res) {
-            _response = res;
-            if([weakedSelf shouldRetry]) {
-                [weakedSelf sendRequest];
+            if(weakedSelf.cancelled) {
+                
             } else {
-                [weakedSelf loadFinished];
+                _response = res;
+                if([weakedSelf shouldRetry]) {
+                    _error = nil;
+                    _response = nil;
+                    [weakedSelf sendRequest];
+                } else if([weakedSelf shouldContinue]) {
+                    [weakedSelf sendRequest];
+                } else {
+                    [weakedSelf loadFinished];
+                }
             }
         }];
     };
@@ -196,9 +200,14 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
     return NO;
 }
 
+- (BOOL)shouldContinue {
+    return NO;
+}
+
 - (void)loadFinished {
     // override by subclasses
     if (self.state != MMAsyncOperationStateFinished) {
+        [self persist];
         self.state = MMAsyncOperationStateFinished;
         if(!self.error) {
             self.error = _response.error;
@@ -209,6 +218,9 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
         }
         _endTimestamp = CFAbsoluteTimeGetCurrent();
     }
+}
+
+- (void)persist {
 }
 
 - (double)consumedTimestamp {
