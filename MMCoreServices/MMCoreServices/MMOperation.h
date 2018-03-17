@@ -12,7 +12,7 @@
 
 @protocol MMRequest, MMSocketRequest, MMResponse, MMSessionManager, MMConnection, MMSessionConfiguration;
 /**
- * start之前一定要准备好request, sessionConfiguration
+ * Async operation.
  */
 @protocol MMOperation <NSObject>
 
@@ -35,17 +35,19 @@
 @property (nonatomic, strong) MMRequestProgressHandler progressHandler;
 
 /*!
- * At begining of NSOperation-start, you can make associations amoung
- * configurations here to make sure that the real request can be made.
+ * At begining of -start, you can prepare the parameters here to make sure that
+ * the real request can be made before -willSend.
+ *
+ * But the current thread was not equal to the thread in -init.
  *
  * MUST: [super willStart];
  */
 - (void)willStart;
 
 /*!
- * After -willStart and every state in current NSOperation is OK, I will send
+ * After -willStart and every state in current operation is OK, it will send
  * the current request to MMSessionManager to access to server, so you can do
- * some AOP configurations for requests.
+ * some AOP configurations for requests here.
  *
  * Before -willSend, every request could prepare itself at first in message
  * MMRequest-prepare.
@@ -53,15 +55,13 @@
 - (void)willSend;
 
 /*!
- * After -willSend, the request was sent to server yet, it takes some time to
- * fetch data from server, when received, you can make a decision to retry the
- * current request or continue the next request here with resetting the response
- * and error to nil, if no need to retry or continue, -loadFinished will be
- * invoked.
+ * After -willSend, the request will try to sent to server, it takes some time
+ * to wait for its turn to access server and fetch data , when data is received,
+ * you can make a decision to retry the current request or continue the next
+ * request here. if no need to retry or continue, -loadFinished will be invoked.
  *
  * If it's need to continue, the data source should be changed before returning
- * in method -shouldContinue, then the MMRequest.payload will remake the
- * bodyData.
+ * in method -shouldContinue, then the MMRequest will remake the payload.
  *
  * The value NO will be returned both by default;
  */
@@ -74,9 +74,9 @@
 - (void)persist;
 
 /*!
- * Finally, the current operation will be notice to terminate in this method
- * cos' NSOperation-isFinished will be set to YES here, what we can do is
- * to finish the -persist job before setting to YES.
+ * Finally, the current operation will be notice to terminate cos' -isFinished
+ * will return YES here, what we can do is to finish the -persist job before
+ * YES.
  *
  * MUST: [super loadFinished].
  */
