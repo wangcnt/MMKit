@@ -18,7 +18,7 @@
 @protocol MMOperation <NSObject>
 
 @required
-@property (nonatomic, strong) id<MMServiceID> serviceID;
+@property (nonatomic, strong) id<MMServiceID> serviceID;    ///< MUST, or a damn thing will come for you.
 @property (nonatomic, strong, readonly) id<MMRequest> request;  ///< Must be set in -init.
 @property (nonatomic, strong) id<MMSessionConfiguration> configuration; ///< Must be set before -start.
 

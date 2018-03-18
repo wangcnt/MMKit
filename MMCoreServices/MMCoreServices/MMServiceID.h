@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 
 /**
- * Each MMservice must have its own identifier, cos the most tasks are
+ * Each MMservice must have its own identifier, cos' the most tasks are
  * asynchronous, some tasks may need to access the property of MMService even
  * in the underlayer, such as the important property MMService.invalid, now the
  * MMServiceID will be your key to touch the MMService.
  *
- * Default identifier and serviceKey will be a uuid string.
+ * Default identifier and serviceKey will be a uuid string, but you'd better
+ * replace the read-only serviceKey property in MMServiceID to recognize
+ * MMService more easily.
  *
  * It passes through MMService, then MMOperation, & then MMRequest.
  */

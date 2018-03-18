@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, MMServiceScope) {
 @property (nonatomic, assign) MMServiceScope scope;
 @property (nonatomic, assign) BOOL invalid; ///< If YES, all tasks won't be started or callbacked.
 
-@property (nonatomic, strong) id<MMServiceID> serviceID;  ///< Default will generate a uuid key for current service, but you'd better replace the read-only serviceKey property in MMServiceID to recognize more easily
+@property (nonatomic, strong) id<MMServiceID> serviceID;
 
 @optional
 - (void)startService;
