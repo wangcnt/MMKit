@@ -86,9 +86,9 @@
 - (void)setASLEnabled:(BOOL)ASLEnabled {
     if(_ASLEnabled != ASLEnabled) {
         _ASLEnabled = ASLEnabled;
-        
         DDASLLogger *aslLogger = [DDASLLogger sharedInstance];
         if(_ASLEnabled) {
+            self.TTYEnabled = NO;
             [DDLog addLogger:aslLogger];
         } else {
             [DDLog removeLogger:aslLogger];
@@ -102,6 +102,7 @@
         
         DDTTYLogger *ttyLogger = [DDTTYLogger sharedInstance];
         if(_TTYEnabled) {
+            self.ASLEnabled = NO;
             ttyLogger.colorsEnabled = YES;
             [ttyLogger setForegroundColor:DDMakeColor(255, 0, 0) backgroundColor:nil forFlag:DDLogFlagError];
             [ttyLogger setForegroundColor:DDMakeColor(125,200,80) backgroundColor:nil forFlag:DDLogFlagInfo];
@@ -115,7 +116,7 @@
 
 - (void)config {
     // 1. Apple console panel.
-    [DDASLLogger sharedInstance].logFormatter = _logFormatter;
+//    [DDASLLogger sharedInstance].logFormatter = _logFormatter;
     
     // 2. App file system.
     if(!_fileLogger) {
@@ -127,7 +128,7 @@
     _fileLogger.logFileManager.maximumNumberOfLogFiles = _maximumNumberOfLogFiles;
     
     // 3. Xcode console panel.
-    [DDTTYLogger sharedInstance].logFormatter = _logFormatter;
+//    [DDTTYLogger sharedInstance].logFormatter = _logFormatter;
     
     // 4. App database.
 }

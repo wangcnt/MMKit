@@ -6,6 +6,12 @@
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
+//#ifdef DEBUG
+//#define NSLog(...) NSLog(__VA_ARGS__)
+//#else
+//#define NSLog(...)
+//#endif
+
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

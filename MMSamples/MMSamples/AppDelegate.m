@@ -30,6 +30,7 @@
     //    [[B sharedInstance] print];
 //    [self test_MMServiceCenter];
     
+    NSLog(@"1111");
 //    [self test_InvokeWithBlockArgument];
     [self test_OverrideProperty];
     
@@ -157,11 +158,14 @@
     manager.maximumFileSize = 1024 * 1;   // 1K
     manager.rollingFrequency = 60; // 1 minute
     manager.maximumNumberOfLogFiles = 3;
-    manager.TTYEnabled = YES;
+//    manager.TTYEnabled = YES;
     manager.ASLEnabled = YES;
     manager.logsDirectory = mm_document_path();
     NSLog(@"log path-->%@", [MMLogManager sharedInstance].logPaths);
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self  selector:@selector(writeLogMessages:) userInfo:nil repeats:YES];
+    
+    NSLog(@"Wakakakakakakaak");
+    MMLogWarning(@"Wakakakakakakaak");
 }
 
 - (void)writeLogMessages:(NSTimer *)aTimer {

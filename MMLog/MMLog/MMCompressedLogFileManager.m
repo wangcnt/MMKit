@@ -156,8 +156,9 @@
     // We need to add a space to the name as otherwise we could match applications that have the name prefix.
     BOOL hasProperPrefix = [fileName hasPrefix:[appName stringByAppendingString:@" "]];
     BOOL hasProperSuffix = [fileName hasSuffix:@".log.gz"];
+    BOOL hasLogSuffix = [fileName hasSuffix:@".log"];
     
-    return (hasProperPrefix && hasProperSuffix);
+    return (hasProperPrefix && (hasProperSuffix || hasLogSuffix));
 }
 
 - (NSString *)applicationName {
