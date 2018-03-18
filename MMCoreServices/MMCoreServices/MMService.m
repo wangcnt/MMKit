@@ -15,6 +15,7 @@
 #import "MMSessionManager.h"
 #import "MMServiceCenter.h"
 #import "MMServiceID.h"
+#import <MMLog/MMLog.h>
 
 @interface MMService () {
 }
@@ -63,7 +64,7 @@
 }
 
 - (void)startService {
-    NSLog(@"%@ will start service.", self.class);
+    MMLogInfo(@"%@ will start service.", self.class);
 }
 
 - (void)restartService {

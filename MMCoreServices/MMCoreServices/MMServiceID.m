@@ -27,4 +27,5 @@
 
 @synthesize identifier = _identifier;
 @synthesize serviceKey = _serviceKey;
+
 @end

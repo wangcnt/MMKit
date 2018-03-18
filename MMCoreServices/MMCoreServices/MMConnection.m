@@ -11,6 +11,7 @@
 #import "MMRequest.h"
 #import "MMResponse.h"
 #import "MMOperation.h"
+#import <MMLog/MMLog.h>
 #import "MMApplication.h"
 #import "MMSessionManager.h"
 #import "MMRequestIDGenerator.h"
@@ -60,7 +61,7 @@ typedef enum : NSUInteger {
     NSInteger _maxPingTimes;
     NSInteger _pingTimes;
     NSMutableDictionary<NSString *, MMSocketRequestWrapper *> *_wrapperDictionary;    ///< 請求緩存，方便讀取
-    NSMutableArray<MMSocketRequestWrapper *> *_wrapperArray;  ///< 請求隊列，序列執行
+    NSMutableArray<MMSocketRequestWrapper *> *_wrapperArray;
 }
 @property (nonatomic, assign, readonly) BOOL connected;
 @property (nonatomic, assign, readonly) BOOL connecting;
@@ -103,14 +104,14 @@ typedef enum : NSUInteger {
         return;
     }
     if(!_host.length || _port<=0 || _port>65536) {
-        NSLog(@"connect failed with host:%@, port:%d", _host, _port);
+        MMLogInfo(@"connect failed with host:%@, port:%d", _host, _port);
         return;
     }
     
     NSError *error;
     [_socket connectToHost:_host onPort:_port error:&error];
     if(error) {
-        NSLog(@"connect failed with error:%@", error);
+        MMLogInfo(@"connect failed with error:%@", error);
     }
 }
 
@@ -273,10 +274,10 @@ typedef enum : NSUInteger {
     if([sock.userData isKindOfClass:NSDictionary.class]) {
         disconnectedByUser = [sock.userData[MMSocketUserInfoDisconnectedByUserKey] boolValue];
     }
-    if(_pingTimer && _pingTimes < _maxPingTimes) {
-        _connecting = !disconnectedByUser;
+    if(disconnectedByUser) {
+        [self stopPing];
     } else {
-        _connecting = NO;
+        _connecting = (_pingTimer && _pingTimes < _maxPingTimes);
     }
     
     _loginStatus = MMSocketConnectionLoginStatusTraveller;

@@ -41,7 +41,8 @@
  * At begining of -start, you can prepare the parameters here to make sure that
  * the real request can be made before -willSend.
  *
- * But the current thread was not equal to the thread in -init.
+ * But the current thread won't be the thread in -init, so some job should be
+ * done in -init to make thread safe, such as the CoreData tasks.
  *
  * MUST: [super willStart];
  */
@@ -58,15 +59,19 @@
 - (void)willSend;
 
 /*!
- * After -willSend, the request will try to sent to server, it takes some time
- * to wait for its turn to access server and fetch data , when data is received,
- * you can make a decision to retry the current request or continue the next
- * request here. if no need to retry or continue, -loadFinished will be invoked.
+ * After -willSend, the request will be tried sending to server, it takes some
+ * time to wait for its turn to access server and fetch data. When data is
+ * received, you can make a decision to retry the current request or continue
+ * the next request here.
  *
- * If it's need to continue, the data source should be changed before returning
- * in method -shouldContinue, then the MMRequest will remake the payload.
+ * If there is no need to retry or continue, -loadFinished will be invoked, then
+ * the current NSOperation will be terminated, @see -loadFinished.
  *
- * The value NO will be returned both by default;
+ * If it's needed to continue, the data source should be changed before
+ * returning in method -shouldContinue, then the MMRequest will remake the
+ * payload.
+ *
+ * The value NO will be both returned by default;
  */
 - (BOOL)shouldRetry;
 - (BOOL)shouldContinue;
@@ -78,7 +83,7 @@
 
 /*!
  * Finally, the current operation will be notice to terminate cos' -isFinished
- * will return YES here, what we can do is to finish the -persist job before
+ * will be set to YES here, what we can do is to finish the -persist job before
  * YES.
  *
  * MUST: [super loadFinished].

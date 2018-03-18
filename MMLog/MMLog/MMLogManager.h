@@ -10,15 +10,19 @@
 
 @interface MMLogManager : NSObject
 
-@property (nonatomic, assign) unsigned long long maximumFileSize;   ///< Default = 2M
-@property (nonatomic, assign) NSTimeInterval rollingFrequency;  ///< Default = 24h
+// Congifurations for file logger.
+@property (nonatomic, assign) unsigned long long maximumFileSize;   ///< Unit B, Default = 2M
+@property (nonatomic, assign) NSTimeInterval rollingFrequency;  ///< Unit second, Default = 24h
 @property (nonatomic, assign) int maximumNumberOfLogFiles;  ///< Default = 3
+@property (nonatomic, strong) NSString *logsDirectory;   ///< Root directory for log.
 
-@property (nonatomic, strong) NSString *logsDirectory;   ///< Root directory
+// Apple console app
+@property (nonatomic, assign) BOOL ASLEnabled;    ///< Log in apple console panel.
+@property (nonatomic, assign) BOOL TTYEnabled;    ///< Log in xcode console panel.
+@property (nonatomic, assign) BOOL dbEnabled __deprecated_msg("Not implemented.");     ///< Save logs into database.
 
 + (instancetype)sharedInstance;
 
-- (NSArray *)logPaths;
-- (NSMutableArray<NSString *> *)readLogs;
+@property (nonatomic, strong, readonly) NSArray *logPaths;
 
 @end

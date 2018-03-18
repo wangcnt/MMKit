@@ -45,14 +45,6 @@ static CLASS_NAME *instance = nil;                          \
     return self;                                            \
 }                                                           \
 
-
-#ifdef DEBUG
-#define NSLog(...) NSLog(__VA_ARGS__)
-#else
-#define NSLog(...)
-#endif
-
-
 static inline NSString *mm_document_path() {
     return NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
 }

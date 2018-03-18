@@ -37,7 +37,7 @@
 //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
 //    [self test_SafeSingleton];
     
-//    [self test_DDLog];
+    [self test_DDLog];
     
     //    [self gcdDemo1];
     //    [self gcdDemo2];
@@ -153,8 +153,13 @@
 }
 
 - (void)test_DDLog {
-    [MMLogManager sharedInstance].maximumFileSize = 1024 * 1024 * 1;   // 1M
-    [MMLogManager sharedInstance].rollingFrequency = 60; // 1 minute
+    MMLogManager *manager = [MMLogManager sharedInstance];
+    manager.maximumFileSize = 1024 * 1;   // 1K
+    manager.rollingFrequency = 60; // 1 minute
+    manager.maximumNumberOfLogFiles = 3;
+    manager.TTYEnabled = YES;
+    manager.ASLEnabled = YES;
+    manager.logsDirectory = mm_document_path();
     NSLog(@"log path-->%@", [MMLogManager sharedInstance].logPaths);
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self  selector:@selector(writeLogMessages:) userInfo:nil repeats:YES];
 }

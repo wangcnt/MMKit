@@ -15,7 +15,9 @@
 #import <MMFoundation/MMDefines.h>
 
 @interface MMLogManager ()
-@property (nonatomic,strong) DDFileLogger *fileLogger;
+@property (nonatomic, strong) DDFileLogger *fileLogger;
+@property (nonatomic, strong) MMCompressedLogFileManager *compressedFileManager;
+@property (nonatomic, strong) id<DDLogFormatter> logFormatter;
 @end
 
 @implementation MMLogManager
@@ -32,76 +34,102 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        MMCompressedLogFileManager *logFileManager = [[MMCompressedLogFileManager alloc] init];
-        _fileLogger = [[DDFileLogger alloc] initWithLogFileManager:logFileManager];
-        [self defaultConfiguration];
+        _maximumFileSize = 1024 * 1024 * 2; 
+        _rollingFrequency = 60 * 60 * 24;
+        _maximumNumberOfLogFiles = 3;
+        
+        _logFormatter = [[MMLogFormatter alloc] init];
+        
+        [self resetFileLogger];
     }
     return self;
+}
+
+- (void)resetFileLogger {
+    [DDLog removeLogger:_fileLogger];
+    
+    _compressedFileManager = [[MMCompressedLogFileManager alloc] initWithLogsDirectory:_logsDirectory];
+    _fileLogger = [[DDFileLogger alloc] initWithLogFileManager:_compressedFileManager];
+    
+    [DDLog addLogger:_fileLogger withLevel:ddLogLevel];
 }
 
 - (void)setLogsDirectory:(NSString *)logsDirectory {
     if(_logsDirectory != logsDirectory) {
         _logsDirectory = logsDirectory;
-        MMCompressedLogFileManager *logFileManager = [[MMCompressedLogFileManager alloc] init];
-        _fileLogger = [[DDFileLogger alloc] initWithLogFileManager:logFileManager];
-        _fileLogger.maximumFileSize = _maximumFileSize;
-        _fileLogger.rollingFrequency = _rollingFrequency;
-        _fileLogger.logFileManager.maximumNumberOfLogFiles = _maximumNumberOfLogFiles;
+        [self resetFileLogger];
+        [self config];
     }
 }
 
 - (void)setMaximumFileSize:(unsigned long long)maximumFileSize {
     if(_maximumFileSize != maximumFileSize) {
         _maximumFileSize = maximumFileSize;
-        _fileLogger.maximumFileSize = _maximumFileSize;
-    }
-}
-
-- (void)setRollingFrequency:(NSTimeInterval)rollingFrequency {
-    if(_rollingFrequency != rollingFrequency) {
-        _rollingFrequency = rollingFrequency;
-        _fileLogger.rollingFrequency = _rollingFrequency;
+        [self config];
     }
 }
 
 - (void)setMaximumNumberOfLogFiles:(int)maximumNumberOfLogFiles {
     if(_maximumNumberOfLogFiles != maximumNumberOfLogFiles) {
         _maximumNumberOfLogFiles = maximumNumberOfLogFiles;
-        _fileLogger.logFileManager.maximumNumberOfLogFiles = _maximumNumberOfLogFiles;
+        [self config];
     }
 }
 
-- (void)defaultConfiguration {
-    MMLogFormatter *logFormatter = [[MMLogFormatter alloc] init];
+- (void)setRollingFrequency:(NSTimeInterval)rollingFrequency {
+    if(_rollingFrequency != rollingFrequency)  {
+        _rollingFrequency = rollingFrequency;
+        [self config];
+    }
+}
+
+- (void)setASLEnabled:(BOOL)ASLEnabled {
+    if(_ASLEnabled != ASLEnabled) {
+        _ASLEnabled = ASLEnabled;
+        
+        DDASLLogger *aslLogger = [DDASLLogger sharedInstance];
+        if(_ASLEnabled) {
+            [DDLog addLogger:aslLogger];
+        } else {
+            [DDLog removeLogger:aslLogger];
+        }
+    }
+}
+
+- (void)setTTYEnabled:(BOOL)TTYEnabled {
+    if(_TTYEnabled != TTYEnabled) {
+        _TTYEnabled = TTYEnabled;
+        
+        DDTTYLogger *ttyLogger = [DDTTYLogger sharedInstance];
+        if(_TTYEnabled) {
+            ttyLogger.colorsEnabled = YES;
+            [ttyLogger setForegroundColor:DDMakeColor(255, 0, 0) backgroundColor:nil forFlag:DDLogFlagError];
+            [ttyLogger setForegroundColor:DDMakeColor(125,200,80) backgroundColor:nil forFlag:DDLogFlagInfo];
+            [ttyLogger setForegroundColor:DDMakeColor(200,100,200) backgroundColor:nil forFlag:DDLogFlagDebug];
+            [DDLog addLogger:ttyLogger];
+        } else {
+            [DDLog removeLogger:ttyLogger];
+        }
+    }
+}
+
+- (void)config {
+    // 1. Apple console panel.
+    [DDASLLogger sharedInstance].logFormatter = _logFormatter;
     
-    //1. 发送日志语句到苹果的日志系统，它们显示在Console.app上
-    //    [[DDASLLogger sharedInstance] setLogFormatter:logFormatter];
-    //    [DDLog addLogger:[DDASLLogger sharedInstance]];//
+    // 2. App file system.
+    if(!_fileLogger) {
+        [self resetFileLogger];
+    }
+    _fileLogger.logFormatter = _logFormatter;
+    _fileLogger.maximumFileSize = _maximumFileSize;
+    _fileLogger.rollingFrequency = _rollingFrequency; // 24 hour rolling
+    _fileLogger.logFileManager.maximumNumberOfLogFiles = _maximumNumberOfLogFiles;
     
-    //2. 把输出日志写到文件中
-//#if RELEASE
-    _fileLogger.logFormatter = logFormatter;
-    _fileLogger.maximumFileSize = 1024 * 1024 *2;
-    _fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-    _fileLogger.logFileManager.maximumNumberOfLogFiles = 3;
-    [DDLog addLogger:_fileLogger withLevel:ddLogLevel];//错误的写到文件中
-//#endif
+    // 3. Xcode console panel.
+    [DDTTYLogger sharedInstance].logFormatter = _logFormatter;
     
-#if DEBUG
-    //3. 初始化DDLog日志输出，在这里，我们仅仅希望在xCode控制台输出
-    DDTTYLogger *ttyLogger = [DDTTYLogger sharedInstance];
-    ttyLogger.logFormatter = logFormatter;
-    ttyLogger.colorsEnabled = YES;
-    [ttyLogger setForegroundColor:DDMakeColor(255, 0, 0) backgroundColor:nil forFlag:DDLogFlagError];
-    [ttyLogger setForegroundColor:DDMakeColor(125,200,80) backgroundColor:nil forFlag:DDLogFlagInfo];
-    [ttyLogger setForegroundColor:DDMakeColor(200,100,200) backgroundColor:nil forFlag:DDLogFlagDebug];
-    [DDLog addLogger:ttyLogger];//
-#endif
-    
-    //4. 添加数据库输出
-    //    DDAbstractLogger *dateBaseLogger = [[DDAbstractLogger alloc] init];
-    //    [dateBaseLogger setLogFormatter:logFormatter];
-    //    [DDLog addLogger:dateBaseLogger];
+    // 4. App database.
 }
 
 - (NSArray *)logPaths {
@@ -134,4 +162,5 @@
     }
     return logArray;
 }
+ 
 @end
