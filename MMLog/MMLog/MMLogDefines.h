@@ -9,6 +9,12 @@
 #ifndef MMLogDefines_h
 #define MMLogDefines_h
 
+#if DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
 #import "CocoaLumberjack.h"
 
 #if DEBUG

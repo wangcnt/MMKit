@@ -55,7 +55,7 @@
     
     [result appendFormat:@"%@) VALUES (", [columns componentsJoinedByString:@", "]];
     
-#ifdef DEBUG
+#if DEBUG
     
     NSMutableString *__nothing = [[NSMutableString alloc] initWithString:result];
     
@@ -67,7 +67,7 @@
 
         [result appendFormat:@"?"];
         
-#ifdef DEBUG
+#if DEBUG
         
         id value = dic[key];
         if([value isKindOfClass:[NSString class]])
@@ -88,7 +88,7 @@
         {
             [result appendString:@", "];
             
-#ifdef DEBUG
+#if DEBUG
             
             [__nothing appendString:@", "];
 #endif
@@ -97,7 +97,7 @@
     
     [result appendFormat:@")"];
     
-#ifdef DEBUG
+#if DEBUG
     
     [__nothing appendFormat:@")"];
     
@@ -129,14 +129,14 @@
         {
             [result appendFormat:@"UPDATE %@ SET ", tableName];
             
-#ifdef DEBUG
+#if DEBUG
             NSMutableString *__nothing = [[NSMutableString alloc] initWithString:result];
 #endif
             [dic.allKeys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
                 
                 [result appendFormat:@"%@ = :%@", key, key];
                 
-#ifdef DEBUG
+#if DEBUG
                 
                 id value = dic[key];
                 if([value isKindOfClass:[NSString class]])
@@ -157,7 +157,7 @@
                 {
                     [result appendString:@", "];
                     
-#ifdef DEBUG
+#if DEBUG
                     [__nothing appendString:@", "];
 #endif
                 }
@@ -165,7 +165,7 @@
             
             [result appendFormat:@" WHERE modelId = '%@'", [model modelId]];
             
-#ifdef DEBUG
+#if DEBUG
             [__nothing appendFormat:@" WHERE modelId = '%@'", [model modelId]];
             
             NSLog(@"update~~~~~%@", __nothing);

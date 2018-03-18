@@ -84,6 +84,7 @@
 }
 
 - (void)setASLEnabled:(BOOL)ASLEnabled {
+#if DEBUG
     if(_ASLEnabled != ASLEnabled) {
         _ASLEnabled = ASLEnabled;
         DDASLLogger *aslLogger = [DDASLLogger sharedInstance];
@@ -94,9 +95,11 @@
             [DDLog removeLogger:aslLogger];
         }
     }
+#endif
 }
 
 - (void)setTTYEnabled:(BOOL)TTYEnabled {
+#if DEBUG
     if(_TTYEnabled != TTYEnabled) {
         _TTYEnabled = TTYEnabled;
         
@@ -112,6 +115,7 @@
             [DDLog removeLogger:ttyLogger];
         }
     }
+#endif
 }
 
 - (void)config {
