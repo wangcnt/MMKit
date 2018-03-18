@@ -14,6 +14,7 @@
 #import "MMSessionConfiguration.h"
 #import "MMSessionManager.h"
 #import "MMServiceCenter.h"
+#import "MMServiceID.h"
 
 @interface MMService () {
 }
@@ -27,12 +28,14 @@
     self = [super init];
     if (self) {
         dispatch_queue_t task_queue = dispatch_queue_create("gaga", DISPATCH_QUEUE_SERIAL);
-        MMHTTPSessionManager *egHTTPSessionManager = [[MMHTTPSessionManager alloc] init];
+        MMHTTPSessionManager *httpSessionManager = [[MMHTTPSessionManager alloc] init];
         _egHTTPConfiguration = [[MMHTTPSessionConfiguration alloc] init];
 //        _egHTTPConfiguration.userAgent = @"haha";
         [_egHTTPConfiguration setHeaderEntriesWithEntries:@{@"token" : @"token.token", @"User-Agent" : @"haha"}];
         _egHTTPConfiguration.task_queue = task_queue;
-        _egHTTPConfiguration.sessionManager = egHTTPSessionManager;
+        _egHTTPConfiguration.sessionManager = httpSessionManager;
+        
+        _serviceID = [[MMServiceID alloc] init];
     }
     return self;
 }
@@ -86,5 +89,6 @@
 @synthesize invalid = _invalid;
 @synthesize center = _center;
 @synthesize scope = _scope;
+@synthesize serviceID = _serviceID;
 
 @end

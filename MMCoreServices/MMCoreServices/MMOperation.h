@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MMCoreDefines.h"
+#import "MMServiceID.h"
 
 @protocol MMRequest, MMSocketRequest, MMResponse, MMSessionManager, MMConnection, MMSessionConfiguration;
 /**
@@ -16,6 +17,8 @@
  */
 @protocol MMOperation <NSObject>
 
+@required
+@property (nonatomic, strong) id<MMServiceID> serviceID;
 @property (nonatomic, strong, readonly) id<MMRequest> request;  ///< Must be set in -init.
 @property (nonatomic, strong) id<MMSessionConfiguration> configuration; ///< Must be set before -start.
 

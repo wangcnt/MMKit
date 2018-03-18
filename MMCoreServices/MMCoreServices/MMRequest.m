@@ -40,6 +40,8 @@
 
 @synthesize progressHandler = _progressHandler;
 
+@synthesize serviceID = _serviceID;
+
 @end
 
 @implementation MMHTTPRequest

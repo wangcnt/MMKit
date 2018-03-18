@@ -44,6 +44,7 @@
 - (void)uploadEvents:(NSArray<id<AKEvent>> *)events withCompletion:(void (^)(NSError *error))completion {
     AKUploadOperation *operation = [[AKUploadOperation alloc] init];
     operation.events = events;
+    operation.serviceID = self.serviceID;
     __weak typeof(AKUploadOperation) *wop = operation;
     operation.completionBlock = ^{
         [self callbackWithCompletion:completion error:wop.response.error];

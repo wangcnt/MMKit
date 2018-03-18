@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D2CA12B205E2444000AD30F /* MMServiceID.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D2CA129205E2444000AD30F /* MMServiceID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D2CA12C205E2444000AD30F /* MMServiceID.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2CA12A205E2444000AD30F /* MMServiceID.m */; };
 		4D906D90204A994C005044F0 /* MMCoreServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906D8E204A994C005044F0 /* MMCoreServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906DAF204A9968005044F0 /* MMConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906D96204A9964005044F0 /* MMConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906DB0204A9968005044F0 /* MMConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906D97204A9964005044F0 /* MMConnection.m */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D2CA129205E2444000AD30F /* MMServiceID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMServiceID.h; sourceTree = "<group>"; };
+		4D2CA12A205E2444000AD30F /* MMServiceID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMServiceID.m; sourceTree = "<group>"; };
 		4D906D8B204A994B005044F0 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906D8E204A994C005044F0 /* MMCoreServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCoreServices.h; sourceTree = "<group>"; };
 		4D906D8F204A994C005044F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				4D906DAC204A9967005044F0 /* MMRequestIDGenerator.m */,
 				4D906DA0204A9966005044F0 /* MMResponse.h */,
 				4D906DA4204A9966005044F0 /* MMResponse.m */,
+				4D2CA129205E2444000AD30F /* MMServiceID.h */,
+				4D2CA12A205E2444000AD30F /* MMServiceID.m */,
 				4D906D9B204A9965005044F0 /* MMService.h */,
 				4D906DA1204A9966005044F0 /* MMService.m */,
 				4D906DAB204A9967005044F0 /* MMServiceCenter.h */,
@@ -160,6 +166,7 @@
 				4D906DC4204A9968005044F0 /* MMServiceCenter.h in Headers */,
 				4D906D90204A994C005044F0 /* MMCoreServices.h in Headers */,
 				4D906DBF204A9968005044F0 /* MMApplication.h in Headers */,
+				4D2CA12B205E2444000AD30F /* MMServiceID.h in Headers */,
 				4D906DB9204A9968005044F0 /* MMResponse.h in Headers */,
 				4D906DC7204A9968005044F0 /* MMCoreDefines.h in Headers */,
 			);
@@ -242,6 +249,7 @@
 				4D906DBA204A9968005044F0 /* MMService.m in Sources */,
 				4D906DB5204A9968005044F0 /* MMOperationQueue.m in Sources */,
 				4D906DB2204A9968005044F0 /* MMApplication.m in Sources */,
+				4D2CA12C205E2444000AD30F /* MMServiceID.m in Sources */,
 				4D906DC6204A9968005044F0 /* MMSessionManager.m in Sources */,
 				4D906DB0204A9968005044F0 /* MMConnection.m in Sources */,
 				4D906DB6204A9968005044F0 /* MMSessionConfiguration.m in Sources */,

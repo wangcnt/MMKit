@@ -19,6 +19,7 @@ FOUNDATION_EXPORT const unsigned char MMCoreServicesVersionString[];
 #import <MMCoreServices/MMApplication.h>
 #import <MMCoreServices/MMServiceCenter.h>
 #import <MMCoreServices/MMService.h>
+#import <MMCoreServices/MMServiceID.h>
 #import <MMCoreServices/MMSessionConfiguration.h>
 #import <MMCoreServices/MMOperationQueue.h>
 #import <MMCoreServices/MMOperation.h>

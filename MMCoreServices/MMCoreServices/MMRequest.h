@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MMCoreDefines.h"
+#import "MMServiceID.h"
 
 @protocol MMResponse, MMSessionConfiguration, MMHTTPSessionConfiguration, MMSocketSessionConfiguration;
 
@@ -29,8 +30,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSString *identifier;
 
 @property (nonatomic, strong) MMRequestStepHandler stepHandler;
-
 @property (nonatomic, strong) MMRequestProgressHandler progressHandler;
+
+@property (nonatomic, strong) id<MMServiceID> serviceID;
 
 - (void)prepare;
 

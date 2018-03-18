@@ -1,7 +1,7 @@
 
 ↑←↓→
 
-1. MMCoreServices層與整個App的流程依賴關係:
+1. MMCoreServices层与整个App的流程依赖关系:
                                 App
                                  |
                                  ↓
@@ -46,91 +46,90 @@
                                  |                                  |
                                  |__________________________________|
 
-2. 作用說明，創建時機：
-   2.1. MMServiceCenter
-        2.1.1. 作用說明：
-            a. 它將作為與一個UIFramework和Service framework形成一對一關係的與後台交互的橋樑，
-                傳遞管理所有的UI需求並發向服務器，完成任務後回調至UI層刷新給用戶；
-            b. 它是一個可選的多委託動態代理，將把任務分配給註冊進這個center的實現MMService協議的
+2. 作用说明，创建时机：
+    2.1. MMServiceCenter
+        2.1.1. 作用说明：
+            a. 它将作为与一个UIFramework和Service framework形成一对一关系的与后台交互的桥梁，
+                传递管理所有的UI需求并发向服务器，完成任务后回调至UI层刷新给用户；
+            b. 它是一个可选的多委托动态代理，将把任务分配给注册进这个center的实现MMService协议的
                 所有MMService。
 
-   2.2. MMService作用說明：
-        MMService將用於上層實現協議，實現具體業務任務的創建，分Single和Global兩種類型，
-        Single(maybe MM*Service)可關閉進行切換，Global(AnalyticsKit, MMLog)不可停止。
-；
+2.2. MMService作用说明：
+    MMService将用于上层实现协议，实现具体业务任务的创建，分Single和Global两种类型，
+    Single(maybe MM*Service)可关闭进行切换，Global(AnalyticsKit, MMLog)不可停止。
 
-   一般地，普通的業務較單一的App只需要一個MMService即可。
+    一般地，普通的业务较单一的App只需要一个MMService即可，甚至连MMServiceCenter都用不上。
 
-   2.3. MMSessionConfiguration
-        2.3.1. 作用說明：
-            a. 指定一種業務或一個模塊的會話管理器MMSessionManager，用於管理相關的所有
-                MMConnection連接，這些MMConnection必須有相同的基本配置如host:port, token,
-                HTTP headers，但功能會有所不同；
-            b. 指定一種受MMSessionManager管理的與服務器的連接的MMConnection類型，及其它
-               與MMConnection相關的固定配置，如網絡請求隊列，數據持久隊列，並由MMOperation
-                轉儲於每一條MMRequest中；
-            c. 指定一種請求的唯一標識生成器MMRequestIDGenerator，這將在Socket業務中起重要作用，
-                可以從服務器返回的NSData中根據requestID識別原始的MMRequest；
-        2.3.2. 創建時機，使用方法：
-            在MMOperation-sendRequest之前被創建並存儲於MMRequest中。
+2.3. MMSessionConfiguration
+    2.3.1. 作用说明：
+        a. 指定一种业务或一个模块的会话管理器MMSessionManager，用于管理相关的所有
+            MMConnection连接，这些MMConnection必须有相同的基本配置如host:port, token,
+            HTTP headers，但功能会有所不同；
+        b. 指定一种受MMSessionManager管理的与服务器的连接的MMConnection类型，及其它
+            与MMConnection相关的固定配置，如网络请求队列，数据持久队列，并由MMOperation
+            转储于每一条MMRequest中；
+        c. 指定一种请求的唯一标识生成器MMRequestIDGenerator，这将在Socket业务中起重要作用，
+            可以从服务器返回的NSData中根据requestID识别原始的MMRequest；
+    2.3.2. 创建时机，使用方法：
+        在MMOperation-sendRequest之前被创建并存储于MMRequest中。
 
-   2.4. MMOperaitonQueue
-        2.4.1. 作用說明：
-            a. 管理各種同步或異步的任務；
-            b. 將只接收MMOperation，並且只接受-addOperation:添加進入的任務；
-        2.4.2. 創建時機，使用方法：
-            由MMApplication默認創建並不可修改值，只允許配置屬性。
+2.4. MMOperaitonQueue
+    2.4.1. 作用说明：
+        a. 管理各种同步或异步的任务；
+        b. 将只接收MMOperation，并且只接受-addOperation:添加进入的任务；
+    2.4.2. 创建时机，使用方法：
+        由MMApplication默认创建并不可修改值，只允许配置属性。
 
-   2.5. MMOperation
-        2.5.1. 作用說明：
-            a. 管理著用戶的一條任務，並可採取異步任務機制；
-            b. 創建網絡請求，將請求由MMSessionManager發送出去，並負責將由MMConnection回
-                調回來的MMResponse臨時數據持久化；
-            c. 標識用戶的一個任務已經完成並回調至MMService再通知UI層呈現結果給用戶；
-        2.5.2. 創建時機，使用方法：
-            在MMService裏創建並被NSOperationQueue管理。
+2.5. MMOperation
+    2.5.1. 作用说明：
+        a. 管理著用户的一条任务，并可采取异步任务机制；
+        b. 创建网络请求，将请求由MMSessionManager发送出去，并负责将由MMConnection回
+            调回来的MMResponse临时数据持久化；
+        c. 标识用户的一个任务已经完成并回调至MMService再通知UI层呈现结果给用户；
+    2.5.2. 创建时机，使用方法：
+        在MMService里创建并被NSOperationQueue管理。
 
-   2.6. MMRequest
-        2.6.1. 作用說明：
-            a. 負責用戶請求的信息存儲及網絡交互數據的生成；
-            b. 存儲MMSessionConfiguration以指定MMConnection類型來處理這條用戶的請求；
-            c. 每一條MMRequest將持有一個網絡交互協議MMConnection的唯一標識connectionID，
-                這樣方便於進行鏈式任務；這個標識將在MMSessionManager裏確定具體的交互協議
-                MMConnection，如果有，返回，如果沒有，根據
-                MMRequest.configuration.connectionClass生成一個；
-            d. 每個MMSocketRequest將持有一個當前請求的唯一標識，用於取到socket數據後識別
-                出請求。
-        2.7.2. 創建時機，使用方法：
-            在MMOperation-init方法裏創建，將貫穿於整個MMOperation生命週期;
+2.6. MMRequest
+    2.6.1. 作用说明：
+        a. 负责用户请求的信息存储及网络交互数据的生成；
+        b. 存储MMSessionConfiguration以指定MMConnection类型来处理这条用户的请求；
+        c. 每一条MMRequest将持有一个网络交互协议MMConnection的唯一标识connectionID，
+            这样方便于进行链式任务；这个标识将在MMSessionManager里确定具体的交互协议
+            MMConnection，如果有，返回，如果没有，根据
+            MMRequest.configuration.connectionClass生成一个；
+        d. 每个MMSocketRequest将持有一个当前请求的唯一标识，用于取到socket数据后识别
+            出请求。
+    2.6.2. 创建时机，使用方法：
+        在MMOperation-init方法里创建，将贯穿于整个MMOperation生命周期;
 
-   2.7. MMSessionManager
-        2.7.1. 作用說明：
-            a. 一個MMSessionManager根據MMSessionConfiguration.connectionClass管理著
-                一種類別（即同一種服務地址或一種業務，一個模塊）的MMConnection，負責它們的
-                創建，銷燬及任務傳遞和取消；
-            b. 如是HTTP請求，一般一個MMSessionManager只需要管理一個Connection；
-            c. 如是Socket請求，那麽可能同一地址，將會有幾種連接同時存在，比如普通任務的請求保
-                持一個連接，特殊任務（可能因狀態值影響普通任務的正常進行）的請求將使用另外一個
-                同地址的連接，也可能存在一些不需要登錄狀態或其它狀態的任務需求，如郵件的IMAP
-                協議；
-        2.7.2. 創建時機，使用方法：
-            創建於MMOperation-sendRequest前;
+2.7. MMSessionManager
+    2.7.1. 作用说明：
+        a. 一个MMSessionManager根据MMSessionConfiguration.connectionClass管理著
+            一种类别（即同一种服务地址或一种业务，一个模块）的MMConnection，负责它们的
+            创建，销毁及任务传递和取消；
+        b. 如是HTTP请求，一般一个MMSessionManager只需要管理一个Connection；
+        c. 如是Socket请求，那麽可能同一地址，将会有几种连接同时存在，比如普通任务的请求保
+            持一个连接，特殊任务（可能因状态值影响普通任务的正常进行）的请求将使用另外一个
+            同地址的连接，也可能存在一些不需要登录状态或其它状态的任务需求，如邮件的IMAP
+            协议；
+    2.7.2. 创建时机，使用方法：
+        创建于MMOperation-sendRequest前;
 
-   2.8. MMConnection
-        2.8.1. 作用說明：
-            a. 負責一種與服務器交互協議的處理，發送請求，接收數據；
-            b. 一個MMSessionManager只允許管理一種MMConnection，這些MMConnection必須指
-                向同一個地址，只是功能會有所不同；
-            b. 根據接收數據生成MMResponse並以MMRequestCompletion的方式將數據返回調給
-                MMOperation進行持久化；
-        2.8.2. 創建時機，使用方法：
-            MMSessionManager-startRequest:withCompletion:裏根據MMRequest的connectionID
-            和MMRequest.MMSessionConfiguration.connectionClass來選取或創建；
+2.8. MMConnection
+    2.8.1. 作用说明：
+        a. 负责一种与服务器交互协议的处理，发送请求，接收数据；
+        b. 一个MMSessionManager只允许管理一种MMConnection，这些MMConnection必须指
+            向同一个地址，只是功能会有所不同；
+        c. 根据接收数据生成MMResponse并以MMRequestCompletion的方式将数据返回调给
+            MMOperation进行持久化；
+    2.8.2. 创建时机，使用方法：
+        MMSessionManager-startRequest:withCompletion:里根据MMRequest的connectionID
+        和MMRequest.MMSessionConfiguration.connectionClass来选取或创建；
 
-   2.9. MMResponse
-        2.9.1. 作用說明：
-            負責轉換從服務器傳回來的的數據成業務層的臨時數據
-        2.9.2. 創建時機，使用方法：
-            由MMRequest.responseClass指定, 在MMConnection從服務器取到數據並識別出
-            MMRequest之後被創建;
+2.9. MMResponse
+    2.9.1. 作用说明：
+        负责转换从服务器传回来的的数据成业务层的临时数据
+    2.9.2. 创建时机，使用方法：
+        由MMRequest.responseClass指定, 在MMConnection从服务器取到数据并识别出
+        MMRequest之后被创建;
 

@@ -10,10 +10,10 @@
 
 #import "MMOperationQueue.h"
 #import "MMService.h"
+#import "MMServiceID.h"
 
 @interface MMServiceCenter()
 @property (nonatomic, strong) NSMutableDictionary<NSString *, id<MMService>> *serviceDictionary;
-@property (nonatomic, strong) NSMutableArray<id<MMService>> *serviceArray;
 @end
 
 @implementation MMServiceCenter
@@ -24,30 +24,52 @@
     _serialQueue.maxConcurrentOperationCount = 1;
     _serialQueue.qualityOfService = NSQualityOfServiceUserInteractive;
     
-    _serviceDictionary = [[NSMutableDictionary<NSString *, id<MMService>> alloc] initWithCapacity:1];
-    _serviceArray = [NSMutableArray<id<MMService>> arrayWithCapacity:1];
+    _serviceDictionary = [[NSMutableDictionary<NSString *, id<MMService>> alloc] initWithCapacity:2];
     return self;
 }
 
 - (void)registerService:(id<MMService>)service {
     service.center = self;
-    [super addDelegate:service];
+    NSString *serviceKey = service.serviceID.serviceKey;
+    if(serviceKey.length && service) {
+        _serviceDictionary[serviceKey] = service;
+        [super addDelegate:service];
+    }
 }
 
 - (void)unregisterService:(id<MMService>)service {
+    NSString *serviceKey = service.serviceID.serviceKey;
+    if(!serviceKey) {
+        return;
+    }
     if(service.scope == MMServiceScopeGlobal) {
         return;
     }
+    [_serviceDictionary removeObjectForKey:serviceKey];
     [super removeDelegate:service];
 }
 
+- (id<MMService>)serviceForServiceID:(id<MMServiceID>)serviceID {
+    NSString *serviceKey = serviceID.serviceKey;
+    if(!serviceKey.length) {
+        return nil;
+    }
+    return _serviceDictionary[serviceKey];
+}
+
 - (void)startService:(id<MMService>)service {
-    if(!service) return;
+    if(!service || !service.serviceID.serviceKey) return;
     [self registerService:service];
     [service startService];
 }
 
 - (void)stopService:(id<MMService>)service withCompletion:(void (^)(NSError *error))completion {
+    if(!service || !service.serviceID.serviceKey) {
+        if(completion) {
+            completion(nil);
+        }
+        return;
+    }
     if(service.scope == MMServiceScopeSingle) {
         [service stopService];
     }

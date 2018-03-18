@@ -84,14 +84,19 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
     self.request.configuration = self.configuration;
     self.request.progressHandler = self.progressHandler;
     self.request.stepHandler = self.stepHandler;
+    self.request.serviceID = self.serviceID;
 }
 
 - (void)start {
     @autoreleasepool {
-        Protocol *requestProtocol = @protocol(MMRequest);
-        Protocol *configurationProtocol = @protocol(MMSessionConfiguration);
-        NSAssert([self.request conformsToProtocol:requestProtocol], @"%@.request MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(requestProtocol));
-        NSAssert([self.configuration conformsToProtocol:configurationProtocol], @"%@.configuration MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(configurationProtocol));
+        Protocol *protocol = @protocol(MMRequest);
+        NSAssert([self.request conformsToProtocol:protocol], @"%@.request MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(protocol));
+        
+        protocol = @protocol(MMSessionConfiguration);
+        NSAssert([self.configuration conformsToProtocol:protocol], @"%@.configuration MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(protocol));
+        
+        protocol = @protocol(MMServiceID);
+        NSAssert([self.serviceID conformsToProtocol:protocol], @"%@.serviceID MUST conform to protocol: %@.", NSStringFromClass(self.class), NSStringFromProtocol(protocol));
         
         [self willStart];
         
@@ -238,6 +243,8 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
 @synthesize consumedTimestamp = _consumedTimestamp;
 @synthesize stepHandler = _stepHandler;
 @synthesize progressHandler = _progressHandler;
+
+@synthesize serviceID = _serviceID;
 
 @end
 
