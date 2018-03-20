@@ -7,6 +7,7 @@
 //
 
 #import "MMViewController.h"
+#import <MMLog/MMLog.h>
 
 @interface MMViewController ()
 
@@ -33,7 +34,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"deallocated[%@]", NSStringFromClass(self.class));
+    MMLogInfo(@"deallocated[%@]", NSStringFromClass(self.class));
 }
 
 @end

@@ -48,6 +48,8 @@
 		4D24AB7620308551006777FF /* AKUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB7120308551006777FF /* AKUploadRequest.m */; };
 		4D24AB7720308551006777FF /* AKUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AB7120308551006777FF /* AKUploadRequest.m */; };
 		4D321F43204EEF6F006B9B36 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D321F44204EEF6F006B9B36 /* MMCoreServices.framework */; };
+		4DF7AA2F205EBA2800FB6000 /* AKServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DF7AA2D205EBA2800FB6000 /* AKServiceCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DF7AA30205EBA2800FB6000 /* AKServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7AA2E205EBA2800FB6000 /* AKServiceCenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		4D24AB7120308551006777FF /* AKUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKUploadRequest.m; sourceTree = "<group>"; };
 		4D321F44204EEF6F006B9B36 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DB95607204A9ED7004F5E30 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DF7AA2D205EBA2800FB6000 /* AKServiceCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKServiceCenter.h; sourceTree = "<group>"; };
+		4DF7AA2E205EBA2800FB6000 /* AKServiceCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKServiceCenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 				4D24AB682030853A006777FF /* protocol */,
 				4D24AB6720308531006777FF /* operation */,
 				4D24AB43203084FE006777FF /* base */,
+				4DF7AA2D205EBA2800FB6000 /* AKServiceCenter.h */,
+				4DF7AA2E205EBA2800FB6000 /* AKServiceCenter.m */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -240,6 +246,7 @@
 				4D24AB6B20308547006777FF /* AKUploadOperation.h in Headers */,
 				4D24AB5F20308528006777FF /* AKService.h in Headers */,
 				4D24AB6220308528006777FF /* AKHTTPSessionConfiguration.h in Headers */,
+				4DF7AA2F205EBA2800FB6000 /* AKServiceCenter.h in Headers */,
 				4D24AB5C20308528006777FF /* AKHTTPSessionManager.h in Headers */,
 				4D24AADF20307263006777FF /* AnalyticsKit.h in Headers */,
 			);
@@ -355,6 +362,7 @@
 				4D24AB6020308528006777FF /* AKHTTPSessionConfiguration.m in Sources */,
 				4D24AB5220308528006777FF /* AKHTTPResponse.m in Sources */,
 				4D24AB5D20308528006777FF /* AKHTTPConnection.m in Sources */,
+				4DF7AA30205EBA2800FB6000 /* AKServiceCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

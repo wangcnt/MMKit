@@ -10,7 +10,7 @@
 
 @implementation MMLogFormatter
 
--(NSString *)formatLogMessage:(DDLogMessage *)message {
+- (NSString *)formatLogMessage:(DDLogMessage *)message {
     NSString *level = nil;
     switch (message.flag) {
         case DDLogFlagError: {

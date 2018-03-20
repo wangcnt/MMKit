@@ -73,7 +73,7 @@
     2.3.2. 创建时机，使用方法：
         在MMOperation-sendRequest之前被创建并存储于MMRequest中。
 
-2.4. MMOperaitonQueue
+2.4. MMOperationQueue
     2.4.1. 作用说明：
         a. 管理各种同步或异步的任务；
         b. 将只接收MMOperation，并且只接受-addOperation:添加进入的任务；

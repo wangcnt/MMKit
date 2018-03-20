@@ -28,11 +28,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
-//    [self test_MMServiceCenter];
+    [self test_MMServiceCenter];
     
-    NSLog(@"1111");
 //    [self test_InvokeWithBlockArgument];
-    [self test_OverrideProperty];
+//    [self test_OverrideProperty];
     
 //    [self test_InstalledAllApps];
 //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
@@ -181,7 +180,7 @@
     [center registerService:service];
     
     AKService *akService = [[AKService alloc] init];
-    [center registerService:akService];
+    [center startService:akService];
     
     [center uploadEvent:nil withCompletion:^(NSError *error) {
         NSLog(@"");

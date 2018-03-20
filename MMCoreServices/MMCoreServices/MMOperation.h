@@ -32,7 +32,7 @@
 @property (nonatomic, assign, readonly) double consumedTimestamp;
 
 @property (nonatomic, assign) NSInteger maxRetryTimes;
-@property (nonatomic, assign) NSInteger retryedTimes;
+@property (nonatomic, assign) NSInteger retriedTimes;
 
 @property (nonatomic, strong) MMRequestStepHandler stepHandler;
 @property (nonatomic, strong) MMRequestProgressHandler progressHandler;
@@ -71,7 +71,7 @@
  * returning in method -shouldContinue, then the MMRequest will remake the
  * payload.
  *
- * The value NO will be both returned by default;
+ * NO will be both returned by default;
  */
 - (BOOL)shouldRetry;
 - (BOOL)shouldContinue;

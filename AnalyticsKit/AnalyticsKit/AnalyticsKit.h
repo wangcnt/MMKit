@@ -28,6 +28,7 @@ FOUNDATION_EXPORT const unsigned char AnalyticsKitVersionString[];
 #import <AnalyticsKit/AKHTTPSessionConfiguration.h>
 #import <AnalyticsKit/AKHTTPSessionManager.h>
 #import <AnalyticsKit/AKService.h>
+#import <AnalyticsKit/AKServiceCenter.h>
 
 #import <AnalyticsKit/AKUploadOperation.h>
 #import <AnalyticsKit/AKUploadRequest.h>

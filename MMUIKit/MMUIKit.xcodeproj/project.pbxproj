@@ -49,6 +49,7 @@
 		4DCB0DFD1C24730600339CF9 /* MMTranslucentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */; };
 		4DCB0DFE1C24730600339CF9 /* MMTranslucentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */; };
 		4DCB0DFF1C24730600339CF9 /* MMTranslucentViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DCB0DFC1C24730600339CF9 /* MMTranslucentViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DDDD8852061527E00E49811 /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDDD8862061527E00E49811 /* MMLog.framework */; };
 		4DE44A991C24391300FD1D97 /* MMNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE44A5A1C24391300FD1D97 /* MMNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE44A9A1C24391300FD1D97 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A5B1C24391300FD1D97 /* MMNavigationController.m */; };
 		4DE44A9B1C24391300FD1D97 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE44A5B1C24391300FD1D97 /* MMNavigationController.m */; };
@@ -174,6 +175,7 @@
 		4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTranslucentViewController.m; sourceTree = "<group>"; };
 		4DCB0DFC1C24730600339CF9 /* MMTranslucentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTranslucentViewController.h; sourceTree = "<group>"; };
 		4DD3B0212049A873002C3B1A /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DDDD8862061527E00E49811 /* MMLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE44A5A1C24391300FD1D97 /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
 		4DE44A5B1C24391300FD1D97 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
 		4DE44A5E1C24391300FD1D97 /* MMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMViewController.h; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DDDD8852061527E00E49811 /* MMLog.framework in Frameworks */,
 				4D24AA77202F6426006777FF /* AVFoundation.framework in Frameworks */,
 				4D24AA2A202F189B006777FF /* MMFoundation.framework in Frameworks */,
 			);
@@ -250,6 +253,7 @@
 		17F53A5A1298DDD63E52DA9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DDDD8862061527E00E49811 /* MMLog.framework */,
 				4DD3B0212049A873002C3B1A /* Masonry.framework */,
 				4D24AA76202F6426006777FF /* AVFoundation.framework */,
 				4D24AA2B202F189B006777FF /* MMFoundation.framework */,

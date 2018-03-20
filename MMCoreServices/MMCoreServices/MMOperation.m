@@ -111,6 +111,7 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
 #endif
         
         _startTimestamp = CFAbsoluteTimeGetCurrent();
+        
         if (self.isCancelled) {
             self.error = [NSError errorWithDomain:MMCoreServicesErrorDomain code:MMCoreServicesErrorCodeOperationCancelled userInfo:@{NSLocalizedDescriptionKey : @"Request cancelled."}];
             [self loadFinished];
@@ -127,19 +128,7 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
             }
         }];
         if(shouldContinue) {
-            NSException *exception = nil;
-            @try {
-                [self sendRequest];
-            }
-            @catch (NSException *e) {
-                exception = e;
-            }
-            @finally {
-                if(exception) {
-                    self.error = [NSError errorWithDomain:MMCoreServicesErrorDomain code:MMCoreServicesErrorCodeException userInfo:@{NSLocalizedDescriptionKey : [NSArray arrayWithArray:exception.backtrace]}];
-                    [self loadFinished];
-                }
-            }
+            [self sendRequest];
         }
     }
 }
@@ -174,11 +163,11 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
     __weak typeof(self) weakedSelf = self;
     dispatch_block_t block = ^ {
         [weakedSelf.sessionManager startRequest:weakedSelf.request withCompletion:^(id<MMResponse> res) {
+            _response = res;
             if(weakedSelf.cancelled) {
-                
+                [weakedSelf loadFinished];
             } else {
-                _response = res;
-                if([weakedSelf shouldRetry]) {
+                if([weakedSelf shouldRetry] && _retriedTimes++<_maxRetryTimes) {
                     _error = nil;
                     _response = nil;
                     [weakedSelf sendRequest];
@@ -198,6 +187,11 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
     }
 }
 
+- (void)cancel {
+    _error = [NSError errorWithDomain:MMCoreServicesErrorDomain code:MMCoreServicesErrorCodeRequestCancelled userInfo:@{NSLocalizedDescriptionKey : @"Operation cancelled."}];
+    [super cancel];
+}
+
 - (void)willSend {
 }
 
@@ -213,7 +207,7 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
     // override by subclasses
     if (self.state != MMAsyncOperationStateFinished) {
         [self persist];
-        self.state = MMAsyncOperationStateFinished;
+        
         if(!self.error) {
             self.error = _response.error;
             //TODO: write the error into the long file in the sandbox
@@ -222,6 +216,9 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
             _stepHandler(MMRequestStepFinished);
         }
         _endTimestamp = CFAbsoluteTimeGetCurrent();
+        
+        // The current NSOperation will be terminated.
+        self.state = MMAsyncOperationStateFinished;
     }
 }
 
@@ -234,7 +231,7 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
 
 @synthesize error = _error;
 @synthesize configuration = _configuration;
-@synthesize retryedTimes = _retryedTimes;
+@synthesize retriedTimes = _retriedTimes;
 @synthesize maxRetryTimes = _maxRetryTimes;
 @synthesize response = _response;
 @synthesize request = _request;

@@ -228,11 +228,10 @@ typedef enum : NSUInteger {
     _pingTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
     dispatch_source_set_timer(_pingTimer, dispatch_walltime(NULL, 0), _pingInterval * NSEC_PER_SEC, 0);
     dispatch_source_set_event_handler(_pingTimer, ^{
-        _pingTimes ++;
-        if(_pingTimes >= _maxPingTimes) {
-            [self stopPing];
-        } else {
+        if(_pingTimes++ < _maxPingTimes) {
             [self connect];
+        } else {
+            [self stopPing];
         }
     });
     dispatch_source_set_cancel_handler(_pingTimer, ^{
