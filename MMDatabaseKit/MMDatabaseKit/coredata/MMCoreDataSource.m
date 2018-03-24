@@ -100,18 +100,19 @@
 
 #pragma mark - Fetched Results Controller Delegate
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView beginUpdates];
     if(self.delegate && [self.delegate respondsToSelector:@selector(dataSourceWillChangeContent:)]) {
         [self.delegate dataSourceWillChangeContent:self];
     }
+    [self.tableView beginUpdates];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+
+    [self resetCount];
     if(self.delegate && [self.delegate respondsToSelector:@selector(dataSourceDidChangeContent:)]) {
         [self.delegate dataSourceDidChangeContent:self];
     }
-    [self resetCount];
-    [self.tableView endUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
