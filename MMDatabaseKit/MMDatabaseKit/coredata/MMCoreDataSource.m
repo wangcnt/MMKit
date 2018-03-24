@@ -12,7 +12,7 @@
 #import "NSManagedObjectContextAdditions.h"
 
 @interface MMCoreDataSource () {
-    NSInteger size;
+    NSInteger _fetchLimit;
 }
 @end
 
@@ -20,7 +20,7 @@
 
 - (void)performFetch {
     self.request.predicate = self.predicate;
-    self.request.fetchLimit = size;
+    self.request.fetchLimit = _fetchLimit;
     self.request.sortDescriptors = _sortDescriptors;
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error] || error) {
@@ -55,12 +55,12 @@
 }
 
 - (void)nextPage {
-    size += _pageSize;
+    _fetchLimit += _pageSize;
     [self performFetch];
 }
 
 - (void)resetPage {
-    size = 0;
+    _fetchLimit = 0;
     _count = 0;
 }
 

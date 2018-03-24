@@ -16,14 +16,16 @@
 
 @property (nonatomic, strong, readonly) NSFetchedResultsController *fetchController;
 @property (nonatomic, strong, readonly) NSFetchRequest *request;
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSString *sectionKeyPath;
-@property (nonatomic, weak) id<MMCoreDataSourceDelegate> delegate;
-@property (nonatomic, assign, readonly) NSInteger count;
 @property (nonatomic, strong) NSArray *sortDescriptors;
-
 @property (nonatomic, assign) int pageSize;
+
+@property (nonatomic, assign, readonly) NSInteger count;
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, weak) id<MMCoreDataSourceDelegate> delegate;
+
 
 - (NSPredicate *)predicate;
 
