@@ -17,54 +17,14 @@
 		4D906CEF2049D7C8005044F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CEE2049D7C8005044F0 /* main.m */; };
 		4D906CF72049D7F0005044F0 /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFC2049D7F0005044F0 /* MMLog.framework */; };
 		4D906CF82049D7F0005044F0 /* MMUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFD2049D7F0005044F0 /* MMUIKit.framework */; };
-		4D906CF92049D7F0005044F0 /* QTimeFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFE2049D7F0005044F0 /* QTimeFoundation.framework */; };
-		4D906CFA2049D7F0005044F0 /* QTimeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFF2049D7F0005044F0 /* QTimeUI.framework */; };
 		4D906D00204A5F8A005044F0 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D01204A5F8A005044F0 /* Masonry.framework */; };
 		4D906DC8204A9A2F005044F0 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */; };
 		4D9BC37920540A4F007FE60C /* MMSafeSignleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC37820540A4F007FE60C /* MMSafeSignleton.m */; };
 		4DB9560C204AA46C004F5E30 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB9560D204AA46C004F5E30 /* MMFoundation.framework */; };
 		4DDDD8A520663B6A00E49811 /* MMDatabaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDDD8A620663B6A00E49811 /* MMDatabaseKit.framework */; };
-		4DDDD8A720663C5800E49811 /* MMDatabaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDDD8A620663B6A00E49811 /* MMDatabaseKit.framework */; };
-		4DDDD8A820663C5800E49811 /* MMDatabaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDDD8A620663B6A00E49811 /* MMDatabaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4DDDD8A920663C5800E49811 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB9560D204AA46C004F5E30 /* MMFoundation.framework */; };
-		4DDDD8AA20663C5800E49811 /* MMFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB9560D204AA46C004F5E30 /* MMFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4DDDD8AB20663C5900E49811 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */; };
-		4DDDD8AC20663C5900E49811 /* MMCoreServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4DDDD8AD20663C5900E49811 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D01204A5F8A005044F0 /* Masonry.framework */; };
-		4DDDD8AE20663C5900E49811 /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D01204A5F8A005044F0 /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4DDDD8AF20663C5900E49811 /* AnalyticsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFB2049D7F0005044F0 /* AnalyticsKit.framework */; };
-		4DDDD8B020663C5900E49811 /* AnalyticsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFB2049D7F0005044F0 /* AnalyticsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4DDDD8B120663C5900E49811 /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFC2049D7F0005044F0 /* MMLog.framework */; };
-		4DDDD8B220663C5900E49811 /* MMLog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFC2049D7F0005044F0 /* MMLog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4DDDD8B320663C5900E49811 /* MMUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFD2049D7F0005044F0 /* MMUIKit.framework */; };
-		4DDDD8B420663C5900E49811 /* MMUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFD2049D7F0005044F0 /* MMUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4DDDD8B520663C5900E49811 /* QTimeFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFE2049D7F0005044F0 /* QTimeFoundation.framework */; };
-		4DDDD8B620663C5900E49811 /* QTimeFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFE2049D7F0005044F0 /* QTimeFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4DDDD8B720663C5900E49811 /* QTimeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFF2049D7F0005044F0 /* QTimeUI.framework */; };
-		4DDDD8B820663C5900E49811 /* QTimeUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFF2049D7F0005044F0 /* QTimeUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		4DDDD8B920663C5900E49811 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4DDDD8A820663C5800E49811 /* MMDatabaseKit.framework in Embed Frameworks */,
-				4DDDD8B220663C5900E49811 /* MMLog.framework in Embed Frameworks */,
-				4DDDD8B020663C5900E49811 /* AnalyticsKit.framework in Embed Frameworks */,
-				4DDDD8AC20663C5900E49811 /* MMCoreServices.framework in Embed Frameworks */,
-				4DDDD8B620663C5900E49811 /* QTimeFoundation.framework in Embed Frameworks */,
-				4DDDD8B420663C5900E49811 /* MMUIKit.framework in Embed Frameworks */,
-				4DDDD8B820663C5900E49811 /* QTimeUI.framework in Embed Frameworks */,
-				4DDDD8AE20663C5900E49811 /* Masonry.framework in Embed Frameworks */,
-				4DDDD8AA20663C5800E49811 /* MMFoundation.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4D8B535F2056C03F00FB3BDF /* MMSomething.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSomething.h; sourceTree = "<group>"; };
@@ -102,20 +62,11 @@
 				4DDDD8A520663B6A00E49811 /* MMDatabaseKit.framework in Frameworks */,
 				4D8B534A20554A0F00FB3BDF /* AnalyticsKit.framework in Frameworks */,
 				4DB9560C204AA46C004F5E30 /* MMFoundation.framework in Frameworks */,
-				4DDDD8A920663C5800E49811 /* MMFoundation.framework in Frameworks */,
-				4DDDD8AF20663C5900E49811 /* AnalyticsKit.framework in Frameworks */,
 				4D906DC8204A9A2F005044F0 /* MMCoreServices.framework in Frameworks */,
 				4D906D00204A5F8A005044F0 /* Masonry.framework in Frameworks */,
-				4DDDD8AD20663C5900E49811 /* Masonry.framework in Frameworks */,
 				4D906CF72049D7F0005044F0 /* MMLog.framework in Frameworks */,
-				4DDDD8AB20663C5900E49811 /* MMCoreServices.framework in Frameworks */,
-				4DDDD8B120663C5900E49811 /* MMLog.framework in Frameworks */,
 				4D906CF82049D7F0005044F0 /* MMUIKit.framework in Frameworks */,
-				4D906CF92049D7F0005044F0 /* QTimeFoundation.framework in Frameworks */,
-				4DDDD8B320663C5900E49811 /* MMUIKit.framework in Frameworks */,
 				4DDDD8B720663C5900E49811 /* QTimeUI.framework in Frameworks */,
-				4DDDD8A720663C5800E49811 /* MMDatabaseKit.framework in Frameworks */,
-				4D906CFA2049D7F0005044F0 /* QTimeUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +145,6 @@
 				4D906CD52049D7C7005044F0 /* Sources */,
 				4D906CD62049D7C7005044F0 /* Frameworks */,
 				4D906CD72049D7C7005044F0 /* Resources */,
-				4DDDD8B920663C5900E49811 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

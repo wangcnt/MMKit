@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
-#import "NSManagedObjectAdditions.h"
-
 #import "NSManagedObjectContextAdditions.h"
 
 @implementation NSManagedObject (Additions)

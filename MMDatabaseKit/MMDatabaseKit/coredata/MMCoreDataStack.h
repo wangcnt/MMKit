@@ -25,9 +25,10 @@
 + (instancetype)binaryStackWithName:(NSString *)modelName;
 + (instancetype)inMemoryStackWithName:(NSString *)modelName;
 + (instancetype)sqliteStackWithName:(NSString *)modelName;
-+ (instancetype)stackWithModelName:(NSString *)modelName storeType:(NSString *)storeType;
 
++ (instancetype)stackWithModelName:(NSString *)modelName storeType:(NSString *)storeType;
 - (instancetype)initWithModelName:(NSString *)modelName storeType:(NSString *)storeType NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, copy, readonly) NSString *modelName;  ///< Current model name
 @property (nonatomic, copy, readonly) NSString *storeType;  ///< Current store type

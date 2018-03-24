@@ -13,7 +13,7 @@
 
 @implementation NSManagedObjectContext (Save)
 
-- (void)mm_save:(NSError **)error {
+- (void)mm_save:(NSError * __autoreleasing *)error {
     if(![self hasChanges])  {
         return;
     }
@@ -30,7 +30,7 @@
     }];
 }
 
-- (BOOL)mm_saveAndWait:(NSError **)error {
+- (BOOL)mm_saveAndWait:(NSError * __autoreleasing *)error {
     __block BOOL successed = NO;
     if([self hasChanges]) {
         [self performBlockAndWait:^{

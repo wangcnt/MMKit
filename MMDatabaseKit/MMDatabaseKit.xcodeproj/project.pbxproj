@@ -27,6 +27,8 @@
 		4DDDD8A12066011700E49811 /* NSManagedObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DDDD89F2066011700E49811 /* NSManagedObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DDDD8A22066011700E49811 /* NSManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDD8A02066011700E49811 /* NSManagedObjectAdditions.m */; };
 		4DDDD8A420663A3000E49811 /* MMCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DDDD8A320663A3000E49811 /* MMCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DDDD8BC20663ECE00E49811 /* MMCoreDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DDDD8BA20663ECE00E49811 /* MMCoreDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DDDD8BD20663ECE00E49811 /* MMCoreDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDD8BB20663ECE00E49811 /* MMCoreDataSource.m */; };
 		4DE8A0701C243DC700754819 /* MMDatabaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A06F1C243DC700754819 /* MMDatabaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE8A0771C243DC800754819 /* MMDatabaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE8A06C1C243DC700754819 /* MMDatabaseKit.framework */; };
 		4DE8A07C1C243DC800754819 /* MMDatabaseKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A07B1C243DC800754819 /* MMDatabaseKitTests.m */; };
@@ -77,6 +79,8 @@
 		4DDDD89F2066011700E49811 /* NSManagedObjectAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectAdditions.h; sourceTree = "<group>"; };
 		4DDDD8A02066011700E49811 /* NSManagedObjectAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectAdditions.m; sourceTree = "<group>"; };
 		4DDDD8A320663A3000E49811 /* MMCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCoreData.h; sourceTree = "<group>"; };
+		4DDDD8BA20663ECE00E49811 /* MMCoreDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCoreDataSource.h; sourceTree = "<group>"; };
+		4DDDD8BB20663ECE00E49811 /* MMCoreDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMCoreDataSource.m; sourceTree = "<group>"; };
 		4DE8A06C1C243DC700754819 /* MMDatabaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMDatabaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE8A06F1C243DC700754819 /* MMDatabaseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMDatabaseKit.h; sourceTree = "<group>"; };
 		4DE8A0711C243DC700754819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 			children = (
 				4DDDD88E206569A200E49811 /* MMCoreDataStack.h */,
 				4DDDD88F206569A200E49811 /* MMCoreDataStack.m */,
+				4DDDD8BA20663ECE00E49811 /* MMCoreDataSource.h */,
+				4DDDD8BB20663ECE00E49811 /* MMCoreDataSource.m */,
 				4DDDD89220656BBB00E49811 /* NSManagedObjectContextAdditions.h */,
 				4DDDD89320656BBB00E49811 /* NSManagedObjectContextAdditions.m */,
 				4DDDD89F2066011700E49811 /* NSManagedObjectAdditions.h */,
@@ -235,6 +241,7 @@
 				4DDDD8A12066011700E49811 /* NSManagedObjectAdditions.h in Headers */,
 				4DDDD89420656BBB00E49811 /* NSManagedObjectContextAdditions.h in Headers */,
 				4DDDD8A420663A3000E49811 /* MMCoreData.h in Headers */,
+				4DDDD8BC20663ECE00E49811 /* MMCoreDataSource.h in Headers */,
 				4DE8A0A81C243DFD00754819 /* MMFMDB.h in Headers */,
 				4DDDD890206569A200E49811 /* MMCoreDataStack.h in Headers */,
 				4D906C832049B942005044F0 /* FMResultSet.h in Headers */,
@@ -294,7 +301,7 @@
 		4DE8A0631C243DC700754819 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Mark;
 				TargetAttributes = {
 					4DE8A06B1C243DC700754819 = {
@@ -346,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE8A0B31C243DFD00754819 /* MMSqlGenerator.m in Sources */,
+				4DDDD8BD20663ECE00E49811 /* MMCoreDataSource.m in Sources */,
 				4DDDD8A22066011700E49811 /* NSManagedObjectAdditions.m in Sources */,
 				4DDDD891206569A200E49811 /* MMCoreDataStack.m in Sources */,
 				4D906C8A2049B942005044F0 /* FMDatabasePool.m in Sources */,
@@ -391,13 +399,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -438,13 +454,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -474,6 +498,7 @@
 		4DE8A0811C243DC800754819 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -481,7 +506,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = MMDatabaseKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hermoe..MMDatabaseKit;
@@ -493,6 +518,7 @@
 		4DE8A0821C243DC800754819 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -500,7 +526,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = MMDatabaseKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hermoe..MMDatabaseKit;
