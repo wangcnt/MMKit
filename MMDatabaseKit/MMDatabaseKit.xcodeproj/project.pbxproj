@@ -18,31 +18,28 @@
 		4D906C892049B942005044F0 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C7E2049B942005044F0 /* FMDatabaseAdditions.h */; };
 		4D906C8A2049B942005044F0 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C7F2049B942005044F0 /* FMDatabasePool.m */; };
 		4D906C8B2049B942005044F0 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C802049B942005044F0 /* FMResultSet.m */; };
+		4DDDD890206569A200E49811 /* MMCoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DDDD88E206569A200E49811 /* MMCoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DDDD891206569A200E49811 /* MMCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDD88F206569A200E49811 /* MMCoreDataStack.m */; };
+		4DDDD89420656BBB00E49811 /* NSManagedObjectContextAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DDDD89220656BBB00E49811 /* NSManagedObjectContextAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DDDD89520656BBB00E49811 /* NSManagedObjectContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDD89320656BBB00E49811 /* NSManagedObjectContextAdditions.m */; };
+		4DDDD89820656C8D00E49811 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDDD89720656C8D00E49811 /* CoreData.framework */; };
+		4DDDD89920656E7900E49811 /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDDD89A20656E7900E49811 /* MMLog.framework */; };
+		4DDDD8A12066011700E49811 /* NSManagedObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DDDD89F2066011700E49811 /* NSManagedObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DDDD8A22066011700E49811 /* NSManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDD8A02066011700E49811 /* NSManagedObjectAdditions.m */; };
+		4DDDD8A420663A3000E49811 /* MMCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DDDD8A320663A3000E49811 /* MMCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE8A0701C243DC700754819 /* MMDatabaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A06F1C243DC700754819 /* MMDatabaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE8A0771C243DC800754819 /* MMDatabaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE8A06C1C243DC700754819 /* MMDatabaseKit.framework */; };
 		4DE8A07C1C243DC800754819 /* MMDatabaseKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A07B1C243DC800754819 /* MMDatabaseKitTests.m */; };
 		4DE8A0991C243DFD00754819 /* NSMutableDictionary+Database.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A0861C243DFD00754819 /* NSMutableDictionary+Database.h */; };
 		4DE8A09A1C243DFD00754819 /* NSMutableDictionary+Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0871C243DFD00754819 /* NSMutableDictionary+Database.m */; };
 		4DE8A09B1C243DFD00754819 /* NSMutableDictionary+Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0871C243DFD00754819 /* NSMutableDictionary+Database.m */; };
-		4DE8A09C1C243DFD00754819 /* MMCoreDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A0881C243DFD00754819 /* MMCoreDatabase.h */; };
-		4DE8A09D1C243DFD00754819 /* MMCoreDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0891C243DFD00754819 /* MMCoreDatabase.m */; };
-		4DE8A09E1C243DFD00754819 /* MMCoreDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0891C243DFD00754819 /* MMCoreDatabase.m */; };
 		4DE8A09F1C243DFD00754819 /* MMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A08A1C243DFD00754819 /* MMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DE8A0A01C243DFD00754819 /* MMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A08B1C243DFD00754819 /* MMDatabase.m */; };
 		4DE8A0A11C243DFD00754819 /* MMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A08B1C243DFD00754819 /* MMDatabase.m */; };
-		4DE8A0A21C243DFD00754819 /* MMDatabaseManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A08C1C243DFD00754819 /* MMDatabaseManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DE8A0A31C243DFD00754819 /* MMDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A08D1C243DFD00754819 /* MMDatabaseManager.m */; };
-		4DE8A0A41C243DFD00754819 /* MMDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A08D1C243DFD00754819 /* MMDatabaseManager.m */; };
-		4DE8A0A81C243DFD00754819 /* MMFMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A0901C243DFD00754819 /* MMFMDatabase.h */; };
-		4DE8A0A91C243DFD00754819 /* MMFMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0911C243DFD00754819 /* MMFMDatabase.m */; };
-		4DE8A0AA1C243DFD00754819 /* MMFMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0911C243DFD00754819 /* MMFMDatabase.m */; };
-		4DE8A0AB1C243DFD00754819 /* MMOriginalDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A0921C243DFD00754819 /* MMOriginalDatabase.h */; };
-		4DE8A0AC1C243DFD00754819 /* MMOriginalDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0931C243DFD00754819 /* MMOriginalDatabase.m */; };
-		4DE8A0AD1C243DFD00754819 /* MMOriginalDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0931C243DFD00754819 /* MMOriginalDatabase.m */; };
+		4DE8A0A81C243DFD00754819 /* MMFMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A0901C243DFD00754819 /* MMFMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DE8A0A91C243DFD00754819 /* MMFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0911C243DFD00754819 /* MMFMDB.m */; };
+		4DE8A0AA1C243DFD00754819 /* MMFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0911C243DFD00754819 /* MMFMDB.m */; };
 		4DE8A0AE1C243DFD00754819 /* MMPersistable.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A0941C243DFD00754819 /* MMPersistable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DE8A0AF1C243DFD00754819 /* MMSPODatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A0951C243DFD00754819 /* MMSPODatabase.h */; };
-		4DE8A0B01C243DFD00754819 /* MMSPODatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0961C243DFD00754819 /* MMSPODatabase.m */; };
-		4DE8A0B11C243DFD00754819 /* MMSPODatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0961C243DFD00754819 /* MMSPODatabase.m */; };
 		4DE8A0B21C243DFD00754819 /* MMSqlGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE8A0971C243DFD00754819 /* MMSqlGenerator.h */; };
 		4DE8A0B31C243DFD00754819 /* MMSqlGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0981C243DFD00754819 /* MMSqlGenerator.m */; };
 		4DE8A0B41C243DFD00754819 /* MMSqlGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8A0981C243DFD00754819 /* MMSqlGenerator.m */; };
@@ -71,6 +68,15 @@
 		4D906C7E2049B942005044F0 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		4D906C7F2049B942005044F0 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		4D906C802049B942005044F0 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		4DDDD88E206569A200E49811 /* MMCoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCoreDataStack.h; sourceTree = "<group>"; };
+		4DDDD88F206569A200E49811 /* MMCoreDataStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMCoreDataStack.m; sourceTree = "<group>"; };
+		4DDDD89220656BBB00E49811 /* NSManagedObjectContextAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextAdditions.h; sourceTree = "<group>"; };
+		4DDDD89320656BBB00E49811 /* NSManagedObjectContextAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextAdditions.m; sourceTree = "<group>"; };
+		4DDDD89720656C8D00E49811 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4DDDD89A20656E7900E49811 /* MMLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DDDD89F2066011700E49811 /* NSManagedObjectAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectAdditions.h; sourceTree = "<group>"; };
+		4DDDD8A02066011700E49811 /* NSManagedObjectAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectAdditions.m; sourceTree = "<group>"; };
+		4DDDD8A320663A3000E49811 /* MMCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCoreData.h; sourceTree = "<group>"; };
 		4DE8A06C1C243DC700754819 /* MMDatabaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMDatabaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE8A06F1C243DC700754819 /* MMDatabaseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMDatabaseKit.h; sourceTree = "<group>"; };
 		4DE8A0711C243DC700754819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,19 +85,11 @@
 		4DE8A07D1C243DC800754819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DE8A0861C243DFD00754819 /* NSMutableDictionary+Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Database.h"; sourceTree = "<group>"; };
 		4DE8A0871C243DFD00754819 /* NSMutableDictionary+Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Database.m"; sourceTree = "<group>"; };
-		4DE8A0881C243DFD00754819 /* MMCoreDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCoreDatabase.h; sourceTree = "<group>"; };
-		4DE8A0891C243DFD00754819 /* MMCoreDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCoreDatabase.m; sourceTree = "<group>"; };
 		4DE8A08A1C243DFD00754819 /* MMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDatabase.h; sourceTree = "<group>"; };
 		4DE8A08B1C243DFD00754819 /* MMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDatabase.m; sourceTree = "<group>"; };
-		4DE8A08C1C243DFD00754819 /* MMDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDatabaseManager.h; sourceTree = "<group>"; };
-		4DE8A08D1C243DFD00754819 /* MMDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDatabaseManager.m; sourceTree = "<group>"; };
-		4DE8A0901C243DFD00754819 /* MMFMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFMDatabase.h; sourceTree = "<group>"; };
-		4DE8A0911C243DFD00754819 /* MMFMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFMDatabase.m; sourceTree = "<group>"; };
-		4DE8A0921C243DFD00754819 /* MMOriginalDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMOriginalDatabase.h; sourceTree = "<group>"; };
-		4DE8A0931C243DFD00754819 /* MMOriginalDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMOriginalDatabase.m; sourceTree = "<group>"; };
+		4DE8A0901C243DFD00754819 /* MMFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFMDB.h; sourceTree = "<group>"; };
+		4DE8A0911C243DFD00754819 /* MMFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFMDB.m; sourceTree = "<group>"; };
 		4DE8A0941C243DFD00754819 /* MMPersistable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPersistable.h; sourceTree = "<group>"; };
-		4DE8A0951C243DFD00754819 /* MMSPODatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSPODatabase.h; sourceTree = "<group>"; };
-		4DE8A0961C243DFD00754819 /* MMSPODatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSPODatabase.m; sourceTree = "<group>"; };
 		4DE8A0971C243DFD00754819 /* MMSqlGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSqlGenerator.h; sourceTree = "<group>"; };
 		4DE8A0981C243DFD00754819 /* MMSqlGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSqlGenerator.m; sourceTree = "<group>"; };
 		4DE8A0D31C243E5100754819 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -102,6 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DDDD89920656E7900E49811 /* MMLog.framework in Frameworks */,
+				4DDDD89820656C8D00E49811 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,12 +134,36 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
+		4DDDD8872065671300E49811 /* coredata */ = {
+			isa = PBXGroup;
+			children = (
+				4DDDD88E206569A200E49811 /* MMCoreDataStack.h */,
+				4DDDD88F206569A200E49811 /* MMCoreDataStack.m */,
+				4DDDD89220656BBB00E49811 /* NSManagedObjectContextAdditions.h */,
+				4DDDD89320656BBB00E49811 /* NSManagedObjectContextAdditions.m */,
+				4DDDD89F2066011700E49811 /* NSManagedObjectAdditions.h */,
+				4DDDD8A02066011700E49811 /* NSManagedObjectAdditions.m */,
+				4DDDD8A320663A3000E49811 /* MMCoreData.h */,
+			);
+			path = coredata;
+			sourceTree = "<group>";
+		};
+		4DDDD89620656C8D00E49811 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DDDD89A20656E7900E49811 /* MMLog.framework */,
+				4DDDD89720656C8D00E49811 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4DE8A0621C243DC700754819 = {
 			isa = PBXGroup;
 			children = (
 				4DE8A06E1C243DC700754819 /* MMDatabaseKit */,
 				4DE8A07A1C243DC800754819 /* MMDatabaseKitTests */,
 				4DE8A06D1C243DC700754819 /* Products */,
+				4DDDD89620656C8D00E49811 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,22 +179,15 @@
 		4DE8A06E1C243DC700754819 /* MMDatabaseKit */ = {
 			isa = PBXGroup;
 			children = (
+				4DDDD8872065671300E49811 /* coredata */,
 				4DE8A06F1C243DC700754819 /* MMDatabaseKit.h */,
 				4DE8A0861C243DFD00754819 /* NSMutableDictionary+Database.h */,
 				4DE8A0871C243DFD00754819 /* NSMutableDictionary+Database.m */,
-				4DE8A0881C243DFD00754819 /* MMCoreDatabase.h */,
-				4DE8A0891C243DFD00754819 /* MMCoreDatabase.m */,
 				4DE8A08A1C243DFD00754819 /* MMDatabase.h */,
 				4DE8A08B1C243DFD00754819 /* MMDatabase.m */,
-				4DE8A08C1C243DFD00754819 /* MMDatabaseManager.h */,
-				4DE8A08D1C243DFD00754819 /* MMDatabaseManager.m */,
-				4DE8A0901C243DFD00754819 /* MMFMDatabase.h */,
-				4DE8A0911C243DFD00754819 /* MMFMDatabase.m */,
-				4DE8A0921C243DFD00754819 /* MMOriginalDatabase.h */,
-				4DE8A0931C243DFD00754819 /* MMOriginalDatabase.m */,
+				4DE8A0901C243DFD00754819 /* MMFMDB.h */,
+				4DE8A0911C243DFD00754819 /* MMFMDB.m */,
 				4DE8A0941C243DFD00754819 /* MMPersistable.h */,
-				4DE8A0951C243DFD00754819 /* MMSPODatabase.h */,
-				4DE8A0961C243DFD00754819 /* MMSPODatabase.m */,
 				4DE8A0971C243DFD00754819 /* MMSqlGenerator.h */,
 				4DE8A0981C243DFD00754819 /* MMSqlGenerator.m */,
 				4DE8A0D31C243E5100754819 /* PrefixHeader.pch */,
@@ -213,18 +230,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE8A09F1C243DFD00754819 /* MMDatabase.h in Headers */,
-				4DE8A0A21C243DFD00754819 /* MMDatabaseManager.h in Headers */,
 				4D906C812049B942005044F0 /* FMDatabase.h in Headers */,
 				4DE8A0AE1C243DFD00754819 /* MMPersistable.h in Headers */,
+				4DDDD8A12066011700E49811 /* NSManagedObjectAdditions.h in Headers */,
+				4DDDD89420656BBB00E49811 /* NSManagedObjectContextAdditions.h in Headers */,
+				4DDDD8A420663A3000E49811 /* MMCoreData.h in Headers */,
+				4DE8A0A81C243DFD00754819 /* MMFMDB.h in Headers */,
+				4DDDD890206569A200E49811 /* MMCoreDataStack.h in Headers */,
 				4D906C832049B942005044F0 /* FMResultSet.h in Headers */,
 				4D906C882049B942005044F0 /* FMDB.h in Headers */,
 				4D906C872049B942005044F0 /* FMDatabaseQueue.h in Headers */,
-				4DE8A0AF1C243DFD00754819 /* MMSPODatabase.h in Headers */,
-				4DE8A0AB1C243DFD00754819 /* MMOriginalDatabase.h in Headers */,
 				4D906C892049B942005044F0 /* FMDatabaseAdditions.h in Headers */,
 				4DE8A0D41C243E5100754819 /* PrefixHeader.pch in Headers */,
-				4DE8A0A81C243DFD00754819 /* MMFMDatabase.h in Headers */,
-				4DE8A09C1C243DFD00754819 /* MMCoreDatabase.h in Headers */,
 				4D906C842049B942005044F0 /* FMDatabasePool.h in Headers */,
 				4DE8A0B21C243DFD00754819 /* MMSqlGenerator.h in Headers */,
 				4DE8A0701C243DC700754819 /* MMDatabaseKit.h in Headers */,
@@ -329,15 +346,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE8A0B31C243DFD00754819 /* MMSqlGenerator.m in Sources */,
+				4DDDD8A22066011700E49811 /* NSManagedObjectAdditions.m in Sources */,
+				4DDDD891206569A200E49811 /* MMCoreDataStack.m in Sources */,
 				4D906C8A2049B942005044F0 /* FMDatabasePool.m in Sources */,
-				4DE8A0A91C243DFD00754819 /* MMFMDatabase.m in Sources */,
-				4DE8A09D1C243DFD00754819 /* MMCoreDatabase.m in Sources */,
+				4DE8A0A91C243DFD00754819 /* MMFMDB.m in Sources */,
 				4DE8A0A01C243DFD00754819 /* MMDatabase.m in Sources */,
+				4DDDD89520656BBB00E49811 /* NSManagedObjectContextAdditions.m in Sources */,
 				4DE8A09A1C243DFD00754819 /* NSMutableDictionary+Database.m in Sources */,
 				4D906C8B2049B942005044F0 /* FMResultSet.m in Sources */,
-				4DE8A0AC1C243DFD00754819 /* MMOriginalDatabase.m in Sources */,
-				4DE8A0B01C243DFD00754819 /* MMSPODatabase.m in Sources */,
-				4DE8A0A31C243DFD00754819 /* MMDatabaseManager.m in Sources */,
 				4D906C822049B942005044F0 /* FMDatabaseQueue.m in Sources */,
 				4D906C862049B942005044F0 /* FMDatabase.m in Sources */,
 				4D906C852049B942005044F0 /* FMDatabaseAdditions.m in Sources */,
@@ -349,14 +365,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE8A09B1C243DFD00754819 /* NSMutableDictionary+Database.m in Sources */,
-				4DE8A0A41C243DFD00754819 /* MMDatabaseManager.m in Sources */,
 				4DE8A0A11C243DFD00754819 /* MMDatabase.m in Sources */,
-				4DE8A0B11C243DFD00754819 /* MMSPODatabase.m in Sources */,
-				4DE8A09E1C243DFD00754819 /* MMCoreDatabase.m in Sources */,
 				4DE8A07C1C243DC800754819 /* MMDatabaseKitTests.m in Sources */,
 				4DE8A0B41C243DFD00754819 /* MMSqlGenerator.m in Sources */,
-				4DE8A0AD1C243DFD00754819 /* MMOriginalDatabase.m in Sources */,
-				4DE8A0AA1C243DFD00754819 /* MMFMDatabase.m in Sources */,
+				4DE8A0AA1C243DFD00754819 /* MMFMDB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

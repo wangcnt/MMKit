@@ -8,8 +8,10 @@
 
 #import <MMDatabaseKit/MMDatabase.h>
 #import <MMDatabaseKit/MMPersistable.h>
-#import <MMDatabaseKit/MMDatabaseManager.h>
 #import <MMDatabaseKit/MMDatabaseUtilities.h>
+#import <MMDatabaseKit/MMFMDB.h>
+
+#import <MMDatabaseKit/MMCoreData.h>
 
 //! Project version number for MMDatabaseKit.
 FOUNDATION_EXPORT double MMDatabaseKitVersionNumber;

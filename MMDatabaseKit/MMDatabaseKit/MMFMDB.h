@@ -1,5 +1,5 @@
 //
-//  MMFMDatabase.h
+//  MMFMDB.h
 //  MMime
 //
 //  Created by Mark on 15/6/8.
@@ -8,6 +8,6 @@
 
 #import "MMDatabase.h"
 
-@interface MMFMDatabase : MMDatabase
+@interface MMFMDB : MMDatabase
 
 @end

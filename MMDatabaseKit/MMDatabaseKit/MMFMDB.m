@@ -1,17 +1,17 @@
 //
-//  MMFMDatabase.m
+//  MMFMDB.m
 //  MMime
 //
 //  Created by Mark on 15/6/8.
 //  Copyright (c) 2015年 Mark. All rights reserved.
 //
 
-#import "MMFMDatabase.h"
+#import "MMFMDB.h"
 
 #import "FMDB.h"
 #import "MMSqlGenerator.h"
 
-@interface MMFMDatabase()
+@interface MMFMDB()
 {
     FMDatabaseQueue                     *_queue;
     
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation MMFMDatabase
+@implementation MMFMDB
 
 - (BOOL)opened
 {
