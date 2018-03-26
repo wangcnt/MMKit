@@ -56,8 +56,11 @@
 - (NSPersistentStoreCoordinator *)coordinator {
     if (!_coordinator) {
         /* Create PSC */
+        NSDictionary *pragmaOptions = @{ @"journal_mode" : @"DELETE" };
         NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption  : @YES,
-                                  NSInferMappingModelAutomaticallyOption        : @YES};
+                                  NSInferMappingModelAutomaticallyOption        : @YES,
+                                  NSSQLitePragmasOption                         : pragmaOptions
+                                  };
         _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.model];
         
         /* Add store to it */

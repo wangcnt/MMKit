@@ -84,24 +84,15 @@ static inline UIColor *mm_graylight_color()   { return [UIColor lightGrayColor];
 static inline UIColor *mm_graydark_color()    { return [UIColor darkGrayColor]; }
 
 static inline UIColor *mm_random_color()      {
-    return [UIColor colorWithRed:(float)(arc4random()%1000)/1000.0
-                           green:(float)(arc4random()%1000)/1000.0
-                            blue:(float)(arc4random()%1000)/1000.0
-                           alpha:(float)(arc4random()%1000)/1000.0];
+    return [UIColor colorWithRed:(float)(arc4random()%1000)/1000.0 green:(float)(arc4random()%1000)/1000.0 blue:(float)(arc4random()%1000)/1000.0 alpha:(float)(arc4random()%1000)/1000.0];
 }
 
 static inline UIColor *mm_rgba_color(r, g, b, a)  {
-    return [UIColor colorWithRed:r/255.0
-                           green:g/255.0
-                            blue:b/255.0
-                           alpha:a];
+    return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a];
 }
 
 static inline UIColor *mm_hex_color(hex) {
-    return [UIColor colorWithRed:((hex>>16)&0xFF)/255.0
-                           green:((hex>>8)&0xFF)/255.0
-                            blue:(hex&0xFF)/255.0
-                           alpha:1.0];
+    return [UIColor colorWithRed:((hex>>16)&0xFF)/255.0 green:((hex>>8)&0xFF)/255.0 blue:(hex&0xFF)/255.0 alpha:1.0];
 }
 
 #endif /* MMUIInlines_h */

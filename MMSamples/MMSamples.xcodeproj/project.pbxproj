@@ -19,8 +19,9 @@
 		4D906CF82049D7F0005044F0 /* MMUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFD2049D7F0005044F0 /* MMUIKit.framework */; };
 		4D906D00204A5F8A005044F0 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D01204A5F8A005044F0 /* Masonry.framework */; };
 		4D906DC8204A9A2F005044F0 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */; };
-		4D9BC37920540A4F007FE60C /* MMSafeSignleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC37820540A4F007FE60C /* MMSafeSignleton.m */; };
+		4D9BC37920540A4F007FE60C /* MMSafeSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC37820540A4F007FE60C /* MMSafeSingleton.m */; };
 		4DB9560C204AA46C004F5E30 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB9560D204AA46C004F5E30 /* MMFoundation.framework */; };
+		4DC37D9520678FBA008FCF60 /* MMChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC37D9420678FBA008FCF60 /* MMChain.m */; };
 		4DDDD8A520663B6A00E49811 /* MMDatabaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDDD8A620663B6A00E49811 /* MMDatabaseKit.framework */; };
 		4DDDD8B520663C5900E49811 /* QTimeFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFE2049D7F0005044F0 /* QTimeFoundation.framework */; };
 		4DDDD8B720663C5900E49811 /* QTimeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFF2049D7F0005044F0 /* QTimeUI.framework */; };
@@ -47,9 +48,11 @@
 		4D906CFF2049D7F0005044F0 /* QTimeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QTimeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906D01204A5F8A005044F0 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D9BC37720540A4F007FE60C /* MMSafeSignleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSafeSignleton.h; sourceTree = "<group>"; };
-		4D9BC37820540A4F007FE60C /* MMSafeSignleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMSafeSignleton.m; sourceTree = "<group>"; };
+		4D9BC37720540A4F007FE60C /* MMSafeSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSafeSingleton.h; sourceTree = "<group>"; };
+		4D9BC37820540A4F007FE60C /* MMSafeSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMSafeSingleton.m; sourceTree = "<group>"; };
 		4DB9560D204AA46C004F5E30 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DC37D9320678FBA008FCF60 /* MMChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMChain.h; sourceTree = "<group>"; };
+		4DC37D9420678FBA008FCF60 /* MMChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMChain.m; sourceTree = "<group>"; };
 		4DDDD8A620663B6A00E49811 /* MMDatabaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMDatabaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,10 +130,12 @@
 		4D9BC37620540A37007FE60C /* test */ = {
 			isa = PBXGroup;
 			children = (
-				4D9BC37720540A4F007FE60C /* MMSafeSignleton.h */,
-				4D9BC37820540A4F007FE60C /* MMSafeSignleton.m */,
+				4D9BC37720540A4F007FE60C /* MMSafeSingleton.h */,
+				4D9BC37820540A4F007FE60C /* MMSafeSingleton.m */,
 				4D8B535F2056C03F00FB3BDF /* MMSomething.h */,
 				4D8B53602056C03F00FB3BDF /* MMSomething.m */,
+				4DC37D9320678FBA008FCF60 /* MMChain.h */,
+				4DC37D9420678FBA008FCF60 /* MMChain.m */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -208,7 +213,8 @@
 				4D8B53612056C03F00FB3BDF /* MMSomething.m in Sources */,
 				4D906CE42049D7C8005044F0 /* SecondViewController.m in Sources */,
 				4D906CDE2049D7C8005044F0 /* AppDelegate.m in Sources */,
-				4D9BC37920540A4F007FE60C /* MMSafeSignleton.m in Sources */,
+				4D9BC37920540A4F007FE60C /* MMSafeSingleton.m in Sources */,
+				4DC37D9520678FBA008FCF60 /* MMChain.m in Sources */,
 				4D906CEF2049D7C8005044F0 /* main.m in Sources */,
 				4D906CE12049D7C8005044F0 /* FirstViewController.m in Sources */,
 			);

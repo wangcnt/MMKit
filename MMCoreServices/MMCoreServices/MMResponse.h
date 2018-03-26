@@ -17,7 +17,7 @@
 @property (nonatomic, strong, readonly) NSMutableData *buffer;
 @property (nonatomic, strong) id<MMRequest> request;
 @property (nonatomic, strong) NSError *error;
-@property (nonatomic, assign) BOOL streamable;  ///< parse during receiving data from server
+@property (nonatomic, assign) BOOL streamable;  ///< Parse during receiving data from server
 @property (nonatomic, assign, readonly) BOOL shouldParse;
 
 @required

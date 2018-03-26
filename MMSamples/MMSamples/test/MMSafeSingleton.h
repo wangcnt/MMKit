@@ -1,5 +1,5 @@
 //
-//  MMSafeSignleton.h
+//  MMSafeSingleton.h
 //  MMSamples
 //
 //  Created by Mark on 2018/3/10.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MMSafeSignleton : NSObject
+@interface MMSafeSingleton : NSObject
 
 @property (nonatomic, strong) NSString *name;
 

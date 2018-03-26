@@ -15,6 +15,7 @@
 @synthesize ha = _ha;
 @end
 
+
 @interface MMSomething () {
     
 }
@@ -46,9 +47,21 @@
 @interface MMSubthing () {
     id<B> _a;
 }
+
+@property (nonatomic, strong) NSMutableArray *things;
+
 @end
 
 @implementation MMSubthing
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _things = [NSMutableArray array];
+    }
+    return self;
+}
 
 - (id<B>)a {
     return _a;

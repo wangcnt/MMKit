@@ -22,6 +22,8 @@
 @interface B : A <B>
 @end
 
+
+
 @interface MMSomething : NSObject
 
 @property (nonatomic, strong) id<A> a;

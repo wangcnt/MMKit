@@ -12,6 +12,9 @@
 
 @protocol MMCoreDataSourceDelegate;
 
+/*!
+ * UITableView with CoreData data source.
+ */
 @protocol MMCoreDataSource <NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong, readonly) NSFetchedResultsController *fetchController;

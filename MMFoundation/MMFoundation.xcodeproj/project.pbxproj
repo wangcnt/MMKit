@@ -69,6 +69,7 @@
 		4D9BC3A520553383007FE60C /* NSBundleAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC3A320553383007FE60C /* NSBundleAdditions.m */; };
 		4D9BC3A8205536AE007FE60C /* NSTimerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC3A6205536AE007FE60C /* NSTimerAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D9BC3A9205536AE007FE60C /* NSTimerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC3A7205536AE007FE60C /* NSTimerAdditions.m */; };
+		4DC37D982069571F008FCF60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC37D972069571F008FCF60 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		4D9BC3A320553383007FE60C /* NSBundleAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSBundleAdditions.m; sourceTree = "<group>"; };
 		4D9BC3A6205536AE007FE60C /* NSTimerAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTimerAdditions.h; sourceTree = "<group>"; };
 		4D9BC3A7205536AE007FE60C /* NSTimerAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTimerAdditions.m; sourceTree = "<group>"; };
+		4DC37D972069571F008FCF60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC37D982069571F008FCF60 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +165,7 @@
 				4D7C0EEC202F0118008C6CE0 /* MMFoundation */,
 				4D7C0EF7202F0118008C6CE0 /* MMFoundationTests */,
 				4D7C0EEB202F0118008C6CE0 /* Products */,
+				4DC37D962069571E008FCF60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,6 +249,14 @@
 				4D9BC3A7205536AE007FE60C /* NSTimerAdditions.m */,
 			);
 			path = additions;
+			sourceTree = "<group>";
+		};
+		4DC37D962069571E008FCF60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DC37D972069571F008FCF60 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

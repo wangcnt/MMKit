@@ -16,10 +16,12 @@
 #import <MMUIKit/MMUIKit.h>
 #import <QTimeUI/QTimeUI.h>
 
+#import "MMChain.h"
+
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 
-#import "MMSafeSignleton.h"
+#import "MMSafeSingleton.h"
 #import "MMSomething.h"
 
 @implementation AppDelegate
@@ -28,7 +30,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
-    [self test_MMServiceCenter];
+//    [self test_MMServiceCenter];
+    [self test_chainedInvocation];
     
 //    [self test_InvokeWithBlockArgument];
 //    [self test_OverrideProperty];
@@ -37,7 +40,7 @@
 //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
 //    [self test_SafeSingleton];
     
-    [self test_DDLog];
+//    [self test_DDLog];
     
     //    [self gcdDemo1];
     //    [self gcdDemo2];
@@ -52,6 +55,11 @@
     return YES;
 }
 
+- (void)test_chainedInvocation {
+    MMChain *sth = [[MMChain alloc] init];
+    sth.addString(@"Hello, Lancelot, I will give you ¥").addInteger(123).addString(@" to invite the girl.").print();
+}
+
 - (void)test_OverrideProperty {
     B *b = [[B alloc] init];
     b.ha = @"haaaaaa";
@@ -62,11 +70,11 @@
 }
 
 - (void)test_SafeSingleton {
-    __unused id shared = [MMSafeSignleton sharedInstance];
-    MMSafeSignleton *inited = [[MMSafeSignleton alloc] init];
+    __unused id shared = [MMSafeSingleton sharedInstance];
+    MMSafeSingleton *inited = [[MMSafeSingleton alloc] init];
     __unused id copied = [inited copy];
     __unused id mutableCopied = [inited mutableCopy];
-    NSLog(@"safe.singleton.name-->%@", [MMSafeSignleton sharedInstance].name);
+    NSLog(@"safe.singleton.name-->%@", [MMSafeSingleton sharedInstance].name);
 }
 
 - (void)test_InstalledAllApps {
