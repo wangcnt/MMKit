@@ -46,6 +46,9 @@
 		4DC1FB0F1C242CAB00A39E9D /* MMUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC1FB0E1C242CAB00A39E9D /* MMUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC1FB161C242CAB00A39E9D /* MMUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC1FB0B1C242CAB00A39E9D /* MMUIKit.framework */; };
 		4DC1FB1B1C242CAB00A39E9D /* MMUIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1FB1A1C242CAB00A39E9D /* MMUIKitTests.m */; };
+		4DC37D9B206A6D6B008FCF60 /* MMWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC37D99206A6D6B008FCF60 /* MMWebView.h */; };
+		4DC37D9C206A6D6B008FCF60 /* MMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC37D9A206A6D6B008FCF60 /* MMWebView.m */; };
+		4DC37D9E206A6DA2008FCF60 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC37D9D206A6DA1008FCF60 /* WebKit.framework */; };
 		4DCB0DFD1C24730600339CF9 /* MMTranslucentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */; };
 		4DCB0DFE1C24730600339CF9 /* MMTranslucentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */; };
 		4DCB0DFF1C24730600339CF9 /* MMTranslucentViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DCB0DFC1C24730600339CF9 /* MMTranslucentViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -172,6 +175,9 @@
 		4DC1FB151C242CAB00A39E9D /* MMUIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMUIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC1FB1A1C242CAB00A39E9D /* MMUIKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMUIKitTests.m; sourceTree = "<group>"; };
 		4DC1FB1C1C242CAB00A39E9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DC37D99206A6D6B008FCF60 /* MMWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMWebView.h; sourceTree = "<group>"; };
+		4DC37D9A206A6D6B008FCF60 /* MMWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMWebView.m; sourceTree = "<group>"; };
+		4DC37D9D206A6DA1008FCF60 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTranslucentViewController.m; sourceTree = "<group>"; };
 		4DCB0DFC1C24730600339CF9 /* MMTranslucentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTranslucentViewController.h; sourceTree = "<group>"; };
 		4DD3B0212049A873002C3B1A /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +239,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC37D9E206A6DA2008FCF60 /* WebKit.framework in Frameworks */,
 				4DDDD8852061527E00E49811 /* MMLog.framework in Frameworks */,
 				4D24AA77202F6426006777FF /* AVFoundation.framework in Frameworks */,
 				4D24AA2A202F189B006777FF /* MMFoundation.framework in Frameworks */,
@@ -253,6 +260,7 @@
 		17F53A5A1298DDD63E52DA9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DC37D9D206A6DA1008FCF60 /* WebKit.framework */,
 				4DDDD8862061527E00E49811 /* MMLog.framework */,
 				4DD3B0212049A873002C3B1A /* Masonry.framework */,
 				4D24AA76202F6426006777FF /* AVFoundation.framework */,
@@ -432,6 +440,8 @@
 				4DE44A961C24391300FD1D97 /* MMTextView.m */,
 				4DE44A971C24391300FD1D97 /* MMView.h */,
 				4DE44A981C24391300FD1D97 /* MMView.m */,
+				4DC37D99206A6D6B008FCF60 /* MMWebView.h */,
+				4DC37D9A206A6D6B008FCF60 /* MMWebView.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -447,6 +457,7 @@
 				4DC1FB0F1C242CAB00A39E9D /* MMUIKit.h in Headers */,
 				4DE44AD11C24391300FD1D97 /* UIViewControllerAdditions.h in Headers */,
 				4D24AA6B202F4A92006777FF /* MMPagingScrollViewCell+Subclassing.h in Headers */,
+				4DC37D9B206A6D6B008FCF60 /* MMWebView.h in Headers */,
 				4DE44AB61C24391300FD1D97 /* UIColorAdditions.h in Headers */,
 				4DE44AD41C24391300FD1D97 /* MMBadgeView.h in Headers */,
 				4DE44A991C24391300FD1D97 /* MMNavigationController.h in Headers */,
@@ -602,6 +613,7 @@
 				4DCB0DFD1C24730600339CF9 /* MMTranslucentViewController.m in Sources */,
 				4DE44AAE1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.m in Sources */,
 				4D9BC37D205413BB007FE60C /* UIScrollViewAdditions.m in Sources */,
+				4DC37D9C206A6D6B008FCF60 /* MMWebView.m in Sources */,
 				4DE44AAB1C24391300FD1D97 /* SSWAnimator.m in Sources */,
 				4DE44AB71C24391300FD1D97 /* UIColorAdditions.m in Sources */,
 				4DE44ADB1C24391300FD1D97 /* MMLabel.m in Sources */,

@@ -26,8 +26,8 @@
 }
 
 - (void)willStart {
-    [super willStart];
     _uploadRequest.events = _events;
+    [super willStart];
 }
 
 - (BOOL)shouldRetry {

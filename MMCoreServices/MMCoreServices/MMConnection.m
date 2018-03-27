@@ -16,7 +16,7 @@
 #import "MMSessionManager.h"
 #import "MMRequestIDGenerator.h"
 #import "MMSessionConfiguration.h"
-#import <MMFoundation/MMAsyncSocket.h>
+#import <MMFoundation/GCDAsyncSocket.h>
 
 NSString *const MMSocketConnectionDefaultIdentifier = @"Default";
 NSString *const MMSocketConnectionFreeIdentifier = @"Free";
@@ -54,8 +54,8 @@ typedef enum : NSUInteger {
 @end
 
 @interface MMSocketConnection ()
-<MMAsyncSocketDelegate> {
-    MMAsyncSocket *_socket;
+<GCDAsyncSocketDelegate> {
+    GCDAsyncSocket *_socket;
     dispatch_semaphore_t _semaphore;
     dispatch_source_t _pingTimer;
     NSInteger _maxPingTimes;
@@ -77,7 +77,7 @@ typedef enum : NSUInteger {
         _semaphore = dispatch_semaphore_create(1);
         
         dispatch_queue_t delegate_queue = dispatch_queue_create("com.markwong.mmcoreservices.connection.socket.delegatequeue", DISPATCH_QUEUE_SERIAL);
-        _socket = [[MMAsyncSocket alloc] initWithDelegate:self delegateQueue:delegate_queue];
+        _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:delegate_queue];
         
         _identifier = MMSocketConnectionDefaultIdentifier;
         
@@ -251,8 +251,8 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark -------------------------------------------------------------------
-#pragma mark MMAsyncSocketDelegate
-- (void)socket:(MMAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
+#pragma mark GCDAsyncSocketDelegate
+- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
     _connected = YES;
     _connecting = NO;
     
@@ -268,7 +268,7 @@ typedef enum : NSUInteger {
     }
 }
 
-- (void)socketDidDisconnect:(MMAsyncSocket *)sock withError:(NSError *)err {
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
     BOOL disconnectedByUser = NO;
     if([sock.userData isKindOfClass:NSDictionary.class]) {
         disconnectedByUser = [sock.userData[MMSocketUserInfoDisconnectedByUserKey] boolValue];
@@ -290,11 +290,11 @@ typedef enum : NSUInteger {
     }
 }
 
-- (void)socket:(MMAsyncSocket *)sock didWriteDataWithTag:(long)tag {
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
     [sock readDataWithTimeout:0 tag:2];
 }
 
-- (void)socket:(MMAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
     //FIXME: how to find the original MMSocketRequest?
     [_buffer appendData:data];
     id<MMSocketResponse> response;

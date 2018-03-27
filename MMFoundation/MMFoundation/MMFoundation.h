@@ -35,11 +35,16 @@ FOUNDATION_EXPORT const unsigned char MMFoundationVersionString[];
 #import <MMFoundation/MMProxy.h>
 #import <MMFoundation/MMIDTracker.h>
 #import <MMFoundation/MMIDGenerator.h>
-#import <MMFoundation/MMAsyncSocket.h>
 #import <MMFoundation/MMProgressManager.h>
 #import <MMFoundation/MMMulticastDelegate.h>
 
 #import <MMFoundation/MMDiskCache.h>
 #import <MMFoundation/MMMemoryCache.h>
+
+// third party
+#import <MMFoundation/GDataXMLNode.h>
+#import <MMFoundation/GCDAsyncSocket.h>
+#import <MMFoundation/GCDAsyncUdpSocket.h>
+#import <MMFoundation/CocoaAsyncSocket.h>
 
 #import <MMFoundation/MMDefines.h>
