@@ -74,6 +74,8 @@ typedef NS_OPTIONS(NSUInteger, NSStringMatchingOptions) {
 - (NSString *)stringByDeletingURLPrefix;
 - (NSString *)stringByStrippingHTML;
 - (NSString *)stringByDeletingScripts;
+- (NSString *)stringByDeletingHTMLElements;
+- (NSString *)stringByDeletingEmptyTitle;
 
 @end
 
@@ -169,4 +171,6 @@ typedef NS_OPTIONS(NSUInteger, NSStringMatchingOptions) {
 
 @interface NSMutableString (Networking)
 - (void)appendQueryParamenters:(NSDictionary<NSString *, NSObject *> *)parameters;
+- (void)deleteHTMLElements; ///< Delete all html elements contains styles, titles, scripts, heads, & markups to pure text.
+- (void)deleteEmptyTitle;   ///< Nothing will be displayed for WKWebView if title is empty.
 @end

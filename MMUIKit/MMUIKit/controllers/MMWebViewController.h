@@ -10,11 +10,13 @@
 
 #import <WebKit/WebKit.h>
 
+@class MMWebView;
+
 typedef void(^MMWebViewScriptHandler)(id params);
 
 @interface MMWebViewController : MMViewController <WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler>
 
-@property (nonatomic, strong, readonly) WKWebView *webView;
+@property (nonatomic, strong, readonly) MMWebView *webView;
 @property (nonatomic, strong) NSString *navigationTitle;
 
 - (instancetype)initWithUrlString:(NSString *)urlString;

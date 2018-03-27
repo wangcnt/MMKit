@@ -32,8 +32,7 @@
                                              result = [result stringByAppendingString:@"----"];
                                          }
                                          result = [result stringByAppendingString:@" "];
-                                     }
-                                     else {
+                                     } else {
                                          result = [result stringByAppendingString:@"| "];
                                      }
                                      result = [result stringByAppendingFormat:@"%@ (%@)\n", obj, @(idx)];

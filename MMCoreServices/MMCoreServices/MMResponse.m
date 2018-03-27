@@ -54,5 +54,8 @@
 
 @implementation MMSocketResponse
 
+@synthesize logining = _logining;
+@synthesize logined = _logined;
+
 @end
 

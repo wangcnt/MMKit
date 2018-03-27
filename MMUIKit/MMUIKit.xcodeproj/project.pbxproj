@@ -46,7 +46,7 @@
 		4DC1FB0F1C242CAB00A39E9D /* MMUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC1FB0E1C242CAB00A39E9D /* MMUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC1FB161C242CAB00A39E9D /* MMUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC1FB0B1C242CAB00A39E9D /* MMUIKit.framework */; };
 		4DC1FB1B1C242CAB00A39E9D /* MMUIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1FB1A1C242CAB00A39E9D /* MMUIKitTests.m */; };
-		4DC37D9B206A6D6B008FCF60 /* MMWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC37D99206A6D6B008FCF60 /* MMWebView.h */; };
+		4DC37D9B206A6D6B008FCF60 /* MMWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC37D99206A6D6B008FCF60 /* MMWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DC37D9C206A6D6B008FCF60 /* MMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC37D9A206A6D6B008FCF60 /* MMWebView.m */; };
 		4DC37D9E206A6DA2008FCF60 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC37D9D206A6DA1008FCF60 /* WebKit.framework */; };
 		4DCB0DFD1C24730600339CF9 /* MMTranslucentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB0DFB1C24730600339CF9 /* MMTranslucentViewController.m */; };
@@ -457,7 +457,6 @@
 				4DC1FB0F1C242CAB00A39E9D /* MMUIKit.h in Headers */,
 				4DE44AD11C24391300FD1D97 /* UIViewControllerAdditions.h in Headers */,
 				4D24AA6B202F4A92006777FF /* MMPagingScrollViewCell+Subclassing.h in Headers */,
-				4DC37D9B206A6D6B008FCF60 /* MMWebView.h in Headers */,
 				4DE44AB61C24391300FD1D97 /* UIColorAdditions.h in Headers */,
 				4DE44AD41C24391300FD1D97 /* MMBadgeView.h in Headers */,
 				4DE44A991C24391300FD1D97 /* MMNavigationController.h in Headers */,
@@ -490,6 +489,7 @@
 				4D8B53592055560400FB3BDF /* UIResponderAdditions.h in Headers */,
 				4D8B5351205550B900FB3BDF /* UIBarButtonItemAdditions.h in Headers */,
 				4DF250E61DDFF9CB002AB829 /* UIApplicationAdditions.h in Headers */,
+				4DC37D9B206A6D6B008FCF60 /* MMWebView.h in Headers */,
 				4D8B535D2055627C00FB3BDF /* UIImageViewAdditions.h in Headers */,
 				4D8B534D20554DB600FB3BDF /* UIControlAdditions.h in Headers */,
 				4DE44AE31C24391300FD1D97 /* MMTableView.h in Headers */,

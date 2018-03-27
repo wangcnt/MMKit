@@ -55,22 +55,6 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
-- (NSString *)stringByStrippingHTML {
-    return [self stringByReplacingOccurrencesOfString:@"<[^>]+>" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, self.length)];
-}
-
-- (NSString *)stringByDeletingScripts {
-    NSMutableString *result = [self mutableCopy];
-    NSError *error;
-    NSString *pattern = @"<script[^>]*>[\\w\\W]*</script>";
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
-    NSArray *matches = [regex matchesInString:result options:NSMatchingReportProgress range:NSMakeRange(0, [result length])];
-    for (NSTextCheckingResult *match in [matches reverseObjectEnumerator]) {
-        [result replaceCharactersInRange:match.range withString:@""];
-    }
-    return result;
-}
-
 - (NSString *)reversedString {
     NSMutableString *result = [NSMutableString stringWithCapacity:self.length];
     [self enumerateSubstringsInRange:NSMakeRange(0, self.length) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences  usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
@@ -297,6 +281,31 @@
     NSArray *components = [self componentsSeparatedByString:@"?"];
     NSString *result = components.lastObject;
     return [result rangeOfString:@"="].length ? result : nil;
+}
+
+- (NSString *)stringByStrippingHTML {
+    return [self stringByReplacingOccurrencesOfString:@"<[^>]+>" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, self.length)];
+}
+
+- (NSString *)stringByDeletingScripts {
+    NSMutableString *result = [self mutableCopy];
+    NSError *error;
+    NSString *pattern = @"<script[^>]*>[^<]*</script>";
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
+    [expression replaceMatchesInString:result options:NSMatchingReportProgress range:NSMakeRange(0, result.length) withTemplate:@""];
+    return result;
+}
+
+- (NSString *)stringByDeletingHTMLElements {
+    NSMutableString *result = [self mutableCopy];
+    [result deleteHTMLElements];
+    return result;
+}
+
+- (NSString *)stringByDeletingEmptyTitle {
+    NSMutableString *result = [self mutableCopy];
+    [result deleteEmptyTitle];
+    return result;
 }
 
 @end
@@ -1087,6 +1096,21 @@
         }
         [self appendFormat:@"%@%@=%@",  shouldAnd ? @"&" : @"", key, value];
     }
+}
+
+- (void)deleteHTMLElements {
+    // 去掉所有<script>...</script>，<style>...</style>，<head>...</head>, <...>
+    NSError *error;
+    NSString *regex = @"<title[^>]*>[^<]*</title>|<script[^>]*>[^<]*</script>|<style[^>]*>[^<]*</style>|<head[^>]*>[^<]*</head>|<[^>]*>|\n|&nbsp;|";
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:NSRegularExpressionCaseInsensitive error:&error];
+    [expression replaceMatchesInString:self options:NSMatchingReportProgress range:NSMakeRange(0, self.length) withTemplate:@""];
+}
+
+- (void)deleteEmptyTitle {
+    NSError *error;
+    NSString *regex = @"<title[^>]*> *</title>|<title/>";
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:NSRegularExpressionCaseInsensitive error:&error];
+    [expression replaceMatchesInString:self options:NSMatchingReportProgress range:NSMakeRange(0, self.length) withTemplate:@""];
 }
 
 @end

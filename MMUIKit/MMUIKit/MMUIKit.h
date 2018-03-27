@@ -22,6 +22,7 @@
 #import <MMUIKit/MMView.h>
 #import <MMUIKit/MMLabel.h>
 #import <MMUIKit/MMButton.h>
+#import <MMUIKit/MMWebView.h>
 #import <MMUIKit/MMTextView.h>
 #import <MMUIKit/MMTextField.h>
 #import <MMUIKit/MMTableView.h>

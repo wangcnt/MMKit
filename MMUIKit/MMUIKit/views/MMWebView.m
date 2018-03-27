@@ -7,21 +7,21 @@
 //
 
 #import "MMWebView.h"
+#import <MMFoundation/NSStringAdditions.h>
 
 @implementation MMWebView
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
-        
     }
     return self;
 }
 
 - (nullable WKNavigation *)loadHTMLString:(NSString *)string baseURL:(nullable NSURL *)baseURL {
-    
-    [super loadHTMLString:string baseURL:baseURL];
+    NSMutableString *html = [string mutableCopy];
+    [html deleteEmptyTitle];
+    return [super loadHTMLString:html baseURL:baseURL];
 }
 
 @end

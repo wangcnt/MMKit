@@ -8,6 +8,9 @@
 
 #import "MMWebViewController.h"
 #import <Masonry/Masonry.h>
+#import <WebKit/WebKit.h>
+#import <MMFoundation/NSStringAdditions.h>
+#import "MMWebView.h"
 
 @interface MMWebViewController ()
 
@@ -20,7 +23,7 @@
 
 - (instancetype)initWithUrlString:(NSString *)urlString {
     if(self = [super init]) {
-        _urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        _urlString = [urlString percentEscapedString];
     }
     return self;
 }
@@ -40,7 +43,7 @@
     WKUserContentController *controller = [[WKUserContentController alloc] init];
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     configuration.userContentController = controller;
-    _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
+    _webView = [[MMWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
     _webView.navigationDelegate = self;
     _webView.UIDelegate = self;
     
@@ -100,7 +103,7 @@
 #pragma mark - 公共方法
 
 - (void)reloadWebWithUrlString:(NSString *)urlString {
-    _urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    _urlString = [urlString percentEscapedString];
     NSURL *URL = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     [_webView loadRequest:request];
