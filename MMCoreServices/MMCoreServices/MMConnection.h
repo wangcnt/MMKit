@@ -10,8 +10,9 @@
 
 #import "MMCoreDefines.h"
 
-MMCORESERVICES_EXPORT NSString *const MMSocketConnectionDefaultIdentifier;
-MMCORESERVICES_EXPORT NSString *const MMSocketConnectionFreeIdentifier;
+typedef NSString *MMSocketConnectionIdentifier NS_EXTENSIBLE_STRING_ENUM;
+MMCORESERVICES_EXPORT MMSocketConnectionIdentifier const MMSocketConnectionDefaultIdentifier;
+MMCORESERVICES_EXPORT MMSocketConnectionIdentifier const MMSocketConnectionFreeIdentifier;
 
 @protocol MMRequest, MMSocketSessionManager, MMSocketRequest;
 

@@ -18,8 +18,9 @@
 #import "MMSessionConfiguration.h"
 #import <MMFoundation/GCDAsyncSocket.h>
 
-NSString *const MMSocketConnectionDefaultIdentifier = @"Default";
-NSString *const MMSocketConnectionFreeIdentifier = @"Free";
+MMSocketConnectionIdentifier const MMSocketConnectionDefaultIdentifier = @"Default";
+MMSocketConnectionIdentifier const MMSocketConnectionFreeIdentifier = @"Free";
+
 static NSString *const MMSocketUserInfoDisconnectedByUserKey = @"MMSocketUserInfoDisconnectedByUserKey";
 
 typedef enum : NSUInteger {
