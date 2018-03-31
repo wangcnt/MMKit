@@ -1,5 +1,5 @@
 //
-//  MMCoreDataStack.h
+//  MMCoreDataStore.h
 //  MMDatabaseKit
 //
 //  Created by Mark on 2018/3/24.
@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@protocol MMCoreDataStackProtocol <NSObject>
+@protocol MMCoreDataStore <NSObject>
 
 @required
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *coordinator;  ///< Current store coordinator
@@ -16,10 +17,11 @@
 @property (nonatomic, strong, readonly) NSManagedObjectContext *mainContext;    ///< Your single source of truth. Associated with main queue.
 @property (nonatomic, strong, readonly) NSManagedObjectContext *backgroundContext;  ///< Each invocation will generate a new context that uses main context as parent context.
 @property (nonatomic, strong) NSURL *storeURL;  ///< The local url where the store is placed
+@property (nonatomic, strong, readonly) NSPersistentStore *store;
 
 @end
 
-@interface MMCoreDataStack : NSObject <MMCoreDataStackProtocol>
+@interface MMCoreDataStore : NSObject <MMCoreDataStore>
 
 // modelName: @see NSStoreTypeKey
 + (instancetype)binaryStackWithName:(NSString *)modelName;

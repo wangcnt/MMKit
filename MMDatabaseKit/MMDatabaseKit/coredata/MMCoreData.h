@@ -9,7 +9,7 @@
 #ifndef MMCoreData_h
 #define MMCoreData_h
 
-#import <MMDatabaseKit/MMCoreDataStack.h>
+#import <MMDatabaseKit/MMCoreDataStore.h>
 #import <MMDatabaseKit/MMCoreDataSource.h>
 #import <MMDatabaseKit/NSManagedObjectContextAdditions.h>
 #import <MMDatabaseKit/NSManagedObjectAdditions.h>

@@ -1,26 +1,27 @@
 //
-//  MMCoreDataStack.m
+//  MMCoreDataStore.m
 //  MMDatabaseKit
 //
 //  Created by Mark on 2018/3/24.
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
-#import "MMCoreDataStack.h"
+#import "MMCoreDataStore.h"
 #import <CoreData/CoreData.h>
 #import <MMLog/MMLog.h>
 
-@interface MMCoreDataStack ()
+@interface MMCoreDataStore ()
 
 @end
 
-@implementation MMCoreDataStack
+@implementation MMCoreDataStore
 
 @synthesize coordinator = _coordinator;
 @synthesize model = _model;
 @synthesize mainContext = _mainContext;
 @synthesize backgroundContext = _backgroundContext;
 @synthesize storeURL = _storeURL;
+@synthesize store = _store;
 
 + (instancetype)binaryStackWithName:(NSString *)modelName
 {
@@ -54,21 +55,27 @@
 #pragma mark - HCDCoreDataStack Protocol
 
 - (NSPersistentStoreCoordinator *)coordinator {
-    if (!_coordinator) {
-        /* Create PSC */
-        NSDictionary *pragmaOptions = @{ @"journal_mode" : @"DELETE" };
-        NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption  : @YES,
-                                  NSInferMappingModelAutomaticallyOption        : @YES,
-                                  NSSQLitePragmasOption                         : pragmaOptions
-                                  };
-        _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.model];
-        
-        /* Add store to it */
-        NSError *error = nil;
-        if (![_coordinator addPersistentStoreWithType:self.storeType configuration:nil URL:self.storeURL options:options error:&error]) {
-            MMLogInfo(@"CD Error: %s\n%@\n%@", __PRETTY_FUNCTION__, [self class], error);
-        }
+    if (_coordinator) {
+        return _coordinator;
     }
+    
+    /* Create PSC */
+    NSDictionary *pragmaOptions = @{ @"journal_mode" : @"DELETE" };
+    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption  : @YES,
+                              NSInferMappingModelAutomaticallyOption        : @YES,
+                              NSSQLitePragmasOption                         : pragmaOptions
+                              };
+    _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.model];
+    
+    /* Add store to it */
+    NSError *error = nil;
+    NSPersistentStore *store = [_coordinator addPersistentStoreWithType:self.storeType configuration:nil URL:self.storeURL options:options error:&error];
+    if (!store) {
+        MMLogInfo(@"CoreData Error: %@", error);
+    }
+    
+    _store = store;
+    
     return _coordinator;
 }
 
@@ -87,10 +94,12 @@
         /* Create background context with attached psc */
         NSManagedObjectContext *rootContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
         rootContext.persistentStoreCoordinator = self.coordinator;
+        rootContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
         
         /* Create main queue context as main */
         _mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         _mainContext.parentContext = rootContext;
+        _mainContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
     }
     return _mainContext;
 }
@@ -98,6 +107,7 @@
 - (NSManagedObjectContext *)backgroundContext {
     NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     context.parentContext = self.mainContext;
+    context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
     return context;
 }
 

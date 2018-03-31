@@ -10,6 +10,8 @@
 
 @interface MMChain : NSObject
 
+@property (nonatomic, strong, readonly, class) MMChain *sharedInstance;
+
 @property (nonatomic, strong, readonly) MMChain * (^addString)(NSString *string);
 @property (nonatomic, strong, readonly) MMChain * (^addInteger)(int intValue);
 @property (nonatomic, strong, readonly) MMChain * (^print)(void);

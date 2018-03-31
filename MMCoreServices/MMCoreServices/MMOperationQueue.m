@@ -9,6 +9,7 @@
 #import "MMOperationQueue.h"
 
 #import "MMOperation.h"
+#import <MMFoundation/MMDefines.h>
 
 @implementation MMOperationQueue
 
@@ -23,9 +24,8 @@
     NSAssert([op respondsToSelector:errorSelector], @"Operation MUST responds to %@.", NSStringFromSelector(errorSelector));
     
     id<MMOperation> operation = (id<MMOperation>)op;
-    if(operation.stepHandler) {
-        operation.stepHandler(MMRequestStepWaiting);
-    }
+    __mm_exe_block__(operation.stepHandler, NO, MMRequestStepWaiting);
+    
     [super addOperation:op];
 }
 

@@ -11,8 +11,6 @@
 
 #define MMCORESERVICES_EXPORT extern
 
-#define mm_system_version() [UIDevice currentDevice].systemVersion.floatValue
-
 @protocol MMResponse;
 
 typedef void (^MMRequestProgressHandler)(float progress);

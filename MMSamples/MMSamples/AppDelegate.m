@@ -31,7 +31,9 @@
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
 //    [self test_MMServiceCenter];
-    [self test_chainedInvocation];
+    [self test_defines];
+    
+//    [self test_chainedInvocation];
     
 //    [self test_InvokeWithBlockArgument];
 //    [self test_OverrideProperty];
@@ -53,6 +55,13 @@
 //    [self test_EnumerateSubviews];
     
     return YES;
+}
+
+- (void)test_defines {
+    void (^block)(NSString *, NSString *) = ^ (NSString *surname, NSString *name) {
+        NSLog(@"Hello, %@ %@", surname, name);
+    };
+    __mm_exe_block__(block, NO, @"Kalma", @"Lancelot.");
 }
 
 - (void)test_chainedInvocation {

@@ -103,9 +103,7 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
 #if DEBUG
         sleep(arc4random() % 5 + 2);
 #endif
-        if(_stepHandler) {
-            _stepHandler(MMRequestStepPreparing);
-        }
+        __mm_exe_block__(_stepHandler, NO, MMRequestStepPreparing);
 #if DEBUG
         sleep(arc4random() % 5 + 2);
 #endif
@@ -212,9 +210,7 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
             self.error = _response.error;
             //TODO: write the error into the long file in the sandbox
         }
-        if(_stepHandler) {
-            _stepHandler(MMRequestStepFinished);
-        }
+        __mm_exe_block__(_stepHandler, NO, MMRequestStepFinished);
         _endTimestamp = CFAbsoluteTimeGetCurrent();
         
         // The current NSOperation will be terminated.

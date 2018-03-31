@@ -12,9 +12,24 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-#define define_string(KEY)      static NSString const*(KEY) = @#KEY;  /// define_string(ABCDE)
+#define __stringify__(KEY)      static NSString const*(KEY) = @#KEY;  ///< __stringify__(ABCDE) -> @"ABCDE"
 #define __weakify__(type)       __weak typeof(type) weak##type = type;
 #define __strongify__(type)     __strong typeof(type) stronged##type = type;
+
+#define __mm_exe_block__(block, BOOL_onMainThread, ...)     \
+if(block) {                                                 \
+    if(BOOL_onMainThread) {                                 \
+        if([NSThread isMainThread]) {                       \
+            block(__VA_ARGS__);                             \
+        } else {                                            \
+            dispatch_async(dispatch_get_main_queue(), ^ {   \
+                block(__VA_ARGS__);                         \
+            });                                             \
+        }                                                   \
+    } else {                                                \
+        block(__VA_ARGS__);                                 \
+    }                                                       \
+}
 
 #define __singleton__(CLASS_NAME)                           \
 static CLASS_NAME *instance = nil;                          \
@@ -46,12 +61,6 @@ static CLASS_NAME *instance = nil;                          \
     return self;                                            \
 }                                                           \
 
-/**
- *  Used to create object hashes
- *  Based on http://www.mikeash.com/pyblog/friday-qa-2010-06-18-implementing-equality-and-hashing.html
- */
-#define MAS_NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
-#define MAS_NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (MAS_NSUINT_BIT - howmuch)))
 
 /**
  *  Given a scalar or struct value, wraps it in NSValue
@@ -263,6 +272,15 @@ static inline float mm_cos_float(float x) {
 #else
     return cosf(x);
 #endif
+}
+
+static inline short mm_int_length(int intValue) {
+    intValue = abs(intValue);
+    short length = 1;
+    while (intValue / 10) {
+        length ++;
+    }
+    return length;
 }
 
 #endif /////// *MMDefines_h */

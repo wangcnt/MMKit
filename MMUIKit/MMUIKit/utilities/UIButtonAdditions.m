@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 #import <MMFoundation/MMDefines.h>
 
-define_string(UIButtonTouchUpInsideHandlerKey)
+__stringify__(UIButtonTouchUpInsideHandlerKey)
 
 @implementation UIButton (Additions)
 
