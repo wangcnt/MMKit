@@ -161,7 +161,7 @@ const NSTimeInterval MMIDTrackerTimeoutNone = -1;
 @property (nonatomic, strong) id target;
 @property (nonatomic) SEL selector;
 
-@property (nonatomic, strong) void (^block)(id obj, id <MMTrackingInfo> info);
+@property (nonatomic, copy) void (^block)(id obj, id <MMTrackingInfo> info);
 
 @property (nonatomic) NSTimeInterval timeout;
 

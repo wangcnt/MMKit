@@ -29,8 +29,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) id<MMSessionConfiguration> configuration;
 @property (nonatomic, strong) NSString *identifier;
 
-@property (nonatomic, strong) MMRequestStepHandler stepHandler;
-@property (nonatomic, strong) MMRequestProgressHandler progressHandler;
+@property (nonatomic, copy) MMRequestStepHandler stepHandler;
+@property (nonatomic, copy) MMRequestProgressHandler progressHandler;
 
 @property (nonatomic, strong) id<MMServiceID> serviceID;
 

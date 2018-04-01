@@ -58,15 +58,27 @@
 }
 
 - (void)test_defines {
+    @weakify(self);
     void (^block)(NSString *, NSString *) = ^ (NSString *surname, NSString *name) {
         NSLog(@"Hello, %@ %@", surname, name);
+        [weak_self description];
     };
+    
+    NSString *string = @"a";
+    __weakify__(string);
+    NSLog(@"weakedstring->%@", weakedstring);
+    __strongify__(string);
+    NSLog(@"strongedstring->%@", strongedstring);
     __mm_exe_block__(block, NO, @"Kalma", @"Lancelot.");
+
 }
 
 - (void)test_chainedInvocation {
     MMChain *sth = [[MMChain alloc] init];
-    sth.addString(@"Hello, Lancelot, I will give you ¥").addInteger(123).addString(@" to invite the girl.").print();
+    sth.addString(@"Hello, Lancelot, I will give you ¥")
+    .addInteger(123)
+    .addString(@" to invite the girl.")
+    .print();
 }
 
 - (void)test_OverrideProperty {

@@ -32,7 +32,7 @@ typedef enum : NSUInteger {
 
 @interface MMSocketRequestWrapper : NSObject
 @property (nonatomic, strong) id<MMSocketRequest> request;
-@property (nonatomic, strong) MMRequestCompletion completion;
+@property (nonatomic, copy) MMRequestCompletion completion;
 @property (nonatomic, assign) MMSocketRequestStatus status;
 @end
 

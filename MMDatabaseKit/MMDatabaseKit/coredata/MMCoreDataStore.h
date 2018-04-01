@@ -15,7 +15,7 @@
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *coordinator;  ///< Current store coordinator
 @property (nonatomic, strong, readonly) NSManagedObjectModel *model;    ///< Current object model
 @property (nonatomic, strong, readonly) NSManagedObjectContext *mainContext;    ///< Your single source of truth. Associated with main queue.
-@property (nonatomic, strong, readonly) NSManagedObjectContext *backgroundContext;  ///< Each invocation will generate a new context that uses main context as parent context.
+@property (nonatomic, strong, readonly) NSManagedObjectContext *backgroundContext;  ///< Each background context will generate a new context that uses main context as its parent context.
 @property (nonatomic, strong) NSURL *storeURL;  ///< The local url where the store is placed
 @property (nonatomic, strong, readonly) NSPersistentStore *store;
 

@@ -34,8 +34,8 @@
 @property (nonatomic, assign) NSInteger maxRetryTimes;
 @property (nonatomic, assign) NSInteger retriedTimes;
 
-@property (nonatomic, strong) MMRequestStepHandler stepHandler;
-@property (nonatomic, strong) MMRequestProgressHandler progressHandler;
+@property (nonatomic, copy) MMRequestStepHandler stepHandler;
+@property (nonatomic, copy) MMRequestProgressHandler progressHandler;
 
 /*!
  * At begining of -start, you can prepare the parameters here to make sure that

@@ -22,6 +22,6 @@ typedef void (^MMTextViewDidChangeTextHandler)(MMTextView *textView);
 
 //最大长度设置
 @property(nonatomic, assign) NSInteger   maxLength;
-@property (nonatomic, strong) MMTextViewDidChangeTextHandler textDidChangeHandler;
+@property (nonatomic, copy) MMTextViewDidChangeTextHandler textDidChangeHandler;
 
 @end
