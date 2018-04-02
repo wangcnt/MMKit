@@ -48,7 +48,7 @@
     #endif
 #endif
 
-#define __mm_exe_block__(block, BOOL_onMainThread, ...)     \
+#define __mm_exe_block__(block, BOOL_onMainThread, ...) \
 if(block) {                                                 \
     if(BOOL_onMainThread) {                                 \
         if([NSThread isMainThread]) {                       \
@@ -61,6 +61,13 @@ if(block) {                                                 \
     } else {                                                \
         block(__VA_ARGS__);                                 \
     }                                                       \
+}
+
+#define __mm_dispatch_async__(block, dispatch_queue, ...)   \
+if(block && dispatch_queue) {                               \
+    dispatch_async(dispatch_queue, ^ {                      \
+        block(__VA_ARGS__);                                 \
+    });                                                     \
 }
 
 #define __singleton__(CLASS_NAME)                           \
@@ -187,15 +194,23 @@ static inline NSString *mm_bundle_identifier() {
     return [NSBundle mainBundle].bundleIdentifier;
 }
 
+static inline NSString *mm_bundle_name() {
+    return [NSBundle mainBundle].infoDictionary[@"CFBundleName"];
+}
+
+static inline NSString *mm_bundle_version() {
+    return [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+}
+
+static inline NSString *mm_build_version() {
+    return [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+}
+
 static inline NSString *mm_application_name() {
     NSString *appName = mm_bundle_identifier();
     NSMutableArray *components = [NSMutableArray arrayWithArray:[appName componentsSeparatedByString:@"."]];
     [components filterUsingPredicate:[NSPredicate predicateWithFormat:@"SELF <> ''"]];
     return [components componentsJoinedByString:@"."];
-}
-
-static inline NSString *mm_bundle_version() {
-    return [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
 }
 
 static inline NSString *mm_int_to_str(NSInteger integer) {
@@ -210,7 +225,7 @@ static inline float mm_degrees_to_radian(float degrees) {
     return M_PI * degrees / 180.0;
 }
 
-static inline float mm_radian_to_drgrees(float radian) {
+static inline float mm_radian_to_degrees(float radian) {
     return radian * 180.0 / M_PI;
 }
 

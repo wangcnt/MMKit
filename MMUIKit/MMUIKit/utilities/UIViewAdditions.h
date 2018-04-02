@@ -57,6 +57,16 @@
 - (void)wobble; ///< 抖动
 @end
 
+@interface UIView (Snapshot)
+
+- (UIImage *)imageSnapshot;
+
+- (UIImage *)imageSnapshotAfterScreenUpdates:(BOOL)afterUpdates;
+
+- (NSData *)pdfSnapshot;
+
+@end
+
 @interface UIView (MMVisuals)
 - (void)setRoundedCorners:(UIRectCorner)corners withRadius:(CGFloat)radius;
 @end

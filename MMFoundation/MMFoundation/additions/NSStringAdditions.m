@@ -8,6 +8,7 @@
 
 #import "NSStringAdditions.h"
 #import "NSDictionaryAdditions.h"
+#import "NSNumberAdditions.h"
 
 #import <CommonCrypto/CommonDigest.h>
 
@@ -88,9 +89,73 @@
     }];
 }
 
+- (NSString *)stringByAppendingNameScale:(float)scale {
+    if (fabs(scale - 1) <= __FLT_EPSILON__ || self.length == 0 || [self hasSuffix:@"/"]) return self.copy;
+    return [self stringByAppendingFormat:@"@%@x", @(scale)];
+}
+
+- (NSString *)stringByAppendingPathScale:(float)scale {
+    if (fabs(scale - 1) <= __FLT_EPSILON__ || self.length == 0 || [self hasSuffix:@"/"]) return self.copy;
+    NSString *ext = self.pathExtension;
+    NSRange extRange = NSMakeRange(self.length - ext.length, 0);
+    if (ext.length > 0) extRange.location -= 1;
+    NSString *scaleStr = [NSString stringWithFormat:@"@%@x", @(scale)];
+    return [self stringByReplacingCharactersInRange:extRange withString:scaleStr];
+}
+
+- (float)pathScale {
+    if (self.length == 0 || [self hasSuffix:@"/"]) return 1;
+    NSString *name = self.stringByDeletingPathExtension;
+    __block float scale = 1;
+    [name enumerateSubstringsWithRegex:@"@[0-9]+\\.?[0-9]*x$" usingBlock:^(NSString *substring, NSRange range, BOOL *stop) {
+        scale = [substring substringWithRange:NSMakeRange(1, substring.length - 2)].doubleValue;
+    }];
+    return scale;
+}
+
 @end
 
 @implementation NSString (Number)
+
+- (NSNumber *)numberValue {
+    return [NSNumber numberWithString:self];
+}
+
+- (char)charValue {
+    return self.numberValue.charValue;
+}
+
+- (unsigned char)unsignedCharValue {
+    return self.numberValue.unsignedCharValue;
+}
+
+- (short)shortValue {
+    return self.numberValue.shortValue;
+}
+
+- (unsigned short)unsignedShortValue {
+    return self.numberValue.unsignedShortValue;
+}
+
+- (unsigned int)unsignedIntValue {
+    return self.numberValue.unsignedIntValue;
+}
+
+- (long)longValue {
+    return self.numberValue.longValue;
+}
+
+- (unsigned long)unsignedLongValue {
+    return self.numberValue.unsignedLongValue;
+}
+
+- (unsigned long long)unsignedLongLongValue {
+    return self.numberValue.unsignedLongLongValue;
+}
+
+- (NSUInteger)unsignedIntegerValue {
+    return self.numberValue.unsignedIntegerValue;
+}
 
 - (NSString *)phoneNumber {
     NSMutableString *result = [[NSMutableString alloc] init];
@@ -231,8 +296,77 @@
 
 @implementation NSString (Networking)
 
-- (NSString *)percentEscapedString {
-    return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!*'();:@&=+$,/?%#[]"]];
+- (NSString *)stringByURLEncoding {
+    if ([self respondsToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)]) {
+        /**
+         AFNetworking/AFURLRequestSerialization.m
+         
+         Returns a percent-escaped string following RFC 3986 for a query string key or value.
+         RFC 3986 states that the following characters are "reserved" characters.
+         - General Delimiters: ":", "#", "[", "]", "@", "?", "/"
+         - Sub-Delimiters: "!", "$", "&", "'", "(", ")", "*", "+", ",", ";", "="
+         In RFC 3986 - Section 3.4, it states that the "?" and "/" characters should not be escaped to allow
+         query strings to include a URL. Therefore, all "reserved" characters with the exception of "?" and "/"
+         should be percent-escaped in the query string.
+         - parameter string: The string to be percent-escaped.
+         - returns: The percent-escaped string.
+         */
+        static NSString * const kAFCharactersGeneralDelimitersToEncode = @":#[]@"; // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        static NSString * const kAFCharactersSubDelimitersToEncode = @"!$&'()*+,;=";
+        
+        NSMutableCharacterSet * allowedCharacterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
+        [allowedCharacterSet removeCharactersInString:[kAFCharactersGeneralDelimitersToEncode stringByAppendingString:kAFCharactersSubDelimitersToEncode]];
+        static NSUInteger const batchSize = 50;
+        
+        NSUInteger index = 0;
+        NSMutableString *escaped = @"".mutableCopy;
+        
+        while (index < self.length) {
+            NSUInteger length = MIN(self.length - index, batchSize);
+            NSRange range = NSMakeRange(index, length);
+            // To avoid breaking up character sequences such as 👴🏻👮🏽
+            range = [self rangeOfComposedCharacterSequencesForRange:range];
+            NSString *substring = [self substringWithRange:range];
+            NSString *encoded = [substring stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet];
+            [escaped appendString:encoded];
+            
+            index += range.length;
+        }
+        return escaped;
+    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        CFStringEncoding cfEncoding = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding);
+        NSString *encoded = (__bridge_transfer NSString *)
+        CFURLCreateStringByAddingPercentEscapes(
+                                                kCFAllocatorDefault,
+                                                (__bridge CFStringRef)self,
+                                                NULL,
+                                                CFSTR("!#$&'()*+,/:;=?@[]"),
+                                                cfEncoding);
+        return encoded;
+#pragma clang diagnostic pop
+    }
+}
+
+- (NSString *)stringByURLDecoding {
+    if ([self respondsToSelector:@selector(stringByRemovingPercentEncoding)]) {
+        return [self stringByRemovingPercentEncoding];
+    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        CFStringEncoding en = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding);
+        NSString *decoded = [self stringByReplacingOccurrencesOfString:@"+"
+                                                            withString:@" "];
+        decoded = (__bridge_transfer NSString *)
+        CFURLCreateStringByReplacingPercentEscapesUsingEncoding(
+                                                                NULL,
+                                                                (__bridge CFStringRef)decoded,
+                                                                CFSTR(""),
+                                                                en);
+        return decoded;
+#pragma clang diagnostic pop
+    }
 }
 
 - (NSDictionary *)queryParameters {
@@ -285,6 +419,36 @@
 
 - (NSString *)stringByStrippingHTML {
     return [self stringByReplacingOccurrencesOfString:@"<[^>]+>" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, self.length)];
+}
+
+- (NSString *)stringByEscapingHTML {
+    NSUInteger len = self.length;
+    if (!len) return self;
+    
+    unichar *buf = malloc(sizeof(unichar) * len);
+    if (!buf) return self;
+    [self getCharacters:buf range:NSMakeRange(0, len)];
+    
+    NSMutableString *result = [NSMutableString string];
+    for (int i = 0; i < len; i++) {
+        unichar c = buf[i];
+        NSString *esc = nil;
+        switch (c) {
+            case 34: esc = @"&quot;"; break;
+            case 38: esc = @"&amp;"; break;
+            case 39: esc = @"&apos;"; break;
+            case 60: esc = @"&lt;"; break;
+            case 62: esc = @"&gt;"; break;
+            default: break;
+        }
+        if (esc) {
+            [result appendString:esc];
+        } else {
+            CFStringAppendCharacters((CFMutableStringRef)result, &c, 1);
+        }
+    }
+    free(buf);
+    return result;
 }
 
 - (NSString *)stringByDeletingScripts {
@@ -1090,7 +1254,7 @@
     for(int i=0; i<keys.count; i++) {
         key = keys[i];
         value = [parameters[key] description];
-        value = [value percentEscapedString];
+        value = [value stringByURLEncoding];
         if(!shouldAnd) {
             shouldAnd = [self rangeOfString:@"="].length;
         }

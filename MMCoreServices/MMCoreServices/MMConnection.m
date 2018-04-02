@@ -16,6 +16,7 @@
 #import "MMSessionManager.h"
 #import "MMRequestIDGenerator.h"
 #import "MMSessionConfiguration.h"
+#import <MMFoundation/MMDefines.h>
 #import <MMFoundation/GCDAsyncSocket.h>
 
 MMSocketConnectionIdentifier const MMSocketConnectionDefaultIdentifier = @"Default";
@@ -129,16 +130,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)finishWithCompletion:(MMRequestCompletion)completion response:(id<MMSocketResponse>)response {
-    if(completion) {
-        dispatch_queue_t database_queue = response.request.configuration.database_queue;
-        if(database_queue) {
-            dispatch_async(database_queue, ^{
-                completion(response);
-            });
-        } else {
-            completion(response);
-        }
-    }
+    __mm_dispatch_async__(completion, response.request.configuration.database_queue, response);
 }
 
 - (void)sendRequest:(id<MMSocketRequest>)request withCompletion:(MMRequestCompletion)completion {

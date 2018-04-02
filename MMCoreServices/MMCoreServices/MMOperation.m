@@ -15,6 +15,7 @@
 #import <MMFoundation/MMDefines.h>
 #import "MMApplication.h"
 #import <MMFoundation/NSExceptionAdditions.h>
+#import <MMLog/MMLog.h>
 
 typedef NS_ENUM(NSInteger, MMAsyncOperationState) {
     MMAsyncOperationStatePreparing,
@@ -209,6 +210,7 @@ static inline NSString *MMAsyncOperationKeyPathForState(MMAsyncOperationState st
         if(!self.error) {
             self.error = _response.error;
             //TODO: write the error into the long file in the sandbox
+            MMLogError(@"%@ error:%@", self.request.command, self.error);
         }
         __mm_exe_block__(_stepHandler, NO, MMRequestStepFinished);
         _endTimestamp = CFAbsoluteTimeGetCurrent();

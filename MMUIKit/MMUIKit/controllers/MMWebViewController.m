@@ -23,7 +23,7 @@
 
 - (instancetype)initWithUrlString:(NSString *)urlString {
     if(self = [super init]) {
-        _urlString = [urlString percentEscapedString];
+        _urlString = [urlString stringByURLEncoding];
     }
     return self;
 }
@@ -103,7 +103,7 @@
 #pragma mark - 公共方法
 
 - (void)reloadWebWithUrlString:(NSString *)urlString {
-    _urlString = [urlString percentEscapedString];
+    _urlString = [urlString stringByURLEncoding];
     NSURL *URL = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     [_webView loadRequest:request];

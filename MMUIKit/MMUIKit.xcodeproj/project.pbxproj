@@ -124,6 +124,14 @@
 		4DF250E31DDFF8AF002AB829 /* UIFontAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF250E11DDFF8AF002AB829 /* UIFontAdditions.m */; };
 		4DF250E61DDFF9CB002AB829 /* UIApplicationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DF250E41DDFF9CB002AB829 /* UIApplicationAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DF250E71DDFF9CB002AB829 /* UIApplicationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF250E51DDFF9CB002AB829 /* UIApplicationAdditions.m */; };
+		4DF831212072863F0036ABEE /* UINavigationControllerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DF8311F2072863F0036ABEE /* UINavigationControllerAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DF831222072863F0036ABEE /* UINavigationControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF831202072863F0036ABEE /* UINavigationControllerAdditions.m */; };
+		4DF8312520728F6A0036ABEE /* UITextFieldAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DF8312320728F6A0036ABEE /* UITextFieldAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DF8312620728F6A0036ABEE /* UITextFieldAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8312420728F6A0036ABEE /* UITextFieldAdditions.m */; };
+		4DF8312920728FE10036ABEE /* UITableViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DF8312720728FE10036ABEE /* UITableViewAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DF8312A20728FE10036ABEE /* UITableViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8312820728FE10036ABEE /* UITableViewAdditions.m */; };
+		4DF8312D207290BF0036ABEE /* UIScreenAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DF8312B207290BF0036ABEE /* UIScreenAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DF8312E207290BF0036ABEE /* UIScreenAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8312C207290BF0036ABEE /* UIScreenAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +239,14 @@
 		4DF250E11DDFF8AF002AB829 /* UIFontAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFontAdditions.m; sourceTree = "<group>"; };
 		4DF250E41DDFF9CB002AB829 /* UIApplicationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIApplicationAdditions.h; sourceTree = "<group>"; };
 		4DF250E51DDFF9CB002AB829 /* UIApplicationAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIApplicationAdditions.m; sourceTree = "<group>"; };
+		4DF8311F2072863F0036ABEE /* UINavigationControllerAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UINavigationControllerAdditions.h; sourceTree = "<group>"; };
+		4DF831202072863F0036ABEE /* UINavigationControllerAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UINavigationControllerAdditions.m; sourceTree = "<group>"; };
+		4DF8312320728F6A0036ABEE /* UITextFieldAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITextFieldAdditions.h; sourceTree = "<group>"; };
+		4DF8312420728F6A0036ABEE /* UITextFieldAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITextFieldAdditions.m; sourceTree = "<group>"; };
+		4DF8312720728FE10036ABEE /* UITableViewAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITableViewAdditions.h; sourceTree = "<group>"; };
+		4DF8312820728FE10036ABEE /* UITableViewAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewAdditions.m; sourceTree = "<group>"; };
+		4DF8312B207290BF0036ABEE /* UIScreenAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIScreenAdditions.h; sourceTree = "<group>"; };
+		4DF8312C207290BF0036ABEE /* UIScreenAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIScreenAdditions.m; sourceTree = "<group>"; };
 		BFC96E1851FC24C9DA3AE7E7 /* libPods-MMUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMUIKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -417,6 +433,14 @@
 				4D8B53582055560400FB3BDF /* UIResponderAdditions.m */,
 				4D8B535B2055627C00FB3BDF /* UIImageViewAdditions.h */,
 				4D8B535C2055627C00FB3BDF /* UIImageViewAdditions.m */,
+				4DF8311F2072863F0036ABEE /* UINavigationControllerAdditions.h */,
+				4DF831202072863F0036ABEE /* UINavigationControllerAdditions.m */,
+				4DF8312320728F6A0036ABEE /* UITextFieldAdditions.h */,
+				4DF8312420728F6A0036ABEE /* UITextFieldAdditions.m */,
+				4DF8312720728FE10036ABEE /* UITableViewAdditions.h */,
+				4DF8312820728FE10036ABEE /* UITableViewAdditions.m */,
+				4DF8312B207290BF0036ABEE /* UIScreenAdditions.h */,
+				4DF8312C207290BF0036ABEE /* UIScreenAdditions.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -487,6 +511,10 @@
 				4D9BC374205404D1007FE60C /* CALayerAdditions.h in Headers */,
 				4D0669FB1DE02BCD0030A480 /* UIButtonAdditions.h in Headers */,
 				4D8B53592055560400FB3BDF /* UIResponderAdditions.h in Headers */,
+				4DF8312920728FE10036ABEE /* UITableViewAdditions.h in Headers */,
+				4DF831212072863F0036ABEE /* UINavigationControllerAdditions.h in Headers */,
+				4DF8312D207290BF0036ABEE /* UIScreenAdditions.h in Headers */,
+				4DF8312520728F6A0036ABEE /* UITextFieldAdditions.h in Headers */,
 				4D8B5351205550B900FB3BDF /* UIBarButtonItemAdditions.h in Headers */,
 				4DF250E61DDFF9CB002AB829 /* UIApplicationAdditions.h in Headers */,
 				4DC37D9B206A6D6B008FCF60 /* MMWebView.h in Headers */,
@@ -607,19 +635,23 @@
 				4D0669FC1DE02BCD0030A480 /* UIButtonAdditions.m in Sources */,
 				4D24AA67202F4A92006777FF /* MMPagingScrollViewCell.m in Sources */,
 				4DE44AED1C24391300FD1D97 /* MMView.m in Sources */,
+				4DF8312620728F6A0036ABEE /* UITextFieldAdditions.m in Sources */,
 				4DE44AA31C24391300FD1D97 /* MMWebViewController.m in Sources */,
 				4DE44A9A1C24391300FD1D97 /* MMNavigationController.m in Sources */,
+				4DF8312A20728FE10036ABEE /* UITableViewAdditions.m in Sources */,
 				4D24AA65202F4A92006777FF /* MMPagingScrollView.m in Sources */,
 				4DCB0DFD1C24730600339CF9 /* MMTranslucentViewController.m in Sources */,
 				4DE44AAE1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.m in Sources */,
 				4D9BC37D205413BB007FE60C /* UIScrollViewAdditions.m in Sources */,
 				4DC37D9C206A6D6B008FCF60 /* MMWebView.m in Sources */,
 				4DE44AAB1C24391300FD1D97 /* SSWAnimator.m in Sources */,
+				4DF831222072863F0036ABEE /* UINavigationControllerAdditions.m in Sources */,
 				4DE44AB71C24391300FD1D97 /* UIColorAdditions.m in Sources */,
 				4DE44ADB1C24391300FD1D97 /* MMLabel.m in Sources */,
 				4DE44AC91C24391300FD1D97 /* UITabBarItemAdditions.m in Sources */,
 				4DE44AC01C24391300FD1D97 /* UINavigationItemAdditions.m in Sources */,
 				4DE44AC61C24391300FD1D97 /* UITabBarControllerAdditions.m in Sources */,
+				4DF8312E207290BF0036ABEE /* UIScreenAdditions.m in Sources */,
 				4DE44AE71C24391300FD1D97 /* MMTableViewCell.m in Sources */,
 				4DE44AA81C24391300FD1D97 /* SloppySwiper.m in Sources */,
 				4D24AA6F202F4CA4006777FF /* MMViewRecycler.m in Sources */,

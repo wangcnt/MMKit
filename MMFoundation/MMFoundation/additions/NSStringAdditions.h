@@ -34,9 +34,39 @@ typedef NS_OPTIONS(NSUInteger, NSStringMatchingOptions) {
 + (NSString *)timestamp;
 - (void)enumerateSubstringsWithRegex:(NSString *)regex usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *stop))block;
 
+- (NSString *)stringByAppendingNameScale:(float)scale;
+- (NSString *)stringByAppendingPathScale:(float)scale;
+
+/**
+ Return the path scale.
+ 
+ e.g.
+ <table>
+ <tr><th>Path            </th><th>Scale </th></tr>
+ <tr><td>"icon.png"      </td><td>1     </td></tr>
+ <tr><td>"icon@2x.png"   </td><td>2     </td></tr>
+ <tr><td>"icon@2.5x.png" </td><td>2.5   </td></tr>
+ <tr><td>"icon@2x"       </td><td>1     </td></tr>
+ <tr><td>"icon@2x..png"  </td><td>1     </td></tr>
+ <tr><td>"icon@2x.png/"  </td><td>1     </td></tr>
+ </table>
+ */
+- (float)pathScale;
+
 @end
 
 @interface NSString (Number)
+
+- (NSNumber *)numberValue;
+- (char)charValue;
+- (unsigned char)unsignedCharValue;
+- (short)shortValue;
+- (unsigned short)unsignedShortValue;
+- (unsigned int)unsignedIntValue;
+- (long)longValue;
+- (unsigned long)unsignedLongValue;
+- (unsigned long long)unsignedLongLongValue;
+- (NSUInteger)unsignedIntegerValue;
 
 - (NSString *)phoneNumber;
 
@@ -67,12 +97,14 @@ typedef NS_OPTIONS(NSUInteger, NSStringMatchingOptions) {
 
 @interface NSString (Networking)
 
-- (NSString *)percentEscapedString;
+- (NSString *)stringByURLEncoding;
+- (NSString *)stringByURLDecoding;
 - (NSString *)queryParameters;
 - (NSString *)stringByAppendingQueryParameters:(NSDictionary *)parameters;
 - (NSString *)stringByDeletingQueryParameters;
 - (NSString *)stringByDeletingURLPrefix;
 - (NSString *)stringByStrippingHTML;
+- (NSString *)stringByEscapingHTML;
 - (NSString *)stringByDeletingScripts;
 - (NSString *)stringByDeletingHTMLElements;
 - (NSString *)stringByDeletingEmptyTitle;

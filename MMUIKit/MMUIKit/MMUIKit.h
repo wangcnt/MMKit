@@ -36,11 +36,14 @@
 #import <MMUIKit/CALayerAdditions.h>
 #import <MMUIKit/UILabelAdditions.h>
 #import <MMUIKit/UIImageAdditions.h>
+#import <MMUIKit/UIScreenAdditions.h>
 #import <MMUIKit/UIButtonAdditions.h>
 #import <MMUIKit/UIDeviceAdditions.h>
 #import <MMUIKit/UIControlAdditions.h>
+#import <MMUIKit/UITextFieldAdditions.h>
 #import <MMUIKit/UISearchBarAdditions.h>
 #import <MMUIKit/UIImageViewAdditions.h>
+#import <MMUIKit/UITableViewAdditions.h>
 #import <MMUIKit/UIResponderAdditions.h>
 #import <MMUIKit/UIScrollViewAdditions.h>
 #import <MMUIKit/UITabBarItemAdditions.h>
@@ -49,6 +52,7 @@
 #import <MMUIKit/UIViewControllerAdditions.h>
 #import <MMUIKit/UINavigationItemAdditions.h>
 #import <MMUIKit/UITabBarControllerAdditions.h>
+#import <MMUIKit/UINavigationControllerAdditions.h>
 
 // 第三方
 #import <MMUIKit/MMViewRecycler.h>
