@@ -18,6 +18,4 @@
 
 @interface UIViewController(SMS)
 
-- (void)sendSMSToRecipients:(NSArray *)recipients withContent:(NSString *)content;
-
 @end

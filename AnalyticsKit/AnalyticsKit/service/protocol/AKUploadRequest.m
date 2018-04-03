@@ -18,9 +18,10 @@
 
 - (NSData *)payload {
     NSMutableString *payload = [[NSMutableString alloc] init];
-    for(id<AKEvent> e in _events) {
-        
-    }
+    ///TODO: 
+//    for(id<AKEvent> e in _events) {
+//
+//    }
     return [payload dataUsingEncoding:NSUTF8StringEncoding];
 }
 

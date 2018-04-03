@@ -62,7 +62,7 @@
     screenshotView.frame = from.view.frame;
     
     // 计算新界面的位置
-    NSUInteger toIndex = [self.childViewControllers indexOfObject:to];
+    NSInteger toIndex = [self.childViewControllers indexOfObject:to];
     to.view.frame = CGRectMake(toIndex * _containerScrollView.frame.size.width,
                                0,
                                _containerScrollView.frame.size.width,

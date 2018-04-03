@@ -114,3 +114,10 @@
 - (UIImage *)maskImageFromImageAlpha;
 
 @end
+
+@interface UIImage (YYImage)
+
+
+
+@end
+

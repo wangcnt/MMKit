@@ -62,18 +62,3 @@
 
 @end
 
-
-@implementation UIViewController(SMS)
-
-- (void)sendSMSToRecipients:(NSArray *)recipients withContent:(NSString *)content {
-    Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
-    if ([messageClass canSendText]) {
-        MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
-        picker.messageComposeDelegate = self;
-        picker.recipients = recipients;
-        picker.body = content;
-        [self presentViewController:picker animated:YES completion:^{}];
-    }
-}
-
-@end

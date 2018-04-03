@@ -99,6 +99,8 @@
 }
 
 - (void)test_InstalledAllApps {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     Class c =NSClassFromString(@"LSApplicationWorkspace");
     id s = [(id)c performSelector:NSSelectorFromString(@"defaultWorkspace")];
     NSArray *array = [s performSelector:NSSelectorFromString(@"allInstalledApplications")];
@@ -108,6 +110,7 @@
               [item performSelector:NSSelectorFromString(@"bundleVersion")]);
         //NSLog(@"%@",[item performSelector:NSSelectorFromString(@"bundleIdentifier")]);
     }
+#pragma clang diagnostic pop
 }
 
 - (BOOL)test_ChangeReturnValueWhenDebugging {

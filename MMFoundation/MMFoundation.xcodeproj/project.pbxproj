@@ -75,6 +75,7 @@
 		4D9BC3A8205536AE007FE60C /* NSTimerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9BC3A6205536AE007FE60C /* NSTimerAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D9BC3A9205536AE007FE60C /* NSTimerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC3A7205536AE007FE60C /* NSTimerAdditions.m */; };
 		4DC37D982069571F008FCF60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC37D972069571F008FCF60 /* CoreGraphics.framework */; };
+		4DCAA4B12073E0E100085E62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DCAA4B02073E0E000085E62 /* UIKit.framework */; };
 		4DF8313120729CE30036ABEE /* NSNumberAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DF8312F20729CE30036ABEE /* NSNumberAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DF8313220729CE30036ABEE /* NSNumberAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8313020729CE30036ABEE /* NSNumberAdditions.m */; };
 /* End PBXBuildFile section */
@@ -151,6 +152,7 @@
 		4D9BC3A7205536AE007FE60C /* NSTimerAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTimerAdditions.m; sourceTree = "<group>"; };
 		4DC37D972069571F008FCF60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4DC37DA7206A79E6008FCF60 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		4DCAA4B02073E0E000085E62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4DF8312F20729CE30036ABEE /* NSNumberAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSNumberAdditions.h; sourceTree = "<group>"; };
 		4DF8313020729CE30036ABEE /* NSNumberAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSNumberAdditions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DCAA4B12073E0E100085E62 /* UIKit.framework in Frameworks */,
 				4DC37D982069571F008FCF60 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +305,7 @@
 		4DC37D962069571E008FCF60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DCAA4B02073E0E000085E62 /* UIKit.framework */,
 				4DC37DA7206A79E6008FCF60 /* libxml2.tbd */,
 				4DC37D972069571F008FCF60 /* CoreGraphics.framework */,
 			);

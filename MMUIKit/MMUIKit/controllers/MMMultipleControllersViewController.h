@@ -14,7 +14,7 @@ typedef void(^MMMultipleControllersTransitionCompletion)(UIViewController *fromV
 @interface MMMultipleControllersViewController : MMViewController
 
 @property (nonatomic, strong, readonly) UIViewController *currentViewController;
-@property (nonatomic, assign) int currentIndex;                   ///< 只能取值，对于设值暂不维护
+@property (nonatomic, assign) NSInteger currentIndex;                   ///< 只能取值，对于设值暂不维护
 @property (nonatomic, strong, readonly) UIScrollView *containerScrollView;  ///< 已经监听scrollViewDidEndDecelerating:方法，需要继续监听需要调用super的方法
 
 /**

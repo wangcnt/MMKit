@@ -9,10 +9,21 @@
 #import <Foundation/Foundation.h>
 
 @interface NSArray (Additions)
+
 - (BOOL)isEmpty;
+- (NSObject *)anyObject;
 - (NSMutableArray *)mutableDeepCopy;
+
 @end
 
+@interface NSArray (Plist)
+
++ (NSArray *)arrayWithPlistData:(NSData *)plist;
++ (NSArray *)arrayWithPlistString:(NSString *)plist;
+- (NSData *)plistData;
+- (NSString *)plistString;
+
+@end
 
 @interface NSArray (Numbers)
 
@@ -29,10 +40,27 @@
 @end
 
 @interface NSArray(JSON)
+
 - (NSString *)JSONString;
+
 @end
 
 
 @interface NSMutableArray (Additions)
-- (void)reverseAllObjects;
+
++ (NSMutableArray *)arrayWithPlistData:(NSData *)plist;
++ (NSMutableArray *)arrayWithPlistString:(NSString *)plist;
+
+- (void)removeFirstObject;
+- (void)removeLastObject;
+
+- (void)appendObject:(id)anObject;
+- (void)prependObject:(id)anObject;
+- (void)appendObjects:(NSArray *)objects;
+- (void)prependObjects:(NSArray *)objects;
+- (void)insertObjects:(NSArray *)objects atIndex:(NSUInteger)index;
+
+- (void)reverse;
+- (void)shuffle;
+
 @end

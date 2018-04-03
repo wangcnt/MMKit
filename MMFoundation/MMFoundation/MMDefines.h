@@ -16,6 +16,10 @@
 #define __weakify__(type)       __weak typeof(type) weaked##type = type;  ///< __weakify__(text) -> weakedtext
 #define __strongify__(type)     __strong typeof(type) stronged##type = type;  ///< __strongify__(text) -> strongedtext
 
+#ifndef __swap__ // swap two value
+#define __swap__(a, b)  do { __typeof__(a) _tmp_ = (a); (a) = (b); (b) = _tmp_; } while (0)
+#endif
+
 #ifndef weakify
     #if DEBUG
         #if __has_feature(objc_arc)
@@ -320,6 +324,21 @@ static inline float mm_cos_float(float x) {
     return cosf(x);
 #endif
 }
+
+/**
+ Add this macro before each category implementation, so we don't have to use
+ -all_load or -force_load to load object files from static libraries that only
+ contain categories and no classes.
+ More info: http://developer.apple.com/library/mac/#qa/qa2006/qa1490.html .
+ *******************************************************************************
+ Example:
+ MMSYNTH_DUMMY_CLASS(NSString_YYAdd)
+ */
+#ifndef __mm_synth_dummy_class__
+#define __mm_synth_dummy_class__(_name_) \
+@interface MMSYNTH_DUMMY_CLASS_##_name_ : NSObject @end \
+@implementation MMSYNTH_DUMMY_CLASS_##_name_ @end
+#endif
 
 
 #endif /////// *MMDefines_h */

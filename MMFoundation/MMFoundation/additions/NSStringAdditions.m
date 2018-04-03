@@ -9,6 +9,7 @@
 #import "NSStringAdditions.h"
 #import "NSDictionaryAdditions.h"
 #import "NSNumberAdditions.h"
+#import "NSDataAdditions.h"
 
 #import <CommonCrypto/CommonDigest.h>
 
@@ -80,9 +81,21 @@
 }
 
 - (void)enumerateSubstringsWithRegex:(NSString *)regex usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *gameover))block {
+    [self enumerateSubstringsWithRegex:regex expressionOptions:0 usingBlock:block];
+}
+
+- (void)enumerateSubstringsWithRegex:(NSString *)regex expressionOptions:(NSRegularExpressionOptions)options usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *gameover))block {
+    [self enumerateSubstringsWithRegex:regex expressionOptions:options matchingOptions:0 usingBlock:block];
+}
+
+- (void)enumerateSubstringsWithRegex:(NSString *)regex matchingOptions:(NSMatchingOptions)options usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *gameover))block {
+    [self enumerateSubstringsWithRegex:regex expressionOptions:0 matchingOptions:options usingBlock:block];
+}
+
+- (void)enumerateSubstringsWithRegex:(NSString *)regex expressionOptions:(NSRegularExpressionOptions)expressionOptions matchingOptions:(NSMatchingOptions)matchingOptions usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *gameover))block {
     NSError *error;
-    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:0 error:&error];
-    [expression enumerateMatchesInString:self options:0 range:NSMakeRange(0, self.length) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:expressionOptions error:&error];
+    [expression enumerateMatchesInString:self options:matchingOptions range:NSMakeRange(0, self.length) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
         if(block) {
             block([self substringWithRange:match.range], match.range, stop);
         }
@@ -111,6 +124,71 @@
         scale = [substring substringWithRange:NSMakeRange(1, substring.length - 2)].doubleValue;
     }];
     return scale;
+}
+
+@end
+
+
+@implementation NSString (Security)
+
+- (NSString *)md2String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] md2String];
+}
+
+- (NSString *)md4String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] md4String];
+}
+
+- (NSString *)md5String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
+}
+
+- (NSString *)sha1String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha1String];
+}
+
+- (NSString *)sha224String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha224String];
+}
+
+- (NSString *)sha256String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha256String];
+}
+
+- (NSString *)sha384String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha384String];
+}
+
+- (NSString *)sha512String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha512String];
+}
+
+- (NSString *)crc32String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] crc32String];
+}
+
+- (NSString *)hmacMD5StringWithKey:(NSString *)key {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] hmacMD5StringWithKey:key];
+}
+
+- (NSString *)hmacSHA1StringWithKey:(NSString *)key {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] hmacSHA1StringWithKey:key];
+}
+
+- (NSString *)hmacSHA224StringWithKey:(NSString *)key {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] hmacSHA224StringWithKey:key];
+}
+
+- (NSString *)hmacSHA256StringWithKey:(NSString *)key {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] hmacSHA256StringWithKey:key];
+}
+
+- (NSString *)hmacSHA384StringWithKey:(NSString *)key {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] hmacSHA384StringWithKey:key];
+}
+
+- (NSString *)hmacSHA512StringWithKey:(NSString *)key {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] hmacSHA512StringWithKey:key];
 }
 
 @end

@@ -25,3 +25,9 @@ FOUNDATION_EXPORT const unsigned char QTimeFoundationVersionString[];
 #import <QTimeFoundation/QTConnection.h>
 #import <QTimeFoundation/QTServiceCenter.h>
 
+#import <QTimeFoundation/QTInviteSessionManager.h>
+#import <QTimeFoundation/QTInviteOperation.h>
+#import <QTimeFoundation/QTInviteResponse.h>
+#import <QTimeFoundation/QTInviteRequest.h>
+#import <QTimeFoundation/QTInviteConnection.h>
+

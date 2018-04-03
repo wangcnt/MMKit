@@ -150,7 +150,6 @@ static inline CGContextRef YYCGContextCreateGrayBitmapContext(CGSize size, CGFlo
 
 /**
  Returns a rectangle to fit the @param rect with specified content mode.
- 
  @param rect The constrant rect
  @param size The content size
  @param mode The content mode

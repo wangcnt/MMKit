@@ -110,6 +110,4 @@
 //检查陀螺仪可用 CoreMotion.framework <CoreMotion/CoreMotion.h>
 - (BOOL)isGyroscopeAvailable;
 
-+ (NSString *_Nullable)macAddress;
-
 @end
