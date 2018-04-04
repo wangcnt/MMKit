@@ -8,6 +8,10 @@
 
 #import "CALayerAdditions.h"
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(CALayerAdditions)
+
 @implementation CALayer (Additions)
 
 - (void)shake{

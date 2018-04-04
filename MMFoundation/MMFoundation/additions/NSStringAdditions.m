@@ -13,6 +13,10 @@
 
 #import <CommonCrypto/CommonDigest.h>
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSStringAdditions)
+
 @implementation NSString(Additions)
 
 - (NSString *)md5edString {

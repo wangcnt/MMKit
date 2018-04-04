@@ -9,6 +9,10 @@
 #import "UILabelAdditions.h"
 #import <CoreText/CoreText.h>
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UILabelAdditions)
+
 @implementation UILabel (Additions)
 
 - (void)setColumnSpace:(CGFloat)columnSpace {

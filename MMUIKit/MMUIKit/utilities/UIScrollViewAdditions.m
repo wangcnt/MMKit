@@ -8,6 +8,10 @@
 
 #import "UIScrollViewAdditions.h"
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIScrollViewAdditions)
+
 @implementation UIScrollView (Additions)
 
 - (void)scrollToTop {

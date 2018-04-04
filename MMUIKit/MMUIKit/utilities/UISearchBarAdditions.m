@@ -8,6 +8,10 @@
 
 #import "UISearchBarAdditions.h"
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UISearchBarAdditions)
+
 @implementation UISearchBar(Additions)
 
 - (void)setTitle:(NSString *)title forState:(UIControlState)state {

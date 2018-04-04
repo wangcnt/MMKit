@@ -30,6 +30,10 @@
 #import <mach/mach_host.h>
 #import <mach/processor_info.h>
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIDeviceAdditions)
+
 @implementation UIDevice(Additions)
 @end
 

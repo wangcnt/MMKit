@@ -8,6 +8,10 @@
 
 #import "NSUserDefaultsAdditions.h"
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSUserDefaultsAdditions)
+
 @implementation NSUserDefaults (Additions)
 
 - (void)setValue:(id)value forKey:(NSString *)key toiCloud:(BOOL)iCloud {

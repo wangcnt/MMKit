@@ -8,6 +8,10 @@
 
 #import "NSBundleAdditions.h"
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSBundleAdditions)
+
 @implementation NSBundle (Additions)
 
 - (NSString *)appIconPath {

@@ -8,6 +8,10 @@
 
 #import "NSDateAdditions.h"
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSDateAdditions)
+
 NS_ASSUME_NONNULL_BEGIN
 
 @implementation NSDate (Additions)

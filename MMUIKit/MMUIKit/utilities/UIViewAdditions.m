@@ -10,6 +10,10 @@
 #import <MMFoundation/MMDefines.h>
 #import <objc/runtime.h>
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIViewAdditions)
+
 @implementation UIView(MMFrame)
 
 //@dynamic x, y, width, height, original, size, maxX ,maxY;

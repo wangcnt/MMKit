@@ -8,6 +8,10 @@
 
 #import "UITabBarItemAdditions.h"
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UITabBarItemAdditions)
+
 @implementation UITabBarItem(iOS7)
 
 + (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage {

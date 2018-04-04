@@ -11,6 +11,10 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UINavigationItemAdditions)
+
 @implementation UINavigationItem(Space)
 
 - (void)setLeftBarButtonItem:(UIBarButtonItem *)leftBarButtonItem indent:(float)indent {

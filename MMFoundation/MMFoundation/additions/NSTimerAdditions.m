@@ -8,6 +8,10 @@
 
 #import "NSTimerAdditions.h"
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSTimerAdditions)
+
 @implementation NSTimer (Additions)
 
 - (void)pause {

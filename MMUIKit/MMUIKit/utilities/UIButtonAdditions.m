@@ -10,6 +10,10 @@
 #import <objc/runtime.h>
 #import <MMFoundation/MMDefines.h>
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIButtonAdditions)
+
 __c_stringify__(UIButtonTouchUpInsideHandlerKey)
 
 @implementation UIButton (Additions)

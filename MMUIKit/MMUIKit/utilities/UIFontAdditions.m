@@ -10,6 +10,10 @@
 
 #import <CoreText/CoreText.h>
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIFontAdditions)
+
 @implementation UIFont (MMCustom)
 
 + (UIFont *)fontWithTTFAtURL:(NSURL *)URL size:(CGFloat)size{

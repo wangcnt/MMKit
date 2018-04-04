@@ -8,6 +8,10 @@
 
 #import "NSFileManagerAdditions.h"
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSFileManagerAdditions)
+
 @implementation NSFileManager(Additions)
 
 - (BOOL)createFolderAtPathIfNeeds:(NSString *)path {

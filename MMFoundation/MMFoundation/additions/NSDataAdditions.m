@@ -11,6 +11,10 @@
 #include <CommonCrypto/CommonCrypto.h>
 #include <zlib.h>
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSDataAdditions)
+
 @implementation NSData (Additions)
 
 - (NSString *)UTF8String {

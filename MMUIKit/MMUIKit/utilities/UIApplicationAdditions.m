@@ -15,6 +15,10 @@
 #import <mach/mach.h>
 #import <objc/runtime.h>
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIApplicationAdditions)
+
 @implementation UIApplication(Additions)
 
 - (NSString *)appBundleName {

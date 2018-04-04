@@ -9,6 +9,10 @@
 #import "UIViewControllerAdditions.h"
 #import <MessageUI/MessageUI.h>
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIViewControllerAdditions)
+
 @interface UIViewController()
 <MFMailComposeViewControllerDelegate>
 @end

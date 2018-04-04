@@ -10,7 +10,11 @@
 
 #import <objc/runtime.h>
 
-static char *const UIBarButtonItemHandlerKey = "UIBarButtonItemHandlerKey";
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIBarButtonItemAdditions)
+
+__c_stringify__(UIBarButtonItemHandlerKey)
 
 @implementation UIBarButtonItem (Additions)
 

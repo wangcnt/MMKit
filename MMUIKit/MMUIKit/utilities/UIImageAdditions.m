@@ -19,6 +19,10 @@
 #import <CoreText/CoreText.h>
 #import <objc/runtime.h>
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIImageAdditions)
+
 
 #if __has_feature(objc_arc)
 #define toCF (__bridge CFTypeRef)

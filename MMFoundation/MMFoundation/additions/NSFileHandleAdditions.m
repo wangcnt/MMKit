@@ -8,6 +8,10 @@
 
 #import "NSFileHandleAdditions.h"
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSFileHandleAdditions)
+
 @implementation NSFileHandle (Additions)
 
 - (NSData *)readLineWithDelimiter:(NSString *)theDelimiter

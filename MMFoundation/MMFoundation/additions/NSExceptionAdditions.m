@@ -10,6 +10,10 @@
 
 #include <execinfo.h>
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSExceptionAdditions)
+
 @implementation NSException (Additions)
 
 - (NSArray *)backtrace

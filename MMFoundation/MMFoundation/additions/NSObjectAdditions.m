@@ -13,6 +13,10 @@
 #import <objc/message.h>
 #import <UIKit/UIKit.h>
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSObjectAdditions)
+
 @implementation NSObject (Additions)
 
 /*

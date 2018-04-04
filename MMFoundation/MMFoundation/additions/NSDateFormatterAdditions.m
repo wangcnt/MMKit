@@ -8,6 +8,10 @@
 
 #import "NSDateFormatterAdditions.h"
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSDateFormatterAdditions)
+
 @implementation NSDateFormatter (Additions)
 
 + (NSDateFormatter *)dateFormatterWithFormat:(NSString *)format {

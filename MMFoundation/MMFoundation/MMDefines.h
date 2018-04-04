@@ -13,11 +13,11 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 #ifndef __stringify__
-#define __stringify__(key)      static NSString const*(key) = @#key;  ///< __stringify__(ABCDE) -> @"ABCDE"
+#define __stringify__(key)      static NSString const *(key) = @#key;  ///< __stringify__(ABCDE) -> @"ABCDE"
 #endif
 
 #ifndef __c_stringify__
-#define __c_stringify__(key)    static char const* (key) = #key;  ///< __c_stringify__(ABCDE) -> "ABCDE"
+#define __c_stringify__(key)    static char const *(key) = #key;  ///< __c_stringify__(ABCDE) -> "ABCDE"
 #endif
 
 #ifndef __weakify__

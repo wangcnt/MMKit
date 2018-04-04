@@ -12,6 +12,10 @@
 #import "NSDataAdditions.h"
 #import "NSStringAdditions.h"
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSDictionaryAdditions)
+
 @interface _YYXMLDictionaryParser : NSObject <NSXMLParserDelegate>
 @end
 

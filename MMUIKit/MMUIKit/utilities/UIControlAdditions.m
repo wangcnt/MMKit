@@ -10,6 +10,10 @@
 
 #import <objc/runtime.h>
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIControlAdditions)
+
 static const void *UIControlEventsHandlerArray = &UIControlEventsHandlerArray;
 
 @interface UIControlEventsHandlerWrapper : NSObject

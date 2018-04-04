@@ -9,6 +9,9 @@
 #import "NSArrayAdditions.h"
 #import "NSDictionaryAdditions.h"
 #import "NSDataAdditions.h"
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSArrayAdditions)
 
 @implementation NSArray (Additions)
 

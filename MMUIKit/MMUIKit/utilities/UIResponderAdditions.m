@@ -8,6 +8,10 @@
 
 #import "UIResponderAdditions.h"
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIResponderAdditions)
+
 @implementation UIResponder (Additions)
 
 - (NSArray<UIResponder *> *)responderChain {

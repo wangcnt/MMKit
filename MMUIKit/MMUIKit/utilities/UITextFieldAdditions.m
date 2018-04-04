@@ -8,6 +8,10 @@
 
 #import "UITextFieldAdditions.h"
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UITextFieldAdditions)
+
 @implementation UITextField (Additions)
 
 - (void)selectAll {

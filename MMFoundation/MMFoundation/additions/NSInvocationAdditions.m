@@ -8,6 +8,10 @@
 
 #import "NSInvocationAdditions.h"
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSInvocationAdditions)
+
 @implementation NSInvocation (Additions)
 
 - (NSInvocation *)duplicatedInvocation {

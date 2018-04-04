@@ -9,6 +9,10 @@
 #import "NSNumberAdditions.h"
 #import "NSStringAdditions.h"
 
+#import "MMDefines.h"
+
+__mm_synth_dummy_class__(NSNumberAdditions)
+
 @implementation NSNumber (Additions)
 
 + (NSNumber *)numberWithString:(NSString *)string {

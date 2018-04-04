@@ -10,6 +10,10 @@
 
 #define k_size_screen       [UIScreen mainScreen].bounds.size
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UITabBarControllerAdditions)
+
 @interface UITabBarController()
 
 

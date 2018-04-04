@@ -9,6 +9,10 @@
 #import "UIScreenAdditions.h"
 #import "UIDeviceAdditions.h"
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIScreenAdditions)
+
 @implementation UIScreen (Additions)
 
 + (CGFloat)screenScale {

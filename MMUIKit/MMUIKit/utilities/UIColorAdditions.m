@@ -10,6 +10,10 @@
 
 #import "UIImageAdditions.h"
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIColorAdditions)
+
 @implementation UIColor (Additions)
 
 + (instancetype)colorWithHex:(uint32_t)hex {

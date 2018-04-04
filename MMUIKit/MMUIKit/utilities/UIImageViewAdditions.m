@@ -8,6 +8,10 @@
 
 #import "UIImageViewAdditions.h"
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UIImageViewAdditions)
+
 @implementation UIImageView (Additions)
 
 - (UIImageView *)reflectedImageView {

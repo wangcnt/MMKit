@@ -8,12 +8,21 @@
 
 #import "UITableViewAdditions.h"
 
+#import <MMFoundation/MMDefines.h>
+
+__mm_synth_dummy_class__(UITableViewAdditions)
+
 @implementation UITableView (Additions)
 
 - (void)updateWithBlock:(void (^)(UITableView *tableView))block {
     [self beginUpdates];
     block(self);
     [self endUpdates];
+}
+
+- (void)scrollToRow:(NSUInteger)row inSection:(NSUInteger)section atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    [self scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:animated];
 }
 
 - (void)insertRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation {
