@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UIView(MMFrame)
+@interface UIView (MMFrame)
 
 - (CGPoint)original;
 - (void)setOrigin:(CGPoint)origin;
@@ -54,16 +54,23 @@
 @end
 
 @interface UIView (MMAnimations)
+
 - (void)wobble; ///< 抖动
+
 @end
 
 @interface UIView (Snapshot)
 
 - (UIImage *)imageSnapshot;
-
 - (UIImage *)imageSnapshotAfterScreenUpdates:(BOOL)afterUpdates;
-
 - (NSData *)pdfSnapshot;
+
+@end
+
+@interface UIView (Corner)
+
+- (void)setCorners:(UIRectCorner)corners withRadius:(CGFloat)radius;    ///< Must invoke -displayCorners in -layoutSubviews
+- (void)displayCorners;
 
 @end
 

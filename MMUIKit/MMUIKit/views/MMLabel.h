@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "UILabelAdditions.h"
+#import "UIViewAdditions.h"
 
 typedef enum
 {

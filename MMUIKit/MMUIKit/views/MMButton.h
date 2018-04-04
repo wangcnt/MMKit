@@ -10,6 +10,7 @@
 
 #import "UIButtonAdditions.h"
 #import "UIControlAdditions.h"
+#import "UIViewAdditions.h"
 
 @interface MMButton : UIButton
 

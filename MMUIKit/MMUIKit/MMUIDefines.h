@@ -1,4 +1,4 @@
-//
+ //
 //  MMUIInlines.h
 //  MMUIKit
 //
@@ -90,6 +90,22 @@ static inline CGPoint mm_frame_center(CGRect rect) {
 
 static inline CGFloat mm_distance_between_points(CGPoint p1, CGPoint p2) {
     return sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
+}
+
+static inline CGSize mm_size_fits_in_size(CGSize size, CGSize maxSize) {
+    if(CGSizeEqualToSize(CGSizeZero, maxSize))  maxSize = [UIScreen mainScreen].bounds.size;
+    
+    if(size.width > maxSize.width) {
+        size.width = maxSize.width;
+        size.height = maxSize.width * size.height / size.width;
+    }
+    
+    if(size.height > maxSize.height){
+        size.height = maxSize.height;
+        size.width = maxSize.height * size.width / size.height;;
+    }
+    
+    return size;
 }
 
 static inline CGFloat mm_distance_from_point_to_rect(CGPoint p, CGRect r) {

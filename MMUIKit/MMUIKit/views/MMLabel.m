@@ -8,6 +8,8 @@
 
 #import "MMLabel.h"
 
+
+
 @implementation MMLabel
 
 - (id)initWithFrame:(CGRect)frame {
@@ -45,6 +47,11 @@
     CGRect actualRect = [self textRectForBounds:requestedRect limitedToNumberOfLines:self.numberOfLines];
 //    self.attributedText = nil;
     [super drawTextInRect:actualRect];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self displayCorners];
 }
 
 @end

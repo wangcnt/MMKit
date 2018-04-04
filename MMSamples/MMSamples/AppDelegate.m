@@ -24,6 +24,9 @@
 #import "MMSafeSingleton.h"
 #import "MMSomething.h"
 
+__c_stringify__(abcde)
+__stringify__(abcdefg)
+
 @implementation AppDelegate
 
 
@@ -32,6 +35,10 @@
     //    [[B sharedInstance] print];
 //    [self test_MMServiceCenter];
     [self test_defines];
+    NSLog(@"abcde->%s", abcde);
+    NSLog(@"abcdefg->%@", abcdefg);
+    NSLog(@"");
+    
     
 //    [self test_chainedInvocation];
     

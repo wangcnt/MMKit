@@ -7,7 +7,8 @@
 
 #import "UIViewAdditions.h"
 
-#define func_angel_to_randian(x)           x/180.0*M_PI
+#import <MMFoundation/MMDefines.h>
+#import <objc/runtime.h>
 
 @implementation UIView(MMFrame)
 
@@ -182,9 +183,9 @@
     anim.keyPath = @"transform.rotation";
     anim.repeatCount = MAXFLOAT;
     anim.duration = 0.2;
-    anim.values = @[@(func_angel_to_randian(-7)),
-                    @(func_angel_to_randian(7)),
-                    @(func_angel_to_randian(-7))
+    anim.values = @[@(mm_degrees_to_radian(-7)),
+                    @(mm_degrees_to_radian(7)),
+                    @(mm_degrees_to_radian(-7))
                     ];
     [self.layer addAnimation:anim forKey:nil];
 }
@@ -227,6 +228,58 @@
     CGPDFContextClose(context);
     CGContextRelease(context);
     return data;
+}
+
+@end
+
+__c_stringify__(UIViewCornersKey)
+__c_stringify__(UIViewCornerRadiusKey)
+
+@implementation UIView (Corner)
+
+- (UIRectCorner)corners {
+    id corners = objc_getAssociatedObject(self, &UIViewCornersKey);
+    if([corners isKindOfClass:[NSNumber class]]) {
+        return [corners integerValue];
+    }
+    return 0;
+}
+
+- (void)setCorners:(UIRectCorner)corners {
+    UIRectCorner _corners = [self corners];
+    if(_corners != corners) {
+        objc_setAssociatedObject(self, &UIViewCornersKey, @(corners), OBJC_ASSOCIATION_RETAIN);
+    }
+}
+
+- (CGFloat)cornerRadius {
+    id radius = objc_getAssociatedObject(self, &UIViewCornerRadiusKey);
+    if([radius isKindOfClass:[NSNumber class]]) {
+        return [radius floatValue];
+    }
+    return 0;
+}
+
+- (void)setCornerRadius:(CGFloat)radius {
+    UIRectCorner _radius = [self cornerRadius];
+    if(_radius != radius) {
+        objc_setAssociatedObject(self, &UIViewCornerRadiusKey, @(radius), OBJC_ASSOCIATION_RETAIN);
+    }
+}
+
+- (void)displayCorners {
+    UIRectCorner corners = [self corners];
+    CGFloat radius = [self cornerRadius];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(radius, radius)];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+}
+
+- (void)setCorners:(UIRectCorner)corners withRadius:(CGFloat)radius; {
+    [self setCorners:corners];
+    [self setCornerRadius:radius];
 }
 
 @end

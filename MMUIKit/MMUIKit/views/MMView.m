@@ -26,4 +26,9 @@
 - (void)mm_commonInitialize {
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self displayCorners];
+}
+
 @end

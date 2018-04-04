@@ -12,9 +12,21 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-#define __stringify__(KEY)      static NSString const*(KEY) = @#KEY;  ///< __stringify__(ABCDE) -> @"ABCDE"
-#define __weakify__(type)       __weak typeof(type) weaked##type = type;  ///< __weakify__(text) -> weakedtext
-#define __strongify__(type)     __strong typeof(type) stronged##type = type;  ///< __strongify__(text) -> strongedtext
+#ifndef __stringify__
+#define __stringify__(key)      static NSString const*(key) = @#key;  ///< __stringify__(ABCDE) -> @"ABCDE"
+#endif
+
+#ifndef __c_stringify__
+#define __c_stringify__(key)    static char const* (key) = #key;  ///< __c_stringify__(ABCDE) -> "ABCDE"
+#endif
+
+#ifndef __weakify__
+#define __weakify__(obj)       __weak typeof(obj) weaked##obj = obj;  ///< __weakify__(text) -> weakedtext
+#endif
+
+#ifndef __strongify__
+#define __strongify__(obj)     __strong typeof(obj) stronged##obj = obj;  ///< __strongify__(text) -> strongedtext
+#endif
 
 #ifndef __swap__ // swap two value
 #define __swap__(a, b)  do { __typeof__(a) _tmp_ = (a); (a) = (b); (b) = _tmp_; } while (0)

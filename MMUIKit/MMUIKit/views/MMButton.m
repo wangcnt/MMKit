@@ -15,4 +15,9 @@
     return CGRectContainsPoint(insetedRect, point);
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self displayCorners];
+}
+
 @end
