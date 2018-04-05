@@ -17,6 +17,10 @@ __mm_synth_dummy_class__(NSDataAdditions)
 
 @implementation NSData (Additions)
 
+@end
+
+@implementation NSData (Encode)
+
 - (NSString *)UTF8String {
     if (self.length) {
         return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];

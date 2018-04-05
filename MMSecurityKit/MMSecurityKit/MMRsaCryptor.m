@@ -1,14 +1,14 @@
 //
-//  MMRSA.m
+//  MMRsaCryptor.m
 //  MMSecurityKit
 //
 //  Created by Mark on 2018/4/1.
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
-#import "MMRSA.h"
+#import "MMRsaCryptor.h"
 
-@implementation MMRSA
+@implementation MMRsaCryptor
 
 static inline NSString *base64_encode_data(NSData *data){
     data = [data base64EncodedDataWithOptions:0];

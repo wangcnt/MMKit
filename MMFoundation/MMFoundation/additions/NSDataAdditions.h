@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSData (Additions)
 
+@end
+
+@interface NSData (Encode)
+
 - (NSString *)UTF8String;
 
 - (NSString *)hexString;

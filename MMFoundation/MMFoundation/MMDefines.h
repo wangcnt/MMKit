@@ -344,7 +344,7 @@ static inline float mm_cos_float(float x) {
  More info: http://developer.apple.com/library/mac/#qa/qa2006/qa1490.html .
  *******************************************************************************
  Example:
- MMSYNTH_DUMMY_CLASS(NSString_YYAdd)
+ __mm_synth_dummy_class__(NSStringAddtions)
  */
 #ifndef __mm_synth_dummy_class__
 #define __mm_synth_dummy_class__(_name_) \

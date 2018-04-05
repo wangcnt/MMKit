@@ -1,5 +1,5 @@
 //
-//  MMRSA.h
+//  MMRsaCryptor.h
 //  MMSecurityKit
 //
 //  Created by Mark on 2018/4/1.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MMRSA : NSObject
+@interface MMRsaCryptor : NSObject
 
 /**
  *  加密方法
