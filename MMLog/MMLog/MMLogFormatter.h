@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-//#import "CocoaLumberjack.h"
-#import "DDLog.h"
+#import "CocoaLumberjack.h"
 
 @interface MMLogFormatter : DDAbstractLogger<DDLogFormatter>
 

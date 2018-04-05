@@ -12,10 +12,10 @@
 		4D24AA92202F81B6006777FF /* MMLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA8D202F81B5006777FF /* MMLogFormatter.m */; };
 		4D24AA93202F81B6006777FF /* MMLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA8D202F81B5006777FF /* MMLogFormatter.m */; };
 		4D24AA94202F81B6006777FF /* MMLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA8E202F81B6006777FF /* MMLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D24AA95202F81B6006777FF /* MMLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA8F202F81B6006777FF /* MMLogFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D24AA95202F81B6006777FF /* MMLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA8F202F81B6006777FF /* MMLogFormatter.h */; };
 		4D752C972031653200BD7B1A /* MMCompressedLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D752C952031653200BD7B1A /* MMCompressedLogFileManager.m */; };
 		4D752C982031653200BD7B1A /* MMCompressedLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D752C952031653200BD7B1A /* MMCompressedLogFileManager.m */; };
-		4D752C9A203165B400BD7B1A /* MMCompressedLogFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D752C99203165B400BD7B1A /* MMCompressedLogFileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D752C9A203165B400BD7B1A /* MMCompressedLogFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D752C99203165B400BD7B1A /* MMCompressedLogFileManager.h */; };
 		4D8B5348205549F700FB3BDF /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8B5349205549F700FB3BDF /* MMFoundation.framework */; };
 		4D91DB4E201628C900DEB9A0 /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D91DB44201628C900DEB9A0 /* MMLog.framework */; };
 		4D91DB53201628C900DEB9A0 /* MMLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D91DB52201628C900DEB9A0 /* MMLogTests.m */; };
@@ -26,23 +26,23 @@
 		4DA5110F2031F6F60063C8B1 /* DDLegacyMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA510F42031F6F60063C8B1 /* DDLegacyMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DA511102031F6F60063C8B1 /* DDOSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA510F52031F6F60063C8B1 /* DDOSLogger.m */; };
 		4DA511112031F6F60063C8B1 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA510F62031F6F60063C8B1 /* DDDispatchQueueLogFormatter.m */; };
-		4DA511122031F6F60063C8B1 /* DDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA510F72031F6F60063C8B1 /* DDMultiFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DA511132031F6F60063C8B1 /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA510F82031F6F60063C8B1 /* DDAbstractDatabaseLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DA511122031F6F60063C8B1 /* DDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA510F72031F6F60063C8B1 /* DDMultiFormatter.h */; };
+		4DA511132031F6F60063C8B1 /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA510F82031F6F60063C8B1 /* DDAbstractDatabaseLogger.h */; };
 		4DA511142031F6F60063C8B1 /* CLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA510F92031F6F60063C8B1 /* CLIColor.m */; };
 		4DA511152031F6F60063C8B1 /* DDLogMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA510FA2031F6F60063C8B1 /* DDLogMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DA511162031F6F60063C8B1 /* DDASLLogCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA510FB2031F6F60063C8B1 /* DDASLLogCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DA511172031F6F60063C8B1 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA510FC2031F6F60063C8B1 /* DDASLLogger.m */; };
 		4DA511182031F6F60063C8B1 /* DDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA510FD2031F6F60063C8B1 /* DDFileLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DA511192031F6F60063C8B1 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA510FE2031F6F60063C8B1 /* DDLog.m */; };
-		4DA5111A2031F6F60063C8B1 /* DDContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA510FF2031F6F60063C8B1 /* DDContextFilterLogFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DA5111A2031F6F60063C8B1 /* DDContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA510FF2031F6F60063C8B1 /* DDContextFilterLogFormatter.h */; };
 		4DA5111B2031F6F60063C8B1 /* CocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA511002031F6F60063C8B1 /* CocoaLumberjack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DA5111C2031F6F60063C8B1 /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA511012031F6F60063C8B1 /* DDTTYLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DA5111D2031F6F60063C8B1 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA511022031F6F60063C8B1 /* DDMultiFormatter.m */; };
 		4DA5111E2031F6F60063C8B1 /* DDAssertMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA511032031F6F60063C8B1 /* DDAssertMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DA5111F2031F6F60063C8B1 /* DDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA511042031F6F60063C8B1 /* DDDispatchQueueLogFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DA5111F2031F6F60063C8B1 /* DDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA511042031F6F60063C8B1 /* DDDispatchQueueLogFormatter.h */; };
 		4DA511202031F6F60063C8B1 /* DDOSLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA511052031F6F60063C8B1 /* DDOSLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DA511212031F6F60063C8B1 /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA511062031F6F60063C8B1 /* DDLog+LOGV.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DA511222031F6F60063C8B1 /* CLIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA511072031F6F60063C8B1 /* CLIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DA511212031F6F60063C8B1 /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA511062031F6F60063C8B1 /* DDLog+LOGV.h */; };
+		4DA511222031F6F60063C8B1 /* CLIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA511072031F6F60063C8B1 /* CLIColor.h */; };
 		4DA511232031F6F60063C8B1 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA511082031F6F60063C8B1 /* DDAbstractDatabaseLogger.m */; };
 		4DA511242031F6F60063C8B1 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA511092031F6F60063C8B1 /* DDFileLogger.m */; };
 		4DA511252031F6F60063C8B1 /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA5110A2031F6F60063C8B1 /* DDASLLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -224,23 +224,23 @@
 				4DA5111C2031F6F60063C8B1 /* DDTTYLogger.h in Headers */,
 				4DA5110F2031F6F60063C8B1 /* DDLegacyMacros.h in Headers */,
 				4DA5110D2031F6F60063C8B1 /* DDLog.h in Headers */,
-				4DA511222031F6F60063C8B1 /* CLIColor.h in Headers */,
 				4DA511182031F6F60063C8B1 /* DDFileLogger.h in Headers */,
 				4DA511152031F6F60063C8B1 /* DDLogMacros.h in Headers */,
 				4DA511202031F6F60063C8B1 /* DDOSLogger.h in Headers */,
 				4DA511162031F6F60063C8B1 /* DDASLLogCapture.h in Headers */,
-				4DA511212031F6F60063C8B1 /* DDLog+LOGV.h in Headers */,
 				4DA511252031F6F60063C8B1 /* DDASLLogger.h in Headers */,
 				4DA5111E2031F6F60063C8B1 /* DDAssertMacros.h in Headers */,
+				4DA511282031F7DC0063C8B1 /* MMLogDefines.h in Headers */,
+				4D91DB55201628C900DEB9A0 /* MMLog.h in Headers */,
+				4D24AA94202F81B6006777FF /* MMLogManager.h in Headers */,
+				4D24AA95202F81B6006777FF /* MMLogFormatter.h in Headers */,
+				4DA511222031F6F60063C8B1 /* CLIColor.h in Headers */,
+				4DA511212031F6F60063C8B1 /* DDLog+LOGV.h in Headers */,
 				4DA5111A2031F6F60063C8B1 /* DDContextFilterLogFormatter.h in Headers */,
 				4DA511122031F6F60063C8B1 /* DDMultiFormatter.h in Headers */,
 				4DA511132031F6F60063C8B1 /* DDAbstractDatabaseLogger.h in Headers */,
 				4DA5111F2031F6F60063C8B1 /* DDDispatchQueueLogFormatter.h in Headers */,
-				4D24AA95202F81B6006777FF /* MMLogFormatter.h in Headers */,
 				4D752C9A203165B400BD7B1A /* MMCompressedLogFileManager.h in Headers */,
-				4DA511282031F7DC0063C8B1 /* MMLogDefines.h in Headers */,
-				4D24AA94202F81B6006777FF /* MMLogManager.h in Headers */,
-				4D91DB55201628C900DEB9A0 /* MMLog.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

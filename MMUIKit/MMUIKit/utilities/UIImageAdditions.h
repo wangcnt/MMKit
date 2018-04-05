@@ -105,28 +105,44 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIImage *)imageWithOrientationUnfixedImage:(UIImage *)image;
 
 /** 按给定的方向旋转图片 */
-- (UIImage*)rotate:(UIImageOrientation)orient;
+- (UIImage *)imageByRotatingToOrientation:(UIImageOrientation)orientation;
 
 /** 垂直翻转 */
-- (UIImage *)flipVertical;
+- (UIImage *)imageByRotatingVertically;
 
 /** 水平翻转 */
-- (UIImage *)flipHorizontal;
+- (UIImage *)imageByRotatingHorizontally;
 
-/** 将图片旋转degrees角度 */
-- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
+- (UIImage *)imageByRotatingHorizontally:(BOOL)horizontally vertically:(BOOL)vertically;
 
-/** 将图片旋转radians弧度 */
-- (UIImage *)imageRotatedByRadians:(CGFloat)radians;
+/**
+ Returns a new rotated image (relative to the center).
+ 
+ @param radians   Rotated radians in counterclockwise.⟲
+ 
+ @param fitSize   YES: new image's size is extend to fit all content.
+ NO: image's size will not change, content may be clipped.
+ */
+- (nullable UIImage *)imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize;
+
+/**
+ Returns a new image rotated counterclockwise by a quarter‑turn (90°). ⤺
+ The width and height will be exchanged.
+ */
+- (nullable UIImage *)imageByRotateLeft90;
+
+/**
+ Returns a new image rotated clockwise by a quarter‑turn (90°). ⤼
+ The width and height will be exchanged.
+ */
+- (nullable UIImage *)imageByRotateRight90;
 
 @end
 
 @interface UIImage (Crop)
 
 - (UIImage *)imageByCropToRect:(CGRect)rect;
-- (UIImage *)imageCroppedAndScaledToSize:(CGSize)size
-                             contentMode:(UIViewContentMode)contentMode
-                                padToFit:(BOOL)padToFit;
+- (UIImage *)imageCroppedAndScaledToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode padToFit:(BOOL)padToFit;
 
 @end
 
@@ -277,43 +293,6 @@ NS_ASSUME_NONNULL_BEGIN
                                    borderWidth:(CGFloat)borderWidth
                                    borderColor:(nullable UIColor *)borderColor
                                 borderLineJoin:(CGLineJoin)borderLineJoin;
-
-/**
- Returns a new rotated image (relative to the center).
- 
- @param radians   Rotated radians in counterclockwise.⟲
- 
- @param fitSize   YES: new image's size is extend to fit all content.
- NO: image's size will not change, content may be clipped.
- */
-- (nullable UIImage *)imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize;
-
-/**
- Returns a new image rotated counterclockwise by a quarter‑turn (90°). ⤺
- The width and height will be exchanged.
- */
-- (nullable UIImage *)imageByRotateLeft90;
-
-/**
- Returns a new image rotated clockwise by a quarter‑turn (90°). ⤼
- The width and height will be exchanged.
- */
-- (nullable UIImage *)imageByRotateRight90;
-
-/**
- Returns a new image rotated 180° . ↻
- */
-- (nullable UIImage *)imageByRotate180;
-
-/**
- Returns a vertically flipped image. ⥯
- */
-- (nullable UIImage *)imageByFlipVertical;
-
-/**
- Returns a horizontally flipped image. ⇋
- */
-- (nullable UIImage *)imageByFlipHorizontal;
 
 /** 获得灰度图 */
 - (UIImage *)grayImage;

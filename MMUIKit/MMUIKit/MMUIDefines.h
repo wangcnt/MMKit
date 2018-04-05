@@ -164,14 +164,6 @@ static inline CGContextRef YYCGContextCreateGrayBitmapContext(CGSize size, CGFlo
     return context;
 }
 
-/**
- Returns a rectangle to fit the @param rect with specified content mode.
- @param rect The constrant rect
- @param size The content size
- @param mode The content mode
- @return A rectangle for the given content mode.
- @discussion UIViewContentModeRedraw is same as UIViewContentModeScaleToFill.
- */
 static inline CGRect mm_rect_fit_with_content_mode(CGRect rect, CGSize size, UIViewContentMode mode) {
     rect = CGRectStandardize(rect);
     size.width = size.width < 0 ? -size.width : size.width;

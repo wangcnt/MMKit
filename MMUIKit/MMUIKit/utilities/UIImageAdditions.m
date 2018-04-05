@@ -553,7 +553,7 @@ static CGRect swapWidthAndHeight(CGRect rect)
 }
 
 /** 按给定的方向旋转图片 */
-- (UIImage*)rotate:(UIImageOrientation)orient
+- (UIImage *)imageByRotatingToOrientation:(UIImageOrientation)orient
 {
     CGRect bnds = CGRectZero;
     UIImage* copy = nil;
@@ -647,45 +647,86 @@ static CGRect swapWidthAndHeight(CGRect rect)
 }
 
 /** 垂直翻转 */
-- (UIImage *)flipVertical
+- (UIImage *)imageByRotatingVertically
 {
-    return [self rotate:UIImageOrientationDownMirrored];
+    return [self imageByRotatingToOrientation:UIImageOrientationDownMirrored];
 }
 
 /** 水平翻转 */
-- (UIImage *)flipHorizontal
+- (UIImage *)imageByRotatingHorizontally
 {
-    return [self rotate:UIImageOrientationUpMirrored];
+    return [self imageByRotatingToOrientation:UIImageOrientationUpMirrored];
 }
 
-/** 将图片旋转弧度radians */
-- (UIImage *)imageRotatedByRadians:(CGFloat)radians
-{
-    UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.size.width, self.size.height)];
-    CGAffineTransform t = CGAffineTransformMakeRotation(radians);
-    rotatedViewBox.transform = t;
-    CGSize rotatedSize = rotatedViewBox.frame.size;
+- (UIImage *)imageByRotatingHorizontally:(BOOL)horizontally vertically:(BOOL)vertically {
+    if (!self.CGImage) return nil;
+    size_t width = (size_t)CGImageGetWidth(self.CGImage);
+    size_t height = (size_t)CGImageGetHeight(self.CGImage);
+    size_t bytesPerRow = width * 4;
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(NULL, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+    CGColorSpaceRelease(colorSpace);
+    if (!context) return nil;
     
-    UIGraphicsBeginImageContext(rotatedSize);
-    CGContextRef bitmap = UIGraphicsGetCurrentContext();
-    
-    CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2);
-    
-    CGContextRotateCTM(bitmap, radians);
-    
-    CGContextScaleCTM(bitmap, 1.0, -1.0);
-    CGContextDrawImage(bitmap, CGRectMake(-self.size.width / 2, -self.size.height / 2, self.size.width, self.size.height), [self CGImage]);
-    
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
+    CGContextDrawImage(context, CGRectMake(0, 0, width, height), self.CGImage);
+    UInt8 *data = (UInt8 *)CGBitmapContextGetData(context);
+    if (!data) {
+        CGContextRelease(context);
+        return nil;
+    }
+    vImage_Buffer src = { data, height, width, bytesPerRow };
+    vImage_Buffer dest = { data, height, width, bytesPerRow };
+    if (vertically) {
+        vImageVerticalReflect_ARGB8888(&src, &dest, kvImageBackgroundColorFill);
+    }
+    if (horizontally) {
+        vImageHorizontalReflect_ARGB8888(&src, &dest, kvImageBackgroundColorFill);
+    }
+    CGImageRef imgRef = CGBitmapContextCreateImage(context);
+    CGContextRelease(context);
+    UIImage *img = [UIImage imageWithCGImage:imgRef scale:self.scale orientation:self.imageOrientation];
+    CGImageRelease(imgRef);
+    return img;
 }
 
-/** 将图片旋转角度degrees */
-- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees
-{
-    return [self imageRotatedByRadians:mm_degrees_to_radian(degrees)];
+- (UIImage *)imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize {
+    size_t width = (size_t)CGImageGetWidth(self.CGImage);
+    size_t height = (size_t)CGImageGetHeight(self.CGImage);
+    CGRect newRect = CGRectApplyAffineTransform(CGRectMake(0., 0., width, height),
+                                                fitSize ? CGAffineTransformMakeRotation(radians) : CGAffineTransformIdentity);
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(NULL,
+                                                 (size_t)newRect.size.width,
+                                                 (size_t)newRect.size.height,
+                                                 8,
+                                                 (size_t)newRect.size.width * 4,
+                                                 colorSpace,
+                                                 kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+    CGColorSpaceRelease(colorSpace);
+    if (!context) return nil;
+    
+    CGContextSetShouldAntialias(context, true);
+    CGContextSetAllowsAntialiasing(context, true);
+    CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+    
+    CGContextTranslateCTM(context, +(newRect.size.width * 0.5), +(newRect.size.height * 0.5));
+    CGContextRotateCTM(context, radians);
+    
+    CGContextDrawImage(context, CGRectMake(-(width * 0.5), -(height * 0.5), width, height), self.CGImage);
+    CGImageRef imgRef = CGBitmapContextCreateImage(context);
+    UIImage *img = [UIImage imageWithCGImage:imgRef scale:self.scale orientation:self.imageOrientation];
+    CGImageRelease(imgRef);
+    CGContextRelease(context);
+    return img;
+}
+
+- (UIImage *)imageByRotateLeft90 {
+    return [self imageByRotate:mm_degrees_to_radian(90) fitSize:YES];
+}
+
+- (UIImage *)imageByRotateRight90 {
+    return [self imageByRotate:mm_degrees_to_radian(-90) fitSize:YES];
 }
 
 @end
@@ -1094,89 +1135,6 @@ static CGRect swapWidthAndHeight(CGRect rect)
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
-}
-
-- (UIImage *)imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize {
-    size_t width = (size_t)CGImageGetWidth(self.CGImage);
-    size_t height = (size_t)CGImageGetHeight(self.CGImage);
-    CGRect newRect = CGRectApplyAffineTransform(CGRectMake(0., 0., width, height),
-                                                fitSize ? CGAffineTransformMakeRotation(radians) : CGAffineTransformIdentity);
-    
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(NULL,
-                                                 (size_t)newRect.size.width,
-                                                 (size_t)newRect.size.height,
-                                                 8,
-                                                 (size_t)newRect.size.width * 4,
-                                                 colorSpace,
-                                                 kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
-    CGColorSpaceRelease(colorSpace);
-    if (!context) return nil;
-    
-    CGContextSetShouldAntialias(context, true);
-    CGContextSetAllowsAntialiasing(context, true);
-    CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
-    
-    CGContextTranslateCTM(context, +(newRect.size.width * 0.5), +(newRect.size.height * 0.5));
-    CGContextRotateCTM(context, radians);
-    
-    CGContextDrawImage(context, CGRectMake(-(width * 0.5), -(height * 0.5), width, height), self.CGImage);
-    CGImageRef imgRef = CGBitmapContextCreateImage(context);
-    UIImage *img = [UIImage imageWithCGImage:imgRef scale:self.scale orientation:self.imageOrientation];
-    CGImageRelease(imgRef);
-    CGContextRelease(context);
-    return img;
-}
-
-- (UIImage *)_yy_flipHorizontal:(BOOL)horizontal vertical:(BOOL)vertical {
-    if (!self.CGImage) return nil;
-    size_t width = (size_t)CGImageGetWidth(self.CGImage);
-    size_t height = (size_t)CGImageGetHeight(self.CGImage);
-    size_t bytesPerRow = width * 4;
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(NULL, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
-    CGColorSpaceRelease(colorSpace);
-    if (!context) return nil;
-    
-    CGContextDrawImage(context, CGRectMake(0, 0, width, height), self.CGImage);
-    UInt8 *data = (UInt8 *)CGBitmapContextGetData(context);
-    if (!data) {
-        CGContextRelease(context);
-        return nil;
-    }
-    vImage_Buffer src = { data, height, width, bytesPerRow };
-    vImage_Buffer dest = { data, height, width, bytesPerRow };
-    if (vertical) {
-        vImageVerticalReflect_ARGB8888(&src, &dest, kvImageBackgroundColorFill);
-    }
-    if (horizontal) {
-        vImageHorizontalReflect_ARGB8888(&src, &dest, kvImageBackgroundColorFill);
-    }
-    CGImageRef imgRef = CGBitmapContextCreateImage(context);
-    CGContextRelease(context);
-    UIImage *img = [UIImage imageWithCGImage:imgRef scale:self.scale orientation:self.imageOrientation];
-    CGImageRelease(imgRef);
-    return img;
-}
-
-- (UIImage *)imageByRotateLeft90 {
-    return [self imageByRotate:mm_degrees_to_radian(90) fitSize:YES];
-}
-
-- (UIImage *)imageByRotateRight90 {
-    return [self imageByRotate:mm_degrees_to_radian(-90) fitSize:YES];
-}
-
-- (UIImage *)imageByRotate180 {
-    return [self _yy_flipHorizontal:YES vertical:YES];
-}
-
-- (UIImage *)imageByFlipVertical {
-    return [self _yy_flipHorizontal:NO vertical:YES];
-}
-
-- (UIImage *)imageByFlipHorizontal {
-    return [self _yy_flipHorizontal:YES vertical:NO];
 }
 
 - (UIImage *)grayImage
