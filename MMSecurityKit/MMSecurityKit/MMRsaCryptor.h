@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * OC cryption needs file.
+ * Java crytion doesn't need file.
+ */
 @interface MMRsaCryptor : NSObject
 
 /**
@@ -16,7 +20,7 @@
  *  @param str   需要加密的字符串
  *  @param path  '.der'格式的公钥文件路径
  */
-+ (NSString *)encryptString:(NSString *)str publicKeyWithContentsOfFile:(NSString *)path;
++ (NSString *)encryptString:(NSString *)str withPublicKeyInContentsOfFile:(NSString *)path;
 
 /**
  *  解密方法
@@ -25,7 +29,7 @@
  *  @param path      '.p12'格式的私钥文件路径
  *  @param password  私钥文件密码
  */
-+ (NSString *)decryptString:(NSString *)str privateKeyWithContentsOfFile:(NSString *)path password:(NSString *)password;
++ (NSString *)decryptString:(NSString *)str withPrivateKeyInContentsOfFile:(NSString *)path password:(NSString *)password;
 
 /**
  *  加密方法

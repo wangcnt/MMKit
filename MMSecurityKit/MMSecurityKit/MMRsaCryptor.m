@@ -24,7 +24,7 @@ static inline NSData *base64_decode(NSString *str){
 #pragma mark - 使用'.der'公钥文件加密
 
 //加密
-+ (NSString *)encryptString:(NSString *)str publicKeyWithContentsOfFile:(NSString *)path{
++ (NSString *)encryptString:(NSString *)str withPublicKeyInContentsOfFile:(NSString *)path{
     if (!str || !path)  return nil;
     return [self encryptString:str publicKeyRef:[self getPublicKeyRefWithContentsOfFile:path]];
 }
@@ -71,7 +71,7 @@ static inline NSData *base64_decode(NSString *str){
 #pragma mark - 使用'.12'私钥文件解密
 
 //解密
-+ (NSString *)decryptString:(NSString *)str privateKeyWithContentsOfFile:(NSString *)path password:(NSString *)password{
++ (NSString *)decryptString:(NSString *)str withPrivateKeyInContentsOfFile:(NSString *)path password:(NSString *)password{
     if (!str || !path) return nil;
     if (!password) password = @"";
         return [self decryptString:str privateKeyRef:[self getPrivateKeyRefWithContentsOfFile:path password:password]];
