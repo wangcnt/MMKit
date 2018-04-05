@@ -10,7 +10,13 @@
 
 #import <MMFoundation/MMDefines.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wprotocol"
+#pragma clang diagnostic ignored "-Wobjc-protocol-property-synthesis"
+
 @implementation AKServiceCenter
+
+#pragma clang diagnostic pop
 
 __singleton__(AKServiceCenter)
 

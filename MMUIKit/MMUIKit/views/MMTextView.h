@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIViewAdditions.h"
+#import "UIResponderAdditions.h"
+
 @class MMTextView;
 
 typedef void (^MMTextViewDidChangeTextHandler)(MMTextView *textView);

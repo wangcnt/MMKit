@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UITableViewAdditions.h"
+#import "UIViewAdditions.h"
+#import "UIResponderAdditions.h"
+
 @interface MMTableView : UITableView
 
 @end

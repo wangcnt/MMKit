@@ -17,6 +17,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIViewAdditions.h"
+#import "UIResponderAdditions.h"
+#import "UITextFieldAdditions.h"
+
 /**
  * UITextField leaves a little to be desired on the visual customization front.
  * MMTextField attempts to solve the most basic of those gaps so that

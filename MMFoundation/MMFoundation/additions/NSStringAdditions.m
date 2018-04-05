@@ -813,7 +813,10 @@ __mm_synth_dummy_class__(NSStringAdditions)
 @implementation NSString (MatchingScore)
 
 - (float)scoreAgainst:(NSString *)otherString{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
     return [self scoreAgainst:otherString fuzziness:nil];
+#pragma clang diagnostic pop
 }
 
 - (float)scoreAgainst:(NSString *)otherString fuzziness:(NSNumber *)fuzziness{

@@ -8,6 +8,9 @@
 
 #import <WebKit/WebKit.h>
 
+#import "UIViewAdditions.h"
+#import "UIResponderAdditions.h"
+
 @interface MMWebView : WKWebView
 
 @end

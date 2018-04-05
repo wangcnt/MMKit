@@ -16,7 +16,13 @@
 @property (nonatomic, strong) NSMutableDictionary<NSString *, id<MMService>> *serviceDictionary;
 @end
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-property-synthesis"
+#pragma clang diagnostic ignored "-Wprotocol"
+
 @implementation MMServiceCenter
+
+#pragma clang diagnostic pop
 
 - (instancetype)init {
     self = [super init];

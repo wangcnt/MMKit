@@ -10,6 +10,7 @@
 
 #import "UILabelAdditions.h"
 #import "UIViewAdditions.h"
+#import "UIResponderAdditions.h"
 
 typedef enum
 {

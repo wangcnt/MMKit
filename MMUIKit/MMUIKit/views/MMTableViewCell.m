@@ -27,5 +27,16 @@
     }
     return self;
 }
+
+- (UITableView *)tableView {
+    if(!_tableView) {
+        UIView *superview = self.superview;
+        while (![superview isKindOfClass:UITableView.class]) {
+            superview = superview.superview;
+        }
+        _tableView = (UITableView *)superview;
+    }
+    return _tableView;
+}
             
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIViewAdditions.h"
+#import "UIResponderAdditions.h"
+
 @interface MMTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSIndexPath *indexPath;

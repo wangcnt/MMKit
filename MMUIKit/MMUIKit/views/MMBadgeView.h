@@ -8,6 +8,9 @@
 
 #import <MMUIKit/MMUIKit.h>
 
+#import "UIViewAdditions.h"
+#import "UIResponderAdditions.h"
+
 typedef enum
 {
     MMBadgeTypeRedDot,

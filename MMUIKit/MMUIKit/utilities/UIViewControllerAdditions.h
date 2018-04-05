@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "UINavigationControllerAdditions.h"
+
 @interface UIViewController(Email)
 
 - (void)sendMailToRecipients:(NSArray *)recipients cc:(NSArray *)cc title:(NSString *)subject content:(NSString *)content;

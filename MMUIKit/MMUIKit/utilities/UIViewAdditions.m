@@ -281,27 +281,10 @@ __c_stringify__(UIViewCornerRadiusKey)
     self.layer.mask = maskLayer;
 }
 
-- (void)setCorners:(UIRectCorner)corners withRadius:(CGFloat)radius; {
+- (void)setRoundingCorners:(UIRectCorner)corners withRadius:(CGFloat)radius {
     [self setCorners:corners];
     [self setCornerRadius:radius];
-}
-
-@end
-
-@implementation UIView (MMVisuals)
-
-- (void)setRoundedCorners:(UIRectCorner)corners withRadius:(CGFloat)radius {
-    CGRect rect = self.bounds;
-    // Create the path
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:rect
-                                                   byRoundingCorners:corners
-                                                         cornerRadii:CGSizeMake(radius, radius)];
-    // Create the shape layer and set its path
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = rect;
-    maskLayer.path = maskPath.CGPath;
-    // Set the newly created shape layer as the mask for the view's layer
-    self.layer.mask = maskLayer;
+    [self displayCorners];
 }
 
 @end

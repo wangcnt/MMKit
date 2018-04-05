@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "UIResponderAdditions.h"
+
 @interface UIView (MMFrame)
 
 - (CGPoint)original;
@@ -69,11 +71,7 @@
 
 @interface UIView (Corner)
 
-- (void)setCorners:(UIRectCorner)corners withRadius:(CGFloat)radius;    ///< Must invoke -displayCorners in -layoutSubviews
+- (void)setRoundingCorners:(UIRectCorner)corners withRadius:(CGFloat)radius;    ///< Shoulld -displayCorners in -layoutSubviews
 - (void)displayCorners;
 
-@end
-
-@interface UIView (MMVisuals)
-- (void)setRoundedCorners:(UIRectCorner)corners withRadius:(CGFloat)radius;
 @end
