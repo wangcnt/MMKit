@@ -13,6 +13,7 @@
 #import "QTInviteConnection.h"
 #import "QTInviteSessionManager.h"
 #import <MMCoreServices/MMCoreServices.h>
+#import <MMFoundation/MMDefines.h>
 
 @interface QTService ()
 @property (nonatomic, strong) QTSessionConfiguration *sessionConfiguration;
@@ -51,7 +52,7 @@
     };
     __weak typeof(QTInviteOperation) *weakedOp = operation;
     operation.completionBlock = ^{
-        [self callbackWithCompletion:completion error:weakedOp.error toMainThread:YES];
+        __mm_exe_block__(completion, YES, weakedOp.error);
     };
     [[MMApplication sharedInstance].defaultQueue addOperation:operation];
 }

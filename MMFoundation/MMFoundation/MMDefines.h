@@ -67,6 +67,7 @@
 //    #endif
 //#endif
 
+// Must 3 parameters at least, nil should be appended after BOOL_onMainThread if needs.
 #define __mm_exe_block__(block, BOOL_onMainThread, ...) \
 if(block) {                                                 \
     if(BOOL_onMainThread) {                                 \
@@ -82,6 +83,7 @@ if(block) {                                                 \
     }                                                       \
 }
 
+// Must 3 parameters at least, nil should be appended after dispatch_queue if needs.
 #define __mm_dispatch_async__(block, dispatch_queue, ...)   \
 if(block && dispatch_queue) {                               \
     dispatch_async(dispatch_queue, ^ {                      \

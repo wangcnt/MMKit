@@ -11,6 +11,7 @@
 #import "AKUploadOperation.h"
 #import "AKUploadResponse.h"
 #import <MMCoreServices/MMService.h>
+#import <MMFoundation/MMDefines.h>
 
 @implementation AKService
 
@@ -25,17 +26,9 @@
     NSLog(@"%@ will start service.", self.class);
 }
 
-- (void)callbackWithCompletion:(void (^)(NSError *error))completion error:(NSError *)error {
-    if(completion) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(error);
-        });
-    }
-}
-
 - (void)uploadEvent:(id<AKEvent>)event withCompletion:(void (^)(NSError *error))completion {
     if(!event) {
-        [self callbackWithCompletion:completion error:nil];
+        __mm_exe_block__(completion, YES, nil);
         return;
     }
     [self uploadEvents:@[event] withCompletion:completion];
@@ -47,7 +40,8 @@
     operation.serviceID = self.serviceID;
     __weak typeof(AKUploadOperation) *wop = operation;
     operation.completionBlock = ^{
-        [self callbackWithCompletion:completion error:wop.response.error];
+        __mm_exe_block__(completion, YES, wop.error);
+        __mm_dispatch_async__(completion, dispatch_get_main_queue(), nil);
     };
     [[MMApplication sharedInstance].backgroundQueue addOperation:operation];
 }
