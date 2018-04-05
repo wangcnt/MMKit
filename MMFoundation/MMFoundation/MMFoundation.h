@@ -49,3 +49,5 @@ FOUNDATION_EXPORT const unsigned char MMFoundationVersionString[];
 #import <MMFoundation/CocoaAsyncSocket.h>
 
 #import <MMFoundation/MMDefines.h>
+#import <MMFoundation/MMInlines.h>
+#import <MMFoundation/MMBlockDefines.h>
