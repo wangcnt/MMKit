@@ -26,6 +26,7 @@
 		4D24AA83202F6C11006777FF /* MMDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA81202F6C11006777FF /* MMDiskCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D24AA84202F6C11006777FF /* MMDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA82202F6C11006777FF /* MMDiskCache.m */; };
 		4D24AA85202F6C11006777FF /* MMDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA82202F6C11006777FF /* MMDiskCache.m */; };
+		4D3442EB2076878300525B58 /* MMBlockDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3442E92076878300525B58 /* MMBlockDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D4FDD8C206A911C00CEBFE9 /* CocoaAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4FDD8B206A911C00CEBFE9 /* CocoaAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D4FDD92206A912500CEBFE9 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FDD8D206A912400CEBFE9 /* GCDAsyncSocket.m */; };
 		4D4FDD93206A912500CEBFE9 /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4FDD8E206A912400CEBFE9 /* GCDAsyncUdpSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -104,6 +105,7 @@
 		4D24AA79202F673D006777FF /* MMProgressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMProgressManager.m; sourceTree = "<group>"; };
 		4D24AA81202F6C11006777FF /* MMDiskCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMDiskCache.h; sourceTree = "<group>"; };
 		4D24AA82202F6C11006777FF /* MMDiskCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMDiskCache.m; sourceTree = "<group>"; };
+		4D3442E92076878300525B58 /* MMBlockDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMBlockDefines.h; sourceTree = "<group>"; };
 		4D4FDD8B206A911C00CEBFE9 /* CocoaAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaAsyncSocket.h; sourceTree = "<group>"; };
 		4D4FDD8D206A912400CEBFE9 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		4D4FDD8E206A912400CEBFE9 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				4D24AA45202F1F8B006777FF /* MMIDTracker.m */,
 				4D7C0F0C202F0149008C6CE0 /* additions */,
 				4D24AA28202F182F006777FF /* MMDefines.h */,
+				4D3442E92076878300525B58 /* MMBlockDefines.h */,
 				4D7C0EED202F0118008C6CE0 /* MMFoundation.h */,
 				4D7C0EEE202F0118008C6CE0 /* Info.plist */,
 			);
@@ -346,6 +349,7 @@
 				4D9BC3A8205536AE007FE60C /* NSTimerAdditions.h in Headers */,
 				4D9BC3A420553383007FE60C /* NSBundleAdditions.h in Headers */,
 				4D7783AF2043189C0016EF9B /* MMIDGenerator.h in Headers */,
+				4D3442EB2076878300525B58 /* MMBlockDefines.h in Headers */,
 				4D24AA57202F2C0F006777FF /* MMMemoryCache.h in Headers */,
 				4D7C0F3D202F015E008C6CE0 /* NSFileManagerAdditions.h in Headers */,
 			);

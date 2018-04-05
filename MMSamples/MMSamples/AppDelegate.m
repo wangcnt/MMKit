@@ -34,6 +34,7 @@ __stringify__(abcdefg)
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
 //    [self test_MMServiceCenter];
+    
     [self test_defines];
     NSLog(@"abcde->%s", abcde);
     NSLog(@"abcdefg->%@", abcdefg);
@@ -65,10 +66,8 @@ __stringify__(abcdefg)
 }
 
 - (void)test_defines {
-    @weakify(self);
     void (^block)(NSString *, NSString *) = ^ (NSString *surname, NSString *name) {
         NSLog(@"Hello, %@ %@", surname, name);
-        [weak_self description];
     };
     
     NSString *string = @"a";
@@ -78,6 +77,20 @@ __stringify__(abcdefg)
     NSLog(@"strongedstring->%@", strongedstring);
     __mm_exe_block__(block, NO, @"Kalma", @"Lancelot.");
 
+    NSString *b = @"b";
+    @weakify(self, b);
+    _haha = ^ (NSError *error) {
+        @strongify(self);
+        NSLog(@"self.class -> %@, b -> %@", self.class, b_weak_);
+    };
+    
+    NSString *e = @"e";
+    @weakify(string, e);
+    _haha = ^ (NSError *error) {
+        NSLog(@"self.string -> %@, e -> %@", string_weak_, e_weak_);
+    };
+    
+    _haha(nil);
 }
 
 - (void)test_chainedInvocation {

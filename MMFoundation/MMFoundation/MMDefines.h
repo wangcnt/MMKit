@@ -12,6 +12,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
+#import "MMBlockDefines.h"
+
 #ifndef __stringify__
 #define __stringify__(key)      static NSString const *(key) = @#key;  ///< __stringify__(ABCDE) -> @"ABCDE"
 #endif
@@ -32,37 +34,37 @@
 #define __swap__(a, b)  do { __typeof__(a) _tmp_ = (a); (a) = (b); (b) = _tmp_; } while (0)
 #endif
 
-#ifndef weakify
-    #if DEBUG
-        #if __has_feature(objc_arc)
-            #define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
-        #else
-            #define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
-        #endif
-    #else
-        #if __has_feature(objc_arc)
-            #define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
-        #else
-            #define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
-        #endif
-    #endif
-#endif
-
-#ifndef strongify
-    #if DEBUG
-        #if __has_feature(objc_arc)
-            #define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
-        #else
-            #define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
-        #endif
-    #else
-        #if __has_feature(objc_arc)
-            #define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
-        #else
-            #define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
-        #endif
-    #endif
-#endif
+//#ifndef weakify
+//    #if DEBUG
+//        #if __has_feature(objc_arc)
+//            #define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+//        #else
+//            #define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+//        #endif
+//    #else
+//        #if __has_feature(objc_arc)
+//            #define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+//        #else
+//            #define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+//        #endif
+//    #endif
+//#endif
+//
+//#ifndef strongify
+//    #if DEBUG
+//        #if __has_feature(objc_arc)
+//            #define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+//        #else
+//            #define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+//        #endif
+//    #else
+//        #if __has_feature(objc_arc)
+//            #define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+//        #else
+//            #define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+//        #endif
+//    #endif
+//#endif
 
 #define __mm_exe_block__(block, BOOL_onMainThread, ...) \
 if(block) {                                                 \

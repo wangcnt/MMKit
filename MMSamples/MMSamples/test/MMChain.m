@@ -8,11 +8,16 @@
 
 #import "MMChain.h"
 
+#import <MMFoundation/MMDefines.h>
+
 @interface MMChain ()
 @property (nonatomic, strong) NSMutableArray *commands;
 @end
 
 @implementation MMChain
+
+
+__singleton__(MMChain)
 
 //- (MASConstraint * (^)(MASEdgeInsets))insets {
 //    return ^id(MASEdgeInsets insets){

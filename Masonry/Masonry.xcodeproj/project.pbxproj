@@ -33,7 +33,7 @@
 		4DD3B0122049A7DA002C3B1A /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AFF42049A7D8002C3B1A /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DD3B0132049A7DA002C3B1A /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AFF52049A7D8002C3B1A /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DD3B0142049A7DA002C3B1A /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AFF62049A7D9002C3B1A /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DD3B0152049A7DA002C3B1A /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AFF72049A7D9002C3B1A /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DD3B0152049A7DA002C3B1A /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AFF72049A7D9002C3B1A /* MASConstraint+Private.h */; };
 		4DD3B0162049A7DA002C3B1A /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD3AFF82049A7D9002C3B1A /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DD3B0172049A7DA002C3B1A /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AFF92049A7D9002C3B1A /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		4DD3B0182049A7DA002C3B1A /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AFF92049A7D9002C3B1A /* NSLayoutConstraint+MASDebugAdditions.m */; };
@@ -187,9 +187,9 @@
 				4DD3B0112049A7DA002C3B1A /* MASUtilities.h in Headers */,
 				4DD3B00C2049A7DA002C3B1A /* View+MASAdditions.h in Headers */,
 				4DD3B0122049A7DA002C3B1A /* MASCompositeConstraint.h in Headers */,
-				4DD3B0152049A7DA002C3B1A /* MASConstraint+Private.h in Headers */,
 				4DD3B0142049A7DA002C3B1A /* MASConstraint.h in Headers */,
 				4DD3B0162049A7DA002C3B1A /* NSArray+MASShorthandAdditions.h in Headers */,
+				4DD3B0152049A7DA002C3B1A /* MASConstraint+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

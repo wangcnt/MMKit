@@ -8,7 +8,13 @@
 
 #import "QTServiceCenter.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wprotocol"
+#pragma clang diasnostic ignored "-Wobjc-protocol-property-synthesis"
+
 @implementation QTServiceCenter
+
+#pragma clang diagnostic pop
 
 + (instancetype)sharedInstance {
     static QTServiceCenter *instance = nil;
