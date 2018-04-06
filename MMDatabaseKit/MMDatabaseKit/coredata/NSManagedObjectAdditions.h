@@ -17,7 +17,6 @@
 + (NSArray *)findUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context;
 + (NSArray *)findUsingPredicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors inContext:(NSManagedObjectContext *)context;
 + (NSArray *)findUsingPredicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors returnsAsFaults:(BOOL)returnsAsFaults inContext:(NSManagedObjectContext *)context;
-+ (NSArray *)findUsingPredicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors returnsAsFaults:(BOOL)returnsAsFaults inContext:(NSManagedObjectContext *)context;
 + (NSArray *)findUsingPredicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors returnsAsFaults:(BOOL)returnsAsFaults propertiesToFetch:(NSArray *)propertiesToFetch inContext:(NSManagedObjectContext *)context;
 
 + (NSUInteger)countInContext:(NSManagedObjectContext *)context;

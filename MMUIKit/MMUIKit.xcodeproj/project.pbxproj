@@ -24,6 +24,8 @@
 		4D24AA74202F51E3006777FF /* MMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24AA71202F51E3006777FF /* MMTextField.m */; };
 		4D24AA75202F51E3006777FF /* MMTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D24AA72202F51E3006777FF /* MMTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D24AA77202F6426006777FF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AA76202F6426006777FF /* AVFoundation.framework */; };
+		4D3442F42077532A00525B58 /* CGUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3442F22077532A00525B58 /* CGUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D3442F52077532A00525B58 /* CGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3442F32077532A00525B58 /* CGUtilities.m */; };
 		4D8B534D20554DB600FB3BDF /* UIControlAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D8B534B20554DB600FB3BDF /* UIControlAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D8B534E20554DB600FB3BDF /* UIControlAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B534C20554DB600FB3BDF /* UIControlAdditions.m */; };
 		4D8B5351205550B900FB3BDF /* UIBarButtonItemAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D8B534F205550B900FB3BDF /* UIBarButtonItemAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -158,6 +160,8 @@
 		4D24AA71202F51E3006777FF /* MMTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTextField.m; sourceTree = "<group>"; };
 		4D24AA72202F51E3006777FF /* MMTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTextField.h; sourceTree = "<group>"; };
 		4D24AA76202F6426006777FF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4D3442F22077532A00525B58 /* CGUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGUtilities.h; sourceTree = "<group>"; };
+		4D3442F32077532A00525B58 /* CGUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGUtilities.m; sourceTree = "<group>"; };
 		4D8B534B20554DB600FB3BDF /* UIControlAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIControlAdditions.h; sourceTree = "<group>"; };
 		4D8B534C20554DB600FB3BDF /* UIControlAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIControlAdditions.m; sourceTree = "<group>"; };
 		4D8B534F205550B900FB3BDF /* UIBarButtonItemAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBarButtonItemAdditions.h; sourceTree = "<group>"; };
@@ -441,6 +445,8 @@
 				4DF8312820728FE10036ABEE /* UITableViewAdditions.m */,
 				4DF8312B207290BF0036ABEE /* UIScreenAdditions.h */,
 				4DF8312C207290BF0036ABEE /* UIScreenAdditions.m */,
+				4D3442F22077532A00525B58 /* CGUtilities.h */,
+				4D3442F32077532A00525B58 /* CGUtilities.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 				4D8B5351205550B900FB3BDF /* UIBarButtonItemAdditions.h in Headers */,
 				4DF250E61DDFF9CB002AB829 /* UIApplicationAdditions.h in Headers */,
 				4DC37D9B206A6D6B008FCF60 /* MMWebView.h in Headers */,
+				4D3442F42077532A00525B58 /* CGUtilities.h in Headers */,
 				4D8B535D2055627C00FB3BDF /* UIImageViewAdditions.h in Headers */,
 				4D8B534D20554DB600FB3BDF /* UIControlAdditions.h in Headers */,
 				4DE44AE31C24391300FD1D97 /* MMTableView.h in Headers */,
@@ -639,6 +646,7 @@
 				4DE44AA31C24391300FD1D97 /* MMWebViewController.m in Sources */,
 				4DE44A9A1C24391300FD1D97 /* MMNavigationController.m in Sources */,
 				4DF8312A20728FE10036ABEE /* UITableViewAdditions.m in Sources */,
+				4D3442F52077532A00525B58 /* CGUtilities.m in Sources */,
 				4D24AA65202F4A92006777FF /* MMPagingScrollView.m in Sources */,
 				4DCB0DFD1C24730600339CF9 /* MMTranslucentViewController.m in Sources */,
 				4DE44AAE1C24391300FD1D97 /* SSWDirectionalPanGestureRecognizer.m in Sources */,

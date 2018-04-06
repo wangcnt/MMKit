@@ -130,10 +130,7 @@ typedef void (^MMDatabaseQueryCompletion)(MMDatabase *database, NSArray *models,
  *
  *  @param clazz      要查找的model類型
  *  @param parameters 參數，key為數據庫字段，value為值
- *  @param clazz        要查的表
  *  @param completion   查询完的处理
- *
- *  @return return value description
  */
 - (void)findModelsForClass:(__unsafe_unretained Class<MMPersistable>)clazz withParameters:(NSDictionary *)parameters
                 completion:(MMDatabaseQueryCompletion)completion;
@@ -146,8 +143,6 @@ typedef void (^MMDatabaseQueryCompletion)(MMDatabase *database, NSArray *models,
  *  @param clazz      要查找的model類型
  *  @param conditions sql語句WHERE後面的部分
  *  @param completion   查询完的处理
- *
- *  @return return value description
  */
 - (void)findModelsForClass:(__unsafe_unretained Class<MMPersistable>)clazz withConditions:(NSString *)conditions
                 completion:(MMDatabaseQueryCompletion)completion;
@@ -160,8 +155,6 @@ typedef void (^MMDatabaseQueryCompletion)(MMDatabase *database, NSArray *models,
  *  @param sqlString    sql语句
  *  @param clazz        要查的表
  *  @param completion   查询完的处理
- *
- *  @return MMModel数组
  */
 - (void)executeQuery:(NSString *)sqlString forClass:(__unsafe_unretained Class<MMPersistable>)clazz
       withCompletion:(MMDatabaseQueryCompletion)completion;

@@ -437,7 +437,7 @@ void cleanupBuffer(void *userData, void *buf_data) {
 }
 
 - (void)drawInRect:(CGRect)rect withContentMode:(UIViewContentMode)contentMode clipsToBounds:(BOOL)clips{
-    CGRect drawRect = mm_rect_fit_with_content_mode(rect, self.size, contentMode);
+    CGRect drawRect = CGRectFitWithContentMode(rect, self.size, contentMode);
     if (drawRect.size.width == 0 || drawRect.size.height == 0) return;
     if (clips) {
         CGContextRef context = UIGraphicsGetCurrentContext();

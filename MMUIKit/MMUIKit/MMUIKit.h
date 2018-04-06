@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import <MMUIKit/MMUIDefines.h>
+#import <MMUIKit/CGUtilities.h>
 
 // contrller
 #import <MMUIKit/MMViewController.h>

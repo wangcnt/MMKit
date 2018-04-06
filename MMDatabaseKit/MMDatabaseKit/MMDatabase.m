@@ -100,4 +100,7 @@
     return 0;
 }
 
+@synthesize path = _path;
+@synthesize opened = _opened;
+
 @end
