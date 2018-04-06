@@ -36,7 +36,7 @@
     [_delegates_ removeObject:delegate];
 }
 
-- (void)removeAlldelegates {
+- (void)removeAllDelegates {
     [_delegates_ removeAllObjects];
 }
 

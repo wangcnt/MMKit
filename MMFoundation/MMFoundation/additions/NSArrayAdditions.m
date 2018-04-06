@@ -165,16 +165,6 @@ __mm_synth_dummy_class__(NSArrayAdditions)
     }
 }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
-- (void)removeLastObject {
-    if (self.count) {
-        [self removeObjectAtIndex:self.count - 1];
-    }
-}
-
-#pragma clang diagnostic pop
-
 - (void)appendObject:(id)anObject {
     [self addObject:anObject];
 }

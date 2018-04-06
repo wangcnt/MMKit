@@ -72,7 +72,10 @@ CGContextRef CGContextCreateARGBBitmapContext(CGSize size, BOOL opaque, CGFloat 
 CGContextRef CGContextCreateGrayBitmapContext(CGSize size, CGFloat scale) {
     size_t width = ceil(size.width * scale);
     size_t height = ceil(size.height * scale);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
     if (width < 1 || height < 1) return NULL;
+#pragma clang diagnostic pop
     
     //DeviceGray, 8-bits per component
     CGColorSpaceRef space = CGColorSpaceCreateDeviceGray();

@@ -11,6 +11,8 @@
 #import <MMUIKit/MMUIDefines.h>
 #import <MMUIKit/CGUtilities.h>
 
+#import <MMUIKit/MMAppDelegate.h>
+
 // contrller
 #import <MMUIKit/MMViewController.h>
 #import <MMUIKit/MMTabBarController.h>

@@ -1,12 +1,12 @@
 //
-//  AppDelegate.m
+//  SampleAppDelegate.m
 //  MMSamples
 //
-//  Created by Mark on 2018/3/3.
+//  Created by Mark on 2018/4/7.
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "SampleAppDelegate.h"
 
 #import <AnalyticsKit/AnalyticsKit.h>
 #import <MMLog/MMLog.h>
@@ -27,30 +27,36 @@
 __c_stringify__(abcde)
 __stringify__(abcdefg)
 
-@implementation AppDelegate
-
+@implementation SampleAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
-//    [self test_MMServiceCenter];
+    //    [self test_MMServiceCenter];
+    
+    self.supportsShakeToEdit = YES;
     
     [self test_defines];
     NSLog(@"abcde->%s", abcde);
     NSLog(@"abcdefg->%@", abcdefg);
     NSLog(@"");
     
+    NSMutableArray *arr = @[@"a", @"b", @"c"].mutableCopy;
+    [arr insertObjects:@[@1, @2, @3] atIndex:0];
+    [arr prependObjects:@[@"!", @"@", @"#"]];
     
-//    [self test_chainedInvocation];
+    NSLog(@"arr -> %@", arr);
     
-//    [self test_InvokeWithBlockArgument];
-//    [self test_OverrideProperty];
+    //    [self test_chainedInvocation];
     
-//    [self test_InstalledAllApps];
-//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-//    [self test_SafeSingleton];
+    //    [self test_InvokeWithBlockArgument];
+    //    [self test_OverrideProperty];
     
-//    [self test_DDLog];
+    //    [self test_InstalledAllApps];
+    //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+    //    [self test_SafeSingleton];
+    
+    //    [self test_DDLog];
     
     //    [self gcdDemo1];
     //    [self gcdDemo2];
@@ -58,9 +64,9 @@ __stringify__(abcdefg)
     //    [self gcdDemo5];
     //    [self test_DynamicProxy];
     //    [self test_StringAdditions];
-
+    
     [self setupWindow];
-//    [self test_EnumerateSubviews];
+    //    [self test_EnumerateSubviews];
     
     return YES;
 }
@@ -76,7 +82,7 @@ __stringify__(abcdefg)
     __strongify__(string);
     NSLog(@"strongedstring->%@", strongedstring);
     __mm_exe_block__(block, NO, @"Kalma", @"Lancelot.");
-
+    
     NSString *b = @"b";
     @weakify(self, b);
     _haha = ^ (NSError *error) {
@@ -209,7 +215,7 @@ __stringify__(abcdefg)
     manager.maximumFileSize = 1024 * 1;   // 1K
     manager.rollingFrequency = 60; // 1 minute
     manager.maximumNumberOfLogFiles = 3;
-//    manager.TTYEnabled = YES;
+    //    manager.TTYEnabled = YES;
     manager.ASLEnabled = YES;
     manager.logsDirectory = mm_document_path();
     NSLog(@"log path-->%@", [MMLogManager sharedInstance].logPaths);
@@ -334,6 +340,5 @@ __stringify__(abcdefg)
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 
 @end

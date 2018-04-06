@@ -52,7 +52,6 @@
 + (NSMutableArray *)arrayWithPlistString:(NSString *)plist;
 
 - (void)removeFirstObject;
-- (void)removeLastObject;
 
 - (void)appendObject:(id)anObject;
 - (void)prependObject:(id)anObject;

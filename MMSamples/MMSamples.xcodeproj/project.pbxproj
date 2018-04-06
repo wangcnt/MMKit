@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D3443042077F1C500525B58 /* SampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3443032077F1C500525B58 /* SampleAppDelegate.m */; };
 		4D8B534A20554A0F00FB3BDF /* AnalyticsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFB2049D7F0005044F0 /* AnalyticsKit.framework */; };
 		4D8B53612056C03F00FB3BDF /* MMSomething.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B53602056C03F00FB3BDF /* MMSomething.m */; };
-		4D906CDE2049D7C8005044F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CDD2049D7C8005044F0 /* AppDelegate.m */; };
 		4D906CE12049D7C8005044F0 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CE02049D7C8005044F0 /* FirstViewController.m */; };
 		4D906CE42049D7C8005044F0 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906CE32049D7C8005044F0 /* SecondViewController.m */; };
 		4D906CE92049D7C8005044F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D906CE82049D7C8005044F0 /* Assets.xcassets */; };
@@ -28,11 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D3443022077F1C500525B58 /* SampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleAppDelegate.h; sourceTree = "<group>"; };
+		4D3443032077F1C500525B58 /* SampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleAppDelegate.m; sourceTree = "<group>"; };
 		4D8B535F2056C03F00FB3BDF /* MMSomething.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSomething.h; sourceTree = "<group>"; };
 		4D8B53602056C03F00FB3BDF /* MMSomething.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMSomething.m; sourceTree = "<group>"; };
 		4D906CD92049D7C7005044F0 /* MMSamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMSamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D906CDC2049D7C7005044F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4D906CDD2049D7C8005044F0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4D906CDF2049D7C8005044F0 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		4D906CE02049D7C8005044F0 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		4D906CE22049D7C8005044F0 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -97,8 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				4D9BC37620540A37007FE60C /* test */,
-				4D906CDC2049D7C7005044F0 /* AppDelegate.h */,
-				4D906CDD2049D7C8005044F0 /* AppDelegate.m */,
 				4D906CDF2049D7C8005044F0 /* FirstViewController.h */,
 				4D906CE02049D7C8005044F0 /* FirstViewController.m */,
 				4D906CE22049D7C8005044F0 /* SecondViewController.h */,
@@ -107,6 +105,8 @@
 				4D906CEA2049D7C8005044F0 /* LaunchScreen.storyboard */,
 				4D906CED2049D7C8005044F0 /* Info.plist */,
 				4D906CEE2049D7C8005044F0 /* main.m */,
+				4D3443022077F1C500525B58 /* SampleAppDelegate.h */,
+				4D3443032077F1C500525B58 /* SampleAppDelegate.m */,
 			);
 			path = MMSamples;
 			sourceTree = "<group>";
@@ -212,8 +212,8 @@
 			files = (
 				4D8B53612056C03F00FB3BDF /* MMSomething.m in Sources */,
 				4D906CE42049D7C8005044F0 /* SecondViewController.m in Sources */,
-				4D906CDE2049D7C8005044F0 /* AppDelegate.m in Sources */,
 				4D9BC37920540A4F007FE60C /* MMSafeSingleton.m in Sources */,
+				4D3443042077F1C500525B58 /* SampleAppDelegate.m in Sources */,
 				4DC37D9520678FBA008FCF60 /* MMChain.m in Sources */,
 				4D906CEF2049D7C8005044F0 /* main.m in Sources */,
 				4D906CE12049D7C8005044F0 /* FirstViewController.m in Sources */,

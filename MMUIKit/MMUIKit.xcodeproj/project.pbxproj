@@ -26,6 +26,8 @@
 		4D24AA77202F6426006777FF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D24AA76202F6426006777FF /* AVFoundation.framework */; };
 		4D3442F42077532A00525B58 /* CGUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3442F22077532A00525B58 /* CGUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D3442F52077532A00525B58 /* CGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3442F32077532A00525B58 /* CGUtilities.m */; };
+		4D3443002077F07100525B58 /* MMAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3442FE2077F07100525B58 /* MMAppDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D3443012077F07100525B58 /* MMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3442FF2077F07100525B58 /* MMAppDelegate.m */; };
 		4D8B534D20554DB600FB3BDF /* UIControlAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D8B534B20554DB600FB3BDF /* UIControlAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D8B534E20554DB600FB3BDF /* UIControlAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B534C20554DB600FB3BDF /* UIControlAdditions.m */; };
 		4D8B5351205550B900FB3BDF /* UIBarButtonItemAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D8B534F205550B900FB3BDF /* UIBarButtonItemAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -162,6 +164,8 @@
 		4D24AA76202F6426006777FF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4D3442F22077532A00525B58 /* CGUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGUtilities.h; sourceTree = "<group>"; };
 		4D3442F32077532A00525B58 /* CGUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGUtilities.m; sourceTree = "<group>"; };
+		4D3442FE2077F07100525B58 /* MMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMAppDelegate.h; sourceTree = "<group>"; };
+		4D3442FF2077F07100525B58 /* MMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMAppDelegate.m; sourceTree = "<group>"; };
 		4D8B534B20554DB600FB3BDF /* UIControlAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIControlAdditions.h; sourceTree = "<group>"; };
 		4D8B534C20554DB600FB3BDF /* UIControlAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIControlAdditions.m; sourceTree = "<group>"; };
 		4D8B534F205550B900FB3BDF /* UIBarButtonItemAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBarButtonItemAdditions.h; sourceTree = "<group>"; };
@@ -335,6 +339,8 @@
 				4DC1FB0E1C242CAB00A39E9D /* MMUIKit.h */,
 				4DC1FB101C242CAB00A39E9D /* Info.plist */,
 				4DA5112920320DC90063C8B1 /* MMUIDefines.h */,
+				4D3442FE2077F07100525B58 /* MMAppDelegate.h */,
+				4D3442FF2077F07100525B58 /* MMAppDelegate.m */,
 			);
 			path = MMUIKit;
 			sourceTree = "<group>";
@@ -526,6 +532,7 @@
 				4DC37D9B206A6D6B008FCF60 /* MMWebView.h in Headers */,
 				4D3442F42077532A00525B58 /* CGUtilities.h in Headers */,
 				4D8B535D2055627C00FB3BDF /* UIImageViewAdditions.h in Headers */,
+				4D3443002077F07100525B58 /* MMAppDelegate.h in Headers */,
 				4D8B534D20554DB600FB3BDF /* UIControlAdditions.h in Headers */,
 				4DE44AE31C24391300FD1D97 /* MMTableView.h in Headers */,
 				4DE44AA51C24391300FD1D97 /* PrefixHeader.pch in Headers */,
@@ -635,6 +642,7 @@
 				4DB9E9F31DDF325300FE43CF /* MMTabBarController.m in Sources */,
 				4DE44ABA1C24391300FD1D97 /* UIDeviceAdditions.m in Sources */,
 				4DE44ABD1C24391300FD1D97 /* UIImageAdditions.m in Sources */,
+				4D3443012077F07100525B58 /* MMAppDelegate.m in Sources */,
 				4DE44AD51C24391300FD1D97 /* MMBadgeView.m in Sources */,
 				4DE44AA01C24391300FD1D97 /* MMViewController.m in Sources */,
 				4D8B5352205550B900FB3BDF /* UIBarButtonItemAdditions.m in Sources */,
