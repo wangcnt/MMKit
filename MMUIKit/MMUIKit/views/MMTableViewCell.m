@@ -38,5 +38,12 @@
     }
     return _tableView;
 }
+
+- (NSIndexPath *)indexPath {
+    return [self.tableView indexPathForCell:self];
+}
+
+@synthesize tableView = _tableView;
+@synthesize indexPath = _indexPath;
             
 @end

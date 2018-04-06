@@ -13,7 +13,7 @@
 
 @interface MMTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong, readonly) NSIndexPath *indexPath;
+@property (nonatomic, weak, readonly) UITableView *tableView;
 
 @end

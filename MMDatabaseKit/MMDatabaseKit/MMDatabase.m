@@ -29,50 +29,39 @@
 }
 
 - (void)openDatabaseWithFileAtPath:(NSString *)path completion:(MMDatabaseOpenCompletion)completion
-{
-}
+{}
 
 - (void)createOrUpgradeTablesWithClasses:(NSArray *)classes
-{
-}
+{}
 
 - (void)closeDatabaseWithCompletion:(MMDatabaseCloseCompletion)completion
-{
-}
+{}
 
 - (void)save:(id<MMPersistable>)model completion:(MMDatabaseUpdateCompletion)completion
-{
-}
+{}
 
 - (void)update:(id<MMPersistable>)model completion:(MMDatabaseUpdateCompletion)completion
-{
-}
+{}
 
 - (void)saveOrUpdate:(id<MMPersistable>)model completion:(MMDatabaseUpdateCompletion)completion
-{
-}
+{}
 
 - (void)removeModel:(id<MMPersistable>)model completion:(MMDatabaseRemoveCompletion)completion
-{
-}
+{}
 
 - (void)removeModels:(NSArray *)models completion:(MMDatabaseRemoveCompletion)completion
-{
-}
+{}
 
 - (void)removeModelWithClass:(__unsafe_unretained Class<MMPersistable>)clazz byId:(NSString *)objectId
                   completion:(MMDatabaseRemoveCompletion)completion
-{
-}
+{}
 
 
 - (void)executeUpdate:(NSString *)sqlString completion:(MMDatabaseUpdateCompletion)completion
-{
-}
+{}
 
 - (void)upgradeBySql:(NSString *)sqlString completion:(MMDatabaseUpgradeCompletion)completion
-{
-}
+{}
 
 - (id<MMPersistable>)findModelForClass:(__unsafe_unretained Class<MMPersistable>)clazz byId:(NSString *)objectId
 {
@@ -81,8 +70,7 @@
 
 - (void)findModelsForClass:(__unsafe_unretained Class<MMPersistable>)clazz withParameters:(NSDictionary *)parameters
                 completion:(MMDatabaseQueryCompletion)completion
-{
-}
+{}
 
 - (NSArray *)findModelsForClass:(__unsafe_unretained Class<MMPersistable>)clazz withParameters:(NSDictionary *)parameters
 {
@@ -91,8 +79,7 @@
 
 - (void)findModelsForClass:(__unsafe_unretained Class<MMPersistable>)clazz withConditions:(NSString *)conditions
                 completion:(MMDatabaseQueryCompletion)completion
-{
-}
+{}
 
 - (NSArray *)findModelsForClass:(__unsafe_unretained Class<MMPersistable>)clazz withConditions:(NSString *)conditions
 {
@@ -101,8 +88,7 @@
 
 - (void)executeQuery:(NSString *)sqlString forClass:(__unsafe_unretained Class<MMPersistable>)clazz
       withCompletion:(MMDatabaseQueryCompletion)completion
-{
-}
+{}
 
 - (NSArray *)executeQuery:(NSString *)sqlString forClass:(__unsafe_unretained Class<MMPersistable>)clazz
 {

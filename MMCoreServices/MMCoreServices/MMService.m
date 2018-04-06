@@ -16,6 +16,7 @@
 #import "MMServiceCenter.h"
 #import "MMServiceID.h"
 #import <MMLog/MMLog.h>
+#import <MMFoundation/MMDefines.h>
 
 @interface MMService () {
 }
@@ -42,25 +43,11 @@
 }
 
 - (void)callbackWithObjectedCompletion:(void (^)(id obj, NSError *error))completion object:(id)object error:(NSError *)error toMainThread:(BOOL)toMainThread {
-    if(!completion) return;
-    if(toMainThread) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(object, error);
-        });
-    } else {
-        completion(object, error);
-    }
+    __mm_exe_block__(completion, toMainThread, object, error);
 }
 
 - (void)callbackWithCompletion:(void (^)(NSError *error))completion error:(NSError *)error toMainThread:(BOOL)toMainThread {
-    if(!completion) return;
-    if(toMainThread) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(error);
-        });
-    } else {
-        completion(error);
-    }
+    __mm_exe_block__(completion, toMainThread, error);
 }
 
 - (void)startService {
@@ -91,5 +78,6 @@
 @synthesize center = _center;
 @synthesize scope = _scope;
 @synthesize serviceID = _serviceID;
+@synthesize defaultDB = _defaultDB;
 
 @end

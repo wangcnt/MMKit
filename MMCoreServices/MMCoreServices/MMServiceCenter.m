@@ -11,6 +11,8 @@
 #import "MMOperationQueue.h"
 #import "MMService.h"
 #import "MMServiceID.h"
+#import <MMDatabaseKit/MMCoreData.h>
+#import <MMLog/MMLog.h>
 
 @interface MMServiceCenter()
 @property (nonatomic, strong) NSMutableDictionary<NSString *, id<MMService>> *serviceDictionary;
@@ -32,6 +34,12 @@
     
     _serviceDictionary = [[NSMutableDictionary<NSString *, id<MMService>> alloc] initWithCapacity:2];
     return self;
+}
+
+- (void)addDelegate:(id)delegate {
+    if([delegate conformsToProtocol:@protocol(MMService)]) {
+        [self registerService:delegate];
+    }
 }
 
 - (void)registerService:(id<MMService>)service {
@@ -84,4 +92,38 @@
     }
 }
 
+- (BOOL)invocationShouldBeInvoked:(NSInvocation *)invocation withTarget:(id)target {
+    if([target conformsToProtocol:@protocol(MMService)]) {
+        id<MMService> service = (id<MMService>)target;
+        if(!service.invalid) {
+            return YES;
+        }
+    }
+    MMLogInfo(@"Message %@ will be send to the invalid service %@.", NSStringFromSelector(invocation.selector), target);
+    return YES;
+}
+
+- (id<MMService>)anyValidService {
+    for(id<MMService> service in self.serviceDictionary.allValues) {
+        if(!service.invalid) {
+            return service;
+        }
+    }
+    MMLogInfo(@"There is no valid service registerred.");
+    return nil;
+}
+
+- (id<MMCoreDataStore>)defaultDB {
+    for(id<MMService> service in self.serviceDictionary.allValues) {
+        if(!service.invalid && service.defaultDB) {
+            return service.defaultDB;
+        }
+    }
+    MMLogInfo(@"There is no useful database.");
+    return nil;
+}
+
+@synthesize defaultDB = _defaultDB;
+
 @end
+

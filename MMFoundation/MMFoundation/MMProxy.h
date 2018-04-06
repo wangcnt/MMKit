@@ -16,10 +16,14 @@
 
 - (instancetype)init;
 
+@property (nonatomic, strong, readonly) NSArray *delegates;
+
 - (void)addDelegate:(id)delegate;
 - (void)removeDelegate:(id)delegate;
 - (void)removeAllDelegates;
 
 - (BOOL)hasDelegateThatRespondsToSelector:(SEL)selector;
+
+- (BOOL)invocationShouldBeInvoked:(NSInvocation *)invocation withTarget:(id)target;   ///< Default is YES. It can be override to do some AOP things.
 
 @end

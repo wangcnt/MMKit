@@ -10,7 +10,7 @@
 #import <MMFoundation/MMProxy.h>
 #import "MMService.h"
 
-@class MMOperationQueue;
+@class MMOperationQueue, MMService;
 
 /*!
  * Warning: DO NOT implement the unimplemented method, or the task won't be

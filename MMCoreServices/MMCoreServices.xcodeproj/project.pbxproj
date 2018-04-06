@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D2CA12B205E2444000AD30F /* MMServiceID.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D2CA129205E2444000AD30F /* MMServiceID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D2CA12C205E2444000AD30F /* MMServiceID.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2CA12A205E2444000AD30F /* MMServiceID.m */; };
+		4D3442EE207695AA00525B58 /* MMDatabaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3442EF207695AA00525B58 /* MMDatabaseKit.framework */; };
 		4D906D90204A994C005044F0 /* MMCoreServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906D8E204A994C005044F0 /* MMCoreServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906DAF204A9968005044F0 /* MMConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906D96204A9964005044F0 /* MMConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D906DB0204A9968005044F0 /* MMConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906D97204A9964005044F0 /* MMConnection.m */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		4D2CA129205E2444000AD30F /* MMServiceID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMServiceID.h; sourceTree = "<group>"; };
 		4D2CA12A205E2444000AD30F /* MMServiceID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMServiceID.m; sourceTree = "<group>"; };
+		4D3442EF207695AA00525B58 /* MMDatabaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMDatabaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906D8B204A994B005044F0 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906D8E204A994C005044F0 /* MMCoreServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCoreServices.h; sourceTree = "<group>"; };
 		4D906D8F204A994C005044F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3442EE207695AA00525B58 /* MMDatabaseKit.framework in Frameworks */,
 				4DB9560A204AA3FE004F5E30 /* MMFoundation.framework in Frameworks */,
 				4D906DD7204A9C9A005044F0 /* MMLog.framework in Frameworks */,
 			);
@@ -141,6 +144,7 @@
 		4D906DD4204A9C70005044F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D3442EF207695AA00525B58 /* MMDatabaseKit.framework */,
 				4DB9560B204AA3FE004F5E30 /* MMFoundation.framework */,
 				4D906DD8204A9C9A005044F0 /* MMLog.framework */,
 				4D906DD6204A9C70005044F0 /* MMFoundation.framework */,

@@ -20,16 +20,7 @@ typedef void (^MMDatabaseUpgradeCompletion)(MMDatabase *database, NSString *sql,
 typedef void (^MMDatabaseQueryCompletion)(MMDatabase *database, NSArray *models, NSString *sql);
 
 
-@interface MMDatabase : NSObject
-{
-    @protected
-    
-    dispatch_queue_t                                     _readQueue;
-    
-    dispatch_queue_t                                     _writeQueue;
-    
-    dispatch_queue_t                                     _completionQueue;
-}
+@protocol MMDatabase <NSObject>
 
 @property (nonatomic, strong) NSString                  *path;
 
@@ -186,6 +177,15 @@ typedef void (^MMDatabaseQueryCompletion)(MMDatabase *database, NSArray *models,
  *  @return return value description
  */
 - (NSUInteger)countOfModelsForClass:(Class<MMPersistable>)clazz withConditions:(NSString *)conditions;
+
+@end
+
+@interface MMDatabase : NSObject <MMDatabase> {
+    @protected
+    dispatch_queue_t                                     _readQueue;
+    dispatch_queue_t                                     _writeQueue;
+    dispatch_queue_t                                     _completionQueue;
+}
 
 @end
 

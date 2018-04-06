@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D4FDD9D206E9FC500CEBFE9 /* MMCoreDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4FDD9B206E9FC500CEBFE9 /* MMCoreDataManager.h */; };
-		4D4FDD9E206E9FC500CEBFE9 /* MMCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FDD9C206E9FC500CEBFE9 /* MMCoreDataManager.m */; };
+		4D3442F120769B2C00525B58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3442F020769B2C00525B58 /* UIKit.framework */; };
 		4D906C812049B942005044F0 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C762049B942005044F0 /* FMDatabase.h */; };
 		4D906C822049B942005044F0 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D906C772049B942005044F0 /* FMDatabaseQueue.m */; };
 		4D906C832049B942005044F0 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C782049B942005044F0 /* FMResultSet.h */; };
@@ -61,8 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D4FDD9B206E9FC500CEBFE9 /* MMCoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCoreDataManager.h; sourceTree = "<group>"; };
-		4D4FDD9C206E9FC500CEBFE9 /* MMCoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMCoreDataManager.m; sourceTree = "<group>"; };
+		4D3442F020769B2C00525B58 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D906C762049B942005044F0 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		4D906C772049B942005044F0 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
 		4D906C782049B942005044F0 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
@@ -108,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3442F120769B2C00525B58 /* UIKit.framework in Frameworks */,
 				4DDDD89920656E7900E49811 /* MMLog.framework in Frameworks */,
 				4DDDD89820656C8D00E49811 /* CoreData.framework in Frameworks */,
 			);
@@ -149,8 +148,6 @@
 				4DDDD88F206569A200E49811 /* MMCoreDataStore.m */,
 				4DDDD8BA20663ECE00E49811 /* MMCoreDataSource.h */,
 				4DDDD8BB20663ECE00E49811 /* MMCoreDataSource.m */,
-				4D4FDD9B206E9FC500CEBFE9 /* MMCoreDataManager.h */,
-				4D4FDD9C206E9FC500CEBFE9 /* MMCoreDataManager.m */,
 				4DDDD89220656BBB00E49811 /* NSManagedObjectContextAdditions.h */,
 				4DDDD89320656BBB00E49811 /* NSManagedObjectContextAdditions.m */,
 				4DDDD89F2066011700E49811 /* NSManagedObjectAdditions.h */,
@@ -163,6 +160,7 @@
 		4DDDD89620656C8D00E49811 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D3442F020769B2C00525B58 /* UIKit.framework */,
 				4DDDD89A20656E7900E49811 /* MMLog.framework */,
 				4DDDD89720656C8D00E49811 /* CoreData.framework */,
 			);
@@ -246,7 +244,6 @@
 				4DE8A0AE1C243DFD00754819 /* MMPersistable.h in Headers */,
 				4DDDD8A12066011700E49811 /* NSManagedObjectAdditions.h in Headers */,
 				4DDDD89420656BBB00E49811 /* NSManagedObjectContextAdditions.h in Headers */,
-				4D4FDD9D206E9FC500CEBFE9 /* MMCoreDataManager.h in Headers */,
 				4DDDD8A420663A3000E49811 /* MMCoreData.h in Headers */,
 				4DDDD8BC20663ECE00E49811 /* MMCoreDataSource.h in Headers */,
 				4DE8A0A81C243DFD00754819 /* MMFMDB.h in Headers */,
@@ -363,7 +360,6 @@
 				4DDDD8BD20663ECE00E49811 /* MMCoreDataSource.m in Sources */,
 				4DDDD8A22066011700E49811 /* NSManagedObjectAdditions.m in Sources */,
 				4DDDD891206569A200E49811 /* MMCoreDataStore.m in Sources */,
-				4D4FDD9E206E9FC500CEBFE9 /* MMCoreDataManager.m in Sources */,
 				4D906C8A2049B942005044F0 /* FMDatabasePool.m in Sources */,
 				4DE8A0A91C243DFD00754819 /* MMFMDB.m in Sources */,
 				4DE8A0A01C243DFD00754819 /* MMDatabase.m in Sources */,

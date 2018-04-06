@@ -30,6 +30,6 @@
 
 
 @optional
-+ (BOOL)propertyIsUnpersistable;
++ (NSArray<NSString *> *)unpersistableProperties;
 
 @end

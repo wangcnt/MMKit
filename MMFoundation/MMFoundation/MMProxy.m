@@ -12,32 +12,36 @@
 #import "MMDefines.h"
 
 @interface MMProxy ()
-@property (nonatomic, strong) NSMutableArray *delegates;
+@property (nonatomic, strong) NSMutableArray *delegates_;
 @end
 
 @implementation MMProxy
 
 - (instancetype)init {
-    _delegates = [NSMutableArray arrayWithCapacity:2];
+    _delegates_ = [NSMutableArray arrayWithCapacity:2];
     return self;
 }
 
+- (NSArray *)delegates {
+    return [_delegates_ copy];
+}
+
 - (void)addDelegate:(id)delegate {
-    if(delegate && ![_delegates containsObject:delegate]) {
-        [_delegates addObject:delegate];
+    if(delegate && ![_delegates_ containsObject:delegate]) {
+        [_delegates_ addObject:delegate];
     }
 }
 
 - (void)removeDelegate:(id)delegate {
-    [_delegates removeObject:delegate];
+    [_delegates_ removeObject:delegate];
 }
 
-- (void)removeAllDelegates {
-    [_delegates removeAllObjects];
+- (void)removeAlldelegates_ {
+    [_delegates_ removeAllObjects];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
-    for (id delegate in _delegates) {
+    for (id delegate in _delegates_) {
         NSMethodSignature *result = [delegate methodSignatureForSelector:selector];
         if (result) {
             return result;
@@ -59,16 +63,22 @@
 
 - (void)forwardInvocation:(NSInvocation *)invocation {
     SEL selector = invocation.selector;
-    for (id delegate in _delegates) {
+    for (id delegate in _delegates_) {
         if ([delegate respondsToSelector:selector]) {
             NSInvocation *duplicatedInvocation = [invocation duplicatedInvocation];
-            [duplicatedInvocation invokeWithTarget:delegate];
+            if([self invocationShouldBeInvoked:duplicatedInvocation withTarget:delegate]) {
+                [duplicatedInvocation invokeWithTarget:delegate];
+            }
         }
     }
 }
 
+- (BOOL)invocationShouldBeInvoked:(NSInvocation *)invocation withTarget:(id)target {
+    return YES;
+}
+
 - (BOOL)hasDelegateThatRespondsToSelector:(SEL)selector {
-    for(id delegate in _delegates) {
+    for(id delegate in _delegates_) {
         if([delegate respondsToSelector:selector]) {
             return YES;
         }
