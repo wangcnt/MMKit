@@ -91,6 +91,8 @@ if(block && dispatch_queue) {                               \
     });                                                     \
 }
 
+
+
 #define __singleton__(CLASS_NAME)                           \
 static CLASS_NAME *instance = nil;                          \
 + (instancetype)sharedInstance {                            \

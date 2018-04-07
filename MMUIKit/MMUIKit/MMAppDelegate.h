@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIApplicationAdditions.h"
+#import "UIResponderAdditions.h"
+
 @interface MMAppDelegate : UIResponder <UIApplicationDelegate> {
     UIWindow *_window;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (nonatomic, assign) BOOL supportsShakeToEdit;
+@property (nonatomic, assign) BOOL supportsShakingToEdit;
 
 @end

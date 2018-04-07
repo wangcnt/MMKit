@@ -34,7 +34,9 @@ __stringify__(abcdefg)
     //    [[B sharedInstance] print];
     //    [self test_MMServiceCenter];
     
-    self.supportsShakeToEdit = YES;
+    BOOL aaa = [super application:application didFinishLaunchingWithOptions:launchOptions];
+    
+    self.supportsShakingToEdit = YES;
     
     [self test_defines];
     NSLog(@"abcde->%s", abcde);
@@ -68,7 +70,7 @@ __stringify__(abcdefg)
     [self setupWindow];
     //    [self test_EnumerateSubviews];
     
-    return YES;
+    return aaa;
 }
 
 - (void)test_defines {
@@ -165,9 +167,6 @@ __stringify__(abcdefg)
 }
 
 - (void)setupWindow {
-    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    _window.backgroundColor = [UIColor whiteColor];
-    
     MMTabBarController *tabController = [[MMTabBarController alloc] init];
     
     QTHomepageViewController *timeController = [[QTHomepageViewController alloc] init];
@@ -185,8 +184,6 @@ __stringify__(abcdefg)
     tabController.viewControllers = @[timeNavController, fNavController, sNavController];
     
     _window.rootViewController = tabController;
-    
-    [_window makeKeyAndVisible];
 }
 
 - (void)test_EnumerateSubviews {
