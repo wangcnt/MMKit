@@ -8,6 +8,8 @@
 
 #import "MMAppDelegate.h"
 
+#import <MMMotionKit/MMMotionKit.h>
+
 @implementation MMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -15,6 +17,21 @@
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     return YES;
+}
+
+- (void)setSupportsShakingToEdit:(BOOL)supportsShakingToEdit {
+    BOOL previous = _supportsShakingToEdit;
+    if(_supportsShakingToEdit != supportsShakingToEdit) {
+        _supportsShakingToEdit = supportsShakingToEdit;
+        
+        if(_supportsShakingToEdit) {
+            [[MMMotionDetector sharedInstance] startDetection];
+        } else {
+            if(previous == _supportsShakingToEdit) {
+                [[MMMotionDetector sharedInstance] stopDetection];
+            }
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

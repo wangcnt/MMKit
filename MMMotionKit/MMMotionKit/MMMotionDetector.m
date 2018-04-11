@@ -36,7 +36,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
 @property (strong, nonatomic) NSTimer *shakeDetectingTimer;
 
 @property (strong, nonatomic) CLLocation *currentLocation;
-@property (nonatomic) SOMotionType previousMotionType;
+@property (nonatomic) MMMotionType previousMotionType;
 
 #pragma mark - Accelerometer manager
 @property (strong, nonatomic) CMMotionManager *motionManager;
@@ -99,8 +99,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
                                                                repeats:YES];
     
     [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init]
-                                             withHandler:^(CMAccelerometerData *accelerometerData, NSError *error)
-    {
+                                             withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
          _acceleration = accelerometerData.acceleration;
          [self calculateMotionType];
          dispatch_async(dispatch_get_main_queue(), ^{
@@ -127,13 +126,13 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 if (activity.walking) {
-                    _motionType = MotionTypeWalking;
+                    _motionType = MMMotionTypeWalking;
                 } else if (activity.running) {
-                    _motionType = MotionTypeRunning;
+                    _motionType = MMMotionTypeRunning;
                 } else if (activity.automotive) {
-                    _motionType = MotionTypeAutomotive;
+                    _motionType = MMMotionTypeAutomotive;
                 } else if (activity.stationary || activity.unknown) {
-                    _motionType = MotionTypeNotMoving;
+                    _motionType = MMMotionTypeNotMoving;
                 }
                 
                 // If type was changed, then call delegate method
@@ -194,13 +193,13 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
     }
     
     if (_currentSpeed < kMinimumSpeed) {
-        _motionType = MotionTypeNotMoving;
+        _motionType = MMMotionTypeNotMoving;
     } else if (_currentSpeed <= kMaximumWalkingSpeed) {
-        _motionType = _isShaking ? MotionTypeRunning : MotionTypeWalking;
+        _motionType = _isShaking ? MMMotionTypeRunning : MMMotionTypeWalking;
     } else if (_currentSpeed <= kMaximumRunningSpeed) {
-        _motionType = _isShaking ? MotionTypeRunning : MotionTypeAutomotive;
+        _motionType = _isShaking ? MMMotionTypeRunning : MMMotionTypeAutomotive;
     } else {
-        _motionType = MotionTypeAutomotive;
+        _motionType = MMMotionTypeAutomotive;
     }
     
     // If type was changed, then call delegate method

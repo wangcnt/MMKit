@@ -36,18 +36,9 @@ __stringify__(abcdefg)
     
     BOOL aaa = [super application:application didFinishLaunchingWithOptions:launchOptions];
     
-    self.supportsShakingToEdit = YES;
+//    self.supportsShakingToEdit = YES;
     
-    [self test_defines];
-    NSLog(@"abcde->%s", abcde);
-    NSLog(@"abcdefg->%@", abcdefg);
-    NSLog(@"");
-    
-    NSMutableArray *arr = @[@"a", @"b", @"c"].mutableCopy;
-    [arr insertObjects:@[@1, @2, @3] atIndex:0];
-    [arr prependObjects:@[@"!", @"@", @"#"]];
-    
-    NSLog(@"arr -> %@", arr);
+//    [self test_defines];
     
     //    [self test_chainedInvocation];
     
@@ -74,6 +65,10 @@ __stringify__(abcdefg)
 }
 
 - (void)test_defines {
+    NSLog(@"abcde->%s", abcde);
+    NSLog(@"abcdefg->%@", abcdefg);
+    NSLog(@"");
+    
     void (^block)(NSString *, NSString *) = ^ (NSString *surname, NSString *name) {
         NSLog(@"Hello, %@ %@", surname, name);
     };
@@ -201,10 +196,15 @@ __stringify__(abcdefg)
     }];
 }
 
-- (void)test_StringAdditions {
+- (void)test_additions {
     __unused NSComparisonResult greater = [@"a1.b2" compareVersion:@"a1asdf.c2(**HIUHIHIOHIHKHJGYUIOHIbkdsf3"];
     __unused NSArray<NSNumber *> *numbers = [@"1.2.3.4a3b*(Id2" numbers];
     NSLog(@"");
+    
+    NSMutableArray *arr = @[@"a", @"b", @"c"].mutableCopy;
+    [arr insertObjects:@[@1, @2, @3] atIndex:0];
+    [arr prependObjects:@[@"!", @"@", @"#"]];
+    NSLog(@"arr -> %@", arr);
 }
 
 - (void)test_DDLog {

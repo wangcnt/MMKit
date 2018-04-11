@@ -29,18 +29,17 @@
 #import <CoreMotion/CoreMotion.h>
 
 @class MMMotionDetector;
-typedef enum
-{
-  MotionTypeNotMoving = 1,
-  MotionTypeWalking,
-  MotionTypeRunning,
-  MotionTypeAutomotive
-} SOMotionType;
+typedef enum {
+  MMMotionTypeNotMoving = 1,
+  MMMotionTypeWalking,
+  MMMotionTypeRunning,
+  MMMotionTypeAutomotive
+} MMMotionType;
 
 @protocol SOMotionDetectorDelegate <NSObject>
 
 @optional
-- (void)motionDetector:(MMMotionDetector *)motionDetector motionTypeChanged:(SOMotionType)motionType;
+- (void)motionDetector:(MMMotionDetector *)motionDetector motionTypeChanged:(MMMotionType)motionType;
 - (void)motionDetector:(MMMotionDetector *)motionDetector locationChanged:(CLLocation *)location;
 - (void)motionDetector:(MMMotionDetector *)motionDetector accelerationChanged:(CMAcceleration)acceleration;
 - (void)motionDetector:(MMMotionDetector *)motionDetector locationWasPaused:(BOOL)changed;
@@ -55,12 +54,12 @@ typedef enum
 #pragma mark - Properties
 @property (weak, nonatomic) id<SOMotionDetectorDelegate> delegate DEPRECATED_MSG_ATTRIBUTE(" Use blocks instead");
 
-@property (copy) void (^motionTypeChangedBlock) (SOMotionType motionType);
+@property (copy) void (^motionTypeChangedBlock) (MMMotionType motionType);
 @property (copy) void (^locationChangedBlock) (CLLocation *location);
 @property (copy) void (^accelerationChangedBlock) (CMAcceleration acceleration);
 @property (copy) void (^locationWasPausedBlock) (BOOL changed);
 
-@property (nonatomic, readonly) SOMotionType motionType;
+@property (nonatomic, readonly) MMMotionType motionType;
 @property (nonatomic, readonly) double currentSpeed;
 @property (nonatomic, readonly) CMAcceleration acceleration;
 @property (nonatomic, readonly) BOOL isShaking;

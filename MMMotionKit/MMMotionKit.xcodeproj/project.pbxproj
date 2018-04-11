@@ -15,7 +15,7 @@
 		4D73594A2079030B00F1CDBB /* MMStepDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7359442079030B00F1CDBB /* MMStepDetector.m */; };
 		4D73594D2079032000F1CDBB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D73594C2079032000F1CDBB /* CoreLocation.framework */; };
 		4D73594F2079032700F1CDBB /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D73594E2079032700F1CDBB /* CoreMotion.framework */; };
-		4D7359512079038000F1CDBB /* MMStepDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7359502079038000F1CDBB /* MMStepDetector.h */; };
+		4D7359512079038000F1CDBB /* MMStepDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7359502079038000F1CDBB /* MMStepDetector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */

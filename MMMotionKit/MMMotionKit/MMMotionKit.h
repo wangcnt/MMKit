@@ -18,5 +18,5 @@ FOUNDATION_EXPORT const unsigned char MMMotionKitVersionString[];
 
 #import <MMMotionKit/MMMotionDetector.h>
 #import <MMMotionKit/MMLocationManager.h>
-#import <MMMotionKit/MMWtepDetector.h>
+#import <MMMotionKit/MMStepDetector.h>
 

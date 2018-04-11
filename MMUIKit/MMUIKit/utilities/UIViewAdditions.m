@@ -170,7 +170,7 @@ __mm_synth_dummy_class__(UIViewAdditions)
     for(int i=0; i<level; i++) {
         [result appendString:@"|---"];
     }
-    [result appendFormat:@"%@%@-%d.%d.%d.%d-%zd", space, NSStringFromClass(view.class), (int)view.x, (int)view.y, (int)view.width, (int)view.height, view.tag];
+    [result appendFormat:@"%@%@-%d.%d.%d.%d-%ld", space, NSStringFromClass(view.class), (int)view.x, (int)view.y, (int)view.width, (int)view.height, view.tag];
     [view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull subview, NSUInteger idx, BOOL * _Nonnull stop) {
         [self saveSubhierarchyWithView:subview level:level+1 intoString:result];
     }];

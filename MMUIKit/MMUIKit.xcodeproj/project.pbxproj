@@ -28,6 +28,7 @@
 		4D3442F52077532A00525B58 /* CGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3442F32077532A00525B58 /* CGUtilities.m */; };
 		4D3443002077F07100525B58 /* MMAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3442FE2077F07100525B58 /* MMAppDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D3443012077F07100525B58 /* MMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3442FF2077F07100525B58 /* MMAppDelegate.m */; };
+		4D7359532079087B00F1CDBB /* MMMotionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7359522079087B00F1CDBB /* MMMotionKit.framework */; };
 		4D8B534D20554DB600FB3BDF /* UIControlAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D8B534B20554DB600FB3BDF /* UIControlAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D8B534E20554DB600FB3BDF /* UIControlAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B534C20554DB600FB3BDF /* UIControlAdditions.m */; };
 		4D8B5351205550B900FB3BDF /* UIBarButtonItemAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D8B534F205550B900FB3BDF /* UIBarButtonItemAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -166,6 +167,7 @@
 		4D3442F32077532A00525B58 /* CGUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGUtilities.m; sourceTree = "<group>"; };
 		4D3442FE2077F07100525B58 /* MMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMAppDelegate.h; sourceTree = "<group>"; };
 		4D3442FF2077F07100525B58 /* MMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMAppDelegate.m; sourceTree = "<group>"; };
+		4D7359522079087B00F1CDBB /* MMMotionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMMotionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8B534B20554DB600FB3BDF /* UIControlAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIControlAdditions.h; sourceTree = "<group>"; };
 		4D8B534C20554DB600FB3BDF /* UIControlAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIControlAdditions.m; sourceTree = "<group>"; };
 		4D8B534F205550B900FB3BDF /* UIBarButtonItemAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBarButtonItemAdditions.h; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7359532079087B00F1CDBB /* MMMotionKit.framework in Frameworks */,
 				4DC37D9E206A6DA2008FCF60 /* WebKit.framework in Frameworks */,
 				4DDDD8852061527E00E49811 /* MMLog.framework in Frameworks */,
 				4D24AA77202F6426006777FF /* AVFoundation.framework in Frameworks */,
@@ -284,6 +287,7 @@
 		17F53A5A1298DDD63E52DA9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D7359522079087B00F1CDBB /* MMMotionKit.framework */,
 				4DC37D9D206A6DA1008FCF60 /* WebKit.framework */,
 				4DDDD8862061527E00E49811 /* MMLog.framework */,
 				4DD3B0212049A873002C3B1A /* Masonry.framework */,
