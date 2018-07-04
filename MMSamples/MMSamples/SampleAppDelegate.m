@@ -14,7 +14,8 @@
 #import <MMFoundation/MMFoundation.h>
 #import <MMFoundation/NSExceptionAdditions.h>
 #import <MMUIKit/MMUIKit.h>
-#import <QTimeUI/QTimeUI.h>
+//#import <QTimeUI/QTimeUI.h>
+#import <objc/runtime.h>
 
 #import "MMChain.h"
 
@@ -27,18 +28,63 @@
 __c_stringify__(abcde)
 __stringify__(abcdefg)
 
+@interface SampleAppDelegate ()
+@property (nonatomic, retain) NSMutableArray *arr;
+@property (nonatomic, retain) NSString *what;
+@end
+
+
+@interface AA : NSObject
+- (void)print;
+@end
+
+@implementation AA
+- (void)print {
+    NSLog(@"AA");
+}
+- (Class)class {
+    return NSClassFromString(@"AA");
+}
+@end
+
+@interface BB : AA
+@end
+
+@implementation BB
+- (void)print {
+    NSLog(@"self.class -> %@", self.class);
+    NSLog(@"super.class -> %@", [super class]);
+    NSLog(@"BB");
+}
+
+- (Class)class {
+    return NSClassFromString(@"BB");
+}
+
+@end
+
 @implementation SampleAppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
     //    [self test_MMServiceCenter];
     
+    //    NSLog(@"%@", NSStringFromClass([self class])); // Son
+    //    NSLog(@"%@", NSStringFromClass([super class])); // Son
+    //    NSLog(@"%@", NSStringFromClass([self superclass])); // Son
+    
+    //    AA *aa = [[AA alloc] init];
+    //    [aa print];
+    //    BB *bb = [[BB alloc] init];
+    //    [bb print];
+    
     BOOL aaa = [super application:application didFinishLaunchingWithOptions:launchOptions];
     
-//    self.supportsShakingToEdit = YES;
+    //    self.supportsShakingToEdit = YES;
     
-//    [self test_defines];
+    //    [self test_defines];
     
     //    [self test_chainedInvocation];
     
@@ -58,10 +104,141 @@ __stringify__(abcdefg)
     //    [self test_DynamicProxy];
     //    [self test_StringAdditions];
     
+    //    [self testDistinct];
+    [self testSort];
     [self setupWindow];
     //    [self test_EnumerateSubviews];
+    NSLog(@"ABCDE->%@", abcdefg);
+    NSArray *ar = @[mm_rgba_color(200, 100, 150, 1)];
+    self.window.backgroundColor = mm_rgba_color(200, 100, 150, 1);
     
     return aaa;
+}
+
+- (void)testSort {
+    NSMutableArray<NSNumber *> *numbers = [NSMutableArray arrayWithObjects:@1, @6, @3, @1, @5, @4, nil];
+    numbers = [NSMutableArray arrayWithObjects:@1, @2, @3, @4, @5, @6, nil];
+    [numbers reverse];
+    //    numbers = [NSMutableArray arrayWithObjects:nil];
+    
+    int m = 2;
+    if(m == 0) {
+        // pop
+        for(NSInteger i=numbers.count-1; i>=0; i--) {
+            //        for(int i=0; i<numbers.count; i++) {
+            for(int j=0; j<numbers.count-1; j++) {
+                if(numbers[j] > numbers[j+1]) {
+                    [numbers exchangeObjectAtIndex:j withObjectAtIndex:j+1];
+                    NSLog(@"number -> %@", [numbers componentsJoinedByString:@"-"]);
+                }
+            }
+        }
+    } else if(m == 1) {
+        [self quick_sort:numbers withLeft:0 right:(int)numbers.count-1];
+    } else if(m == 2) {
+        [self select_sort:numbers];
+    }
+    NSLog(@"numbers -> %@", numbers);
+}
+
+/*
+ * 快速排序
+ *
+ * 参数说明：
+ *     a -- 待排序的数组
+ *     l -- 数组的左边界(例如，从起始位置开始排序，则l=0)
+ *     r -- 数组的右边界(例如，排序截至到数组末尾，则r=a.length-1)
+ */
+- (void)quick_sort:(NSMutableArray<NSNumber *> *)a withLeft:(int)minLeft right:(int)maxRight {
+    if (minLeft < maxRight) {
+        int left, right, value;
+        
+        left = minLeft;
+        right = maxRight;
+        value = a[left].intValue;
+        while (left < right) {
+            while(left < right && a[right].intValue > value) {
+                right--; // 从右向左找第一个小于x的数
+            }
+            
+            if(left < right) {
+                a[left++] = a[right];
+            }
+            NSLog(@"a <- %@", [a componentsJoinedByString:@"-"]);
+            
+            while(left < right && a[left].intValue < value) {
+                left++; // 从左向右找第一个大于x的数
+            }
+            
+            if(left < right) {
+                a[right--] = a[left];
+            }
+            NSLog(@"a -> %@", [a componentsJoinedByString:@"="]);
+        }
+        a[left] = @(value);
+        
+        NSLog(@"seperated at left[%d] right[%d]", left, right);
+        
+        [self quick_sort:a withLeft:minLeft right:left-1]; /* 递归调用 */
+        [self quick_sort:a withLeft:left+1 right:maxRight]; /* 递归调用 */
+    }
+}
+
+- (void)select_sort:(NSMutableArray *)a
+{
+    NSInteger n = a.count;
+    
+    int i;        // 有序区的末尾位置
+    int j;        // 无序区的起始位置
+    int min;    // 无序区中最小元素位置
+    
+    for(i=0; i<n; i++) {
+        min=i;
+        
+        // 找出"a[i+1] ... a[n]"之间的最小元素，并赋值给min。
+        for(j=i+1; j<n; j++) {
+            if(a[j] < a[min]) {
+                min=j;
+            }
+        }
+        
+        // 若min!=i，则交换 a[i] 和 a[min]。
+        // 交换之后，保证了a[0] ... a[i] 之间的元素是有序的。
+        if(min != i) {
+            [a exchangeObjectAtIndex:i withObjectAtIndex:min];
+        }
+        
+        NSLog(@"a -> %@", [a componentsJoinedByString:@"-"]);
+    }
+}
+
+- (void)bucket_sort:(NSMutableArray *)a withMaxBucket:(int)max
+{
+    int i, j, n = (int)a.count;
+    NSMutableArray *buckets = [NSMutableArray array];
+    
+    if (a==NULL || n<1 || max<1)
+        return ;
+    
+    // 1. 计数
+    //    for(i = 0; i < n; i++)
+    //        buckets[a[i]]++;
+    //
+    //    // 2. 排序
+    //    for (i = 0, j = 0; i < max; i++)
+    //        while( (buckets[i]--) >0 )
+    //            a[j++] = i;
+    //
+    //    free(buckets);
+}
+
+- (void)testDistinct {
+    NSArray *array = @[@"11", @"12", @"13", @"14", @"15", @"12"];
+    __unused NSArray *array1 = [array valueForKeyPath:@"@distinctUnionOfObjects.self"];
+    __unused NSSet *set = [NSSet setWithArray:array];
+    __unused NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:array];
+    
+    NSLog(@"%@", array);
 }
 
 - (void)test_defines {
@@ -164,9 +341,9 @@ __stringify__(abcdefg)
 - (void)setupWindow {
     MMTabBarController *tabController = [[MMTabBarController alloc] init];
     
-    QTHomepageViewController *timeController = [[QTHomepageViewController alloc] init];
-    MMNavigationController *timeNavController = [[MMNavigationController alloc] initWithRootViewController:timeController];
-    timeNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Time" image:nil tag:3];
+    //    QTHomepageViewController *timeController = [[QTHomepageViewController alloc] init];
+    //    MMNavigationController *timeNavController = [[MMNavigationController alloc] initWithRootViewController:timeController];
+    //    timeNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Time" image:nil tag:3];
     
     FirstViewController *fController = [[FirstViewController alloc] init];
     MMNavigationController *fNavController = [[MMNavigationController alloc] initWithRootViewController:fController];
@@ -176,7 +353,9 @@ __stringify__(abcdefg)
     MMNavigationController *sNavController = [[MMNavigationController alloc] initWithRootViewController:sController];
     sNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Second" image:nil tag:3];
     
-    tabController.viewControllers = @[timeNavController, fNavController, sNavController];
+    tabController.viewControllers = @[
+                                      //                                      timeNavController,
+                                      fNavController, sNavController];
     
     _window.rootViewController = tabController;
 }
