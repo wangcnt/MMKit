@@ -97,11 +97,11 @@ static inline UIColor *mm_random_color()      {
     return [UIColor colorWithRed:(float)(arc4random()%1000)/1000.0 green:(float)(arc4random()%1000)/1000.0 blue:(float)(arc4random()%1000)/1000.0 alpha:(float)(arc4random()%1000)/1000.0];
 }
 
-static inline UIColor *mm_rgba_color(r, g, b, a)  {
+static inline UIColor *mm_rgba_color(float r, float g, float b, float a)  {
     return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a];
 }
 
-static inline UIColor *mm_hex_color(hex) {
+static inline UIColor *mm_hex_color(NSInteger hex) {
     return [UIColor colorWithRed:((hex>>16)&0xFF)/255.0 green:((hex>>8)&0xFF)/255.0 blue:(hex&0xFF)/255.0 alpha:1.0];
 }
 
