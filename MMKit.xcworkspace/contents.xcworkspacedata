@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MMRouter/MMRouter.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MMMotionKit/MMMotionKit.xcodeproj">
    </FileRef>
    <FileRef
