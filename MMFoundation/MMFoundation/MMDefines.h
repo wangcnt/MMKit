@@ -16,7 +16,9 @@
 #import "MMInlines.h"
 
 #ifndef __stringify__
+
 #define __stringify__(key)      static NSString *const (key) = @#key;  ///< __stringify__(ABCDE) -> @"ABCDE"
+
 #endif
 
 #ifndef __c_stringify__
