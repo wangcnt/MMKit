@@ -2,7 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:MMRouter/MMRouter.xcodeproj">
+      location = "group:MMRuntime/MMRuntime.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MMNotificationCenter/MMNotificationCenter.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MMLogin/MMLogin.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MMMotionKit/MMMotionKit.xcodeproj">
