@@ -12,6 +12,7 @@
 #import "MMURI.h"
 #import "MMBundleDelegate.h"
 #import "MMBundleProvider.h"
+#import <MMLog/MMLog.h>
 
 NSString * const MMRuntimeErrorDomain = @"com.markwong.mmruntime.error";
 
@@ -28,7 +29,8 @@ __singleton__(MMAccessor)
     if([delegate respondsToSelector:@selector(resourceForURI:)]) {
         return [delegate resourceForURI:uri];
     }
-    return @{ @"error" : [NSError errorWithDomain:MMRuntimeErrorDomain code:MMRuntimeErrorCodeResourceNotReachable userInfo:@{NSLocalizedDescriptionKey : @"***For***: was not implemented."}] };
+    MMLogInfo(@"resourceFor*: not implemented in for target %@", uri.target);
+    return nil;
 }
 
 - (id)performAction:(NSString *)actionName withTarget:(NSString *)targetName parameters:(NSDictionary *)parameters shouldCacheTarget:(BOOL)shouldCacheTarget {

@@ -10,6 +10,6 @@
 
 #import <MMRuntime/MMRuntime.h>
 
-@interface QTimeUIBundleDelegate : NSObject <MMBundleDelegate>
+@interface QTimeUIBundleDelegate : MMBundleDelegate
 
 @end
