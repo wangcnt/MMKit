@@ -10,6 +10,15 @@
 
 @class MMURI;
 
+extern NSString * const MMRuntimeErrorDomain;
+
+typedef NS_ENUM(NSInteger, MMRuntimeErrorCode) {
+    MMRuntimeErrorCodeUnknown,
+    MMRuntimeErrorCodeBundleNotInstalled,
+    MMRuntimeErrorCodeResourceNotReachable,
+    MMRuntimeErrorCodeNotImplemented
+};
+
 @interface MMAccessor : NSObject
 
 + (instancetype)sharedInstance;
