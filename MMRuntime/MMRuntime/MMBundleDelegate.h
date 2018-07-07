@@ -2,7 +2,7 @@
 //  MMBundleDelegate.h
 //  MMRuntime
 //
-//  Created by Mark on 2018/7/6.
+//  Created by Mark on 2018/7/7.
 //  Copyright © 2018年 Mark. All rights reserved.
 //
 
@@ -28,3 +28,10 @@
 - (void)bundle:(MMBundle *)bundle openURL:(NSURL *)url withSourceApp:(NSString *)source annotation:(id)annotation;
 
 @end
+
+@interface MMBundleDelegate : NSObject <MMBundleDelegate>
+
+@end
+
+
+

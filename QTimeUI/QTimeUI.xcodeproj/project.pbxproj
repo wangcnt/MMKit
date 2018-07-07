@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D88CCF820F0BF8100521054 /* QTimeUIBundleDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D88CCF620F0BF8100521054 /* QTimeUIBundleDelegate.h */; };
+		4D88CCF820F0BF8100521054 /* QTimeUIBundleDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D88CCF620F0BF8100521054 /* QTimeUIBundleDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D88CCF920F0BF8100521054 /* QTimeUIBundleDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D88CCF720F0BF8100521054 /* QTimeUIBundleDelegate.m */; };
 		4D88CCFB20F0BFAE00521054 /* MMRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D88CCFA20F0BFAE00521054 /* MMRuntime.framework */; };
 		4D906C6F2049B7EB005044F0 /* QTHomepageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D906C6D2049B7EB005044F0 /* QTHomepageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };

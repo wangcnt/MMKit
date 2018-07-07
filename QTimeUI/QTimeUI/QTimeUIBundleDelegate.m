@@ -10,6 +10,8 @@
 
 #import <MMCoreServices/MMCoreServices.h>
 #import <QTimeFoundation/QTimeFoundation.h>
+#import "QTHomepageViewController.h"
+#import <MMLog/MMLog.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,15 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (id)resourceForURI:(MMURI *)uri {
-    SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@:", uri.action]);
-    if([self respondsToSelector:selector]) {
-        
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        return [self performSelector:selector withObject:uri.parameters];
-#pragma clang diagnostic pop
-    }
-    return @{ @"error" : [NSError errorWithDomain:MMRuntimeErrorDomain code:MMRuntimeErrorCodeNotImplemented userInfo:@{NSLocalizedDescriptionKey : @"Resource not reachable."}]};
+    return [super resourceForURI:uri];
 }
 
 - (void)invite:(NSDictionary *)parameters {
@@ -41,6 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
             NSLog(@"Shut up and go away!");
         }
     }];
+}
+
+- (UIViewController *)main:(NSDictionary *)parameters {
+    QTHomepageViewController *controller = [[QTHomepageViewController alloc] init];
+    return controller;
 }
 
 @end
