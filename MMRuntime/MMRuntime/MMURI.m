@@ -8,6 +8,8 @@
 
 #import "MMURI.h"
 
+#import <MMFoundation/NSStringAdditions.h>
+
 @implementation MMURI
 
 + (instancetype)URIWithString:(NSString *)URLString {
@@ -39,9 +41,11 @@
                 }
             }
         }
-        _action = url.path;
         
-        NSArray *keyValues = [url.query componentsSeparatedByString:@"&"];
+        _action = [url.path stringByReplacingOccurrencesOfString:@"/" withString:@""];
+        
+        NSString *query = [url.query stringByURLDecoding];
+        NSArray *keyValues = [query componentsSeparatedByString:@"&"];
         NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithCapacity:keyValues.count];
         NSArray *temp;
         for(NSString *keyValue in keyValues) {
