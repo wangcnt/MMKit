@@ -16,4 +16,7 @@ FOUNDATION_EXPORT const unsigned char MMRuntimeVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <MMRuntime/PublicHeader.h>
 
-
+#import <MMRuntime/MMAccessor.h>
+#import <MMRuntime/MMURI.h>
+#import <MMRuntime/MMBundleProvider.h>
+#import <MMRuntime/MMBundleDelegate.h>

@@ -25,6 +25,8 @@
 #import "MMSafeSingleton.h"
 #import "MMSomething.h"
 
+#import <MMRuntime/MMRuntime.h>
+
 __c_stringify__(abcde)
 __stringify__(abcdefg)
 
@@ -67,6 +69,11 @@ __stringify__(abcdefg)
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[MMBundleManager sharedInstance] installEmbeddedBundles];
+    
+    MMURI *uri = [MMURI URIWithString:@"ui://com.hermoe.halo.time/invite?name=XiaoLi"];
+    [[MMAccessor sharedInstance] resourceWithURI:uri];
+    
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
     //    [self test_MMServiceCenter];

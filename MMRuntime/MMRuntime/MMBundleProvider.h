@@ -8,26 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
-@class MMURI, MMBundle;
+@class MMBundle;
+@protocol MMBundleDelegate;
 
 @protocol MMBundleProvider
 
-- (MMBundle *)bundleDelegateForURI:(MMURI *)uri;
+- (id<MMBundleDelegate>)bundleDelegateForIdentifier:(NSString *)identifier;
 
 @end
 
 @interface MMBundleManager : NSObject <MMBundleProvider>
 
-- (void)installBundleWithURI:(MMURI *)uri;
++ (instancetype)sharedInstance;
+
+- (BOOL)installBundleWithIdentifier:(NSString *)identifier frameworkName:(NSString *)frameworkName;
 - (void)installEmbeddedBundles;
-- (void)installDownloadedBundleWithURI:(MMURI *)uri completion:(void (^)(NSError *error))completion;
+- (void)installDownloadedBundleWithIdentifier:(NSString *)identifier completion:(void (^)(NSError *error))completion;
 
-- (MMBundle *)bundleWithURI:(MMURI *)uri;
-- (NSArray<MMBundle *> *)bundles;
+- (MMBundle *)bundleWithIdentifier:(NSString *)identifier;
 
-- (BOOL)bundleIsInstalledForIdentifier:(MMURI *)uri;
+- (BOOL)bundleIsInstalledForIdentifier:(NSString *)identifier;
 
 - (void)analyticsUsageUsingProgress:(void (^)(MMBundle *bundle, unsigned long long totalSize, unsigned long long analyzedSize))progress withCompletion:(void (^)(MMBundle *bundle))completion;
-- (void)clearBundleStorageWithURI:(MMURI *)uri;
+- (void)clearBundleStorageWithIdentifier:(NSString *)identifier;
 
 @end
