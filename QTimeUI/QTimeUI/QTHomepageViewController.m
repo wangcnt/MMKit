@@ -24,6 +24,17 @@
     // Do any additional setup after loading the view.
     
     // invite button
+    [self addInviteButton];
+    
+    // info label
+    [self addMessageLabel];
+    [self updateLabelWithText:@"Click invite button to invite."];
+    
+    // constraints
+    [self addConstraints];
+}
+
+- (void)addInviteButton {
     UIImage *image = [UIImage imageWithColor:[UIColor purpleColor] size:CGSizeMake(10, 10)];
     image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)];
     _button = [[MMButton alloc] init];
@@ -36,12 +47,9 @@
     [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_button addTarget:self action:@selector(invite:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_button];
-    [_button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(_button.superview);
-        make.top.mas_equalTo(250);
-        make.size.mas_equalTo(CGSizeMake(100, 30));
-    }];
-    
+}
+
+- (void)addMessageLabel {
     _messageLabel = [[MMLabel alloc] init];
     _messageLabel.backgroundColor = [UIColor greenColor];
     _messageLabel.textColor = [UIColor purpleColor];
@@ -50,11 +58,23 @@
     _messageLabel.layer.masksToBounds = YES;
     _messageLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_messageLabel];
+}
+
+- (void)addConstraints {
+    [_button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(_button.superview);
+        make.top.mas_equalTo(250);
+        make.size.mas_equalTo(CGSizeMake(100, 30));
+    }];
+    
     [_messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(_button.mas_bottom).offset(MAX(30, fabs(_button.eventableInset.bottom)));
         make.centerX.mas_equalTo(_button.superview);
     }];
-    [self updateLabelWithText:@"Click invite button to invite."];
+}
+
+- (void)updateConstraints {
+    
 }
 
 - (void)updateLabelWithText:(NSString *)text {
