@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D27E9C820F0FC7A000DC002 /* QTimeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D27E9C720F0FC7A000DC002 /* QTimeUI.framework */; };
 		4D3443042077F1C500525B58 /* SampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3443032077F1C500525B58 /* SampleAppDelegate.m */; };
 		4D8B534A20554A0F00FB3BDF /* AnalyticsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFB2049D7F0005044F0 /* AnalyticsKit.framework */; };
 		4D8B53612056C03F00FB3BDF /* MMSomething.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B53602056C03F00FB3BDF /* MMSomething.m */; };
@@ -20,15 +21,16 @@
 		4D906D00204A5F8A005044F0 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D01204A5F8A005044F0 /* Masonry.framework */; };
 		4D906DC8204A9A2F005044F0 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */; };
 		4D943BBF20F0C93C0024FABD /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D943BBE20F0C93C0024FABD /* configuration.plist */; };
+		4D943BC520F0FA700024FABD /* MMRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D943BC420F0FA700024FABD /* MMRuntime.framework */; };
 		4D9BC37920540A4F007FE60C /* MMSafeSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC37820540A4F007FE60C /* MMSafeSingleton.m */; };
 		4DB9560C204AA46C004F5E30 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB9560D204AA46C004F5E30 /* MMFoundation.framework */; };
 		4DC37D9520678FBA008FCF60 /* MMChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC37D9420678FBA008FCF60 /* MMChain.m */; };
 		4DDDD8A520663B6A00E49811 /* MMDatabaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDDD8A620663B6A00E49811 /* MMDatabaseKit.framework */; };
 		4DDDD8B520663C5900E49811 /* QTimeFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFE2049D7F0005044F0 /* QTimeFoundation.framework */; };
-		4DDDD8B720663C5900E49811 /* QTimeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFF2049D7F0005044F0 /* QTimeUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D27E9C720F0FC7A000DC002 /* QTimeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QTimeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3443022077F1C500525B58 /* SampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleAppDelegate.h; sourceTree = "<group>"; };
 		4D3443032077F1C500525B58 /* SampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleAppDelegate.m; sourceTree = "<group>"; };
 		4D8B535F2056C03F00FB3BDF /* MMSomething.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSomething.h; sourceTree = "<group>"; };
@@ -50,6 +52,8 @@
 		4D906D01204A5F8A005044F0 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D943BBE20F0C93C0024FABD /* configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
+		4D943BC220F0F9860024FABD /* QTEmailUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QTEmailUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D943BC420F0FA700024FABD /* MMRuntime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9BC37720540A4F007FE60C /* MMSafeSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSafeSingleton.h; sourceTree = "<group>"; };
 		4D9BC37820540A4F007FE60C /* MMSafeSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMSafeSingleton.m; sourceTree = "<group>"; };
 		4DB9560D204AA46C004F5E30 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D27E9C820F0FC7A000DC002 /* QTimeUI.framework in Frameworks */,
+				4D943BC520F0FA700024FABD /* MMRuntime.framework in Frameworks */,
 				4DDDD8B520663C5900E49811 /* QTimeFoundation.framework in Frameworks */,
 				4DDDD8A520663B6A00E49811 /* MMDatabaseKit.framework in Frameworks */,
 				4D8B534A20554A0F00FB3BDF /* AnalyticsKit.framework in Frameworks */,
@@ -71,7 +77,6 @@
 				4D906D00204A5F8A005044F0 /* Masonry.framework in Frameworks */,
 				4D906CF72049D7F0005044F0 /* MMLog.framework in Frameworks */,
 				4D906CF82049D7F0005044F0 /* MMUIKit.framework in Frameworks */,
-				4DDDD8B720663C5900E49811 /* QTimeUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +122,9 @@
 		4D906CF52049D7F0005044F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D27E9C720F0FC7A000DC002 /* QTimeUI.framework */,
+				4D943BC420F0FA700024FABD /* MMRuntime.framework */,
+				4D943BC220F0F9860024FABD /* QTEmailUI.framework */,
 				4DDDD8A620663B6A00E49811 /* MMDatabaseKit.framework */,
 				4DB9560D204AA46C004F5E30 /* MMFoundation.framework */,
 				4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */,

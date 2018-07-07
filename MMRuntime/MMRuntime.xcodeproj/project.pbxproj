@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D27E9CA20F0FD4E000DC002 /* MMLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D27E9C920F0FD4E000DC002 /* MMLog.framework */; };
+		4D27E9CD20F1027D000DC002 /* MMBundleDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D27E9CB20F1027D000DC002 /* MMBundleDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D27E9CE20F1027D000DC002 /* MMBundleDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D27E9CC20F1027D000DC002 /* MMBundleDelegate.m */; };
+		4D27E9CF20F1027D000DC002 /* MMBundleDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D27E9CC20F1027D000DC002 /* MMBundleDelegate.m */; };
 		4D88CCF320EF9EB600521054 /* MMBundleProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D88CCF220EF9EB600521054 /* MMBundleProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D88CCF520EF9F3000521054 /* MMBundleProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D88CCF420EF9F3000521054 /* MMBundleProvider.m */; };
-		4D943BBD20F0C47E0024FABD /* MMBundleDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D88CCF120EF9CF500521054 /* MMBundleDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D943BC120F0DCAC0024FABD /* mmruntime.readme in Resources */ = {isa = PBXBuildFile; fileRef = 4D943BC020F0DCAC0024FABD /* mmruntime.readme */; };
 		4DD00A5820EF9234003277F5 /* MMRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD00A4E20EF9234003277F5 /* MMRuntime.framework */; };
 		4DD00A5D20EF9234003277F5 /* MMRuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD00A5C20EF9234003277F5 /* MMRuntimeTests.m */; };
@@ -37,7 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D88CCF120EF9CF500521054 /* MMBundleDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMBundleDelegate.h; sourceTree = "<group>"; };
+		4D27E9C920F0FD4E000DC002 /* MMLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D27E9CB20F1027D000DC002 /* MMBundleDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMBundleDelegate.h; sourceTree = "<group>"; };
+		4D27E9CC20F1027D000DC002 /* MMBundleDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMBundleDelegate.m; sourceTree = "<group>"; };
 		4D88CCF220EF9EB600521054 /* MMBundleProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMBundleProvider.h; sourceTree = "<group>"; };
 		4D88CCF420EF9F3000521054 /* MMBundleProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMBundleProvider.m; sourceTree = "<group>"; };
 		4D943BC020F0DCAC0024FABD /* mmruntime.readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = mmruntime.readme; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D27E9CA20F0FD4E000DC002 /* MMLog.framework in Frameworks */,
 				4DD00A7620EF9979003277F5 /* MMFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,10 +112,11 @@
 				4DD00A7120EF994F003277F5 /* MMAccessor.m */,
 				4DD00A7720EF9A1E003277F5 /* MMBundle.h */,
 				4DD00A7820EF9A1E003277F5 /* MMBundle.m */,
-				4D88CCF120EF9CF500521054 /* MMBundleDelegate.h */,
 				4D88CCF220EF9EB600521054 /* MMBundleProvider.h */,
 				4D88CCF420EF9F3000521054 /* MMBundleProvider.m */,
 				4D943BC020F0DCAC0024FABD /* mmruntime.readme */,
+				4D27E9CB20F1027D000DC002 /* MMBundleDelegate.h */,
+				4D27E9CC20F1027D000DC002 /* MMBundleDelegate.m */,
 			);
 			path = MMRuntime;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 		4DD00A6D20EF9700003277F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D27E9C920F0FD4E000DC002 /* MMLog.framework */,
 				4DD00A7520EF9979003277F5 /* MMFoundation.framework */,
 			);
 			name = Frameworks;
@@ -141,7 +149,7 @@
 				4DD00A7920EF9A1E003277F5 /* MMBundle.h in Headers */,
 				4DD00A6A20EF9250003277F5 /* MMURI.h in Headers */,
 				4D88CCF320EF9EB600521054 /* MMBundleProvider.h in Headers */,
-				4D943BBD20F0C47E0024FABD /* MMBundleDelegate.h in Headers */,
+				4D27E9CD20F1027D000DC002 /* MMBundleDelegate.h in Headers */,
 				4DD00A7220EF9950003277F5 /* MMAccessor.h in Headers */,
 				4DD00A5F20EF9234003277F5 /* MMRuntime.h in Headers */,
 			);
@@ -244,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D27E9CE20F1027D000DC002 /* MMBundleDelegate.m in Sources */,
 				4D88CCF520EF9F3000521054 /* MMBundleProvider.m in Sources */,
 				4DD00A7320EF9950003277F5 /* MMAccessor.m in Sources */,
 				4DD00A7A20EF9A1E003277F5 /* MMBundle.m in Sources */,
@@ -255,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D27E9CF20F1027D000DC002 /* MMBundleDelegate.m in Sources */,
 				4DD00A7420EF9950003277F5 /* MMAccessor.m in Sources */,
 				4DD00A7B20EF9A1E003277F5 /* MMBundle.m in Sources */,
 				4DD00A6C20EF9250003277F5 /* MMURI.m in Sources */,

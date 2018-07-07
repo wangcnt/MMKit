@@ -50,7 +50,7 @@ FOUNDATION_STATIC_INLINE NSString *mm_default_step_name_with_step_en(MMRequestSt
     }
     return @[@"Waiting...",
              @"Sending...",
-             @"Receving...",
+             @"Receiving...",
              @"Parsing...",
              @"Persisting...",
              @"Completed."][step];
