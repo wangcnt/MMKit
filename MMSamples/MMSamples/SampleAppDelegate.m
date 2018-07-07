@@ -116,7 +116,7 @@ __stringify__(abcdefg)
     [self setupWindow];
     //    [self test_EnumerateSubviews];
     NSLog(@"ABCDE->%@", abcdefg);
-    NSArray *ar = @[mm_rgba_color(200, 100, 150, 1)];
+    __unused NSArray *ar = @[mm_rgba_color(200, 100, 150, 1)];
     self.window.backgroundColor = mm_rgba_color(200, 100, 150, 1);
     
     return aaa;
@@ -221,8 +221,8 @@ __stringify__(abcdefg)
 
 - (void)bucket_sort:(NSMutableArray *)a withMaxBucket:(int)max
 {
-    int i, j, n = (int)a.count;
-    NSMutableArray *buckets = [NSMutableArray array];
+    __unused int i, j, n = (int)a.count;
+    __unused NSMutableArray *buckets = [NSMutableArray array];
     
     if (a==NULL || n<1 || max<1)
         return ;

@@ -19,14 +19,6 @@
 
 @implementation QTHomepageViewController
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -62,7 +54,7 @@
         make.top.mas_equalTo(_button.mas_bottom).offset(MAX(30, fabs(_button.eventableInset.bottom)));
         make.centerX.mas_equalTo(_button.superview);
     }];
-    [self updateLabelWithText:@"Click button to invite."];
+    [self updateLabelWithText:@"Click invite button to invite."];
 }
 
 - (void)updateLabelWithText:(NSString *)text {

@@ -18,7 +18,7 @@
 
 #pragma clang diagnostic pop
 
-__singleton__(AKServiceCenter)
+__proxy_singleton__(AKServiceCenter)
 
 - (instancetype)init
 {
