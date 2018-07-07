@@ -19,6 +19,7 @@
 		4D906CF82049D7F0005044F0 /* MMUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906CFD2049D7F0005044F0 /* MMUIKit.framework */; };
 		4D906D00204A5F8A005044F0 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D01204A5F8A005044F0 /* Masonry.framework */; };
 		4D906DC8204A9A2F005044F0 /* MMCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */; };
+		4D943BBF20F0C93C0024FABD /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D943BBE20F0C93C0024FABD /* configuration.plist */; };
 		4D9BC37920540A4F007FE60C /* MMSafeSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BC37820540A4F007FE60C /* MMSafeSingleton.m */; };
 		4DB9560C204AA46C004F5E30 /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB9560D204AA46C004F5E30 /* MMFoundation.framework */; };
 		4DC37D9520678FBA008FCF60 /* MMChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC37D9420678FBA008FCF60 /* MMChain.m */; };
@@ -48,6 +49,7 @@
 		4D906CFF2049D7F0005044F0 /* QTimeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QTimeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906D01204A5F8A005044F0 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D906DC9204A9A2F005044F0 /* MMCoreServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMCoreServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D943BBE20F0C93C0024FABD /* configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
 		4D9BC37720540A4F007FE60C /* MMSafeSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSafeSingleton.h; sourceTree = "<group>"; };
 		4D9BC37820540A4F007FE60C /* MMSafeSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMSafeSingleton.m; sourceTree = "<group>"; };
 		4DB9560D204AA46C004F5E30 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,7 @@
 				4D906CEE2049D7C8005044F0 /* main.m */,
 				4D3443022077F1C500525B58 /* SampleAppDelegate.h */,
 				4D3443032077F1C500525B58 /* SampleAppDelegate.m */,
+				4D943BBE20F0C93C0024FABD /* configuration.plist */,
 			);
 			path = MMSamples;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D906CEC2049D7C8005044F0 /* LaunchScreen.storyboard in Resources */,
+				4D943BBF20F0C93C0024FABD /* configuration.plist in Resources */,
 				4D906CE92049D7C8005044F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
