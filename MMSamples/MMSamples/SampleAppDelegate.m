@@ -69,8 +69,9 @@ __stringify__(abcdefg)
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[MMBundleManager sharedInstance] installEmbeddedBundles];
+    BOOL aaa = [super application:application didFinishLaunchingWithOptions:launchOptions];
     
+    [[MMBundleManager sharedInstance] installEmbeddedBundles];
     MMURI *uri = [MMURI URIWithString:@"ui://com.hermoe.halo.time/invite?name=XiaoLi"];
     [[MMAccessor sharedInstance] resourceWithURI:uri];
     
@@ -87,7 +88,6 @@ __stringify__(abcdefg)
     //    BB *bb = [[BB alloc] init];
     //    [bb print];
     
-    BOOL aaa = [super application:application didFinishLaunchingWithOptions:launchOptions];
     
     //    self.supportsShakingToEdit = YES;
     
@@ -348,9 +348,13 @@ __stringify__(abcdefg)
 - (void)setupWindow {
     MMTabBarController *tabController = [[MMTabBarController alloc] init];
     
-    //    QTHomepageViewController *timeController = [[QTHomepageViewController alloc] init];
-    //    MMNavigationController *timeNavController = [[MMNavigationController alloc] initWithRootViewController:timeController];
-    //    timeNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Time" image:nil tag:3];
+    MMURI *uri = [MMURI URIWithString:@"ui://com.hermoe.halo.time/main"];
+    UIViewController *timeController = [[MMAccessor sharedInstance] resourceWithURI:uri];
+    MMNavigationController *timeNavController = nil;
+    if(timeController) {
+        timeNavController = [[MMNavigationController alloc] initWithRootViewController:timeController];
+        timeNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Time" image:nil tag:3];
+    }
     
     FirstViewController *fController = [[FirstViewController alloc] init];
     MMNavigationController *fNavController = [[MMNavigationController alloc] initWithRootViewController:fController];
@@ -360,9 +364,13 @@ __stringify__(abcdefg)
     MMNavigationController *sNavController = [[MMNavigationController alloc] initWithRootViewController:sController];
     sNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Second" image:nil tag:3];
     
-    tabController.viewControllers = @[
-                                      //                                      timeNavController,
-                                      fNavController, sNavController];
+    NSMutableArray *controllers = [NSMutableArray array];
+    if(timeNavController) {
+        [controllers addObject:timeNavController];
+    }
+    [controllers addObject:fNavController];
+    [controllers addObject:sNavController];
+    tabController.viewControllers = controllers;
     
     _window.rootViewController = tabController;
 }
