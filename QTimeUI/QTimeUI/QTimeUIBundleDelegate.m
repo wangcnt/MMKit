@@ -27,14 +27,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)invite:(NSDictionary *)parameters {
     [[QTServiceCenter sharedInstance] inviteTheGirlWithName:parameters[@"name"] step:^(MMRequestStep step) {
-        NSLog(@"%@", mm_default_step_name_with_step(step));
-    } completion:^(NSError *error) {
-        if(error) {
-            NSLog(@"大吉大利，今晚吃鸡.");
-        } else {
-            NSLog(@"Shut up and go away!");
+        void (^stepHanlder)(NSString *) = parameters[@"step"];
+        if(stepHanlder) {
+            stepHanlder(mm_default_step_name_with_step(step));
         }
-    }];
+    } completion:parameters[@"completion"]];
 }
 
 - (UIViewController *)main:(NSDictionary *)parameters {
