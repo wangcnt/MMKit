@@ -18,6 +18,6 @@
 
 
 ## 另外
-	* 1. 如果你想慷慨貢獻些什麼，請克隆"feature/default_diy"分支，或者從"feature/default"下新建分支，並提交Pull Requests；
-	* 2. MMSamples.app用來編寫測試代碼；
-	* 3. Nothing.framework僅僅是為了使用Cocoapods快速集中查閱參考第三方組件；
+* 1. 如果你想慷慨貢獻些什麼，請克隆"feature/default_diy"分支，或者從"feature/default"下新建分支，並提交Pull Requests；
+* 2. MMSamples.app用來編寫測試代碼；
+* 3. Nothing.framework僅僅是為了使用Cocoapods快速集中查閱參考第三方組件；
