@@ -72,7 +72,21 @@ __stringify__(abcdefg)
     BOOL aaa = [super application:application didFinishLaunchingWithOptions:launchOptions];
     
     [[MMBundleManager sharedInstance] installEmbeddedBundles];
+    
+    void (^step)(NSString *) = ^(NSString *step) {
+        NSLog(@"%@", step);
+    };
+    void (^completion)(NSError *) = ^(NSError *error) {
+        if(error) {
+            NSLog(@"Shut up and go away!");
+        } else {
+            NSLog(@"大吉大利，今晚吃鸡.");
+        }
+    };
     MMURI *uri = [MMURI URIWithString:@"ui://com.hermoe.halo.time/invite?name=XiaoLi"];
+    uri.parameters = @{ @"step" : step,
+                        @"completion" : completion
+                       };
     [[MMAccessor sharedInstance] resourceWithURI:uri];
     
     // Override point for customization after application launch.
