@@ -18,9 +18,9 @@
 {
     if(self = [super init])
     {
-        _readQueue = dispatch_queue_create("com.hermoe.MMime.queue.database.query", DISPATCH_QUEUE_CONCURRENT);
+        _readQueue = dispatch_queue_create("com.mark.MMime.queue.database.query", DISPATCH_QUEUE_CONCURRENT);
         
-        _writeQueue = dispatch_queue_create("com.hermoe.MMime.queue.database.update", DISPATCH_QUEUE_CONCURRENT);
+        _writeQueue = dispatch_queue_create("com.mark.MMime.queue.database.update", DISPATCH_QUEUE_CONCURRENT);
         
         _completionQueue = dispatch_get_main_queue();
     }
