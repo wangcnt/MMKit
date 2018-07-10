@@ -5,7 +5,7 @@
 	<key>item0</key>
 	<dict>
 		<key>identifier</key>
-		<string>com.hermoe.halo.time</string>
+		<string>com.mark.halo.time</string>
 		<key>frameworkName</key>
 		<string>QTimeUI</string>
 	</dict>

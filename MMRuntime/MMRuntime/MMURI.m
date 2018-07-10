@@ -9,6 +9,7 @@
 #import "MMURI.h"
 
 #import <MMFoundation/NSStringAdditions.h>
+#import <MMLog/MMLog.h>
 
 @implementation MMURI
 
@@ -29,16 +30,26 @@
         return nil;
     }
     
+    NSArray *components = [[NSBundle mainBundle].bundleIdentifier componentsSeparatedByString:@"."];
+    NSString *validPrefix = nil;
+    if(components.count >= 2) {
+        validPrefix = [NSString stringWithFormat:@"%@.%@", components.firstObject, components[1]];
+    }
+    NSString *identifier = url.host;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF BEGINSWITH[cd] %@", validPrefix];
+    if(![predicate evaluateWithObject:identifier]) {
+        MMLogError(@"Invalid url: %@", url.absoluteString);
+        return nil;
+    }
+    
     if(self = [super init]) {
         _scheme = url.scheme;
-        _identifier = url.host;
-        if(_identifier) {
-            NSRange range = [_identifier rangeOfString:@"." options:NSBackwardsSearch];
-            if(range.length) {
-                _source = [_identifier substringToIndex:range.location];
-                if(range.location+range.length < _identifier.length) {
-                    _target = [_identifier substringFromIndex:range.location+range.length];
-                }
+        _identifier = identifier;
+        NSRange range = [_identifier rangeOfString:@"." options:NSBackwardsSearch];
+        if(range.length) {
+            _source = [_identifier substringToIndex:range.location];
+            if(range.location+range.length < _identifier.length) {
+                _target = [_identifier substringFromIndex:range.location+range.length];
             }
         }
         

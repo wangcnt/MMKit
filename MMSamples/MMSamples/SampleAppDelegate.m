@@ -83,7 +83,7 @@ __stringify__(abcdefg)
             NSLog(@"大吉大利，今晚吃鸡.");
         }
     };
-    MMURI *uri = [MMURI URIWithString:@"ui://com.hermoe.halo.time/invite?name=XiaoLi"];
+    MMURI *uri = [MMURI URIWithString:@"ui://com.mark.halo.time/invite?name=XiaoLi"];
     uri.parameters = @{ @"step" : step,
                         @"completion" : completion
                        };
@@ -362,7 +362,7 @@ __stringify__(abcdefg)
 - (void)setupWindow {
     MMTabBarController *tabController = [[MMTabBarController alloc] init];
     
-    MMURI *uri = [MMURI URIWithString:@"ui://com.hermoe.halo.time/main"];
+    MMURI *uri = [MMURI URIWithString:@"ui://com.mark.halo.time/main"];
     UIViewController *timeController = [[MMAccessor sharedInstance] resourceWithURI:uri];
     MMNavigationController *timeNavController = nil;
     if(timeController) {
