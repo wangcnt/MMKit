@@ -11,6 +11,23 @@
 #import <MMFoundation/NSStringAdditions.h>
 #import <MMLog/MMLog.h>
 
+@interface NSURL (URI)
+- (BOOL)isValidURI; ///< 至少要保证前两个相同，如com.huawei, com.hermoe，只有一个com相同也认为是非法URI
+@end
+
+@implementation NSURL (URI)
+
+- (BOOL)isValidURI {
+    NSString *identifier = self.host;
+    NSString *appIdentifier = [NSBundle mainBundle].bundleIdentifier;
+    NSString *prefix = [identifier commonPrefixWithString:appIdentifier options:NSCaseInsensitiveSearch];
+    NSMutableArray *components = [NSMutableArray arrayWithArray:[prefix componentsSeparatedByString:@"."]];
+    [components filterUsingPredicate:[NSPredicate predicateWithFormat:@"length>0"]];
+    return components.count>1;
+}
+
+@end
+
 @implementation MMURI
 
 + (instancetype)URIWithString:(NSString *)URLString {
@@ -26,24 +43,14 @@
 }
 
 - (instancetype)initWithURL:(NSURL *)url {
-    if(!url) {
-        return nil;
-    }
-    
-    url = [NSURL URLWithString:@"ui://com.mark.halo.square/list?id=0"];
-    NSString *identifier = url.host;
-    NSString *commonPrefix = [[NSBundle mainBundle].bundleIdentifier commonPrefixWithString:identifier options:NSCaseInsensitiveSearch];
-    NSMutableArray *components = [NSMutableArray arrayWithArray:[commonPrefix componentsSeparatedByString:@"."]];
-    [components filterUsingPredicate:[NSPredicate predicateWithFormat:@"length>0"]];
-    // 至少要保证前两个相同，如com.huawei, com.hermoe，只有一个com相同也认为是非法URI
-    if(components.count < 2) {
+    if(![url isValidURI]) {
         MMLogError(@"Invalid url: %@", url.absoluteString);
         return nil;
     }
     
     if(self = [super init]) {
         _scheme = url.scheme;
-        _identifier = identifier;
+        _identifier = url.host;
         NSRange range = [_identifier rangeOfString:@"." options:NSBackwardsSearch];
         if(range.length) {
             _source = [_identifier substringToIndex:range.location];
