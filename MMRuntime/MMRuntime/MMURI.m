@@ -30,14 +30,13 @@
         return nil;
     }
     
-    NSArray *components = [[NSBundle mainBundle].bundleIdentifier componentsSeparatedByString:@"."];
-    NSString *validPrefix = nil;
-    if(components.count >= 2) {
-        validPrefix = [NSString stringWithFormat:@"%@.%@", components.firstObject, components[1]];
-    }
+    url = [NSURL URLWithString:@"ui://com.mark.halo.square/list?id=0"];
     NSString *identifier = url.host;
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF BEGINSWITH[cd] %@", validPrefix];
-    if(![predicate evaluateWithObject:identifier]) {
+    NSString *commonPrefix = [[NSBundle mainBundle].bundleIdentifier commonPrefixWithString:identifier options:NSCaseInsensitiveSearch];
+    NSMutableArray *components = [NSMutableArray arrayWithArray:[commonPrefix componentsSeparatedByString:@"."]];
+    [components filterUsingPredicate:[NSPredicate predicateWithFormat:@"length>0"]];
+    // 至少要保证前两个相同，如com.huawei, com.hermoe，只有一个com相同也认为是非法URI
+    if(components.count < 2) {
         MMLogError(@"Invalid url: %@", url.absoluteString);
         return nil;
     }
