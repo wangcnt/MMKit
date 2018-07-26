@@ -73,21 +73,9 @@ __stringify__(abcdefg)
     
     [[MMBundleManager sharedInstance] installEmbeddedBundles];
     
-    void (^step)(NSString *) = ^(NSString *step) {
-        NSLog(@"%@", step);
-    };
-    void (^completion)(NSError *) = ^(NSError *error) {
-        if(error) {
-            NSLog(@"Shut up and go away!");
-        } else {
-            NSLog(@"大吉大利，今晚吃鸡.");
-        }
-    };
-    MMURI *uri = [MMURI URIWithString:@"ui://com.mark.halo.time/invite?name=XiaoLi"];
-    uri.parameters = @{ @"step" : step,
-                        @"completion" : completion
-                       };
-    [[MMAccessor sharedInstance] resourceWithURI:uri];
+    [self testMMURI];
+    
+    [self testPredicateEqualEmptyString];
     
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
@@ -126,14 +114,37 @@ __stringify__(abcdefg)
     //    [self test_StringAdditions];
     
     //    [self testDistinct];
-    [self testSort];
+//    [self testSort];
     [self setupWindow];
     //    [self test_EnumerateSubviews];
-    NSLog(@"ABCDE->%@", abcdefg);
-    __unused NSArray *ar = @[mm_rgba_color(200, 100, 150, 1)];
     self.window.backgroundColor = mm_rgba_color(200, 100, 150, 1);
     
     return aaa;
+}
+
+- (void)testPredicateEqualEmptyString {
+    NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"", @"a", @"bb", @"ccc", nil];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"! SELF CONTAINS '' && length>=2"];
+    [arr filterUsingPredicate:predicate];
+    NSLog(@"filterred array -> %@", arr);
+}
+
+- (void)testMMURI {
+    void (^step)(NSString *) = ^(NSString *step) {
+        NSLog(@"%@", step);
+    };
+    void (^completion)(NSError *) = ^(NSError *error) {
+        if(error) {
+            NSLog(@"Shut up and go away!");
+        } else {
+            NSLog(@"大吉大利，今晚吃鸡.");
+        }
+    };
+    MMURI *uri = [MMURI URIWithString:@"ui://com.mark.halo.time/invite?name=XiaoLi"];
+    uri.parameters = @{ @"step" : step,
+                        @"completion" : completion
+                        };
+    [[MMAccessor sharedInstance] resourceWithURI:uri];
 }
 
 - (void)testSort {
