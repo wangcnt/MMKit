@@ -22,7 +22,7 @@
         return [self performSelector:selector withObject:uri.parameters];
 #pragma clang diagnostic pop
     }
-    MMLogInfo(@"Resource %@ not reachable for target %@", uri.action, uri.target);
+    MMLogInfo(@"Resource %@ not reachable for target %@", NSStringFromSelector(selector), uri.target);
     return nil;
 }
 

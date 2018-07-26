@@ -29,7 +29,7 @@ __singleton__(MMAccessor)
     if([delegate respondsToSelector:@selector(resourceForURI:)]) {
         return [delegate resourceForURI:uri];
     }
-    MMLogInfo(@"resourceFor*: not implemented in for target %@", uri.target);
+    MMLogInfo(@"***For***: not implemented for target %@", uri.target);
     return nil;
 }
 
