@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../../Masonry/Masonry.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MMRuntime/MMRuntime.xcodeproj">
    </FileRef>
    <FileRef
@@ -21,9 +24,6 @@
    </FileRef>
    <FileRef
       location = "group:AFNetworking/AFNetworking.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Masonry/Masonry.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MMCoreServices/MMCoreServices.xcodeproj">

@@ -16,6 +16,7 @@
 #import <MMUIKit/MMUIKit.h>
 //#import <QTimeUI/QTimeUI.h>
 #import <objc/runtime.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "MMChain.h"
 
@@ -33,6 +34,9 @@ __stringify__(abcdefg)
 @interface SampleAppDelegate ()
 @property (nonatomic, retain) NSMutableArray *arr;
 @property (nonatomic, retain) NSString *what;
+
+@property (nonatomic, strong) NSDictionary *launchOptions;
+
 @end
 
 
@@ -67,15 +71,21 @@ __stringify__(abcdefg)
 
 @implementation SampleAppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     BOOL aaa = [super application:application didFinishLaunchingWithOptions:launchOptions];
+    _launchOptions = launchOptions;
+    [self testTodayWidget];
+    
+    [self test3DTouch];
     
     [[MMBundleManager sharedInstance] installEmbeddedBundles];
-    
     [self testMMURI];
     
-    [self testPredicateEqualEmptyString];
+//    [self testSeparateString];
+    
+//    [self testSpeech];
+    
+//    [self testPredicateEqualEmptyString];
     
     // Override point for customization after application launch.
     //    [[B sharedInstance] print];
@@ -119,12 +129,68 @@ __stringify__(abcdefg)
     //    [self test_EnumerateSubviews];
     self.window.backgroundColor = mm_rgba_color(200, 100, 150, 1);
     
+    [self showLaunchOptions:launchOptions];
+    
     return aaa;
+}
+
+- (void)test3DTouch {
+    if (@available(iOS 9.0, *)) {
+        // 自定义 image
+        UIApplicationShortcutIcon *icon1 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"laoganma@3x.png"];
+        //菜单文字
+        UIMutableApplicationShortcutItem *item1 = [[UIMutableApplicationShortcutItem alloc] initWithType:@"1" localizedTitle:@"旋转"];
+        //绑定信息到指定菜单
+        item1.icon = icon1;
+        
+        // 系统图标
+        UIApplicationShortcutIcon *icon2 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypePlay];
+        UIMutableApplicationShortcutItem *item2 = [[UIMutableApplicationShortcutItem alloc] initWithType:@"2" localizedTitle:@"亮点"];
+        item2.icon = icon2;
+        
+        [UIApplication sharedApplication].shortcutItems = @[item1, item2];
+    }
+}
+
+- (void)testTodayWidget {
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mark.mmsample"];
+    [userDefaults setObject:@"value" forKey:@"key"];
+    [userDefaults synchronize];
+    
+    NSString *value = [userDefaults objectForKey:@"key"];
+    NSLog(@"");
+}
+
+- (void)testSpeech {
+    NSArray *strings = @[
+//        @"delicious", @"great", @"yummy", @"perfect", @"are you kidding me?", @"stupid", @"watch your back", @"you go die", @"oops", @"yeah", @"oh, no", @"oh, my sky", @"oh, my mother", @"nonsense", @"good", @"well done", @"good job", @"fire in hole", @"go, go, go",
+                         @"you take the point, I cover you"
+//                         , @"need back off", @"negative", @""
+    ];
+    
+    AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc] init];
+    
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:strings[arc4random()%strings.count]];
+    
+    utterance.rate = .4;
+    
+    [synthesizer speakUtterance:utterance];
+}
+
+- (void)testSeparateString {
+    NSMutableCharacterSet *characterSet = [NSMutableCharacterSet characterSetWithRange:NSMakeRange(9, 2)];
+    
+    
+    NSString *separators = @"a,./";
+    NSString *text = @"我a是,笨.蛋/呦";
+    NSArray *result = [text componentsSeparatedByCharactersInString:separators];
+    NSLog(@"");
 }
 
 - (void)testPredicateEqualEmptyString {
     NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"", @"a", @"bb", @"ccc", nil];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"! SELF CONTAINS '' && length>=2"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@""
+                              "length>=2"];
     [arr filterUsingPredicate:predicate];
     NSLog(@"filterred array -> %@", arr);
 }
@@ -536,6 +602,53 @@ __stringify__(abcdefg)
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
 
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    NSString *type = shortcutItem.type;
+    NSString *title = shortcutItem.localizedTitle;
+    NSString *subtitle = shortcutItem.localizedSubtitle;
+    NSString *icon = shortcutItem.icon;
+    NSDictionary *userInfo = shortcutItem.userInfo;
+    NSDictionary *item = @{ @"type"     : shortcutItem.type,
+                            @"title"    : shortcutItem.localizedTitle,
+                            @"subtitle" : shortcutItem.localizedSubtitle,
+                            @"icon"     : shortcutItem.icon,
+                            @"userInfo" : shortcutItem.userInfo
+    };
+    NSLog(@"The shortcut item is ------->\n%@", item);
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    if([@"mmsamplescheme" caseInsensitiveCompare:url.scheme] != NSOrderedSame) {
+        return NO;
+    }
+    NSString *path = url.path;
+    if([@"shareimage" caseInsensitiveCompare:path]) {
+        NSURLComponents *URLComponents = [NSURLComponents componentsWithString:url.absoluteString];
+        NSString *identifier = URLComponents.queryItems.firstObject.value;
+        NSURL *containerURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.mark.mmsample"];
+        NSURL *directoryURL = [containerURL URLByAppendingPathComponent:identifier];
+        
+        NSString *directoryURLString = directoryURL.absoluteString;
+        directoryURLString = [directoryURLString stringByReplacingOccurrencesOfString:@"file:///" withString:@"/"];
+        
+        [[NSFileManager defaultManager] createDirectoryAtPath:directoryURLString withIntermediateDirectories:YES attributes:nil error:nil];
+        
+        NSArray *sharingImages = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryURLString error:nil];
+        
+        NSString *message = sharingImages.description;
+        if(sharingImages) {
+            NSData *data = [NSJSONSerialization dataWithJSONObject:sharingImages options:NSJSONWritingPrettyPrinted error:nil];
+            message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        }
+        
+        [self showAlertWithTitle:@"Share images" message:message];
+    }
+    if ([url.absoluteString hasPrefix:@"mmsamplescheme://"]) {
+        NSLog(@"");
+        // 根据url处理具体跳转页面
+    }
+    return NO;
+}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
@@ -555,6 +668,35 @@ __stringify__(abcdefg)
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (void)showLaunchOptions {
+    [self showLaunchOptions:nil];
+}
+
+- (void)showLaunchOptions:(NSDictionary *)temp {
+    NSDictionary *launchOptions = temp;
+    if(!launchOptions) {
+        launchOptions = self.launchOptions;
+    }
+    if(!launchOptions) {
+        return;
+    }
+    NSData *data = [NSJSONSerialization dataWithJSONObject:launchOptions options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *message = nil;
+    if(data) {
+        message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }
+    [self showAlertWithTitle:@"The launch options" message:message];
+}
+
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [controller addAction:OKAction];
+    [self.window.rootViewController presentViewController:controller animated:YES completion:nil];
 }
 
 @end

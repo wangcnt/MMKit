@@ -8,6 +8,8 @@
 
 #import "SecondViewController.h"
 
+#import "SampleAppDelegate.h"
+
 @interface SecondViewController ()
 
 @end
@@ -17,8 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.navigationItem.title = @"First";
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    SampleAppDelegate *appDelegate = (SampleAppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate showLaunchOptions];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

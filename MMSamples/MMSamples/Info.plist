@@ -16,6 +16,21 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>laoganma@3x</string>
+			<key>CFBundleURLName</key>
+			<string>mmsamplescheme</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mmsamplescheme</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -49,5 +64,44 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>UIApplicationShortcutItems</key>
+    <array>
+        <dict>
+            <key>UIApplicationShortcutItemType</key>
+            <string>song</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>Oh, my sky</string>
+            <key>UIApplicationShortcutItemSubtitle</key>
+            <string>我的天</string>
+            <key>UIApplicationShortcutItemIconType</key>
+            <string>UIApplicationShortcutIconTypeHome</string>
+<!--            <key>UIApplicationShortcutItemIcon</key>-->
+<!--            <string>laoganma@3x.png</string>-->
+            <key>UIApplicationShortcutItemUserInfo</key>
+            <dict>
+                <key>height</key>
+                <string>180cm</string>
+                <key>weight</key>
+                <string>74kg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>UIApplicationShortcutItemType</key>
+            <string>camus</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>王强</string>
+            <key>UIApplicationShortcutItemSubtitle</key>
+            <string>黑眼圈的码农</string>
+            <key>UIApplicationShortcutItemIconType</key>
+            <string>UIApplicationShortcutIconTypeLove</string>
+            <key>UIApplicationShortcutItemUserInfo</key>
+            <dict>
+                <key>name</key>
+                <string>Mark</string>
+                <key>email</key>
+                <string>404298011@qq.com</string>
+            </dict>
+        </dict>
+    </array>
 </dict>
 </plist>

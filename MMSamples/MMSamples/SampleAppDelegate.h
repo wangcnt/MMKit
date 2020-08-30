@@ -12,4 +12,9 @@
 
 @property (nonatomic, copy) void (^haha)(NSError *error);
 
+- (void)showLaunchOptions;
+- (void)showLaunchOptions:(NSDictionary *)launchOptions;
+
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
+
 @end

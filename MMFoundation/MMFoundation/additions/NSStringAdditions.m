@@ -73,6 +73,16 @@ __mm_synth_dummy_class__(NSStringAdditions)
     return ([self isKindOfClass:[NSString class]] && self.length)?self:@"";
 }
 
+- (NSString *)substringWithMaxLength:(NSInteger)maxLength {
+    NSMutableString *result = [NSMutableString string];
+    [self enumerateSubstringsInRange:NSMakeRange(0, self.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+        if(substringRange.length && NSLocationInRange(substringRange.location+substringRange.length-1, NSMakeRange(0, maxLength))) {
+            [result appendString:substring];
+        }
+    }];
+    return result.copy;
+}
+
 + (NSString *)uuid {
     CFUUIDRef uuid = CFUUIDCreate(nil);
     NSString *result = (__bridge_transfer NSString *)CFUUIDCreateString(nil, uuid);
@@ -987,9 +997,9 @@ __mm_synth_dummy_class__(NSStringAdditions)
     NSString *CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d|705)\\d{7}$";
     /**
      15         *中国联通：China Unicom
-     16         *130,131,132,152,155,156,185,186,1709
+     16         *130,131,132,152,155,156,185,186,1709  166、175
      17         */
-    NSString *CU = @"^1((3[0-2]|5[256]|8[56])\\d|709)\\d{7}$";
+    NSString *CU = @"^1((3[0-2]|5[256]|6[6]|7[5]|8[56])\\d|709)\\d{7}$";
     /**
      20         *中国电信：China Telecom
      21         *133,1349,153,180,189,1700,173
@@ -1015,7 +1025,7 @@ __mm_synth_dummy_class__(NSStringAdditions)
 
 //手机号有效性
 - (BOOL)isMobileNumber {
-    NSString *mobileRegex = @"^(0|86|17951)?(13[0-9]|15[012356789]|17[0678]|18[0-9]|14[57])[0-9]{8}$";
+    NSString *mobileRegex = @"^(0|86|17951)?(13[0-9]|15[012356789]|17[05678]|16[6]|18[0-9]|14[57])[0-9]{8}$";
     BOOL ret1 = [self matchesRegex:mobileRegex];
     return ret1;
 }
@@ -1065,7 +1075,7 @@ __mm_synth_dummy_class__(NSStringAdditions)
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
     BOOL matches = [pre evaluateWithObject:self];
     if (matches) {
-        NSArray *componds = [self componentsSeparatedByString:@","];
+        NSArray *componds = [self componentsSeparatedByString:@"."];
         BOOL v = YES;
         for (NSString *s in componds) {
             if (s.integerValue > 255) {
@@ -1154,7 +1164,7 @@ __mm_synth_dummy_class__(NSStringAdditions)
 @implementation NSString (Version)
 
 - (BOOL)isGreaterThanVersion:(NSString *)version {
-    return [self compareVersion:version] == NSOrderedAscending;
+    return [self compareVersion:version] == NSOrderedDescending;
 }
 
 - (BOOL)isNotGreaterThanVersion:(NSString *)version {
@@ -1162,7 +1172,7 @@ __mm_synth_dummy_class__(NSStringAdditions)
 }
 
 - (BOOL)isSmallerThanVersion:(NSString *)version {
-    return [self compareVersion:version] == NSOrderedDescending;
+    return [self compareVersion:version] == NSOrderedAscending;
 }
 
 - (BOOL)isNotSmallerThanVersion:(NSString *)version {
@@ -1176,29 +1186,29 @@ __mm_synth_dummy_class__(NSStringAdditions)
 - (NSComparisonResult)compareVersion:(NSString *)version {
     NSArray<NSNumber *> *numbers1 = self.integers;
     NSArray<NSNumber *> *numbers2 = version.integers;
-    if(numbers1.count && !numbers2.count)  return NSOrderedAscending;
-    if(!numbers1.count && numbers2.count)  return NSOrderedDescending;
+    if(numbers1.count && !numbers2.count)  return NSOrderedDescending;
+    if(!numbers1.count && numbers2.count)  return NSOrderedAscending;
     
     __block NSComparisonResult result = NSOrderedSame;
     __block NSNumber *version2 = nil;
     [numbers1 enumerateObjectsUsingBlock:^(NSNumber *version1, NSUInteger idx, BOOL *stop) {
         // 最後一個元素時，第一个版本比第二个版本元素多，則大於
         if(idx == numbers2.count) {
-            result = NSOrderedAscending;
+            result = NSOrderedDescending;
             *stop = YES;
         } else {
             version2 = numbers2[idx];
             int v1 = version1.intValue;
             int v2 = version2.intValue;
             if(v1 > v2) {
-                result = NSOrderedAscending;
+                result = NSOrderedDescending;
                 *stop = YES;
             } else if(v1 < v2) {
-                result = NSOrderedDescending;
+                result = NSOrderedAscending;
                 *stop = YES;
             } else if(idx+1==numbers1.count && idx+1<numbers2.count) {
                 // 第二个版本比第一个版本數字元素多
-                result = NSOrderedDescending;
+                result = NSOrderedAscending;
                 *stop = YES;
             }
         }

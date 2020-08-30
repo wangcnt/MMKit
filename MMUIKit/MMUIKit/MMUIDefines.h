@@ -18,6 +18,19 @@ static inline BOOL mm_is_iphone() {
     return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
 }
 
+static inline BOOL mm_is_iphone_x() {
+    BOOL result = NO;
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        if (@available(iOS 11.0, *)) {
+            UIWindow *window = [UIApplication sharedApplication].delegate.window;
+            if (window.safeAreaInsets.bottom > 0) {
+                result = YES;
+            }
+        }
+    }
+    return result;
+}
+
 static inline BOOL mm_is_ipad() {
     return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
 }

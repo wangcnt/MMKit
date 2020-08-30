@@ -13,6 +13,10 @@
 @implementation MMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    NSString *invite1 = NSLocalizedStringFromTable(@"invite a", @"en", nil);
+    NSString *invite2 = NSLocalizedStringFromTable(@"invite a", @"zh-Hans", nil);
+    
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];

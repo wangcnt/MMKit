@@ -32,6 +32,8 @@ typedef NS_OPTIONS(NSUInteger, NSStringMatchingOptions) {
 
 - (NSString *)text;   /// 转换成文本，防nil
 
+- (NSString *)substringWithMaxLength:(NSInteger)maxLength;
+
 + (NSString *)uuid;
 + (NSString *)timestamp;
 - (void)enumerateSubstringsWithRegex:(NSString *)regex usingBlock:(void (^)(NSString *substring, NSRange range, BOOL *stop))block;

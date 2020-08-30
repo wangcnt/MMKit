@@ -334,6 +334,14 @@ __mm_synth_dummy_class__(UIDeviceAdditions)
                               @"iPad6,7" : @"iPad Pro (12.9 inch)",
                               @"iPad6,8" : @"iPad Pro (12.9 inch)",
                               
+                              @"iPad6,11" : @"iPad 5 (WiFi)",
+                              @"iPad6,12" : @"iPad 5 (Cellular)",
+                              @"iPad7,1" : @"iPad Pro 12.9-inch (WiFi)",
+                              @"iPad7,2" : @"iPad Pro 12.9-inch (Cellular)",
+                              @"iPad7,3" : @"iPad Pro 10.5-inch (WiFi)",
+                              @"iPad7,4" : @"iPad Pro 10.5-inch (Cellular)",
+
+                              
                               @"AppleTV2,1" : @"Apple TV 2",
                               @"AppleTV3,1" : @"Apple TV 3",
                               @"AppleTV3,2" : @"Apple TV 3",

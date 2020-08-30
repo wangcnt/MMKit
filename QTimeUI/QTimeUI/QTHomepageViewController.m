@@ -13,6 +13,8 @@
 #import <Masonry/Masonry.h>
 
 @interface QTHomepageViewController ()
+<UIContextMenuInteractionDelegate>
+
 @property (nonatomic, strong) MMButton *button;
 @property (nonatomic, strong) MMLabel *messageLabel;
 @end
@@ -30,6 +32,8 @@
     [self addMessageLabel];
     [self updateLabelWithText:@"Click invite button to invite."];
     
+    NSBundle *bundle = [NSBundle bundleForClass:self.class];
+    
     // constraints
     [self addConstraints];
 }
@@ -46,6 +50,12 @@
     [_button setTitle:@"Invite" forState:UIControlStateNormal];
     [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_button addTarget:self action:@selector(invite:) forControlEvents:UIControlEventTouchUpInside];
+    if (@available(iOS 13.0, *)) {
+        UIContextMenuInteraction *interction = [[UIContextMenuInteraction alloc] initWithDelegate:self];
+        [_button addInteraction:interction];
+    } else {
+        // Fallback on earlier versions
+    }
     [self.view addSubview:_button];
 }
 
@@ -70,6 +80,8 @@
     [_messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(_button.mas_bottom).offset(MAX(30, fabs(_button.eventableInset.bottom)));
         make.centerX.mas_equalTo(_button.superview);
+//        make.height.mas_equalTo(30);
+//        make.width.mas_equalTo(200);
     }];
 }
 
@@ -79,13 +91,13 @@
 
 - (void)updateLabelWithText:(NSString *)text {
     _messageLabel.text = text;
-    [_messageLabel sizeToFit];
-    CGSize size = _messageLabel.frame.size;
-    size.width += 20;
-    size.height += 10;
-    [_messageLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(size);
-    }];
+//    [_messageLabel sizeToFit];
+//    CGSize size = _messageLabel.frame.size;
+//    size.width += 20;
+//    size.height += 10;
+//    [_messageLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(size);
+//    }];
 }
 
 - (void)invite:(id)sender {    
@@ -118,5 +130,39 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nullable UIContextMenuConfiguration *)contextMenuInteraction:(UIContextMenuInteraction *)interaction configurationForMenuAtLocation:(CGPoint)location  API_AVAILABLE(ios(13.0)){
+    return [UIContextMenuConfiguration configurationWithIdentifier:@"So" previewProvider:^UIViewController * _Nullable{
+        return [[QTHomepageViewController alloc] init];
+    } actionProvider:^UIMenu * _Nullable(NSArray<UIMenuElement *> * _Nonnull suggestedActions) {
+        UIAction *sayHelloAction = [UIAction actionWithTitle:@"Hello, world!" image:[UIImage imageNamed:@"laoganma"] identifier:@"sayHelloAction" handler:^(__kindof UIAction * _Nonnull action) {
+            NSLog(@"Hello, world!");
+        }];
+        
+        UIAction *copyAction = [UIAction actionWithTitle:@"Copy" image:[UIImage systemImageNamed:@"pencil.and.outline"] identifier:@"copyAction" handler:^(__kindof UIAction * _Nonnull action) {
+            NSLog(@"Copying.....");
+        }];
+        
+        UIAction *cutAction = [UIAction actionWithTitle:@"Cut" image:[UIImage removeImage] identifier:@"removeAction" handler:^(__kindof UIAction * _Nonnull action) {
+            NSLog(@"Cutting.....");
+        }];
+        
+        UIAction *pasteAction = [UIAction actionWithTitle:@"Paste" image:[UIImage addImage] identifier:@"addAction" handler:^(__kindof UIAction * _Nonnull action) {
+            NSLog(@"Pasting.....");
+        }];
+        
+        UIAction *selectAction = [UIAction actionWithTitle:@"Select" image:[UIImage checkmarkImage] identifier:@"selectAction" handler:^(__kindof UIAction * _Nonnull action) {
+            NSLog(@"selecting.....");
+        }];
+        
+        UIAction *selectAllAction = [UIAction actionWithTitle:@"Select All" image:[UIImage strokedCheckmarkImage] identifier:@"selectAllAction" handler:^(__kindof UIAction * _Nonnull action) {
+            NSLog(@"selecting all.....");
+        }];
+        
+        UIMenu *menu = [UIMenu menuWithTitle:@"I'm a menu." image:[UIImage checkmarkImage] identifier:@"" options:UIMenuOptionsDisplayInline children:@[sayHelloAction, copyAction, cutAction, pasteAction, selectAction, selectAllAction]];
+        
+        return menu;
+    }];
+}
 
 @end

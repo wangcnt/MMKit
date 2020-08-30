@@ -20,3 +20,9 @@
 + (UIColor *)pixelColorInImage:(UIImage *)image atPoint:(CGPoint)point;
 
 @end
+
+@interface UIColor (MMDeviceMode)
+
++ (UIColor *)colorWithAnyModeColor:(UIColor *)anyModeColor darkModeColor:(UIColor *)darkModeColor;
+
+@end

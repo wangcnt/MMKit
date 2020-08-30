@@ -90,5 +90,20 @@ __mm_synth_dummy_class__(UIColorAdditions)
 }
 
 
+@end
+
+@implementation UIColor (MMDeviceMode)
+
++ (UIColor *)colorWithAnyModeColor:(UIColor *)anyModeColor darkModeColor:(UIColor *)darkModeColor {
+    if(!darkModeColor) {
+        return anyModeColor;
+    }
+    if(@available(iOS 13.0, *)) {
+        return [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+            return traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ? darkModeColor : anyModeColor;
+        }];
+    }
+    return anyModeColor;
+}
 
 @end
